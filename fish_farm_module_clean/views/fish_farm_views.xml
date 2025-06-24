@@ -1,6 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-    <!-- Sector -->
-    <record id="view_sector_tree" model="ir.ui.view">
+  <data><record id="view_sector_tree" model="ir.ui.view">
         <field name="name">fish.farm.sector.tree</field>
         <field name="model">fish.farm.sector</field>
         <field name="arch" type="xml">
@@ -36,7 +36,6 @@
 
     <menuitem id="menu_fishfarm_sector" name="Sectors" parent="menu_fishfarm_root" action="action_sector"/>
 
-    <!-- Zone -->
     <record id="view_zone_tree" model="ir.ui.view">
         <field name="name">fish.farm.zone.tree</field>
         <field name="model">fish.farm.zone</field>
@@ -72,18 +71,17 @@
 
     <menuitem id="menu_fishfarm_zone" name="Zones" parent="menu_fishfarm_root" action="action_zone"/>
 
-    <!-- Pond -->
     <record id="view_pond_tree" model="ir.ui.view">
         <field name="name">fish.farm.pond.tree</field>
         <field name="model">fish.farm.pond</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="zone_id"/>
                 <field name="sector_id"/>
                 <field name="capacity_kg"/>
                 <field name="active"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -119,7 +117,6 @@
 
     <menuitem id="menu_fishfarm_pond" name="Ponds" parent="menu_fishfarm_root" action="action_pond"/>
 
-    <!-- Seed -->
     <record id="view_seed_tree" model="ir.ui.view">
         <field name="name">fish.farm.seed.tree</field>
         <field name="model">fish.farm.seed</field>
@@ -134,13 +131,13 @@
         <field name="name">fish.farm.seed.tree</field>
         <field name="model">fish.farm.seed</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="date"/>
                 <field name="pond_id"/>
                 <field name="zone_id"/>
                 <field name="sector_id"/>
                 <field name="quantity_kg"/>
-            </tree>
+            </list>
         </field>
     </record>
                 <field name="zone_id"/>
@@ -159,7 +156,6 @@
 
     <menuitem id="menu_fishfarm_seed" name="Seeds" parent="menu_fishfarm_root" action="action_seed"/>
     
-    <!-- Feeding -->
     <record id="view_feeding_tree" model="ir.ui.view">
         <field name="name">fish.farm.feeding.tree</field>
         <field name="model">fish.farm.feeding</field>
@@ -177,14 +173,14 @@
         <field name="name">fish.farm.feeding.tree</field>
         <field name="model">fish.farm.feeding</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="date"/>
                 <field name="pond_id"/>
                 <field name="zone_id"/>
                 <field name="sector_id"/>
                 <field name="feed_type"/>
                 <field name="quantity_kg"/>
-            </tree>
+            </list>
         </field>
     </record>
                 <field name="quantity_kg" help="Amount of feed used (KG)"/>
@@ -201,7 +197,6 @@
 
     <menuitem id="menu_fishfarm_feeding" name="Feedings" parent="menu_fishfarm_root" action="action_feeding"/>
 
-    <!-- Fishing -->
     <record id="view_fishing_tree" model="ir.ui.view">
         <field name="name">fish.farm.fishing.tree</field>
         <field name="model">fish.farm.fishing</field>
@@ -222,64 +217,14 @@
         <field name="name">fish.farm.fishing.tree</field>
         <field name="model">fish.farm.fishing</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="date"/>
                 <field name="pond_id"/>
                 <field name="zone_id"/>
                 <field name="sector_id"/>
                 <field name="quantity_kg"/>
-            </tree>
+            </list>
         </field>
     </record>
-                </form></field></record>
-
-    <record id="action_fishing" model="ir.actions.act_window">
-        <field name="name">Fishing</field>
-        <field name="res_model">fish.farm.fishing</field>
-        <field name="view_mode">list,form</field>
-    </record>
-
-    <menuitem id="menu_fishfarm_fishing" name="Fishing" parent="menu_fishfarm_root" action="action_fishing"/>
-
-    <!-- Supplying -->
-    <record id="view_supplying_tree" model="ir.ui.view">
-        <field name="name">fish.farm.supplying.tree</field>
-        <field name="model">fish.farm.supplying</field>
-        <field><form string="Supplying Entry">
-                    <sheet>
-                        
-            <group>
-                <field name="date"/>
-                <field name="pond_id"/>
-                <field name="zone_id"/>
-                <field name="sector_id"/>
-                <field name="quantity_kg" help="Quantity of fish supplied (KG)"/>
-                <field name="destination"/>
-            </group>
-        
-                    </sheet>
-                </form></field></record>
-
-    <record id="view_supplying_form" model="ir.ui.view">
-    <record id="view_supplying_tree" model="ir.ui.view">
-        <field name="name">fish.farm.supplying.tree</field>
-        <field name="model">fish.farm.supplying</field>
-        <field name="arch" type="xml">
-            <tree>
-                <field name="date"/>
-                <field name="pond_id"/>
-                <field name="zone_id"/>
-                <field name="sector_id"/>
-                <field name="quantity_kg"/>
-                <field name="destination"/>
-            </tree>
-        </field>
-    </record>
-    <record id="action_supplying" model="ir.actions.act_window">
-        <field name="name">Supplying</field>
-        <field name="res_model">fish.farm.supplying</field>
-        <field name="view_mode">list,form</field>
-    </record>
-
-    <menuitem id="menu_fishfarm_supplying" name="Supplying" parent="menu_fishfarm_root" action="action_supplying"/>
+                </data>
 </odoo>
