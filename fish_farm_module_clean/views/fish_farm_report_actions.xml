@@ -1,37 +1,37 @@
 <odoo><data>
     <record id="action_fish_farm_daily_report" model="ir.actions.act_window">
         <field name="name">Daily Report</field>
-        <field name="res_model">fish.farm.daily.report</field>
+        <field name="res_model">fish.farm.seed</field>
         <field name="view_mode">tree,form</field>
     </record>
     
     <record id="action_fish_farm_feeding_report" model="ir.actions.act_window">
         <field name="name">Feeding Report</field>
-        <field name="res_model">fish.farm.feeding.report</field>
+        <field name="res_model">fish.farm.feeding</field>
         <field name="view_mode">tree,form</field>
     </record>
     
     <record id="action_fish_farm_fishing_report" model="ir.actions.act_window">
         <field name="name">Fishing Report</field>
-        <field name="res_model">fish.farm.fishing.report</field>
+        <field name="res_model">fish.farm.fishing</field>
         <field name="view_mode">tree,form</field>
     </record>
     
     <record id="action_fish_farm_production_report" model="ir.actions.act_window">
         <field name="name">Production Report</field>
-        <field name="res_model">fish.farm.production.report</field>
+        <field name="res_model">fish.farm.fishing</field>
         <field name="view_mode">tree,form</field>
     </record>
     
     <record id="action_fish_farm_supplying_report" model="ir.actions.act_window">
         <field name="name">Supplying Report</field>
-        <field name="res_model">fish.farm.supplying.report</field>
+        <field name="res_model">fish.farm.supplying</field>
         <field name="view_mode">tree,form</field>
     </record>
     
     <record id="action_fish_farm_pond_statement_report" model="ir.actions.act_window">
         <field name="name">Pond Statement</field>
-        <field name="res_model">fish.farm.pond.statement</field>
+        <field name="res_model">fish.farm.pond</field>
         <field name="view_mode">tree,form</field>
     </record>
     
