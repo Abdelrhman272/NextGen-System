@@ -4,10 +4,10 @@
         <field name="name">fish.farm.sector.tree</field>
         <field name="model">fish.farm.sector</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="code"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -39,11 +39,11 @@
         <field name="name">fish.farm.zone.tree</field>
         <field name="model">fish.farm.zone</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="code"/>
                 <field name="sector_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -75,11 +75,11 @@
         <field name="name">fish.farm.pond.tree</field>
         <field name="model">fish.farm.pond</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="zone_id"/>
                 <field name="area"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -111,13 +111,13 @@
         <field name="name">fish.farm.seed.tree</field>
         <field name="model">fish.farm.seed</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="pond_id"/>
                 <field name="fish_type"/>
                 <field name="quantity"/>
                 <field name="date_added"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -150,13 +150,13 @@
         <field name="name">fish.farm.feeding.tree</field>
         <field name="model">fish.farm.feeding</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="date"/>
                 <field name="pond_id"/>
                 <field name="feed_type"/>
                 <field name="quantity_kg"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -190,12 +190,12 @@
         <field name="name">fish.farm.fishing.tree</field>
         <field name="model">fish.farm.fishing</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="date"/>
                 <field name="pond_id"/>
                 <field name="quantity_kg"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -228,13 +228,13 @@
         <field name="name">fish.farm.supplying.tree</field>
         <field name="model">fish.farm.supplying</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="date"/>
                 <field name="pond_id"/>
                 <field name="quantity_kg"/>
                 <field name="customer_name"/>
-            </tree>
+            </list>
         </field>
     </record>
 
