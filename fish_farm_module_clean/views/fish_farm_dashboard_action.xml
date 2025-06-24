@@ -1,0 +1,13 @@
+
+<odoo>
+    <record id="action_fishfarm_dashboard_qweb" model="ir.actions.client">
+        <field name="name">Fish Farm Dashboard</field>
+        <field name="tag">fish_farm_dashboard.dashboard</field>
+    </record>
+
+    <menuitem id="menu_fishfarm_dashboard_qweb"
+              name="📊 Dashboard"
+              parent="fish_farm_module_clean.menu_fishfarm_root"
+              action="action_fishfarm_dashboard_qweb"
+              sequence="10"/>
+</odoo>

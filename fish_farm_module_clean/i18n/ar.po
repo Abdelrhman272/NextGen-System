@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ar\n"
+
+# Dashboard Labels
+msgid "Fish Farm Dashboard"
+msgstr "لوحة تحكم المزرعة السمكية"
+
+msgid "Ponds"
+msgstr "الأحواض"
+
+msgid "Seed (KG)"
+msgstr "الزريعة (كجم)"
+
+msgid "Feed (KG)"
+msgstr "العلف (كجم)"
+
+msgid "Fishing (KG)"
+msgstr "الصيد (كجم)"
+
+msgid "Supplying (KG)"
+msgstr "التوريد (كجم)"
+
+msgid "Feed Trend (Last 7 Days)"
+msgstr "اتجاه العلف (آخر 7 أيام)"
+
+# Settings Labels
+msgid "Fish Farm Settings"
+msgstr "إعدادات المزرعة السمكية"
+
+msgid "Fish Farm Configuration"
+msgstr "تهيئة المزرعة السمكية"
+
+msgid "Default Pond Capacity (KG)"
+msgstr "السعة الافتراضية للحوض (كجم)"
+
+msgid "Enable Feeding Notifications"
+msgstr "تفعيل تنبيهات التغذية"

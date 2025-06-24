@@ -22,6 +22,8 @@
         'report/pond_statement_report_template.xml',
         'security/ir.model.access.csv',
         'views/fish_farm_views.xml',
+        'views/fish_farm_menu_reordered.xml',
+        'views/fish_farm_dashboard_template.xml',
         'views/fish_farm_feeding_report_view.xml',
         'views/fish_farm_production_report_view.xml',
         'views/fish_farm_supplying_report_view.xml',

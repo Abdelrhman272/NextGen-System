@@ -22,8 +22,17 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">No feeding data available.</p>
         </field>
-    </record>
+    <field name="context">{'create': False}</field></record>
 
-    <menuitem id="menu_fishfarm_feeding_report" name="Feeding Report"
-              parent="menu_fishfarm_report_root" action="action_fish_farm_feeding_report"/>
-</odoo>
+    <menuitem id="menu_fishfarm_feeding_report" name="Feeding Report" parent="menu_fishfarm_report_root" action="action_fish_farm_feeding_report"/>
+<record id="view_fish_farm_feeding_report_search" model="ir.ui.view">
+            <field name="name">fish.farm.feeding.report.search</field>
+            <field name="model">fish.farm.feeding</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="date"/>
+                    <field name="feed_type"/>
+                    <field name="pond_id"/>
+                </search>
+            </field>
+        </record></odoo>
