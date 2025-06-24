@@ -4,12 +4,47 @@
     <template id="fish_farm_dashboard_template" name="Fish Farm Dashboard Page">
         <t t-call="web.layout">
             <t t-set="title">Fish Farm Dashboard</t>
-            <div class="container mt-4">
+            
+<div class="container mt-4">
+    <form method="get" action="/fish_farm/dashboard" class="mb-4">
+        <div class="row">
+            <div class="col-md-3">
+                <label>From Date</label>
+                <input type="date" name="date_from" class="form-control"/>
+            </div>
+            <div class="col-md-3">
+                <label>To Date</label>
+                <input type="date" name="date_to" class="form-control"/>
+            </div>
+            <div class="col-md-3">
+                <label>Pond</label>
+                <select name="pond_id" class="form-control">
+                    <t t-foreach="ponds" t-as="pond">
+                        <option t-att-value="pond.id" t-esc="pond.name"/>
+                    </t>
+                </select>
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary w-100">Filter</button>
+            </div>
+        </div>
+    </form>
+
+<t t-if="feeding_alert">
+            <div class="alert alert-danger">⚠️ Feeding exceeded the configured limit!</div>
+        </t>
+        <t t-if="fishing_alert">
+            <div class="alert alert-warning">⚠️ Fishing exceeded the configured limit!</div>
+        </t>
                 <h1 class="mb-3">Fish Farm Dashboard</h1>
                 <div class="row mb-4">
-                    <div class="col-md-2">
+                    <div class="col-md-2"><div class="card text-center"><div class="card-body"><h4>Seeded (KG)</h4><p><t t-esc="total_seeds"/></p></div></div></div>
+<div class="col-md-2"><div class="card text-center"><div class="card-body"><h4>Feeding (KG)</h4><p><t t-esc="total_feeding"/></p></div></div></div>
+<div class="col-md-2"><div class="card text-center"><div class="card-body"><h4>Fishing (KG)</h4><p><t t-esc="total_fishing"/></p></div></div></div>
+<div class="col-md-2"><div class="card text-center"><div class="card-body"><h4>Supplying (KG)</h4><p><t t-esc="total_supplying"/></p></div></div></div>
+<div class="col-md-2">
                         <div class="card text-center">
-                            <div class="card-body">
+                            <div class="card-body"><h4>Ponds</h4><p><t t-esc="pond_count"/></p>
                                 <h5 class="card-title">Ponds</h5>
                                 <p class="card-text" t-attf-id="pond_count">0</p>
                             </div>

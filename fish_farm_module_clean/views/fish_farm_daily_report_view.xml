@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <odoo>
     <record id="view_fish_farm_daily_report_tree" model="ir.ui.view">
         <field name="name">fish.farm.daily.report.tree</field>
@@ -26,7 +27,7 @@
             <field name="model">fish.farm.seed</field>
             <field name="arch" type="xml">
                 <search>
-                    <field name="date"/>
+                    <field name="date_added"/>
                     <field name="pond_id"/>
                     <field name="sector_id"/>
                 </search>
