@@ -1,0 +1,32 @@
+<odoo><data>
+    <record id="action_fish_farm_pond" model="ir.actions.act_window">
+        <field name="name">Ponds</field>
+        <field name="res_model">fish.farm.pond</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record id="action_fish_farm_seed" model="ir.actions.act_window">
+        <field name="name">Seeds</field>
+        <field name="res_model">fish.farm.seed</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record id="action_fish_farm_feeding" model="ir.actions.act_window">
+        <field name="name">Feeding</field>
+        <field name="res_model">fish.farm.feeding</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record id="action_fish_farm_fishing" model="ir.actions.act_window">
+        <field name="name">Fishing</field>
+        <field name="res_model">fish.farm.fishing</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record id="action_fish_farm_supplying" model="ir.actions.act_window">
+        <field name="name">Supplying</field>
+        <field name="res_model">fish.farm.supplying</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+</data></odoo>
