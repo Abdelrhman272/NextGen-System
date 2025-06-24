@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?>
 <odoo>
-  <data><record id="view_sector_tree" model="ir.ui.view">
+    <!-- Sector -->
+    <record id="view_sector_tree" model="ir.ui.view">
         <field name="name">fish.farm.sector.tree</field>
         <field name="model">fish.farm.sector</field>
         <field name="arch" type="xml">
@@ -32,10 +32,11 @@
     </record>
 
     <menuitem id="menu_fishfarm_root" name="Fish Farm"/>
-    <menuitem id="menu_fishfarm_report_root" name="Reports" parent="menu_fishfarm_root"/>
+<menuitem id="menu_fishfarm_report_root" name="Reports" parent="menu_fishfarm_root"/>
 
     <menuitem id="menu_fishfarm_sector" name="Sectors" parent="menu_fishfarm_root" action="action_sector"/>
 
+    <!-- Zone -->
     <record id="view_zone_tree" model="ir.ui.view">
         <field name="name">fish.farm.zone.tree</field>
         <field name="model">fish.farm.zone</field>
@@ -71,6 +72,7 @@
 
     <menuitem id="menu_fishfarm_zone" name="Zones" parent="menu_fishfarm_root" action="action_zone"/>
 
+    <!-- Pond -->
     <record id="view_pond_tree" model="ir.ui.view">
         <field name="name">fish.farm.pond.tree</field>
         <field name="model">fish.farm.pond</field>
@@ -106,6 +108,7 @@
 
     <menuitem id="menu_fishfarm_pond" name="Ponds" parent="menu_fishfarm_root" action="action_pond"/>
 
+    <!-- Seed -->
     <record id="view_seed_tree" model="ir.ui.view">
         <field name="name">fish.farm.seed.tree</field>
         <field name="model">fish.farm.seed</field>
@@ -144,6 +147,7 @@
 
     <menuitem id="menu_fishfarm_seed" name="Seeds" parent="menu_fishfarm_root" action="action_seed"/>
     
+    <!-- Feeding -->
     <record id="view_feeding_tree" model="ir.ui.view">
         <field name="name">fish.farm.feeding.tree</field>
         <field name="model">fish.farm.feeding</field>
@@ -183,6 +187,7 @@
 
     <menuitem id="menu_fishfarm_feeding" name="Feedings" parent="menu_fishfarm_root" action="action_feeding"/>
 
+    <!-- Fishing -->
     <record id="view_fishing_tree" model="ir.ui.view">
         <field name="name">fish.farm.fishing.tree</field>
         <field name="model">fish.farm.fishing</field>
@@ -220,6 +225,7 @@
 
     <menuitem id="menu_fishfarm_fishing" name="Fishing" parent="menu_fishfarm_root" action="action_fishing"/>
 
+    <!-- Supplying -->
     <record id="view_supplying_tree" model="ir.ui.view">
         <field name="name">fish.farm.supplying.tree</field>
         <field name="model">fish.farm.supplying</field>
@@ -258,5 +264,4 @@
     </record>
 
     <menuitem id="menu_fishfarm_supplying" name="Supplying" parent="menu_fishfarm_root" action="action_supplying"/>
-</data>
 </odoo>

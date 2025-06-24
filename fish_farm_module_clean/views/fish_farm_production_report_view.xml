@@ -26,16 +26,9 @@
                 No production data available.
             </p>
         </field>
-    <field name="context">{'create': False}</field></record>
+    </record>
 
     <menuitem id="menu_fishfarm_report_root" name="Reports" parent="menu_fishfarm_root"/>
-    <menuitem id="menu_fishfarm_production_report" name="Production Report" parent="menu_fishfarm_report_root" action="action_fish_farm_production_report"/>
-<record id="view_fish_farm_production_report_search" model="ir.ui.view">
-            <field name="name">fish.farm.production.report.search</field>
-            <field name="model">fish.farm.pond</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                </search>
-            </field>
-        </record></odoo>
+    <menuitem id="menu_fishfarm_production_report" name="Production Report"
+              parent="menu_fishfarm_report_root" action="action_fish_farm_production_report"/>
+</odoo>

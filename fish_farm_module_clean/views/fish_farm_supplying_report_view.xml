@@ -19,16 +19,8 @@
         <field name="res_model">fish.farm.supplying</field>
         <field name="view_mode">list</field>
         <field name="view_id" ref="view_fish_farm_supplying_report_tree"/>
-    <field name="context">{'create': False}</field></record>
+    </record>
 
-    <menuitem id="menu_fishfarm_supplying_report" name="Supplying Report" parent="menu_fishfarm_report_root" action="action_fish_farm_supplying_report"/>
-<record id="view_fish_farm_supplying_report_search" model="ir.ui.view">
-            <field name="name">fish.farm.supplying.report.search</field>
-            <field name="model">fish.farm.supplying</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="date"/>
-                    <field name="pond_id"/>
-                </search>
-            </field>
-        </record></odoo>
+    <menuitem id="menu_fishfarm_supplying_report" name="Supplying Report"
+              parent="menu_fishfarm_report_root" action="action_fish_farm_supplying_report"/>
+</odoo>
