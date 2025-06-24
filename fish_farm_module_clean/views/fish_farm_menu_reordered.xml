@@ -1,31 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
 <odoo>
     <!-- Dashboard -->
-    <menuitem id="menu_fishfarm_dashboard_qweb"
-              name="Dashboard"
-              parent="menu_fishfarm_root"
-              sequence="1"
-              action="action_fishfarm_dashboard_qweb"/>
+    <menuitem id="menu_fishfarm_dashboard_qweb" name="Dashboard" parent="menu_fishfarm_root" sequence="1" action="action_fishfarm_dashboard_qweb"/>
 
     <!-- Main Functional Menus -->
     <menuitem id="menu_fishfarm_main_data" name="Farm Operations" parent="menu_fishfarm_root" sequence="2"/>
 
-    <menuitem id="menu_fishfarm_ponds" name="Ponds" parent="menu_fishfarm_main_data" action="action_fish_farm_pond" sequence="1"/>
-    <menuitem id="menu_fishfarm_seeds" name="Seeds" parent="menu_fishfarm_main_data" action="action_fish_farm_seed" sequence="2"/>
-    <menuitem id="menu_fishfarm_feedings" name="Feedings" parent="menu_fishfarm_main_data" action="action_fish_farm_feeding" sequence="3"/>
-    <menuitem id="menu_fishfarm_fishings" name="Fishings" parent="menu_fishfarm_main_data" action="action_fish_farm_fishing" sequence="4"/>
-    <menuitem id="menu_fishfarm_supplies" name="Supplying" parent="menu_fishfarm_main_data" action="action_fish_farm_supplying" sequence="5"/>
-
     <!-- Reports -->
     <menuitem id="menu_fishfarm_reports" name="Reports" parent="menu_fishfarm_root" sequence="3"/>
 
-    <menuitem id="menu_fishfarm_daily_report" name="Daily Report" parent="menu_fishfarm_reports" action="action_fish_farm_daily_report" sequence="1"/>
-    <menuitem id="menu_fishfarm_feeding_report" name="Feeding Report" parent="menu_fishfarm_reports" action="action_fish_farm_feeding_report" sequence="2"/>
-    <menuitem id="menu_fishfarm_fishing_report" name="Fishing Report" parent="menu_fishfarm_reports" action="action_fish_farm_fishing_report" sequence="3"/>
-    <menuitem id="menu_fishfarm_pond_statement" name="Pond Statement" parent="menu_fishfarm_reports" action="action_fish_farm_pond_statement" sequence="4"/>
-    <menuitem id="menu_fishfarm_production_report" name="Production Report" parent="menu_fishfarm_reports" action="action_fish_farm_production_report" sequence="5"/>
-    <menuitem id="menu_fishfarm_supplying_report" name="Supplying Report" parent="menu_fishfarm_reports" action="action_fish_farm_supplying_report" sequence="6"/>
-
     <!-- Settings -->
-    <menuitem id="menu_fishfarm_settings" name="Settings" parent="menu_fishfarm_root" sequence="4"
-              action="action_fishfarm_dashboard_qweb"/>
+    <menuitem id="menu_fishfarm_settings" name="Settings" parent="menu_fishfarm_root" sequence="4" action="action_fishfarm_dashboard_qweb"/>
 </odoo>
