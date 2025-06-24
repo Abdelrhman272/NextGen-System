@@ -3,13 +3,13 @@
         <field name="name">fish.farm.daily.report.tree</field>
         <field name="model">fish.farm.feeding</field>
         <field name="arch" type="xml">
-            <tree string="Daily Activity Report">
+            <list string="Daily Activity Report">
                 <field name="date"/>
                 <field name="pond_id"/>
                 <field name="feed_type"/>
                 <field name="quantity_kg"/>
                 <field name="notes"/>
-            </tree>
+            </list>
         </field>
     </record>
 

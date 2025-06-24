@@ -3,7 +3,7 @@
         <field name="name">fish.farm.pond.statement.tree</field>
         <field name="model">fish.farm.pond</field>
         <field name="arch" type="xml">
-            <tree string="Pond Statement">
+            <list string="Pond Statement">
                 <field name="name"/>
                 <field name="zone_id"/>
                 <field name="sector_id"/>
@@ -12,7 +12,7 @@
                 <field name="fishing_total_kg"/>
                 <field name="supplying_total_kg"/>
                 <field name="remaining_estimate_kg"/>
-            </tree>
+            </list>
         </field>
     </record>
 

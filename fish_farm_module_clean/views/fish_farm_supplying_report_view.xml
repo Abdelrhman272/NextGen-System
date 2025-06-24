@@ -3,14 +3,14 @@
         <field name="name">fish.farm.supplying.report.tree</field>
         <field name="model">fish.farm.supplying</field>
         <field name="arch" type="xml">
-            <tree string="Supplying Report">
+            <list string="Supplying Report">
                 <field name="date"/>
                 <field name="pond_id"/>
                 <field name="zone_id"/>
                 <field name="sector_id"/>
                 <field name="customer_name"/>
                 <field name="quantity_kg"/>
-            </tree>
+            </list>
         </field>
     </record>
 
