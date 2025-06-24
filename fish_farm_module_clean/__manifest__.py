@@ -31,7 +31,6 @@
         'views/fish_farm_daily_report_view.xml',
         'views/fish_farm_pond_statement_view.xml',
     ],
-    'images': ['static/description/icon.png'],
     'installable': True,
     'application': True,
     'auto_install': False,
