@@ -30,7 +30,6 @@
         'views/fish_farm_fishing_report_view.xml',
         'views/fish_farm_daily_report_view.xml',
         'views/fish_farm_pond_statement_view.xml',
-        'report/feeding_report_template.xml',
     ],
     'installable': True,
     'application': True,
