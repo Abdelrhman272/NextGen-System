@@ -1,0 +1,34 @@
+<odoo>
+    <record id="view_fish_farm_pond_production_report_tree" model="ir.ui.view">
+        <field name="name">fish.farm.pond.production.report.tree</field>
+        <field name="model">fish.farm.pond</field>
+        <field name="arch" type="xml">
+            <tree string="Production Report">
+                <field name="name"/>
+                <field name="zone_id"/>
+                <field name="sector_id"/>
+                <field name="area"/>
+                <field name="seeding_total_qty"/>
+                <field name="fishing_total_kg"/>
+                <field name="supplying_total_kg"/>
+                <field name="remaining_estimate_kg"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_fish_farm_production_report" model="ir.actions.act_window">
+        <field name="name">Production Report</field>
+        <field name="res_model">fish.farm.pond</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_fish_farm_pond_production_report_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No production data available.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_fishfarm_report_root" name="Reports" parent="menu_fishfarm_root"/>
+    <menuitem id="menu_fishfarm_production_report" name="Production Report"
+              parent="menu_fishfarm_report_root" action="action_fish_farm_production_report"/>
+</odoo>

@@ -10,6 +10,12 @@
     'data': [
         'security/ir.model.access.csv',
         'views/fish_farm_views.xml',
+        'views/fish_farm_feeding_report_view.xml',
+        'views/fish_farm_production_report_view.xml',
+        'views/fish_farm_supplying_report_view.xml',
+        'views/fish_farm_fishing_report_view.xml',
+        'views/fish_farm_daily_report_view.xml',
+        'views/fish_farm_pond_statement_view.xml',
     ],
     'installable': True,
     'application': True,

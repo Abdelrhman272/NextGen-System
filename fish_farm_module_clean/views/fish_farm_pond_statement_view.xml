@@ -1,0 +1,28 @@
+<odoo>
+    <record id="view_fish_farm_pond_statement_tree" model="ir.ui.view">
+        <field name="name">fish.farm.pond.statement.tree</field>
+        <field name="model">fish.farm.pond</field>
+        <field name="arch" type="xml">
+            <tree string="Pond Statement">
+                <field name="name"/>
+                <field name="zone_id"/>
+                <field name="sector_id"/>
+                <field name="seeding_total_qty"/>
+                <field name="feeding_count"/>
+                <field name="fishing_total_kg"/>
+                <field name="supplying_total_kg"/>
+                <field name="remaining_estimate_kg"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_fish_farm_pond_statement" model="ir.actions.act_window">
+        <field name="name">Pond Statement</field>
+        <field name="res_model">fish.farm.pond</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_fish_farm_pond_statement_tree"/>
+    </record>
+
+    <menuitem id="menu_fishfarm_pond_statement" name="Pond Statement"
+              parent="menu_fishfarm_report_root" action="action_fish_farm_pond_statement"/>
+</odoo>
