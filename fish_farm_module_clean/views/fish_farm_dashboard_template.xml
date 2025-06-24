@@ -1,5 +1,4 @@
 
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <template id="fish_farm_dashboard_template" name="Fish Farm Dashboard Page">
         <t t-call="web.layout">
