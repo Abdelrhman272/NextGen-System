@@ -7,7 +7,8 @@
     'category': 'Agriculture',
     'depends': ['base'],
     'license': 'LGPL-3',
-    'data': ['views/fish_farm_main_actions.xml',
+    'data': ['views/fish_farm_report_actions.xml',
+'views/fish_farm_main_actions.xml',
 'views/fish_farm_dashboard_action_fixed.xml',
 
         'report/feeding_report_action.xml',
