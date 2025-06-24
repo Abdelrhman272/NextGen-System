@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="report_production_pdf_template">
+    <t t-call="web.external_layout">
+      <div class="page">
+        <h2>Production Report</h2>
+        <p>This is a placeholder PDF report for production.</p>
+      </div>
+    </t>
+  </template>
+</odoo>

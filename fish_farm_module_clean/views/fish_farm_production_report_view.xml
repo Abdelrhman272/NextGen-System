@@ -19,7 +19,7 @@
     <record id="action_fish_farm_production_report" model="ir.actions.act_window">
         <field name="name">Production Report</field>
         <field name="res_model">fish.farm.pond</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">list</field>
         <field name="view_id" ref="view_fish_farm_pond_production_report_tree"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">

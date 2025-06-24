@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="report_supplying_pdf_template">
+    <t t-call="web.external_layout">
+      <div class="page">
+        <h2>Supplying Report</h2>
+        <p>This is a placeholder PDF report for supplying.</p>
+      </div>
+    </t>
+  </template>
+</odoo>

@@ -84,6 +84,16 @@ class FishFarmFeeding(models.Model):
     zone_id = fields.Many2one(related='pond_id.zone_id', store=True, readonly=True)
 
     _name = 'fish.farm.feeding'
+
+    def action_export_feeding_pdf(self):
+        return self.env.ref('fish_farm_module_clean.report_feeding_pdf_action').report_action(self)
+
+    def action_export_feeding_excel(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'url': '/fish_farm/feeding/excel',
+            'target': 'self',
+        }
     _description = 'Fish Farm Feeding'
 
     name = fields.Char(string='Feeding Reference', required=True)
