@@ -67,3 +67,13 @@ class FishFarmSupplying(models.Model):
     supplier = fields.Char()
     product = fields.Char()
     quantity = fields.Float()
+
+
+
+class FishFarmZone(models.Model):
+    _name = 'fish.farm.zone'
+    _description = 'Fish Farm Zone'
+
+    name = fields.Char(string='Zone Name', required=True)
+    description = fields.Text(string='Description')
+    active = fields.Boolean(default=True)
