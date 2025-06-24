@@ -1,8 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
     <!-- Dashboard -->
-    <menuitem id="menu_fishfarm_dashboard_qweb" name="Dashboard" parent="menu_fishfarm_root" sequence="1" action="action_fishfarm_dashboard_qweb"/>
-
     <!-- Main Functional Menus -->
     <menuitem id="menu_fishfarm_main_data" name="Farm Operations" parent="menu_fishfarm_root" sequence="2"/>
 
@@ -10,5 +8,4 @@
     <menuitem id="menu_fishfarm_reports" name="Reports" parent="menu_fishfarm_root" sequence="3"/>
 
     <!-- Settings -->
-    <menuitem id="menu_fishfarm_settings" name="Settings" parent="menu_fishfarm_root" sequence="4" action="action_fishfarm_dashboard_qweb"/>
-</odoo>
+    </odoo>
