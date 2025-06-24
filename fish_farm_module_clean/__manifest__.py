@@ -6,6 +6,7 @@
     'website': 'https://nextgensystems.net',
     'category': 'Agriculture',
     'depends': ['base'],
+    'license': 'LGPL-3',
     'data': [
         'security/ir.model.access.csv',
         'views/fish_farm_views.xml',

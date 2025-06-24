@@ -6,4 +6,5 @@ access_fish_farm_seed,access_fish_farm_seed,model_fish_farm_seed,,1,1,1,1
 access_fish_farm_feeding,access.fish.farm.feeding,model_fish_farm_feeding,base.group_user,1,1,1,1
 access_fish_farm_fishing,access.fish.farm.fishing,model_fish_farm_fishing,base.group_user,1,1,1,1
 access_fish_farm_supplying,access.fish.farm.supplying,model_fish_farm_supplying,base.group_user,1,1,1,1
-
+access_fish_farm_fishing,access_fish_farm_fishing,model_fish_farm_fishing,base.group_user,1,1,1,1
+access_fish_farm_supplying,access_fish_farm_supplying,model_fish_farm_supplying,base.group_user,1,1,1,1
