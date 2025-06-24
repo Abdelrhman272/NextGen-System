@@ -16,7 +16,6 @@
         <field name="model">fish.farm.sector</field>
         <field name="arch" type="xml">
             <form>
-
                 <group>
                     <field name="name"/>
                     <field name="code"/>
@@ -33,6 +32,8 @@
     </record>
 
     <menuitem id="menu_fishfarm_root" name="Fish Farm"/>
+<menuitem id="menu_fishfarm_report_root" name="Reports" parent="menu_fishfarm_root"/>
+
     <menuitem id="menu_fishfarm_sector" name="Sectors" parent="menu_fishfarm_root" action="action_sector"/>
 
     <!-- Zone -->
@@ -53,7 +54,6 @@
         <field name="model">fish.farm.zone</field>
         <field name="arch" type="xml">
             <form>
-
                 <group>
                     <field name="name"/>
                     <field name="code"/>
@@ -90,7 +90,6 @@
         <field name="model">fish.farm.pond</field>
         <field name="arch" type="xml">
             <form>
-
                 <group>
                     <field name="name"/>
                     <field name="zone_id"/>
@@ -129,7 +128,6 @@
         <field name="model">fish.farm.seed</field>
         <field name="arch" type="xml">
             <form>
-
                 <group>
                     <field name="name"/>
                     <field name="pond_id"/>
@@ -169,7 +167,6 @@
         <field name="model">fish.farm.feeding</field>
         <field name="arch" type="xml">
             <form>
-
                 <group>
                     <field name="name"/>
                     <field name="date"/>
@@ -209,7 +206,6 @@
         <field name="model">fish.farm.fishing</field>
         <field name="arch" type="xml">
             <form>
-
                 <group>
                     <field name="name"/>
                     <field name="date"/>
@@ -249,7 +245,6 @@
         <field name="model">fish.farm.supplying</field>
         <field name="arch" type="xml">
             <form>
-
                 <group>
                     <field name="name"/>
                     <field name="date"/>
