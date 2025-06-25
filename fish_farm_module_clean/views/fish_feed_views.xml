@@ -24,10 +24,10 @@
   </record>
 
   <record id="action_fish_farm_feed" model="ir.actions.act_window">
-    <field name="name">Feeding</field>
+    <field name="name">Fish Feed</field>
     <field name="res_model">fish.farm.feed</field>
     <field name="view_mode">list,form</field>
   </record>
 
-  <menuitem id="menu_fish_farm_feed" parent="menu_fish_farm_main" action="action_fish_farm_feed" sequence="10"/>
+  <menuitem id="menu_fish_farm_feed" name="Fish Feed" parent="menu_fish_farm_main" action="action_fish_farm_feed"/>
 </odoo>

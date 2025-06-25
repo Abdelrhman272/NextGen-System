@@ -1,37 +1,27 @@
 {
-    'name': 'Fish Farm Management',
-    'version': '1.0.0',
-    'category': 'Agriculture',
-    'summary': 'Manage operations of a fish farm including ponds, feeding, harvesting, cost rules, and reports.',
-    'author': 'NextGen Systems',
-    'website': 'https://nextgensystems.net',
-    'depends': ['base', 'web', 'stock', 'account'],
-    'data': [
-        'security/ir.model.access.csv',
-        'security/security.xml',
-        'views/menus.xml',
-        'views/actions.xml',
-        'views/fish_sector_views.xml',
-        'views/fish_pond_views.xml',
-        'views/fish_seed_views.xml',
-        'views/fish_feed_views.xml',
-        'views/fish_harvest_views.xml',
-        'views/fish_expense_views.xml',
-        'views/fish_cost_rule_views.xml',
-        'views/fish_settings_views.xml',
-        'views/fish_dashboard_views.xml',
-        'views/wizard_views.xml',
-        'report/fish_cost_report.xml',
-        'report/fish_harvest_report.xml',
-        'report/feeding_report_template.xml',
-        'report/report_templates.xml'
+    "name": "Fish Farm Management",
+    "version": "1.0",
+    "summary": "Manage fish farm operations from seed to harvest",
+    "depends": ["base", "web"],
+    "category": "Operations",
+    "data": [
+        "security/ir.model.access.csv",
+        "views/menus.xml",
+        "views/fish_sector_views.xml",
+        "views/fish_slice_views.xml",
+        "views/fish_pond_views.xml",
+        "views/fish_seed_views.xml",
+        "views/fish_feed_views.xml",
+        "views/fish_expense_views.xml",
+        "views/fish_harvest_views.xml",
+        "views/fish_dashboard_views.xml"
     ],
-    'assets': {
-        'web.assets_frontend': [
-            '/fish_farm_module_clean/static/lib/chart.js',
-        ],
+    "assets": {
+        "web.assets_frontend": [
+            "/fish_farm_module/static/lib/chart.js"
+        ]
     },
-    'installable': True,
-    'application': True,
-    'license': 'LGPL-3',
+    "installable": True,
+    "application": True,
+    "license": "LGPL-3"
 }

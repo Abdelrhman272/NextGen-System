@@ -1,4 +1,77 @@
 <odoo>
-  <!-- Fish Dashboard Views -->
-  <!-- Placeholder for fish_dashboard_views.xml -->
+  <template id="fish_dashboard_template" name="Fish Farm Dashboard">
+    <t t-call="web.layout">
+      <div class="oe_structure">
+        <div class="container">
+          <h2>Fish Farm Dashboard</h2>
+
+          <div class="row">
+            <div class="col-4">
+              <div class="alert alert-info text-center">
+                <h4>Ponds Count</h4>
+                <t t-esc="ponds"/>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="alert alert-success text-center">
+                <h4>Total Feed (kg)</h4>
+                <t t-esc="total_feed"/>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="alert alert-warning text-center">
+                <h4>Total Harvest (kg)</h4>
+                <t t-esc="total_harvest"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-6">
+              <canvas id="feedChart"></canvas>
+            </div>
+            <div class="col-6">
+              <canvas id="harvestChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        var ctx1 = document.getElementById('feedChart').getContext('2d');
+        new Chart(ctx1, {
+          type: 'bar',
+          data: {
+            labels: [[t-esc="feed_labels"]],
+            datasets: [{
+              label: 'Feed Distribution',
+              data: [[t-esc="feed_data"]],
+              backgroundColor: 'rgba(75, 192, 192, 0.5)'
+            }]
+          }
+        });
+
+        var ctx2 = document.getElementById('harvestChart').getContext('2d');
+        new Chart(ctx2, {
+          type: 'pie',
+          data: {
+            labels: [[t-esc="harvest_labels"]],
+            datasets: [{
+              data: [[t-esc="harvest_data"]],
+              backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
+            }]
+          }
+        });
+      </script>
+    </t>
+  </template>
+
+  <record id="action_fish_dashboard" model="ir.actions.client">
+    <field name="name">Dashboard</field>
+    <field name="tag">fish_dashboard</field>
+  </record>
+
+  <menuitem id="menu_fish_dashboard" name="Dashboard"
+            parent="menu_fish_farm_root" sequence="5"
+            action="action_fish_dashboard"/>
 </odoo>

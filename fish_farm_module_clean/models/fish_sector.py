@@ -2,7 +2,7 @@ from odoo import models, fields
 
 class FishSector(models.Model):
     _name = 'fish.farm.sector'
-    _description = 'Fish Sector'
+    _description = 'Fish Farm Sector'
 
-    name = fields.Char(string="Sector Name", required=True)
-    description = fields.Text(string="Description")
+    name = fields.Char(required=True)
+    description = fields.Text()

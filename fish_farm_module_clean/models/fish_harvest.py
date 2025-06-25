@@ -2,9 +2,18 @@ from odoo import models, fields
 
 class FishHarvest(models.Model):
     _name = 'fish.farm.harvest'
-    _description = 'Fish Harvest'
+    _description = 'Harvest Operation'
 
-    harvest_date = fields.Date(string="Harvest Date", required=True)
     pond_id = fields.Many2one('fish.farm.pond', string="Pond", required=True)
-    quantity = fields.Float(string="Harvest Quantity (kg)", required=True)
-    note = fields.Text(string="Notes")
+    harvest_date = fields.Date(required=True)
+    quantity_kg = fields.Float(string="Harvested Quantity (kg)")
+    method = fields.Selection([
+        ('full', 'Full Harvest'),
+        ('partial', 'Partial Harvest')
+    ], string="Harvest Method")
+    quality_grade = fields.Selection([
+        ('a', 'Grade A'),
+        ('b', 'Grade B'),
+        ('c', 'Grade C')
+    ], string="Quality Grade")
+    notes = fields.Text()
