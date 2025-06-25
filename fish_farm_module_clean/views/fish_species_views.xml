@@ -3,10 +3,10 @@
         <field name="name">fish.farm.species.tree</field>
         <field name="model">fish.farm.species</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="average_growth_period"/>
-            </tree>
+            </list>
         </field>
     </record>
 

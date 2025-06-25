@@ -3,11 +3,11 @@
         <field name="name">fish.farm.cost.rule.tree</field>
         <field name="model">fish.farm.cost.rule</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="cost_type"/>
                 <field name="distribution_percentage"/>
-            </tree>
+            </list>
         </field>
     </record>
 

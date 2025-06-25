@@ -3,10 +3,10 @@
         <field name="name">fish.farm.sector.tree</field>
         <field name="model">fish.farm.sector</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="code"/>
-            </tree>
+            </list>
         </field>
     </record>
 

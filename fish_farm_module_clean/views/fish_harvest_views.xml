@@ -3,12 +3,12 @@
         <field name="name">fish.farm.harvest.tree</field>
         <field name="model">fish.farm.harvest</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="pond_id"/>
                 <field name="harvest_date"/>
                 <field name="quantity_kg"/>
                 <field name="quality"/>
-            </tree>
+            </list>
         </field>
     </record>
 
