@@ -1,0 +1,21 @@
+<odoo>
+  <template id="report_fish_cost_document">
+    <t t-call="web.external_layout">
+      <div class="page">
+        <h2>Fish Cost Rule Report</h2>
+        <p>Rule Name: <t t-esc="doc.name"/></p>
+        <p>Fish Type: <t t-esc="doc.fish_type"/></p>
+        <p>Cost Per KG: <t t-esc="doc.cost_per_kg"/></p>
+      </div>
+    </t>
+  </template>
+
+  <record id="report_fish_cost" model="ir.actions.report">
+    <field name="name">Fish Cost Rule Report</field>
+    <field name="model">fish.farm.cost.rule</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">fish_farm_module_clean.report_fish_cost_document</field>
+    <field name="file">fish_farm_module_clean.report_fish_cost_document</field>
+    <field name="print_report_name">'Fish Cost Rule Report - %s' % (object.name)</field>
+  </record>
+</odoo>

@@ -1,9 +1,0 @@
-<odoo>
-    <record id="seq_fish_pond" model="ir.sequence">
-        <field name="name">Fish Pond</field>
-        <field name="code">fish.farm.pond</field>
-        <field name="prefix">POND-</field>
-        <field name="padding">4</field>
-        <field name="number_next">1</field>
-    </record>
-</odoo>

@@ -1,3 +1,6 @@
 <odoo>
-    <!-- Placeholder for future record rules or groups -->
+    <record id="group_fish_farm_manager" model="res.groups">
+        <field name="name">Fish Farm Manager</field>
+        <field name="category_id" ref="base.module_category_inventory"/>
+    </record>
 </odoo>
