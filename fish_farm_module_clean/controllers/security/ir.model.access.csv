@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fish_farm_sector,fish.farm.sector,model_fish_farm_sector,,1,1,1,1
+access_fish_farm_pond,fish.farm.pond,model_fish_farm_pond,,1,1,1,1
+access_fish_farm_seed,fish.farm.seed,model_fish_farm_seed,,1,1,1,1
+access_fish_farm_feed,fish.farm.feed,model_fish_farm_feed,,1,1,1,1
+access_fish_farm_harvest,fish.farm.harvest,model_fish_farm_harvest,,1,1,1,1
+access_fish_farm_expense,fish.farm.expense,model_fish_farm_expense,,1,1,1,1
+access_fish_farm_cost_rule,fish.farm.cost.rule,model_fish_farm_cost_rule,,1,1,1,1
+access_res_config_settings,res.config.settings,model_res_config_settings,,1,1,1,1
+access_fish_farm,fish.farm,model_fish_farm,,1,1,1,1
