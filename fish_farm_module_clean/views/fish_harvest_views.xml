@@ -3,9 +3,9 @@
     <field name="name">fish.farm.harvest.tree</field>
     <field name="model">fish.farm.harvest</field>
     <field name="arch" type="xml">
-      <tree>
+      <list>
         <field name="name"/>
-      </tree>
+      </list>
     </field>
   </record>
 
