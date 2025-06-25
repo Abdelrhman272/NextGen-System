@@ -6,4 +6,11 @@
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
+
+<record id="action_fish_sector" model="ir.actions.act_window">
+    <field name="name">القطاعات</field>
+    <field name="res_model">fish.farm.sector</field>
+    <field name="view_mode">list,form</field>
+</record>
+
 </odoo>
