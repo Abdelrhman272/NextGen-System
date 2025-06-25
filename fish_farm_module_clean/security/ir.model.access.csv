@@ -1,8 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_fish_farm_sector,access_fish_farm_sector,model_fish_farm_sector,base.group_user,1,1,1,1
-access_fish_farm_zone,access_fish_farm_zone,model_fish_farm_zone,base.group_user,1,1,1,1
-access_fish_farm_pond,access_fish_farm_pond,model_fish_farm_pond,base.group_user,1,1,1,1
-access_fish_farm_seed,access_fish_farm_seed,model_fish_farm_seed,base.group_user,1,1,1,1
-access_fish_farm_feeding,access.fish.farm.feeding,model_fish_farm_feeding,base.group_user,1,1,1,1
-access_fish_farm_fishing,access.fish.farm.fishing,model_fish_farm_fishing,base.group_user,1,1,1,1
-access_fish_farm_supplying,access.fish.farm.supplying,model_fish_farm_supplying,base.group_user,1,1,1,1
