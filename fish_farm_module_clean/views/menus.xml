@@ -17,9 +17,4 @@
     <menuitem id="menu_fish_settings" name="⚙️ الإعدادات" parent="menu_fish_farm_root" sequence="30" groups="base.group_system"/>
     <menuitem id="menu_fish_species" name="أنواع الأسماك" parent="menu_fish_settings" action="action_fish_species"/>
     <menuitem id="menu_fish_cost_rules" name="نسب توزيع التكاليف" parent="menu_fish_settings" action="action_fish_cost_rule"/>
-
-    <menuitem id="menu_report_cost_analysis" name="تحليل التكاليف" parent="menu_fish_reports"
-              action="view_fish_cost_analysis_wizard"/>
-    <menuitem id="menu_report_harvest_summary" name="تقرير الصيد" parent="menu_fish_reports"
-              action="view_fish_harvest_report_wizard"/>
 </odoo>
