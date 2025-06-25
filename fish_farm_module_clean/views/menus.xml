@@ -1,4 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <menuitem id="menu_fish_farm_root" name="Fish Farm" sequence="10"/>
-  <menuitem id="menu_fish_farm_main" name="Operations" parent="menu_fish_farm_root" sequence="20"/>
+<menuitem id="menu_fish_farm_root" name="Fish Farm" sequence="10"/>
+<menuitem id="menu_fish_farm_main" name="Operations" parent="menu_fish_farm_root" sequence="20"/>
 </odoo>
