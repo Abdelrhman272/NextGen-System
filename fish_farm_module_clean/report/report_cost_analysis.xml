@@ -1,0 +1,23 @@
+<odoo>
+    <template id="report_fish_cost_analysis">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <h2>تقرير التكاليف للحوض: <t t-esc="doc.name"/></h2>
+                    <p>الفترة: <t t-esc="data['form']['date_from']"/> إلى <t t-esc="data['form']['date_to']"/></p>
+                    <!-- هنا تضاف تفاصيل التكاليف لاحقًا -->
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <report
+        id="action_report_fish_cost_analysis"
+        string="تحليل التكاليف"
+        model="fish.farm.pond"
+        report_type="qweb-pdf"
+        name="fish_farm_module_clean.report_fish_cost_analysis"
+        file="fish_farm_module_clean.report_fish_cost_analysis"
+        print_report_name="'تحليل التكاليف - %s' % (object.name)"
+    />
+</odoo>

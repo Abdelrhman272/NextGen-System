@@ -1,0 +1,27 @@
+<odoo>
+    <record id="view_fish_species_tree" model="ir.ui.view">
+        <field name="name">fish.farm.species.tree</field>
+        <field name="model">fish.farm.species</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="average_growth_period"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fish_species_form" model="ir.ui.view">
+        <field name="name">fish.farm.species.form</field>
+        <field name="model">fish.farm.species</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="average_growth_period"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

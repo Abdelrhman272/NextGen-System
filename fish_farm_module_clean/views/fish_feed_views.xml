@@ -1,0 +1,32 @@
+<odoo>
+    <record id="view_fish_feed_tree" model="ir.ui.view">
+        <field name="name">fish.farm.feed.tree</field>
+        <field name="model">fish.farm.feed</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="pond_id"/>
+                <field name="date"/>
+                <field name="item"/>
+                <field name="quantity"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fish_feed_form" model="ir.ui.view">
+        <field name="name">fish.farm.feed.form</field>
+        <field name="model">fish.farm.feed</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="pond_id"/>
+                        <field name="date"/>
+                        <field name="item"/>
+                        <field name="quantity"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

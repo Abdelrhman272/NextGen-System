@@ -1,0 +1,32 @@
+<odoo>
+    <record id="view_fish_harvest_tree" model="ir.ui.view">
+        <field name="name">fish.farm.harvest.tree</field>
+        <field name="model">fish.farm.harvest</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="pond_id"/>
+                <field name="harvest_date"/>
+                <field name="quantity_kg"/>
+                <field name="quality"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fish_harvest_form" model="ir.ui.view">
+        <field name="name">fish.farm.harvest.form</field>
+        <field name="model">fish.farm.harvest</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="pond_id"/>
+                        <field name="harvest_date"/>
+                        <field name="quantity_kg"/>
+                        <field name="quality"/>
+                        <field name="round_number"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

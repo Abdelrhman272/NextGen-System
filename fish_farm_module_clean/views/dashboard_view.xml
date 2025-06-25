@@ -1,0 +1,15 @@
+<odoo>
+    <template id="fish_farm_dashboard" name="Fish Farm Dashboard">
+        <t t-call="web.layout">
+            <div class="oe_structure">
+                <h2>لوحة تحكم المزرعة السمكية</h2>
+                <p>تخصيص هذه اللوحة سيتم لاحقاً باستخدام QWeb أو JS (OWL).</p>
+            </div>
+        </t>
+    </template>
+
+    <record id="action_fish_dashboard" model="ir.actions.client">
+        <field name="name">Fish Farm Dashboard</field>
+        <field name="tag">fish_farm_dashboard</field>
+    </record>
+</odoo>

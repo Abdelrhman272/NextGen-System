@@ -1,0 +1,55 @@
+<odoo>
+    <record id="action_fish_sector" model="ir.actions.act_window">
+        <field name="name">القطاعات</field>
+        <field name="res_model">fish.farm.sector</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_fish_unit" model="ir.actions.act_window">
+        <field name="name">الشرائح</field>
+        <field name="res_model">fish.farm.unit</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_fish_pond" model="ir.actions.act_window">
+        <field name="name">الأحواض</field>
+        <field name="res_model">fish.farm.pond</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_fish_seed" model="ir.actions.act_window">
+        <field name="name">الزريعة</field>
+        <field name="res_model">fish.farm.seed</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_fish_feed" model="ir.actions.act_window">
+        <field name="name">التغذية</field>
+        <field name="res_model">fish.farm.feed</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_fish_expense" model="ir.actions.act_window">
+        <field name="name">المصروفات</field>
+        <field name="res_model">fish.farm.expense</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_fish_harvest" model="ir.actions.act_window">
+        <field name="name">الصيد</field>
+        <field name="res_model">fish.farm.harvest</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_fish_species" model="ir.actions.act_window">
+        <field name="name">أنواع الأسماك</field>
+        <field name="res_model">fish.farm.species</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_fish_cost_rule" model="ir.actions.act_window">
+        <field name="name">نسب توزيع التكاليف</field>
+        <field name="res_model">fish.farm.cost.rule</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

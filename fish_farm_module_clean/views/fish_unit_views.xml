@@ -1,0 +1,28 @@
+<odoo>
+    <record id="view_fish_unit_tree" model="ir.ui.view">
+        <field name="name">fish.farm.unit.tree</field>
+        <field name="model">fish.farm.unit</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="sector_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fish_unit_form" model="ir.ui.view">
+        <field name="name">fish.farm.unit.form</field>
+        <field name="model">fish.farm.unit</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sector_id"/>
+                        <field name="code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
