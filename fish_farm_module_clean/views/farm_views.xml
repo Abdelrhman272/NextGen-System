@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- الإجراءات الرئيسية -->
+    <record id="action_fish_farm" model="ir.actions.act_window">
+        <field name="name">Fish Farms</field>
+        <field name="res_model">fish.farm</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_fish_farm_tree"/>
+    </record>
+
+    <record id="action_fish_pond" model="ir.actions.act_window">
+        <field name="name">Fish Ponds</field>
+        <field name="res_model">fish.pond</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_breeding_cycle" model="ir.actions.act_window">
+        <field name="name">Breeding Cycles</field>
+        <field name="res_model">fish.breeding.cycle</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
     <record id="view_fish_farm_tree" model="ir.ui.view">
         <field name="name">fish.farm.tree</field>
         <field name="model">fish.farm</field>

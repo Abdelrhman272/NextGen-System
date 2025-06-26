@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="action_harvest_report" model="ir.actions.report">
+        <field name="name">Harvest Report</field>
+        <field name="model">fish.harvest</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">fish_farm_module_clean.harvest_report</field>
+        <field name="report_file">fish_farm_module_clean.harvest_report</field>
+        <field name="print_report_name">'Harvest Report - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_fish_harvest"/>
+        <field name="binding_type">report</field>
+    </record>
+    
     <template id="harvest_report">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">

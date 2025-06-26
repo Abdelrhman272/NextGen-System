@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="action_cost_distribution" model="ir.actions.act_window">
+        <field name="name">Cost Distributions</field>
+        <field name="res_model">fish.cost.distribution</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_cost_distribution_tree"/>
+    </record>
+    
     <record id="view_cost_distribution_tree" model="ir.ui.view">
         <field name="name">cost.distribution.tree</field>
         <field name="model">fish.cost.distribution</field>
