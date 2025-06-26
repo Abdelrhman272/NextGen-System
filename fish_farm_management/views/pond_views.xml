@@ -23,8 +23,8 @@
         <field name="arch" type="xml">
             <form>
                 <header>
-                    <button name="action_start_cycle" type="object" string="Start New Cycle" class="oe_highlight" states="empty"/>
-                    <button name="action_view_cycle" type="object" string="View Current Cycle" states="stocked,harvesting" class="oe_highlight"/>
+                    <button name="action_start_cycle" type="object" string="Start New Cycle" class="oe_highlight" attrs="empty"/>
+                    <button name="action_view_cycle" type="object" string="View Current Cycle" attrs="stocked,harvesting" class="oe_highlight"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
