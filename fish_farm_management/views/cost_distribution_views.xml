@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="action_cost_distribution" model="ir.actions.act_window">
-        <field name="name">Cost Distributions</field>
-        <field name="res_model">fish.cost.distribution</field>
-        <field name="view_mode">list,form</field>
-        <field name="view_id" ref="view_cost_distribution_list"/>
-    </record>
 
     <record id="view_cost_distribution_list" model="ir.ui.view">
         <field name="name">cost.distribution.list</field>
@@ -49,4 +43,12 @@
             </form>
         </field>
     </record>
+
+    <record id="action_cost_distribution" model="ir.actions.act_window">
+        <field name="name">Cost Distributions</field>
+        <field name="res_model">fish.cost.distribution</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_cost_distribution_list"/>
+    </record>
+
 </odoo>
