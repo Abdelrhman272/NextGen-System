@@ -34,7 +34,6 @@ class MultilingualModel(models.AbstractModel):
                 'value': value
             })
             
-        # Update original value if it's the base language
         if lang == self.env.ref('base.lang_en').code:
             self.write({field_name: value})
 
@@ -46,16 +45,11 @@ class FishType(models.Model):
     name = fields.Char(string='Name', required=True, translate=True)
     description = fields.Text(string='Description', translate=True)
     
-    @api.model
+    @api.model_create_multi
     def create(self, vals_list):
-        """Override create to support batch creation and translations"""
-        if isinstance(vals_list, dict):
-            vals_list = [vals_list]
+        records = super().create(vals_list)
         
-        records = super(FishType, self).create(vals_list)
-        
-        for record, vals in zip(records, vals_list):
-            # Create initial translations
+        for record, vals in zip(records, vals_list if isinstance(vals_list, list) else [vals_list]):
             for lang in self.env['res.lang'].search([]):
                 self._set_translated_field('name', vals.get('name', ''), lang.code)
                 self._set_translated_field('description', vals.get('description', ''), lang.code)

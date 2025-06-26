@@ -6,7 +6,7 @@
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_cost_distribution_tree"/>
     </record>
-    
+
     <record id="view_cost_distribution_tree" model="ir.ui.view">
         <field name="name">cost.distribution.tree</field>
         <field name="model">fish.cost.distribution</field>

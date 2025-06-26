@@ -1,36 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Main Menu -->
     <menuitem id="menu_fish_farm_root" name="Fish Farm Management" sequence="10"/>
     
-    <!-- Dashboard -->
     <menuitem id="menu_fish_farm_dashboard" name="Dashboard" parent="menu_fish_farm_root" action="action_fish_farm_dashboard" sequence="5"/>
     
-    <!-- Operations -->
     <menuitem id="menu_fish_farm_operations" name="Operations" parent="menu_fish_farm_root" sequence="10"/>
     <menuitem id="menu_fish_farms" name="Farms" parent="menu_fish_farm_operations" action="action_fish_farm" sequence="10"/>
     <menuitem id="menu_fish_ponds" name="Ponds" parent="menu_fish_farm_operations" action="action_fish_pond" sequence="20"/>
     <menuitem id="menu_breeding_cycles" name="Breeding Cycles" parent="menu_fish_farm_operations" action="action_breeding_cycle" sequence="30"/>
     
-    <!-- Harvesting -->
     <menuitem id="menu_fish_farm_harvest" name="Harvesting" parent="menu_fish_farm_root" sequence="20"/>
     <menuitem id="menu_harvests" name="Harvests" parent="menu_fish_farm_harvest" action="action_fish_harvest" sequence="10"/>
     
-    <!-- Costs -->
     <menuitem id="menu_fish_farm_costs" name="Costs" parent="menu_fish_farm_root" sequence="30"/>
     <menuitem id="menu_cost_distribution" name="Cost Distribution" parent="menu_fish_farm_costs" action="action_cost_distribution" sequence="10"/>
-    
-    <!-- Reporting -->
-    <menuitem id="menu_fish_farm_reporting" name="Reporting" parent="menu_fish_farm_root" sequence="40"/>
-    <menuitem id="menu_harvest_reports" name="Harvest Reports" parent="menu_fish_farm_reporting" action="action_harvest_report" sequence="10"/>
-    <menuitem id="menu_cost_reports" name="Cost Reports" parent="menu_fish_farm_reporting" action="action_cost_report" sequence="20"/>
-    <menuitem id="menu_inventory_reports" name="Inventory Reports" parent="menu_fish_farm_reporting" action="action_inventory_report" sequence="30"/>
-    <menuitem id="menu_profitability_reports" name="Profitability Reports" parent="menu_fish_farm_reporting" action="action_profitability_report" sequence="40"/>
-    
-    <!-- Settings -->
-    <menuitem id="menu_fish_farm_configuration" name="Configuration" parent="menu_fish_farm_root" sequence="50"/>
-    <menuitem id="menu_general_settings" name="General Settings" parent="menu_fish_farm_configuration" action="action_fish_farm_settings" sequence="10"/>
-    <menuitem id="menu_accounting_settings" name="Accounting Settings" parent="menu_fish_farm_configuration" action="action_accounting_settings" sequence="20"/>
-    <menuitem id="menu_cost_settings" name="Cost Settings" parent="menu_fish_farm_configuration" action="action_cost_settings" sequence="30"/>
-    <menuitem id="menu_integration_settings" name="Integration Settings" parent="menu_fish_farm_configuration" action="action_integration_settings" sequence="40"/>
 </odoo>

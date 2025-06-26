@@ -31,13 +31,19 @@ class FishPond(models.Model):
         for pond in self:
             pond.volume = pond.area * pond.depth
     
-    @api.model
-    def create(self, vals):
-        pond = super(FishPond, self).create(vals)
-        # Create analytic account for cost tracking
-        pond.analytic_account_id = self.env['account.analytic.account'].create({
-            'name': f'{pond.name} - Analytic Account',
-            'code': f'POND-{pond.id}',
-            'company_id': pond.company_id.id,
-        }).id
-        return pond
+    @api.model_create_multi
+    def create(self, vals_list):
+        if isinstance(vals_list, dict):
+            vals_list = [vals_list]
+        
+        ponds = super().create(vals_list)
+        
+        for pond in ponds:
+            if not pond.analytic_account_id:
+                pond.analytic_account_id = self.env['account.analytic.account'].create({
+                    'name': f'{pond.name} - Analytic Account',
+                    'code': f'POND-{pond.id}',
+                    'company_id': pond.company_id.id,
+                }).id
+        
+        return ponds
