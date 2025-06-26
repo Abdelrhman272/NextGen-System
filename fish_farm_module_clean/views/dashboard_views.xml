@@ -3,6 +3,8 @@
     <record id="action_fish_farm_dashboard" model="ir.actions.client">
         <field name="name">Fish Farm Dashboard</field>
         <field name="tag">fish_farm_dashboard</field>
+        <field name="target">current</field>
+        <field name="params">{'model': 'fish.breeding.cycle'}</field>
     </record>
 
     <template id="fish_farm_dashboard">
@@ -17,30 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card kpi-card">
-                            <div class="card-body text-center">
-                                <h5 class="card-title" data-i18n="Avg Cost per KG">Avg Cost per KG</h5>
-                                <h3 class="display-4" t-esc="widget_data.avg_cost_per_kg or 0"/> <span data-i18n="currency">$</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card kpi-card">
-                            <div class="card-body text-center">
-                                <h5 class="card-title" data-i18n="Active Ponds">Active Ponds</h5>
-                                <h3 class="display-4" t-esc="widget_data.active_ponds or 0"/> <span data-i18n="ponds">ponds</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card kpi-card">
-                            <div class="card-body text-center">
-                                <h5 class="card-title" data-i18n="Growth Rate">Growth Rate</h5>
-                                <h3 class="display-4" t-esc="widget_data.growth_rate or 0"/> <span>%</span>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- باقي بطاقات الـ KPI -->
                 </div>
 
                 <div class="row mt-4">

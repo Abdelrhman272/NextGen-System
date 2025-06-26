@@ -23,6 +23,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'views/dashboard_views.xml',
         'views/menu.xml',
         'views/farm_views.xml',
         'views/sector_views.xml',
@@ -32,7 +33,6 @@
         'views/breeding_cycle_views.xml',
         'views/harvest_views.xml',
         'views/cost_distribution_views.xml',
-        'views/dashboard_views.xml',
         'views/settings_views.xml',
         'views/templates.xml',
         'views/translation_templates.xml',
