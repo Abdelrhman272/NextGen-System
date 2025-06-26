@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fish_farm_sector_tree" model="ir.ui.view">
+        <field name="name">fish.farm.sector.tree</field>
+        <field name="model">fish.farm.sector</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="farm_id"/>
+                <field name="area"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fish_farm_sector_form" model="ir.ui.view">
+        <field name="name">fish.farm.sector.form</field>
+        <field name="model">fish.farm.sector</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="farm_id"/>
+                        </group>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="area"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Segments">
+                            <field name="segment_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="area"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

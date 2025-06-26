@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_fish_farm" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.fish.farm</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Fish Farm Settings" string="Fish Farm Settings">
+                    <h2>Fish Farm Settings</h2>
+                    
+                    <div class="row mt16">
+                        <div class="col-12">
+                            <h3>General Settings</h3>
+                        </div>
+                        <div class="col-6">
+                            <label for="default_feed_product_id"/>
+                            <field name="default_feed_product_id" class="o_light_label"/>
+                        </div>
+                        <div class="col-6">
+                            <label for="default_medicine_product_id"/>
+                            <field name="default_medicine_product_id" class="o_light_label"/>
+                        </div>
+                        <div class="col-6">
+                            <label for="harvest_committee_size"/>
+                            <field name="harvest_committee_size" class="o_light_label"/>
+                        </div>
+                        <div class="col-6">
+                            <label for="fish_farm_analytic_account_prefix"/>
+                            <field name="fish_farm_analytic_account_prefix" class="o_light_label"/>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt16">
+                        <div class="col-12">
+                            <h3>Accounting Settings</h3>
+                        </div>
+                        <div class="col-6">
+                            <label for="default_income_account_id"/>
+                            <field name="default_income_account_id" class="o_light_label"/>
+                        </div>
+                        <div class="col-6">
+                            <label for="default_expense_account_id"/>
+                            <field name="default_expense_account_id" class="o_light_label"/>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt16">
+                        <div class="col-12">
+                            <h3>Cost Settings</h3>
+                        </div>
+                        <div class="col-6">
+                            <label for="labor_cost_per_hour"/>
+                            <field name="labor_cost_per_hour" class="o_light_label"/>
+                        </div>
+                        <div class="col-6">
+                            <label for="electricity_cost_per_kwh"/>
+                            <field name="electricity_cost_per_kwh" class="o_light_label"/>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt16">
+                        <div class="col-12">
+                            <h3>Integration Settings</h3>
+                        </div>
+                        <div class="col-6">
+                            <label for="enable_api_integration"/>
+                            <field name="enable_api_integration" class="o_light_label"/>
+                        </div>
+                        <div class="col-6">
+                            <label for="api_key"/>
+                            <field name="api_key" class="o_light_label" password="True"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

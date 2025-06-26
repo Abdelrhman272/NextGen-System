@@ -1,0 +1,56 @@
+fish_farm_management/
+├── __init__.py
+├── __manifest__.py
+├── controllers/
+│   ├── __init__.py
+│   ├── dashboard.py
+│   └── translation.py
+├── models/
+│   ├── __init__.py
+│   ├── farm.py
+│   ├── sector.py
+│   ├── segment.py
+│   ├── pond.py
+│   ├── fish_type.py
+│   ├── breeding_cycle.py
+│   ├── harvest.py
+│   ├── cost_distribution.py
+│   ├── settings.py
+│   ├── i18n_models.py
+│   └── translation_utils.py
+├── views/
+│   ├── farm_views.xml
+│   ├── sector_views.xml
+│   ├── segment_views.xml
+│   ├── pond_views.xml
+│   ├── fish_type_views.xml
+│   ├── breeding_cycle_views.xml
+│   ├── harvest_views.xml
+│   ├── cost_distribution_views.xml
+│   ├── dashboard_views.xml
+│   ├── settings_views.xml
+│   ├── reports.xml
+│   ├── menu.xml
+│   ├── templates.xml
+│   ├── translation_templates.xml
+│   └── dashboard_templates.xml
+├── security/
+│   ├── ir.model.access.csv
+│   └── record_rules.xml
+├── i18n/
+│   ├── ar.po
+│   ├── en.po
+├── report/
+│   ├── harvest_report.xml
+│   ├── breeding_cycle_report.xml
+│   ├── cost_analysis_report.xml
+│   └── inventory_report.xml
+└── static/
+    ├── src/
+    │   ├── js/
+    │   │   └── translation.js
+    │   └── css/
+    │       └── styles.css
+    └── description/
+        ├── icon.png
+        └── index.html

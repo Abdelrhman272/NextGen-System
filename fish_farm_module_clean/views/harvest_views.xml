@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fish_harvest_tree" model="ir.ui.view">
+        <field name="name">fish.harvest.tree</field>
+        <field name="model">fish.harvest</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="pond_id"/>
+                <field name="harvest_date"/>
+                <field name="quantity"/>
+                <field name="quality"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fish_harvest_form" model="ir.ui.view">
+        <field name="name">fish.harvest.form</field>
+        <field name="model">fish.harvest</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button name="action_transfer_to_warehouse" type="object" string="Transfer to Warehouse" class="oe_highlight" states="draft,harvested"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="cycle_id"/>
+                            <field name="pond_id"/>
+                        </group>
+                        <group>
+                            <field name="harvest_date"/>
+                            <field name="quantity"/>
+                            <field name="quality"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="committee_member_ids" widget="many2many_tags"/>
+                    </group>
+                    <field name="stock_move_id" readonly="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

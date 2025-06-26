@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="harvest_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <h2 class="text-center" data-i18n="Harvest Report">Harvest Report</h2>
+                    <h4 class="text-center" t-esc="doc.name"/>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <p><strong data-i18n="Harvest Date">Harvest Date</strong>: <span t-esc="doc.harvest_date"/></p>
+                            <p><strong data-i18n="Pond">Pond</strong>: <span t-esc="doc.pond_id.name"/></p>
+                            <p><strong data-i18n="Breeding Cycle">Breeding Cycle</strong>: <span t-esc="doc.cycle_id.name"/></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong data-i18n="Quantity">Quantity</strong>: <span t-esc="doc.quantity"/> <span data-i18n="kg">kg</span></p>
+                            <p><strong data-i18n="Quality">Quality</strong>: <span t-esc="doc.quality"/></p>
+                            <p><strong data-i18n="Status">Status</strong>: <span t-esc="doc.state"/></p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h4 data-i18n="Committee Members">Committee Members</h4>
+                            <ul>
+                                <t t-foreach="doc.committee_member_ids" t-as="member">
+                                    <li t-esc="member.name"/>
+                                </t>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h4 data-i18n="Transfer Details">Transfer Details</h4>
+                            <t t-if="doc.stock_move_id">
+                                <p><strong data-i18n="Transfer Reference">Transfer Reference</strong>: <span t-esc="doc.stock_move_id.name"/></p>
+                                <p><strong data-i18n="From Location">From Location</strong>: <span t-esc="doc.stock_move_id.location_id.name"/></p>
+                                <p><strong data-i18n="To Location">To Location</strong>: <span t-esc="doc.stock_move_id.location_dest_id.name"/></p>
+                                <p><strong data-i18n="Product">Product</strong>: <span t-esc="doc.stock_move_id.product_id.name"/></p>
+                            </t>
+                            <t t-else="">
+                                <p data-i18n="No transfer recorded yet">No transfer recorded yet</p>
+                            </t>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12 text-right">
+                            <p><strong data-i18n="Report Date">Report Date</strong>: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/></p>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

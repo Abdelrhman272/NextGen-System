@@ -1,27 +1,57 @@
 {
-    "name": "Fish Farm Management",
-    "version": "1.0",
-    "summary": "Manage fish farm operations from seed to harvest",
-    "depends": ["base", "web"],
-    "category": "Operations",
-    "data": [
-        "security/ir.model.access.csv",
-        "views/menus.xml",
-        "views/fish_sector_views.xml",
-        "views/fish_slice_views.xml",
-        "views/fish_pond_views.xml",
-        "views/fish_seed_views.xml",
-        "views/fish_feed_views.xml",
-        "views/fish_expense_views.xml",
-        "views/fish_harvest_views.xml",
-        "views/fish_dashboard_views.xml"
+    'name': 'Fish Farm Management',
+    'version': '18.0.1.0.0',
+    'summary': 'Comprehensive Fish Farm Management System',
+    'description': """
+        Manage fish farm operations including ponds, breeding cycles, 
+        harvesting, costs, and integration with Odoo modules
+    """,
+    'category': 'Industries',
+    'author': 'Your Company',
+    'website': 'https://www.yourcompany.com',
+    'license': 'LGPL-3',
+    'depends': [
+        'base', 
+        'stock', 
+        'account', 
+        'purchase', 
+        'sale', 
+        'mrp', 
+        'hr', 
+        'analytic',
+        'web',
     ],
-    "assets": {
-        "web.assets_frontend": [
-            "/fish_farm_module/static/lib/chart.js"
-        ]
+    'data': [
+        'security/ir.model.access.csv',
+        'views/menu.xml',
+        'views/farm_views.xml',
+        'views/sector_views.xml',
+        'views/segment_views.xml',
+        'views/pond_views.xml',
+        'views/fish_type_views.xml',
+        'views/breeding_cycle_views.xml',
+        'views/harvest_views.xml',
+        'views/cost_distribution_views.xml',
+        'views/dashboard_views.xml',
+        'views/settings_views.xml',
+        'views/templates.xml',
+        'views/translation_templates.xml',
+        'report/harvest_report.xml',
+        'report/breeding_cycle_report.xml',
+        'report/cost_analysis_report.xml',
+        'report/inventory_report.xml',
+    ],
+    'demo': [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'assets': {
+        'web.assets_backend': [
+            'fish_farm_management/static/src/js/translation.js',
+            'fish_farm_management/static/src/css/styles.css',
+        ],
+        'web.assets_qweb': [
+            'fish_farm_management/static/src/xml/dashboard_templates.xml',
+        ],
     },
-    "installable": True,
-    "application": True,
-    "license": "LGPL-3"
 }

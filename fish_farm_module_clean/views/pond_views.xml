@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fish_pond_tree" model="ir.ui.view">
+        <field name="name">fish.pond.tree</field>
+        <field name="model">fish.pond</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="segment_id"/>
+                <field name="state"/>
+                <field name="current_cycle_id"/>
+                <field name="area"/>
+                <field name="volume"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fish_pond_form" model="ir.ui.view">
+        <field name="name">fish.pond.form</field>
+        <field name="model">fish.pond</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start_cycle" type="object" string="Start New Cycle" class="oe_highlight" states="empty"/>
+                    <button name="action_view_cycle" type="object" string="View Current Cycle" states="stocked,harvesting" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="segment_id"/>
+                            <field name="state" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="area"/>
+                            <field name="depth"/>
+                            <field name="volume" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Details">
+                            <field name="fish_type_ids" widget="many2many_tags"/>
+                            <field name="current_cycle_id" options="{'no_create': True}"/>
+                        </page>
+                        <page string="Cost Tracking">
+                            <field name="analytic_account_id"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_fish_pond" model="ir.actions.act_window">
+        <field name="name">Ponds</field>
+        <field name="res_model">fish.pond</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
