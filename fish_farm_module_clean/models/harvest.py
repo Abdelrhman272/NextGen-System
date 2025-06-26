@@ -26,21 +26,25 @@ class FishHarvest(models.Model):
         ('canceled', 'Canceled')
     ], 'Status', default='draft', tracking=True)
     
-    @api.model
-    def create(self, vals):
-        if isinstance(vals, dict):
-            vals_list = [vals]
-        else:
-            vals_list = vals
+    @api.model_create_multi
+    def create(self, vals_list):
+        """Override create to properly handle batch creation and sequence numbering"""
         harvests = super(FishHarvest, self).create(vals_list)
+        
+        # Handle sequence numbering for new records
         for harvest in harvests:
             if harvest.name == 'New':
-                harvest.name = self.env['ir.sequence'].next_by_code('fish.harvest') or 'New'
+                harvest.write({
+                    'name': self.env['ir.sequence'].next_by_code('fish.harvest') or 'New'
+                })
         return harvests
 
     def action_transfer_to_warehouse(self):
+        """Transfer harvested fish to warehouse location"""
         self.ensure_one()
-        move = self.env['stock.move'].create({
+        
+        # Prepare move data
+        move_vals = {
             'name': f'Harvest Transfer: {self.name}',
             'product_id': self.cycle_id.fish_type_id.product_id.id,
             'product_uom_qty': self.quantity,
@@ -49,11 +53,16 @@ class FishHarvest(models.Model):
             'location_dest_id': self.env.ref('stock.stock_location_stock').id,
             'picking_type_id': self.env.ref('fish_farm_management.picking_type_harvest').id,
             'harvest_id': self.id,
-        })
+        }
+        
+        # Create and validate the stock move
+        move = self.env['stock.move'].create(move_vals)
         move._action_confirm()
         move._action_assign()
-        move.quantity_done = self.quantity
+        move.write({'quantity_done': self.quantity})
         move._action_done()
+        
+        # Update harvest record
         self.write({
             'stock_move_id': move.id,
             'state': 'transferred'
