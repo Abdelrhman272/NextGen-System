@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_fish_farm_sector_tree" model="ir.ui.view">
-        <field name="name">fish.farm.sector.tree</field>
+    <record id="view_fish_farm_sector_list" model="ir.ui.view">
+        <field name="name">fish.farm.sector.list</field>
         <field name="model">fish.farm.sector</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="farm_id"/>
                 <field name="area"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -31,10 +31,10 @@
                     <notebook>
                         <page string="Segments">
                             <field name="segment_ids">
-                                <tree>
+                                <list>
                                     <field name="name"/>
                                     <field name="area"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="Description">

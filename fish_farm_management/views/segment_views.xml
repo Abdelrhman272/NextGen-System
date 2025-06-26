@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_fish_farm_segment_tree" model="ir.ui.view">
-        <field name="name">fish.farm.segment.tree</field>
+    <record id="view_fish_farm_segment_list" model="ir.ui.view">
+        <field name="name">fish.farm.segment.list</field>
         <field name="model">fish.farm.segment</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name"/>
                 <field name="sector_id"/>
                 <field name="farm_id"/>
                 <field name="area"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -32,11 +32,11 @@
                     <notebook>
                         <page string="Ponds">
                             <field name="pond_ids">
-                                <tree>
+                                <list>
                                     <field name="name"/>
                                     <field name="area"/>
                                     <field name="depth"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="Description">
