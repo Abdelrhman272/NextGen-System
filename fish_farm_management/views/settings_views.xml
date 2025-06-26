@@ -5,72 +5,63 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='group_share']" position="after">
 
-            <!-- ندرج إعداداتنا بعد إعداد "Company Registry" -->
-            <xpath expr="//setting[@id='base_setup.setting_company_registry']" position="after">
-
-                <!-- Default Feed Product -->
-                <setting id="fish_farm.setting_default_feed"
+                <setting id="fish_farm.default_feed_product_id"
                          string="Default Feed Product"
                          help="Product used by default when registering feed consumption.">
                     <field name="default_feed_product_id"/>
                 </setting>
 
-                <!-- Default Medicine Product -->
-                <setting id="fish_farm.setting_default_medicine"
+                <setting id="fish_farm.default_medicine_product_id"
                          string="Default Medicine Product"
                          help="Product used by default for pond treatments.">
                     <field name="default_medicine_product_id"/>
                 </setting>
 
-                <!-- Harvest Committee Size -->
-                <setting id="fish_farm.setting_committee_size"
+                <setting id="fish_farm.harvest_committee_size"
                          string="Harvest Committee Size"
                          help="Default number of members in the harvest committee.">
                     <field name="harvest_committee_size"/>
                 </setting>
 
-                <!-- Analytic Account Prefix -->
-                <setting id="fish_farm.setting_account_prefix"
+                <setting id="fish_farm.fish_farm_analytic_account_prefix"
                          string="Analytic Account Prefix"
                          help="Prefix used when system creates analytic accounts for ponds or farms.">
                     <field name="fish_farm_analytic_account_prefix"/>
                 </setting>
 
-                <!-- Default Income / Expense Accounts -->
-                <setting id="fish_farm.setting_income_account"
+                <setting id="fish_farm.default_income_account_id"
                          string="Default Income Account"
                          help="Used when posting revenue from fish harvest.">
                     <field name="default_income_account_id"/>
                 </setting>
 
-                <setting id="fish_farm.setting_expense_account"
+                <setting id="fish_farm.default_expense_account_id"
                          string="Default Expense Account"
                          help="Used when posting feed, medicine, and other costs.">
                     <field name="default_expense_account_id"/>
                 </setting>
 
-                <!-- Cost parameters -->
-                <setting id="fish_farm.setting_labor_cost"
+                <setting id="fish_farm.labor_cost_per_hour"
                          string="Labor Cost per Hour"
                          help="Hourly wage cost used in cost calculations.">
                     <field name="labor_cost_per_hour"/>
                 </setting>
 
-                <setting id="fish_farm.setting_electricity_cost"
+                <setting id="fish_farm.electricity_cost_per_kwh"
                          string="Electricity Cost per kWh"
                          help="Electricity tariff used in cost calculations.">
                     <field name="electricity_cost_per_kwh"/>
                 </setting>
 
-                <!-- API Integration -->
-                <setting id="fish_farm.setting_api_toggle"
+                <setting id="fish_farm.enable_api_integration"
                          string="Enable API Integration"
-                         help="Allow external systems to retrieve fish-farm data via API.">
+                         help="Allow external systems to retrieve fish‑farm data via API.">
                     <field name="enable_api_integration"/>
                 </setting>
 
-                <setting id="fish_farm.setting_api_key"
+                <setting id="fish_farm.api_key"
                          string="API Key"
                          help="Shared secret used by external systems.">
                     <field name="api_key" password="True"/>
