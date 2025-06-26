@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="res_config_settings_view_form_inherit_fish_farm" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.inherit.fish.farm</field>
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('settings')]" position="inside">
+            <xpath expr="//div[contains(@class, 'o_setting_container')]" position="inside">
                 <div class="app_settings_block" data-string="Fish Farm Settings" string="Fish Farm Settings">
                     <h2>Fish Farm Settings</h2>
-                    
+
                     <div class="row mt16">
                         <div class="col-12">
                             <h3>General Settings</h3>
@@ -30,7 +29,7 @@
                             <field name="fish_farm_analytic_account_prefix" class="o_light_label"/>
                         </div>
                     </div>
-                    
+
                     <div class="row mt16">
                         <div class="col-12">
                             <h3>Accounting Settings</h3>
@@ -44,7 +43,7 @@
                             <field name="default_expense_account_id" class="o_light_label"/>
                         </div>
                     </div>
-                    
+
                     <div class="row mt16">
                         <div class="col-12">
                             <h3>Cost Settings</h3>
@@ -58,7 +57,7 @@
                             <field name="electricity_cost_per_kwh" class="o_light_label"/>
                         </div>
                     </div>
-                    
+
                     <div class="row mt16">
                         <div class="col-12">
                             <h3>Integration Settings</h3>
