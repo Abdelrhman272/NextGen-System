@@ -1,48 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <record id="res_config_settings_view_form_inherit_fish_farm" model="ir.ui.view">
-        <field name="name">res.config.settings.view.form.inherit.fish.farm</field>
-        <field name="model">res.config.settings</field>
-        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
-        <field name="arch" type="xml">
+<record id="res_config_settings_view_form_inherit_fish_farm" model="ir.ui.view">
+    <field name="name">res.config.settings.view.form.inherit.fish.farm</field>
+    <field name="model">res.config.settings</field>
+    <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+    <field name="arch" type="xml">
 
-            <!-- مكان مضمون داخل صفحة الإعدادات -->
-            <xpath expr="//div[@id='settings']" position="inside">
-                <div class="app_settings_block" data-string="Fish Farm Settings" string="Fish Farm Settings">
-                    <h2>Fish Farm Settings</h2>
+        <!-- استخدم إعداد موجود فعليًا كنقطة إدخال -->
+        <xpath expr="//setting[@id='base_setup.setting_company_registry']" position="after">
 
-                    <!-- General -->
-                    <div class="row mt16">
-                        <h3 class="col-12">General</h3>
-                        <div class="col-6"><field name="default_feed_product_id" class="o_light_label"/></div>
-                        <div class="col-6"><field name="default_medicine_product_id" class="o_light_label"/></div>
-                        <div class="col-6"><field name="harvest_committee_size" class="o_light_label"/></div>
-                        <div class="col-6"><field name="fish_farm_analytic_account_prefix" class="o_light_label"/></div>
-                    </div>
+            <!-- إعدادات مزرعة الأسماك -->
+            <setting string="Fish Farm Default Feed Product"
+                     id="fish_farm.default_feed_product_id"
+                     help="Default feed product for ponds">
+                <field name="default_feed_product_id"/>
+            </setting>
 
-                    <!-- Accounting -->
-                    <div class="row mt16">
-                        <h3 class="col-12">Accounting</h3>
-                        <div class="col-6"><field name="default_income_account_id" class="o_light_label"/></div>
-                        <div class="col-6"><field name="default_expense_account_id" class="o_light_label"/></div>
-                    </div>
+            <setting string="Fish Farm Default Medicine Product"
+                     id="fish_farm.default_medicine_product_id"
+                     help="Default medicine product for treatments">
+                <field name="default_medicine_product_id"/>
+            </setting>
 
-                    <!-- Cost -->
-                    <div class="row mt16">
-                        <h3 class="col-12">Cost</h3>
-                        <div class="col-6"><field name="labor_cost_per_hour" class="o_light_label"/></div>
-                        <div class="col-6"><field name="electricity_cost_per_kwh" class="o_light_label"/></div>
-                    </div>
+            <setting string="Harvest Committee Size"
+                     id="fish_farm.harvest_committee_size"
+                     help="Default number of members in harvest committee">
+                <field name="harvest_committee_size"/>
+            </setting>
 
-                    <!-- Integration -->
-                    <div class="row mt16">
-                        <h3 class="col-12">Integration</h3>
-                        <div class="col-6"><field name="enable_api_integration" class="o_light_label"/></div>
-                        <div class="col-6"><field name="api_key" class="o_light_label" password="True"/></div>
-                    </div>
-                </div>
-            </xpath>
+            <setting string="Fish Farm Account Prefix"
+                     id="fish_farm.fish_farm_analytic_account_prefix"
+                     help="Prefix used for analytic accounts created by the system">
+                <field name="fish_farm_analytic_account_prefix"/>
+            </setting>
 
-        </field>
-    </record>
-</odoo>
+        </xpath>
+    </field>
+</record>
