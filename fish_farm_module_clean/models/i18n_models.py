@@ -47,10 +47,16 @@ class FishType(models.Model):
     description = fields.Text(string='Description', translate=True)
     
     @api.model
-    def create(self, vals):
-        record = super(FishType, self).create(vals)
-        # Create initial translations
-        for lang in self.env['res.lang'].search([]):
-            self._set_translated_field('name', vals.get('name', ''), lang.code)
-            self._set_translated_field('description', vals.get('description', ''), lang.code)
-        return record
+    def create(self, vals_list):
+        if isinstance(vals_list, dict):
+        vals_list = [vals_list]
+    
+        records = super(FishType, self).create(vals_list)
+
+        for record, vals in zip(records, vals_list):
+            # Create initial translations
+             for lang in self.env['res.lang'].search([]):
+                 self._set_translated_field('name', vals.get('name', ''), lang.code)
+                 self._set_translated_field('description', vals.get('description', ''), lang.code)
+    
+        return records
