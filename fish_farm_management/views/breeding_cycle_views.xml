@@ -3,6 +3,7 @@
     <record id="view_breeding_cycle_list" model="ir.ui.view">
         <field name="name">breeding.cycle.list</field>
         <field name="model">fish.breeding.cycle</field>
+        <field name="type">list</field>
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>

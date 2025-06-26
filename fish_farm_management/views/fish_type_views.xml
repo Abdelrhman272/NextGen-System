@@ -3,6 +3,7 @@
     <record id="view_fish_type_list" model="ir.ui.view">
         <field name="name">fish.type.list</field>
         <field name="model">fish.type</field>
+        <field name="type">list</field>
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>

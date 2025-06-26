@@ -10,6 +10,7 @@
     <record id="view_cost_distribution_list" model="ir.ui.view">
         <field name="name">cost.distribution.list</field>
         <field name="model">fish.cost.distribution</field>
+        <field name="type">list</field>
         <field name="arch" type="xml">
             <list>
                 <field name="date"/>
