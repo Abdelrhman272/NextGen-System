@@ -1,76 +1,63 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
+
+PARAM_PREFIX = "fish_farm_management."
 
 class ResConfigSettings(models.TransientModel):
-    _inherit = 'res.config.settings'
+    _inherit = "res.config.settings"
+
+    # -------- General --------
+    default_feed_product_id = fields.Many2one(
+        "product.product", string="Default Feed Product",
+        config_parameter=PARAM_PREFIX + "default_feed_product_id")
+
+    default_medicine_product_id = fields.Many2one(
+        "product.product", string="Default Medicine Product",
+        config_parameter=PARAM_PREFIX + "default_medicine_product_id")
+
+    harvest_committee_size = fields.Integer(
+        string="Harvest Committee Size",
+        config_parameter=PARAM_PREFIX + "harvest_committee_size",
+        default=3)
 
     fish_farm_analytic_account_prefix = fields.Char(
-        string='Analytic Account Prefix',
-        config_parameter='fish_farm_management.analytic_account_prefix',
-        default='POND'
-    )
-    
-    default_feed_product_id = fields.Many2one(
-        'product.product', 
-        string='Default Feed Product',
-        default_model='fish_farm_management.fish_farm_settings'
-    )
-    
-    default_medicine_product_id = fields.Many2one(
-        'product.product', 
-        string='Default Medicine Product',
-        default_model='fish_farm_management.fish_farm_settings'
-    )
-    
-    harvest_committee_size = fields.Integer(
-        string='Harvest Committee Size',
-        default=3,
-        config_parameter='fish_farm_management.harvest_committee_size'
-    )
-    
-    # Accounting settings
+        string="Analytic Account Prefix",
+        config_parameter=PARAM_PREFIX + "analytic_account_prefix",
+        default="POND")
+
+    # -------- Accounting --------
     default_income_account_id = fields.Many2one(
-        'account.account', 
-        string='Default Income Account',
-        domain=[('internal_type', '=', 'income')]
-    )
-    
+        "account.account", string="Default Income Account",
+        domain=[("internal_type", "=", "income")],
+        config_parameter=PARAM_PREFIX + "default_income_account_id")
+
     default_expense_account_id = fields.Many2one(
-        'account.account', 
-        string='Default Expense Account',
-        domain=[('internal_type', '=', 'expense')]
-    )
-    
-    # Cost settings
+        "account.account", string="Default Expense Account",
+        domain=[("internal_type", "=", "expense")],
+        config_parameter=PARAM_PREFIX + "default_expense_account_id")
+
+    # -------- Cost parameters --------
     labor_cost_per_hour = fields.Float(
-        string='Labor Cost per Hour',
-        default=25.0,
-        config_parameter='fish_farm_management.labor_cost_per_hour'
-    )
-    
+        string="Labor Cost per Hour",
+        config_parameter=PARAM_PREFIX + "labor_cost_per_hour",
+        default=25.0)
+
     electricity_cost_per_kwh = fields.Float(
-        string='Electricity Cost per KWh',
-        default=1.5,
-        config_parameter='fish_farm_management.electricity_cost_per_kwh'
-    )
-    
-    # Integration settings
+        string="Electricity Cost per kWh",
+        config_parameter=PARAM_PREFIX + "electricity_cost_per_kwh",
+        default=1.5)
+
+    # -------- Integration --------
     enable_api_integration = fields.Boolean(
-        string='Enable API Integration',
-        config_parameter='fish_farm_management.enable_api_integration'
-    )
-    
+        string="Enable API Integration",
+        config_parameter=PARAM_PREFIX + "enable_api_integration")
+
     api_key = fields.Char(
-        string='API Key',
-        config_parameter='fish_farm_management.api_key'
-    )
-    
-    def set_values(self):
-        super(ResConfigSettings, self).set_values()
-        # Save settings logic
-        return True
-    
-    @api.model
-    def get_values(self):
-        res = super(ResConfigSettings, self).get_values()
-        # Load settings logic
-        return res
+        string="API Key", config_parameter=PARAM_PREFIX + "api_key")
+
+    # Optional: small safety check
+    @api.constrains("harvest_committee_size")
+    def _check_committee_size(self):
+        for rec in self:
+            if rec.harvest_committee_size <= 0:
+                raise ValidationError(_("Committee size must be positive."))
