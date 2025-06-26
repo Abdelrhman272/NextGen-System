@@ -27,20 +27,19 @@ class FishHarvest(models.Model):
     ], 'Status', default='draft', tracking=True)
     
     @api.model
-    def create(self, vals_list):
-        if isinstance(vals_list, dict):
-            vals_list = [vals_list]
-            harvests = super(FishHarvest, self).create(vals_list)
-    
-    for harvest in harvests:
-        if harvest.name == 'New':
-            harvest.name = self.env['ir.sequence'].next_by_code('fish.harvest') or 'New'
-    
-    return harvests
-  
+    def create(self, vals):
+        if isinstance(vals, dict):
+            vals_list = [vals]
+        else:
+            vals_list = vals
+        harvests = super(FishHarvest, self).create(vals_list)
+        for harvest in harvests:
+            if harvest.name == 'New':
+                harvest.name = self.env['ir.sequence'].next_by_code('fish.harvest') or 'New'
+        return harvests
+
     def action_transfer_to_warehouse(self):
         self.ensure_one()
-        # Create stock move to transfer harvested fish to warehouse
         move = self.env['stock.move'].create({
             'name': f'Harvest Transfer: {self.name}',
             'product_id': self.cycle_id.fish_type_id.product_id.id,
@@ -55,7 +54,6 @@ class FishHarvest(models.Model):
         move._action_assign()
         move.quantity_done = self.quantity
         move._action_done()
-        
         self.write({
             'stock_move_id': move.id,
             'state': 'transferred'
