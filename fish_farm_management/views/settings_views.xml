@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
         <field name="arch" type="xml">
 
-            <!-- ندرج إعداداتنا بعد إعداد "Company Registry" الموجود أصلًا -->
+            <!-- ندرج إعداداتنا بعد إعداد "Company Registry" -->
             <xpath expr="//setting[@id='base_setup.setting_company_registry']" position="after">
 
                 <!-- Default Feed Product -->
@@ -52,16 +52,18 @@
 
                 <!-- Cost parameters -->
                 <setting id="fish_farm.setting_labor_cost"
-                         string="Labor Cost per Hour"/>
+                         string="Labor Cost per Hour"
+                         help="Hourly wage cost used in cost calculations.">
                     <field name="labor_cost_per_hour"/>
                 </setting>
 
                 <setting id="fish_farm.setting_electricity_cost"
-                         string="Electricity Cost per kWh"/>
+                         string="Electricity Cost per kWh"
+                         help="Electricity tariff used in cost calculations.">
                     <field name="electricity_cost_per_kwh"/>
                 </setting>
 
-                <!-- API Integration toggle -->
+                <!-- API Integration -->
                 <setting id="fish_farm.setting_api_toggle"
                          string="Enable API Integration"
                          help="Allow external systems to retrieve fish-farm data via API.">
