@@ -3,6 +3,7 @@
     <record id="view_fish_farm_tree" model="ir.ui.view">
         <field name="name">fish.farm.tree</field>
         <field name="model">fish.farm</field>
+        <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
