@@ -3,7 +3,7 @@
     <record id="view_fish_farm_sector_list" model="ir.ui.view">
         <field name="name">fish.farm.sector.list</field>
         <field name="model">fish.farm.sector</field>
-        <field name="type">مهسف</field>
+        <field name="type">list</field>
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
