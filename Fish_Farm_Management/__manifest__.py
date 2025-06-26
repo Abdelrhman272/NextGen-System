@@ -7,8 +7,8 @@
         harvesting, costs, and integration with Odoo modules
     """,
     'category': 'Industries',
-    'author': 'Your Company',
-    'website': 'https://www.yourcompany.com',
+    'author': 'NextGen Systems',
+    'website': 'https://www.nextgensystems.net',
     'license': 'LGPL-3',
     'depends': [
         'base', 
