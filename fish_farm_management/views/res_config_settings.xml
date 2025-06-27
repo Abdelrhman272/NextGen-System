@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="res_config_settings_view_form_inherit_fish_farm"
-            model="ir.ui.view">
+    <record id="res_config_settings_view_form_inherit_fish_farm" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.inherit.fish.farm</field>
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
         <field name="arch" type="xml">
 
-            <!-- نُدرِج كتلة الإعدادات داخل العنصر <sheet> وهو موجود دائمًا -->
-            <xpath expr="//sheet" position="inside">
+            <!-- المكان الصحيح لإضافة إعدادات جديدة في Odoo 18 -->
+            <xpath expr="//div[@id='settings']" position="inside">
                 <div class="app_settings_block" data-string="Fish Farm Settings">
                     <h2>Fish Farm Settings</h2>
-
-                    <!-- صفّ واحد يضم جميع الحقول -->
                     <div class="row mt16 o_settings_container">
                         <div class="col-12 col-lg-6">
 
