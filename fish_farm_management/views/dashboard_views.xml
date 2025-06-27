@@ -5,51 +5,42 @@
         <field name="name">Fish Farm Dashboard</field>
         <field name="tag">fish_farm_dashboard</field>
         <field name="target">current</field>
-        <field name="params">{'model': 'fish.breeding.cycle'}</field>
+        <field name="params">{}</field>
     </record>
 
-    <!-- تعريف القالب مع الوراثة الصحيحة -->
-    <template id="fish_farm_dashboard" inherit_id="web.layout">
-        <t t-extend="Layout">
-            <t t-jquery=".o_content" t-operation="replace">
-                <div class="container-fluid mt-3 o_content">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="card kpi-card">
-                                <div class="card-body text-center">
-                                    <h5 class="card-title">Total Production</h5>
-                                    <h3 class="display-4" t-esc="widget_data.total_production or 0"/> 
-                                    <span>kg</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- باقي بطاقات الـ KPI -->
-                    </div>
-
-                    <div class="row mt-4">
+    <!-- تعريف القالب باستخدام Owl Component -->
+    <template id="fish_farm_dashboard_view" inherit_id="web.layout">
+        <t t-name="fish_farm_management.Dashboard" owl="1">
+            <div class="o_content">
+                <div class="container-fluid p-3">
+                    <h2>Fish Farm Dashboard</h2>
+                    
+                    <!-- محتوى لوحة التحكم -->
+                    <div class="row mt-3">
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Monthly Production</h5>
                                 </div>
                                 <div class="card-body">
-                                    <div id="monthly_production_chart"></div>
+                                    <canvas id="productionChart"></canvas>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Pond Status</h5>
                                 </div>
                                 <div class="card-body">
-                                    <div id="pond_status_chart"></div>
+                                    <canvas id="pondChart"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </t>
+            </div>
         </t>
     </template>
 </odoo>
