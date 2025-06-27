@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <template id="assets_backend" inherit_id="web.assets_backend">
-        <xpath expr="." position="inside">
-            <script src="/fish_farm_management/static/src/js/translation.js" type="text/javascript"/>
-            <link rel="stylesheet" href="/fish_farm_management/static/src/css/styles.css"/>
-        </xpath>
-    </template>
-</odoo>
