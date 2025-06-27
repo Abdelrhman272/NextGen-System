@@ -39,6 +39,7 @@
         #'views/templates.xml',
         #'views/translation_templates.xml',
         'views/dashboard_views.xml',
+        'views/dashboard_templates',
         'views/menu.xml',
     ],
     'demo': [],
@@ -49,7 +50,7 @@
         'web.assets_backend': [
             'fish_farm_management/static/src/js/translation.js',
             'fish_farm_management/static/src/css/styles.css',
-            'https://cdn.jsdelivr.net/npm/chart.js',
+            'fish_farm_management/static/lib/chart.js/chart.js',
             'fish_farm_management/static/src/js/dashboard.js'
         ],
         'web.assets_qweb': [

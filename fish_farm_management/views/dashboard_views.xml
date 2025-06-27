@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- تعريف إجراء العميل -->
     <record id="action_fish_farm_dashboard" model="ir.actions.client">
         <field name="name">Fish Farm Dashboard</field>
         <field name="tag">fish_farm_dashboard</field>
@@ -7,44 +8,48 @@
         <field name="params">{'model': 'fish.breeding.cycle'}</field>
     </record>
 
-    <template id="fish_farm_dashboard" inherit_id="web.minimal_layout">
-        <t t-call="web.bootstrap">
-            <div class="container-fluid mt-3">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="card kpi-card">
-                            <div class="card-body text-center">
-                                <h5 class="card-title" data-i18n="Total Production">Total Production</h5>
-                                <h3 class="display-4" t-esc="widget_data.total_production or 0"/> <span data-i18n="kg">kg</span>
+    <!-- تعريف القالب مع الوراثة الصحيحة -->
+    <template id="fish_farm_dashboard" inherit_id="web.layout">
+        <t t-extend="Layout">
+            <t t-jquery=".o_content" t-operation="replace">
+                <div class="container-fluid mt-3 o_content">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card kpi-card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Total Production</h5>
+                                    <h3 class="display-4" t-esc="widget_data.total_production or 0"/> 
+                                    <span>kg</span>
+                                </div>
                             </div>
                         </div>
+                        <!-- باقي بطاقات الـ KPI -->
                     </div>
-                    <!-- باقي بطاقات الـ KPI -->
-                </div>
 
-                <div class="row mt-4">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 data-i18n="Monthly Production">Monthly Production</h5>
-                            </div>
-                            <div class="card-body">
-                                <div id="monthly_production_chart"></div>
+                    <div class="row mt-4">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Monthly Production</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="monthly_production_chart"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 data-i18n="Pond Status">Pond Status</h5>
-                            </div>
-                            <div class="card-body">
-                                <div id="pond_status_chart"></div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Pond Status</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="pond_status_chart"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </t>
         </t>
     </template>
 </odoo>
