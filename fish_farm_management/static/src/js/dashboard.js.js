@@ -1,110 +1,111 @@
-odoo.define('fish_farm.dashboard', function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    var AbstractAction = require('web.AbstractAction');
-    var core = require('web.core');
-    var ajax = require('web.ajax');
-    var session = require('web.session');
-    var Widget = require('web.Widget');
-    var QWeb = core.qweb;
-    var _t = core._t;
+import { registry } from "@web/core/registry";
+import { Component } from "@odoo/owl";
+import { useService } from "@web/core/utils/hooks";
 
-    var FishFarmDashboard = AbstractAction.extend({
-        template: 'fish_farm_dashboard',
-        events: {
-            'click .refresh-btn': '_onRefreshClick',
-        },
+/**
+ * Fish Farm Dashboard Client‑Action
+ * --------------------------------
+ * يسجل Client‑Action بالاسم «fish_farm_dashboard» ويعرض تملبْلة  QWeb
+ * `fish_farm_dashboard` المُعرَّفة فى `dashboard_views.xml`.
+ * بعد التحميل، يجلب البيانات من الـ Endpoint المخصّص ويُظهر KPIs
+ * ومخطّطات Chart.js.
+ */
 
-        init: function(parent, context) {
-            this._super.apply(this, arguments);
-            this.dashboard_data = {};
-        },
+export class FishFarmDashboard extends Component {
+    static template = "fish_farm_dashboard"; // اسم التمبلِت QWeb
 
-        willStart: function() {
-            return $.when(
-                this._super.apply(this, arguments),
-                this._loadDashboardData()
-            );
-        },
+    setup() {
+        // خدمات Odoo القياسية
+        this.rpc         = useService("rpc");
+        this.notification = useService("notification");
 
-        start: function() {
-            return this._super().then(this._renderCharts.bind(this));
-        },
+        // حالة (state) مبدئية فارغة؛ تُحدَّث بعد استدعاء الـ RPC
+        this.state = {
+            total_production: 0,
+            monthly_production: { labels: [], values: [] },
+            pond_status:       { labels: [], values: [] },
+        };
 
-        _loadDashboardData: function() {
-            var self = this;
-            return ajax.jsonRpc('/fish_farm/dashboard/data', 'call', {
-                context: session.user_context,
-            }).then(function(result) {
-                self.dashboard_data = result;
+        // حمل البيانات عند البدء
+        this._loadDashboardData();
+    }
+
+    //--------------------------------------------------------------------------
+    // RPC
+    //--------------------------------------------------------------------------
+
+    async _loadDashboardData() {
+        try {
+            const result = await this.rpc("/fish_farm/dashboard/data", {});
+            this.state   = { ...this.state, ...result };
+            // بعد جلب البيانات ارسم المخططات
+            this.render();
+            this._renderCharts();
+        } catch (err) {
+            this.notification.add("Cannot load dashboard data", {
+                type: "danger",
             });
-        },
+            // اكتب الخطأ فى الـ Console للمطوّر
+            console.error(err);
+        }
+    }
 
-        _renderCharts: function() {
-            // رسم مخطط الإنتاج الشهري
-            if (this.dashboard_data.monthly_production) {
-                this._renderMonthlyProductionChart();
-            }
+    //--------------------------------------------------------------------------
+    // UI helpers
+    //--------------------------------------------------------------------------
 
-            // رسم مخطط حالة الأحواض
-            if (this.dashboard_data.pond_status) {
-                this._renderPondStatusChart();
-            }
+    // إعادة تحميل البيانات عند الضغط على زر Refresh (اختيارى)
+    onRefreshClick() {
+        this._loadDashboardData();
+    }
 
-            // تحديث بيانات الـ KPI
-            this.$('.display-4').eq(0).text(this.dashboard_data.total_production || 0);
-            // يمكنك إضافة المزيد من تحديثات الـ KPI هنا
-        },
+    _renderCharts() {
+        // Chart.js يجب أن يكون متاحًا عالميًا فى الصفحة (مثلاً عبر asset bundle)
+        if (typeof Chart === "undefined") {
+            console.warn("Chart.js not found – charts will not render.");
+            return;
+        }
 
-        _renderMonthlyProductionChart: function() {
-            var self = this;
-            var data = this.dashboard_data.monthly_production;
-            
-            // استخدام Chart.js أو أي مكتبة رسوم بيانية أخرى
-            var ctx = document.getElementById('monthly_production_chart').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
+        //------------------------------------------------------------------
+        // مخطط الإنتاج الشهرى (Bar Chart)
+        //------------------------------------------------------------------
+        const mp = this.state.monthly_production;
+        const mpCanvas = this.el.querySelector("#monthly_production_chart");
+        if (mpCanvas && mp.labels.length) {
+            new Chart(mpCanvas, {
+                type: "bar",
                 data: {
-                    labels: data.labels,
+                    labels: mp.labels,
                     datasets: [{
-                        label: _t('Production (kg)'),
-                        data: data.values,
-                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
+                        label: this.env._t("Production (kg)"),
+                        data: mp.values,
+                        borderWidth: 1,
+                    }],
                 },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: true,
-                            text: _t('Monthly Fish Production')
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
+                options: { scales: { y: { beginAtZero: true } } },
             });
-        },
+        }
 
-        _renderPondStatusChart: function() {
-            var data = this.dashboard_data.pond_status;
-            
-            var ctx = document.getElementById('pond_status_chart').getContext('2d');
-            new Chart(ctx, {
-                type: 'doughnut',
+        //------------------------------------------------------------------
+        // مخطط حالة الأحواض (Doughnut Chart)
+        //------------------------------------------------------------------
+        const ps = this.state.pond_status;
+        const psCanvas = this.el.querySelector("#pond_status_chart");
+        if (psCanvas && ps.labels.length) {
+            new Chart(psCanvas, {
+                type: "doughnut",
                 data: {
-                    labels: data.labels,
+                    labels: ps.labels,
                     datasets: [{
-                        data: data.values,
-                        backgroundColor: [
-                            'rgba(75, 192, 192, 0.5)',
-                            'rgba(255, 99, 132, 0.5)',
-                            'rgba(255
+                        data: ps.values,
+                    }],
+                },
+            });
+        }
+    }
+}
+
+// تسجيل الـ Client‑Action فى الـ Registry
+registry.category("actions").add("fish_farm_dashboard", FishFarmDashboard);
