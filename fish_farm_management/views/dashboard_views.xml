@@ -7,7 +7,7 @@
         <field name="params">{'model': 'fish.breeding.cycle'}</field>
     </record>
 
-    <template id="fish_farm_dashboard">
+    <template id="fish_farm_dashboard" inherit_id="web.minimal_layout">
         <t t-call="web.bootstrap">
             <div class="container-fluid mt-3">
                 <div class="row">
