@@ -8,4 +8,4 @@ from . import breeding_cycle
 from . import harvest
 from . import cost_distribution
 from . import translation_utils
-from . import res_config_settings
+from . import settings
