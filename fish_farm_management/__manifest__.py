@@ -39,7 +39,6 @@
         #'views/templates.xml',
         #'views/translation_templates.xml',
         #'views/dashboard_views.xml',
-        'views/dashboard_templates.xml',
         'views/menu.xml',
     ],
     'demo': [],
