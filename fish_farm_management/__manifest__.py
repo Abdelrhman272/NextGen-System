@@ -36,7 +36,7 @@
         'views/sector_views.xml',
         'views/segment_views.xml',
         #'views/res_config_settings.xml',
-        'views/templates.xml',
+        #'views/templates.xml',
         'views/translation_templates.xml',
         'views/dashboard_views.xml',
         'views/menu.xml',
