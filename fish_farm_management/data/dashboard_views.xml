@@ -1,42 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="action_fish_farm_dashboard" model="ir.actions.client">
-        <field name="name">Fish Farm Dashboard</field>
-        <field name="tag">fish_farm_dashboard</field>
-        <field name="target">current</field>
-    </record>
+    <data>
+        <!-- Client action -->
+        <record id="action_fish_farm_dashboard" model="ir.actions.client">
+            <field name="name">Fish Farm Dashboard</field>
+            <field name="tag">fish_farm_dashboard</field>
+            <field name="target">current</field>
+        </record>
 
-    <template id="fish_farm_dashboard_view" inherit_id="web.layout" owl="1">
-        <xpath expr="//div[hasclass('o_content')]" position="replace">
-            <div class="o_content">
-                <div class="container-fluid p-3">
-                    <h2>Fish Farm Dashboard</h2>
+        <!-- OWL template -->
+        <template id="fish_farm_dashboard_view" inherit_id="web.layout" owl="1">
+            <xpath expr="//div[hasclass('o_content')]" position="replace">
+                <div class="o_content">
+                    <div class="container-fluid p-3">
+                        <h2>Fish Farm Dashboard</h2>
 
-                    <div class="row mt-3">
-                        <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Monthly Production</h5>
-                                </div>
-                                <div class="card-body">
-                                    <canvas id="productionChart"></canvas>
+                        <div class="row mt-3">
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Monthly Production</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="productionChart"></canvas>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Pond Status</h5>
-                                </div>
-                                <div class="card-body">
-                                    <canvas id="pondChart"></canvas>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Pond Status</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="pondChart"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </xpath>
-    </template>
+            </xpath>
+        </template>
+    </data>
 </odoo>
