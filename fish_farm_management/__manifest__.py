@@ -23,7 +23,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'data/dashboard_views.xml',
+        'views/dashboard_views.xml',
         'data/default_data.xml',
         'views/farm_views.xml',
         'views/pond_views.xml',
