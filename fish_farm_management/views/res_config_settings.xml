@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_fish_farm" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.fish.farm</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('setting')]" position="inside">
+                <div class="app_settings_block" data-string="Fish Farm Settings">
+                    <h2>Fish Farm Settings</h2>
+                    <setting id="fish_farm.default_feed_product_id"
+                            string="Default Feed Product"
+                            help="Product used by default when registering feed consumption.">
+                        <field name="default_feed_product_id"/>
+                    </setting>
+
+                     <setting id="fish_farm.default_medicine_product_id"
+                            string="Default Medicine Product"
+                            help="Product used by default for pond treatments.">
+                        <field name="default_medicine_product_id"/>
+                    </setting>
+
+                    <setting id="fish_farm.harvest_committee_size"
+                            string="Harvest Committee Size"
+                            help="Default number of members in the harvest committee.">
+                        <field name="harvest_committee_size"/>
+                    </setting>
+
+                    <setting id="fish_farm.fish_farm_analytic_account_prefix"
+                            string="Analytic Account Prefix"
+                            help="Prefix used when system creates analytic accounts for ponds or farms.">
+                        <field name="fish_farm_analytic_account_prefix"/>
+                    </setting>
+
+                    <setting id="fish_farm.default_income_account_id"
+                            string="Default Income Account"
+                            help="Used when posting revenue from fish harvest.">
+                        <field name="default_income_account_id"/>
+                    </setting>
+
+                    <setting id="fish_farm.default_expense_account_id"
+                            string="Default Expense Account"
+                            help="Used when posting feed, medicine, and other costs.">
+                        <field name="default_expense_account_id"/>
+                    </setting>
+
+                    <setting id="fish_farm.labor_cost_per_hour"
+                            string="Labor Cost per Hour"
+                            help="Hourly wage cost used in cost calculations.">
+                        <field name="labor_cost_per_hour"/>
+                    </setting>
+
+                    <setting id="fish_farm.electricity_cost_per_kwh"
+                            string="Electricity Cost per kWh"
+                            help="Electricity tariff used in cost calculations.">
+                        <field name="electricity_cost_per_kwh"/>
+                    </setting>
+
+                    <setting id="fish_farm.enable_api_integration"
+                            string="Enable API Integration"
+                            help="Allow external systems to retrieve fish‑farm data via API.">
+                        <field name="enable_api_integration"/>
+                    </setting>
+
+                    <setting id="fish_farm.api_key"
+                            string="API Key"
+                            help="Shared secret used by external systems.">
+                        <field name="api_key" password="True"/>
+                    </setting>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
