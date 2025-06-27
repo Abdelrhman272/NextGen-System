@@ -23,6 +23,8 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/dashboard_views.xml',
+        'data/default_data.xml',
         'views/farm_views.xml',
         'views/pond_views.xml',
         'views/breeding_cycle_views.xml',
@@ -38,7 +40,6 @@
         #'views/res_config_settings.xml',
         #'views/templates.xml',
         #'views/translation_templates.xml',
-        'views/dashboard_views.xml',
         'views/menu.xml',
     ],
     'demo': [],
