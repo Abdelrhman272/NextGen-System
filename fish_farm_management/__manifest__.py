@@ -49,6 +49,8 @@
         'web.assets_backend': [
             'fish_farm_management/static/src/js/translation.js',
             'fish_farm_management/static/src/css/styles.css',
+            'https://cdn.jsdelivr.net/npm/chart.js',
+            'fish_farm_management/static/src/js/dashboard.js'
         ],
         'web.assets_qweb': [
             'fish_farm_management/static/src/xml/dashboard_templates.xml',
