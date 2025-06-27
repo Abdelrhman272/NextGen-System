@@ -11,32 +11,59 @@ class FishFarmDashboard extends Component {
         this.rpc = useService("rpc");
         this.state = useState({
             loading: true,
-            data: null
+            productionData: null,
+            pondData: null
         });
-        
-        onWillStart(() => this.loadData());
-        onMounted(() => this.renderCharts());
+
+        onWillStart(async () => {
+            await this.loadDashboardData();
+        });
+
+        onMounted(() => {
+            if (!this.state.loading) {
+                this.renderCharts();
+            }
+        });
     }
 
-    async loadData() {
-        this.state.data = await this.rpc("/fish_farm/dashboard/data");
-        this.state.loading = false;
+    async loadDashboardData() {
+        try {
+            const data = await this.rpc("/fish_farm/dashboard/data");
+            this.state.productionData = data.production;
+            this.state.pondData = data.pondStatus;
+            this.state.loading = false;
+        } catch (error) {
+            console.error("Failed to load dashboard data:", error);
+        }
     }
 
     renderCharts() {
-        if (!window.Chart || !this.state.data) return;
-        
-        // Render production chart
-        new Chart(
-            document.getElementById("productionChart").getContext("2d"),
-            this.state.data.production
-        );
-        
-        // Render pond status chart
-        new Chart(
-            document.getElementById("pondChart").getContext("2d"),
-            this.state.data.pondStatus
-        );
+        if (typeof window.Chart === 'undefined') return;
+
+        // Production Chart
+        const productionCtx = document.getElementById('productionChart')?.getContext('2d');
+        if (productionCtx && this.state.productionData) {
+            new window.Chart(productionCtx, {
+                type: 'bar',
+                data: this.state.productionData,
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        }
+
+        // Pond Status Chart
+        const pondCtx = document.getElementById('pondChart')?.getContext('2d');
+        if (pondCtx && this.state.pondData) {
+            new window.Chart(pondCtx, {
+                type: 'doughnut',
+                data: this.state.pondData,
+                options: { responsive: true }
+            });
+        }
     }
 }
 
