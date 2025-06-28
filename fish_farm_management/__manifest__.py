@@ -52,9 +52,9 @@
             'fish_farm_management/static/lib/chart/chart.umd.js',
             'fish_farm_management/static/src/js/translation.js',
             'fish_farm_management/static/src/js/dashboard.js',
-        ],
-        'web.assets_qweb': [
             'fish_farm_management/static/src/xml/dashboard_template.xml',
+        ],
+        'web.assets_qweb': [  
         ],
     },
 }
