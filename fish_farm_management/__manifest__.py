@@ -23,8 +23,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'data/dashboard_actions.xml',
-        'views/dashboard_template.xml',
+        'views/dashboard_actions.xml',
         #'views/dashboard_views.xml',
         'views/farm_views.xml',
         'views/pond_views.xml',
@@ -55,7 +54,7 @@
             'fish_farm_management/static/src/js/dashboard.js',
         ],
         'web.assets_qweb': [
-            'fish_farm_management/static/src/xml/dashboard_templates.xml',
+            'fish_farm_management/static/src/xml/dashboard_template.xml',
         ],
     },
 }
