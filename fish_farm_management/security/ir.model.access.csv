@@ -4,4 +4,5 @@ access_fish_farm_sector,fish_farm_sector,model_fish_farm_sector,base.group_user,
 access_fish_farm_segment,fish_farm_segment,model_fish_farm_segment,base.group_user,1,1,1,1
 access_fish_pond,fish_pond,model_fish_pond,base.group_user,1,1,1,1
 access_fish_farm_dashboard,fish_farm_dashboard,model_fish_farm_dashboard,base.group_user,1,1,1,1
+access_fish_farm_harvest_user,access.fish.farm.harvest.user,model_fish_farm_harvest,base.group_user,1,1,1,1
 access_fish_harvest_wizard,fish_harvest_wizard,model_fish_harvest_wizard,base.group_user,1,1,1,1
