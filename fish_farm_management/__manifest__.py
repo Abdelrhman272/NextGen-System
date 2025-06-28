@@ -23,8 +23,9 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'views/dashboard_views.xml',
-        'data/default_data.xml',
+        'data/dashboard_actions.xml',
+        'views/dashboard_template.xml',
+        #'views/dashboard_views.xml',
         'views/farm_views.xml',
         'views/pond_views.xml',
         'views/breeding_cycle_views.xml',
@@ -49,9 +50,9 @@
     'assets': {
         'web.assets_backend': [
             'fish_farm_management/static/src/js/translation.js',
-            'web/static/lib/chart.js/chart.js'
+            'web/static/lib/chart.js/chart.js',
             'fish_farm_management/static/lib/chart/chart.js',
-            'fish_farm_management/static/src/js/dashboard.js'
+            'fish_farm_management/static/src/js/dashboard.js',
         ],
         'web.assets_qweb': [
             'fish_farm_management/static/src/xml/dashboard_templates.xml',
