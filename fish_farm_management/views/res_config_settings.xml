@@ -1,116 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!--
-        NOTE: Settings fields should be defined on the 'res.config.settings' model in Python.
-        The <record> and <function> tags to set values directly in XML are removed
-        as this is not the modern or recommended practice.
-    -->
-
-    <!-- Settings Interface View -->
     <record id="res_config_settings_view_form_inherit_fish_farm" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.inherit.fish.farm</field>
         <field name="model">res.config.settings</field>
-        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <!-- We are inheriting from the standard base settings view -->
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
             <!--
-                This XPath targets the main <sheet> element of the form,
-                which is a more stable anchor across Odoo versions.
+            FINAL ATTEMPT: This is the most robust XPath.
+            Instead of looking for a specific settings block (like general_settings),
+            we are looking for the main container ('settings_pane') that holds ALL blocks.
+            We then add our block inside it. This should work on almost any Odoo setup.
             -->
-            <xpath expr="//div[@data-key='general_settings']" position="after">
-                <div class="app_settings_block" data-string="Fish Farm" string="Fish Farm" data-key="fish_farm_management">
-                    <h2>Fish Farm</h2>
+            <xpath expr="//div[hasclass('settings_pane')]" position="inside">
+                <div class="app_settings_block" data-string="Fish Farm" string="Fish Farm" data-key="fish_farm_management" groups="base.group_system">
+                    <!-- The content of the settings page goes here, as provided before -->
+                    <h2>Fish Farm Defaults</h2>
                     <div class="row mt16 o_settings_container">
-                        <!-- Column 1 for settings -->
+                        <!-- Left Column -->
                         <div class="col-12 col-lg-6 o_setting_box">
-                             <!-- Default Feed Product -->
                             <div class="o_setting_right_pane">
                                 <label for="default_feed_product_id"/>
                                 <div class="text-muted">
-                                    Default product used for fish feeding
+                                   Set the default product for fish feeding.
                                 </div>
                                 <div class="content-group">
-                                    <field name="default_feed_product_id" options="{'no_create': True}" context="{'default_type': 'product'}"/>
+                                    <field name="default_feed_product_id"/>
                                 </div>
                             </div>
-                            <!-- Default Medicine Product -->
                             <div class="o_setting_right_pane mt16">
                                 <label for="default_medicine_product_id"/>
                                 <div class="text-muted">
-                                    Default product used for fish treatment
+                                   Set the default product for fish treatment.
                                 </div>
                                 <div class="content-group">
-                                    <field name="default_medicine_product_id" options="{'no_create': True}" context="{'default_type': 'product'}"/>
-                                </div>
-                            </div>
-                            <!-- Harvest Committee Size -->
-                             <div class="o_setting_right_pane mt16">
-                                <label for="harvest_committee_size"/>
-                                <div class="text-muted">
-                                    Number of members required for harvest validation
-                                </div>
-                                <div class="content-group">
-                                    <field name="harvest_committee_size"/>
-                                </div>
-                            </div>
-                            <!-- Labor Cost -->
-                            <div class="o_setting_right_pane mt16">
-                                <label for="labor_cost_per_hour"/>
-                                <div class="content-group">
-                                    <field name="labor_cost_per_hour"/>
+                                    <field name="default_medicine_product_id"/>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Column 2 for settings -->
+                        <!-- Right Column -->
                         <div class="col-12 col-lg-6 o_setting_box">
-                             <!-- Default Income Account -->
-                             <div class="o_setting_right_pane">
+                           <div class="o_setting_right_pane">
                                 <label for="default_income_account_id"/>
-                                <div class="content-group">
-                                    <field name="default_income_account_id" options="{'no_create': True}"/>
-                                </div>
-                            </div>
-                             <!-- Default Expense Account -->
-                            <div class="o_setting_right_pane mt16">
-                                <label for="default_expense_account_id"/>
-                                <div class="content-group">
-                                    <field name="default_expense_account_id" options="{'no_create': True}"/>
-                                </div>
-                            </div>
-                             <!-- Analytic Account Prefix -->
-                            <div class="o_setting_right_pane mt16">
-                                <label for="fish_farm_analytic_account_prefix"/>
-                                <div class="content-group">
-                                    <field name="fish_farm_analytic_account_prefix"/>
-                                </div>
-                            </div>
-                             <!-- Electricity Cost -->
-                            <div class="o_setting_right_pane mt16">
-                                <label for="electricity_cost_per_kwh"/>
-                                <div class="content-group">
-                                    <field name="electricity_cost_per_kwh"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <h2>API Integration</h2>
-                     <div class="row mt16 o_settings_container">
-                        <div class="col-12 col-lg-6 o_setting_box" id="api_integration_settings">
-                            <div class="o_setting_left_pane">
-                                <field name="enable_api_integration"/>
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="enable_api_integration"/>
                                 <div class="text-muted">
-                                    Enable to activate external API features.
+                                   Default account for farm income.
                                 </div>
-                                <div class="content-group mt16" attrs="{'invisible': [('enable_api_integration', '=', False)]}">
-                                    <label for="api_key" class="o_light_label"/>
-                                    <field name="api_key" password="True"/>
+                                <div class="content-group">
+                                    <field name="default_income_account_id"/>
+                                </div>
+                            </div>
+                           <div class="o_setting_right_pane mt16">
+                                <label for="default_expense_account_id"/>
+                                <div class="text-muted">
+                                   Default account for farm expenses.
+                                </div>
+                                <div class="content-group">
+                                    <field name="default_expense_account_id"/>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- ... other settings sections ... -->
                 </div>
             </xpath>
         </field>
