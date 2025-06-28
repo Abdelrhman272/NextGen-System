@@ -187,7 +187,6 @@ class FishFarmDashboard extends Component {
 }
 
 // تسجيل المكون كنوع من الإجراءات
-registry.category("actions").add("fish_farm_dashboard", {
-    component: FishFarmDashboard,
+registry.category("actions").add("fish_farm_dashboard",FishFarmDashboard,
     // يمكنك إضافة خصائص إضافية هنا إذا لزم الأمر
-});
+);
