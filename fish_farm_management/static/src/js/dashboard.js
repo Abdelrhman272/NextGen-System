@@ -1,192 +1,120 @@
 /** @odoo-module **/
 
+// Import necessary components and hooks from Owl and Odoo's web core.
 import { registry } from "@web/core/registry";
 import { Component, onWillStart, onMounted, useState } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 
+// Define the dashboard component.
 class FishFarmDashboard extends Component {
+    // The static template name MUST match the t-name in your XML file exactly.
     static template = "fish_farm_management.fish_farm_dashboard_template";
-    
+
     setup() {
-        super.setup(); // ضروري للإصدارات الحديثة من Owl
-        
-        // تهيئة حالة المكون
+        // Initialize standard component setup.
+        super.setup();
+
+        // Use the standard RPC service from Odoo's core.
+        this.rpc = useService("rpc");
+
+        // Set up the component's reactive state.
         this.state = useState({
             loading: true,
-            productionData: null,
-            pondData: null
+            productionData: {},
+            pondData: {},
         });
 
-        // الحصول على خدمات RPC بطريقة متوافقة مع جميع الإصدارات
-        try {
-            this.rpc = useService("rpc") || this.env.services.rpc;
-        } catch (error) {
-            console.error("Error initializing RPC service:", error);
-            this.rpc = this._createFallbackRPC();
-        }
-
-        // تحميل البيانات عند بدء المكون
+        // Use onWillStart hook to fetch data before the component renders.
         onWillStart(async () => {
-            await this.loadDashboardData();
+            await this.fetchDashboardData();
         });
 
-        // رسم المخططات بعد تحميل البيانات
+        // Use onMounted hook to render charts after the component is in the DOM.
         onMounted(() => {
-            if (!this.state.loading) {
-                this.renderCharts();
-            }
+            this.renderCharts();
         });
     }
 
-    // دالة بديلة لخدمة RPC في حالة فشل الحصول عليها
-    _createFallbackRPC() {
-        return {
-            async route(route, params) {
-                try {
-                    const response = await fetch(route, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-Owlbear': 'true' // لتجنب مشاكل CSRF
-                        },
-                        body: JSON.stringify(params),
-                    });
-                    return await response.json();
-                } catch (error) {
-                    console.error("RPC Fallback failed:", error);
-                    throw error;
-                }
-            }
-        };
-    }
-
-    async loadDashboardData() {
+    /**
+     * Fetches all necessary data from the backend via a single RPC call.
+     */
+    async fetchDashboardData() {
+        this.state.loading = true;
         try {
-            const data = await this.rpc("/fish_farm/dashboard/data", {
-                context: this.env.session.user_context
-            });
+            // Call the Python method on the backend to get dashboard data.
+            const data = await this.rpc("/fish_farm/dashboard/data");
             
-            this.state.productionData = this._prepareProductionData(data.production);
-            this.state.pondData = this._preparePondData(data.pondStatus);
-            this.state.loading = false;
-            
+            // Prepare and assign data to the component's state.
+            this.state.productionData = this._prepareChartData(
+                data.production.months,
+                'Monthly Production',
+                data.production.values,
+                '#4CAF50' // Green
+            );
+            this.state.pondData = this._prepareChartData(
+                data.pondStatus.statuses,
+                'Pond Status',
+                data.pondStatus.counts,
+                ['#FF6384', '#36A2EB', '#FFCE56'] // Red, Blue, Yellow
+            );
         } catch (error) {
-            console.error("Failed to load dashboard data:", error);
+            console.error("Odoo Dashboard Error: Could not fetch data.", error);
+        } finally {
             this.state.loading = false;
-            // يمكنك إضافة معالجة إضافية للأخطاء هنا
         }
     }
 
-    // معالجة بيانات الإنتاج قبل العرض
-    _prepareProductionData(rawData) {
+    /**
+     * A helper function to prepare chart data configuration.
+     */
+    _prepareChartData(labels, datasetLabel, data, backgroundColor) {
         return {
-            labels: rawData.months,
+            labels: labels,
             datasets: [{
-                label: 'الإنتاج الشهري',
-                data: rawData.values,
-                backgroundColor: '#4CAF50',
-                borderColor: '#388E3C',
+                label: datasetLabel,
+                data: data,
+                backgroundColor: backgroundColor,
                 borderWidth: 1
             }]
         };
     }
 
-    // معالجة بيانات الأحواض قبل العرض
-    _preparePondData(rawData) {
-        return {
-            labels: rawData.statuses,
-            datasets: [{
-                data: rawData.counts,
-                backgroundColor: [
-                    '#FF6384',
-                    '#36A2EB',
-                    '#FFCE56'
-                ],
-                hoverBackgroundColor: [
-                    '#FF6384',
-                    '#36A2EB',
-                    '#FFCE56'
-                ]
-            }]
-        };
-    }
-
+    /**
+     * Renders all charts once the component is mounted and data is available.
+     */
     renderCharts() {
+        // Check if Chart.js library is loaded.
         if (typeof window.Chart === 'undefined') {
-            console.warn("Chart.js library not loaded");
+            console.error("Chart.js is not loaded. Make sure it's included in the assets.");
             return;
         }
 
-        // رسم مخطط الإنتاج
-        this._renderProductionChart();
-        
-        // رسم مخطط حالة الأحواض
-        this._renderPondChart();
+        // Render both charts.
+        this._renderChart('productionChart', 'bar', this.state.productionData, 'Monthly Production');
+        this._renderChart('pondChart', 'doughnut', this.state.pondData, 'Pond Status');
     }
 
-    _renderProductionChart() {
-        const ctx = document.getElementById('productionChart')?.getContext('2d');
-        if (ctx && this.state.productionData) {
+    /**
+     * Generic function to render a single chart.
+     */
+    _renderChart(canvasId, type, data, title) {
+        const ctx = document.getElementById(canvasId)?.getContext('2d');
+        if (ctx) {
             new window.Chart(ctx, {
-                type: 'bar',
-                data: this.state.productionData,
+                type: type,
+                data: data,
                 options: {
                     responsive: true,
                     plugins: {
-                        legend: {
-                            position: 'top',
-                            rtl: true
-                        },
-                        title: {
-                            display: true,
-                            text: 'الإنتاج الشهري'
-                        }
+                        legend: { position: 'top' },
+                        title: { display: true, text: title }
                     },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'الكمية'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'الشهر'
-                            }
-                        }
-                    }
-                }
-            });
-        }
-    }
-
-    _renderPondChart() {
-        const ctx = document.getElementById('pondChart')?.getContext('2d');
-        if (ctx && this.state.pondData) {
-            new window.Chart(ctx, {
-                type: 'doughnut',
-                data: this.state.pondData,
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'right',
-                            rtl: true
-                        },
-                        title: {
-                            display: true,
-                            text: 'حالة الأحواض'
-                        }
-                    }
+                    scales: (type === 'bar') ? { y: { beginAtZero: true } } : {}
                 }
             });
         }
     }
 }
 
-// تسجيل المكون كنوع من الإجراءات
-registry.category("actions").add("fish_farm_dashboard",FishFarmDashboard,
-    // يمكنك إضافة خصائص إضافية هنا إذا لزم الأمر
-);
+// Register the component in Odoo's action registry so it can be called from an action.
+registry.category("actions").add("fish_farm_dashboard", FishFarmDashboard);
