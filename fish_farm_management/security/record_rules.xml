@@ -5,7 +5,7 @@
         <!-- ◾ Fish Farm -->
         <record id="fish_farm_rule_user" model="ir.rule">
             <field name="name">Fish Farms: User Access</field>
-            <field name="model_id" search="[('model', '=', 'fish_farm_farm')]"/>
+            <field name="model_id" search="[('model', '=', 'fish_farm')]"/>
             <field name="domain_force">[('company_id', '=', user.company_id.id)]</field>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
         </record>

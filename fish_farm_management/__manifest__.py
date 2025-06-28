@@ -50,6 +50,7 @@
     'assets': {
         'web.assets_backend': [
             'fish_farm_management/static/lib/chart/chart.umd.js',
+            'fish_farm_management/static/lib/chart/chart.js',
             'fish_farm_management/static/src/js/translation.js',
             'fish_farm_management/static/src/js/dashboard.js',
         ],
