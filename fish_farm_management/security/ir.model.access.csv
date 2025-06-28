@@ -1,10 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_fish_farm,fish.farm,model_fish_farm,base.group_user,1,1,1,1
-access_fish_farm_sector,fish.farm.sector,model_fish_farm_sector,base.group_user,1,1,1,1
-access_fish_farm_segment,fish.farm.segment,model_fish_farm_segment,base.group_user,1,1,1,1
-access_fish_pond,fish.pond,model_fish_pond,base.group_user,1,1,1,1
-access_fish_type,fish.type,model_fish_type,base.group_user,1,1,1,1
-access_breeding_cycle,fish.breeding.cycle,model_fish_breeding_cycle,base.group_user,1,1,1,1
-access_breeding_cycle_manager,fish.breeding.cycle,model_fish_breeding_cycle,base.group_erp_manager,1,1,1,1
-access_fish_harvest,fish.harvest,model_fish_harvest,base.group_user,1,1,1,1
-access_cost_distribution,fish.cost.distribution,model_fish_cost_distribution,base.group_user,1,1,1,1
+access_fish_farm,fish_farm,model_fish_farm,base.group_user,1,1,1,1
+access_fish_farm_sector,fish_farm_sector,model_fish_farm_sector,base.group_user,1,1,1,1
+access_fish_farm_segment,fish_farm_segment,model_fish_farm_segment,base.group_user,1,1,1,1
+access_fish_pond,fish_pond,model_fish_pond,base.group_user,1,1,1,1
+access_fish_farm_dashboard,fish_farm_dashboard,model_fish_farm_dashboard,base.group_user,1,0,0,0
+access_fish_harvest_wizard,fish_harvest_wizard,model_fish_harvest_wizard,base.group_user,1,1,1,0

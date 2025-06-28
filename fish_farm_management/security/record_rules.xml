@@ -1,34 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <!-- noupdate = 0 حتى يمكن تعديل القواعد فى الترقية -->
+    <data noupdate="0">
+
+        <!-- === قواعد المزرعة والكيانات التابعة === -->
         <record id="fish_farm_rule_user" model="ir.rule">
-            <field name="name">Fish Farm User Access</field>
+            <field name="name">Fish Farm – User</field>
             <field name="model_id" ref="model_fish_farm"/>
             <field name="domain_force">[('company_id', 'in', [user.company_id.id, False])]</field>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
         </record>
-        
+
         <record id="fish_farm_sector_rule_user" model="ir.rule">
-            <field name="name">Fish Farm Sector User Access</field>
+            <field name="name">Fish Farm Sector – User</field>
             <field name="model_id" ref="model_fish_farm_sector"/>
             <field name="domain_force">[('company_id', 'in', [user.company_id.id, False])]</field>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
         </record>
-        
+
         <record id="fish_farm_segment_rule_user" model="ir.rule">
-            <field name="name">Fish Farm Segment User Access</field>
+            <field name="name">Fish Farm Segment – User</field>
             <field name="model_id" ref="model_fish_farm_segment"/>
             <field name="domain_force">[('company_id', 'in', [user.company_id.id, False])]</field>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
         </record>
-        
+
         <record id="fish_pond_rule_user" model="ir.rule">
-            <field name="name">Fish Pond User Access</field>
+            <field name="name">Fish Pond – User</field>
             <field name="model_id" ref="model_fish_pond"/>
             <field name="domain_force">[('company_id', 'in', [user.company_id.id, False])]</field>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
         </record>
-        
-        <!-- Add rules for other models similarly -->
+
+        <!-- === قواعد جديدة للداشبورد والـ Wizard === -->
+        <record id="fish_farm_dashboard_rule_user" model="ir.rule">
+            <field name="name">Fish Farm Dashboard – User</field>
+            <field name="model_id" ref="model_fish_farm_dashboard"/>
+            <field name="domain_force">[]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="fish_harvest_wizard_rule_user" model="ir.rule">
+            <field name="name">Harvest Wizard – User</field>
+            <field name="model_id" ref="model_fish_harvest_wizard"/>
+            <field name="domain_force">[]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
     </data>
 </odoo>

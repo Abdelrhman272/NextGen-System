@@ -23,6 +23,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'security/record_rules.xml',
         'views/dashboard_actions.xml',
         #'views/dashboard_views.xml',
         'views/farm_views.xml',
@@ -48,9 +49,8 @@
     'auto_install': False,
     'assets': {
         'web.assets_backend': [
+            'fish_farm_management/static/lib/chart/chart.umd.js',س
             'fish_farm_management/static/src/js/translation.js',
-            'web/static/lib/chart.js/chart.js',
-            'fish_farm_management/static/lib/chart/chart.js',
             'fish_farm_management/static/src/js/dashboard.js',
         ],
         'web.assets_qweb': [
