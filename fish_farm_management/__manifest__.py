@@ -15,6 +15,7 @@
         'web', # 'web' is essential for UI components
         'stock',
         'account',
+        'product',
         'purchase',
         'sale',
         'mrp',
