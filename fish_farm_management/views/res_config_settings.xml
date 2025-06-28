@@ -16,7 +16,7 @@
                 This XPath targets the main <sheet> element of the form,
                 which is a more stable anchor across Odoo versions.
             -->
-            <xpath expr="//sheet" position="inside">
+            <xpath expr="//div[@data-key='general_settings']" position="after">
                 <div class="app_settings_block" data-string="Fish Farm" string="Fish Farm" data-key="fish_farm_management">
                     <h2>Fish Farm</h2>
                     <div class="row mt16 o_settings_container">

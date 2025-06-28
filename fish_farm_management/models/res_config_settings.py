@@ -1,63 +1,52 @@
-from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
-
-PARAM_PREFIX = "fish_farm_management."
+# -*- coding: utf-8 -*-
+from odoo import api, fields, models
 
 class ResConfigSettings(models.TransientModel):
-    _inherit = "res.config.settings"
+    _inherit = 'res.config.settings'
 
-    # -------- General --------
+    # === Company-related fields ===
+    # These settings are saved directly on the company record.
+    # This is the best practice for default values.
     default_feed_product_id = fields.Many2one(
-        "product.product", string="Default Feed Product",
-        config_parameter=PARAM_PREFIX + "default_feed_product_id")
-
+        related='company_id.default_feed_product_id',
+        readonly=False
+    )
     default_medicine_product_id = fields.Many2one(
-        "product.product", string="Default Medicine Product",
-        config_parameter=PARAM_PREFIX + "default_medicine_product_id")
-
-    harvest_committee_size = fields.Integer(
-        string="Harvest Committee Size",
-        config_parameter=PARAM_PREFIX + "harvest_committee_size",
-        default=3)
-
-    fish_farm_analytic_account_prefix = fields.Char(
-        string="Analytic Account Prefix",
-        config_parameter=PARAM_PREFIX + "analytic_account_prefix",
-        default="POND")
-
-    # -------- Accounting --------
+        related='company_id.default_medicine_product_id',
+        readonly=False
+    )
     default_income_account_id = fields.Many2one(
-        "account.account", string="Default Income Account",
-        domain=[("internal_type", "=", "income")],
-        config_parameter=PARAM_PREFIX + "default_income_account_id")
-
+        related='company_id.default_income_account_id',
+        readonly=False
+    )
     default_expense_account_id = fields.Many2one(
-        "account.account", string="Default Expense Account",
-        domain=[("internal_type", "=", "expense")],
-        config_parameter=PARAM_PREFIX + "default_expense_account_id")
+        related='company_id.default_expense_account_id',
+        readonly=False
+    )
 
-    # -------- Cost parameters --------
+    # === System Parameters (config_parameter) ===
+    # These settings are saved system-wide and are not specific to one company.
+    fish_farm_analytic_account_prefix = fields.Char(
+        string='Analytic Account Prefix',
+        config_parameter='fish_farm_management.analytic_account_prefix'
+    )
+    harvest_committee_size = fields.Integer(
+        string='Harvest Committee Size',
+        config_parameter='fish_farm_management.harvest_committee_size'
+    )
     labor_cost_per_hour = fields.Float(
-        string="Labor Cost per Hour",
-        config_parameter=PARAM_PREFIX + "labor_cost_per_hour",
-        default=25.0)
-
+        string='Labor Cost per Hour',
+        config_parameter='fish_farm_management.labor_cost_per_hour'
+    )
     electricity_cost_per_kwh = fields.Float(
-        string="Electricity Cost per kWh",
-        config_parameter=PARAM_PREFIX + "electricity_cost_per_kwh",
-        default=1.5)
-
-    # -------- Integration --------
+        string='Electricity Cost per kWh',
+        config_parameter='fish_farm_management.electricity_cost_per_kwh'
+    )
     enable_api_integration = fields.Boolean(
-        string="Enable API Integration",
-        config_parameter=PARAM_PREFIX + "enable_api_integration")
-
+        string='Enable API Integration',
+        config_parameter='fish_farm_management.enable_api_integration'
+    )
     api_key = fields.Char(
-        string="API Key", config_parameter=PARAM_PREFIX + "api_key")
-
-    # Optional: small safety check
-    @api.constrains("harvest_committee_size")
-    def _check_committee_size(self):
-        for rec in self:
-            if rec.harvest_committee_size <= 0:
-                raise ValidationError(_("Committee size must be positive."))
+        string='API Key',
+        config_parameter='fish_farm_management.api_key'
+    )

@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Your existing menu items -->
     <menuitem id="menu_fish_farm_root" name="Fish Farm Management" sequence="10"/>
-    
     <menuitem id="menu_fish_farm_dashboard" name="Dashboard" parent="menu_fish_farm_root" action="action_fish_farm_dashboard" sequence="5"/>
-    
     <menuitem id="menu_fish_farm_operations" name="Operations" parent="menu_fish_farm_root" sequence="10"/>
-    <menuitem id="menu_fish_farms" name="Farms" parent="menu_fish_farm_operations" action="action_fish_farm" sequence="10"/>
-    <menuitem id="menu_fish_ponds" name="Ponds" parent="menu_fish_farm_operations" action="action_fish_pond" sequence="20"/>
-    <menuitem id="menu_breeding_cycles" name="Breeding Cycles" parent="menu_fish_farm_operations" action="action_breeding_cycle" sequence="30"/>
-    
-    <menuitem id="menu_fish_farm_harvest" name="Harvesting" parent="menu_fish_farm_root" sequence="20"/>
-    <menuitem id="menu_harvests" name="Harvests" parent="menu_fish_farm_harvest" action="action_fish_harvest" sequence="10"/>
-    
+    <!-- ... other items ... -->
     <menuitem id="menu_fish_farm_costs" name="Costs" parent="menu_fish_farm_root" sequence="30"/>
     <menuitem id="menu_cost_distribution" name="Cost Distribution" parent="menu_fish_farm_costs" action="action_cost_distribution" sequence="10"/>
+
+    <!-- Add this action and menuitem for the Settings -->
+    <record id="fish_farm_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'fish_farm_management', 'bin_size': False}</field>
+    </record>
+
+    <menuitem id="fish_farm_menu_config"
+        name="Settings"
+        parent="menu_fish_farm_root"
+        sequence="99"
+        action="fish_farm_config_settings_action"
+        groups="base.group_system"/>
 </odoo>

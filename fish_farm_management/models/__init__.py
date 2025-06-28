@@ -10,3 +10,4 @@ from . import cost_distribution
 from . import dashboard
 from . import translation_utils
 from . import res_config_settings
+from . import res_company
