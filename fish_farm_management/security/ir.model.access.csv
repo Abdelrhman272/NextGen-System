@@ -8,3 +8,5 @@ access_breeding_cycle,fish.breeding.cycle,model_fish_breeding_cycle,base.group_u
 access_breeding_cycle_manager,fish.breeding.cycle,model_fish_breeding_cycle,base.group_erp_manager,1,1,1,1
 access_fish_harvest,fish.harvest,model_fish_harvest,base.group_user,1,1,1,1
 access_cost_distribution,fish.cost.distribution,model_fish_cost_distribution,base.group_user,1,1,1,1
+access_fish_farm_dashboard,fish.farm.dashboard,model_fish_farm_dashboard,base.group_user,1,0,0,0
+access_fish_harvest_wizard,fish.harvest.wizard,model_fish_harvest_wizard,base.group_user,1,1,1,1

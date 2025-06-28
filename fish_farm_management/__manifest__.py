@@ -23,7 +23,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        #'security/record_rules.xml',
+        'security/record_rules.xml',
         'views/dashboard_actions.xml',
         #'views/dashboard_views.xml',
         'views/farm_views.xml',
@@ -38,7 +38,7 @@
         'report/inventory_report.xml',
         'views/sector_views.xml',
         'views/segment_views.xml',
-        #'views/res_config_settings.xml',
+        'views/res_config_settings.xml',
         #'views/templates.xml',
         #'views/translation_templates.xml',
         'views/menu.xml',
