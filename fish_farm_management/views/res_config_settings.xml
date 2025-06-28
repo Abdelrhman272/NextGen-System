@@ -14,80 +14,73 @@
         <field name="api_key"></field>
     </record>
 
-    <!-- واجهة الإعدادات -->
+    <!-- واجهة الإعدادات المعدلة -->
     <record id="res_config_settings_view_form_inherit_fish_farm" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.inherit.fish.farm</field>
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='settings']" position="inside">
+            <!-- التعديل الرئيسي هنا -->
+            <xpath expr="//div[hasclass('settings')]" position="inside">
                 <div class="app_settings_block" data-string="Fish Farm Settings">
                     <h2>Fish Farm Settings</h2>
                     <div class="row mt16 o_settings_container">
                         <div class="col-12 col-lg-6">
-                            <setting string="Default Feed Product" help="Default product used for fish feeding">
-                                <field name="default_feed_product_id" options="{'no_create': True}" context="{'default_type': 'product'}"/>
-                            </setting>
+                            <div class="o_setting_left_pane">
+                                <setting string="Default Feed Product" help="Default product used for fish feeding">
+                                    <field name="default_feed_product_id" options="{'no_create': True}" context="{'default_type': 'product'}"/>
+                                </setting>
 
-                            <setting string="Default Medicine Product" help="Default product used for fish treatment">
-                                <field name="default_medicine_product_id" options="{'no_create': True}" context="{'default_type': 'product'}"/>
-                            </setting>
+                                <setting string="Default Medicine Product" help="Default product used for fish treatment">
+                                    <field name="default_medicine_product_id" options="{'no_create': True}" context="{'default_type': 'product'}"/>
+                                </setting>
 
-                            <setting string="Harvest Committee Size" help="Number of members required for harvest validation">
-                                <field name="harvest_committee_size"/>
-                            </setting>
+                                <setting string="Harvest Committee Size" help="Number of members required for harvest validation">
+                                    <field name="harvest_committee_size"/>
+                                </setting>
 
-                            <setting string="Analytic Account Prefix">
-                                <field name="fish_farm_analytic_account_prefix"/>
-                            </setting>
+                                <setting string="Analytic Account Prefix">
+                                    <field name="fish_farm_analytic_account_prefix"/>
+                                </setting>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <setting string="Default Income Account">
+                                    <field name="default_income_account_id" options="{'no_create': True}"/>
+                                </setting>
 
-                            <setting string="Default Income Account">
-                                <field name="default_income_account_id" options="{'no_create': True}"/>
-                            </setting>
+                                <setting string="Default Expense Account">
+                                    <field name="default_expense_account_id" options="{'no_create': True}"/>
+                                </setting>
 
-                            <setting string="Default Expense Account">
-                                <field name="default_expense_account_id" options="{'no_create': True}"/>
-                            </setting>
+                                <setting string="Labor Cost per Hour">
+                                    <field name="labor_cost_per_hour"/>
+                                </setting>
 
-                            <setting string="Labor Cost per Hour">
-                                <field name="labor_cost_per_hour"/>
-                            </setting>
-
-                            <setting string="Electricity Cost per kWh">
-                                <field name="electricity_cost_per_kwh"/>
-                            </setting>
-
+                                <setting string="Electricity Cost per kWh">
+                                    <field name="electricity_cost_per_kwh"/>
+                                </setting>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12">
                             <div class="alert alert-info" role="alert">
                                 <i class="fa fa-info-circle"/> API Integration Settings
                             </div>
-
-                            <setting string="Enable API Integration">
-                                <field name="enable_api_integration"/>
-                            </setting>
-
-                            <setting string="API Key" help="Authentication key for external API integration">
-                                <field name="api_key" password="True" attrs="{'invisible': [('enable_api_integration', '=', False)]}"/>
-                            </setting>
+                            <div class="o_setting_left_pane">
+                                <setting string="Enable API Integration">
+                                    <field name="enable_api_integration"/>
+                                </setting>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <setting string="API Key" help="Authentication key for external API integration">
+                                    <field name="api_key" password="True" attrs="{'invisible': [('enable_api_integration', '=', False)]}"/>
+                                </setting>
+                            </div>
                         </div>
                     </div>
                 </div>
             </xpath>
         </field>
     </record>
-
-    <!-- تعريف القيم الافتراضية -->
-    <function model="res.config.settings" name="set_values">
-        <value eval="{
-            'default_feed_product_id': False,
-            'default_medicine_product_id': False,
-            'harvest_committee_size': 3,
-            'fish_farm_analytic_account_prefix': 'FISH/',
-            'default_income_account_id': False,
-            'default_expense_account_id': False,
-            'labor_cost_per_hour': 0.0,
-            'electricity_cost_per_kwh': 0.0,
-            'enable_api_integration': False,
-            'api_key': '',
-        }"/>
-    </function>
 </odoo>
