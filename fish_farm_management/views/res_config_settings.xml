@@ -3,18 +3,19 @@
     <record id="res_config_settings_view_form_inherit_fish_farm" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.inherit.fish.farm</field>
         <field name="model">res.config.settings</field>
-        <!-- We are inheriting from the standard base settings view -->
-        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <!--
+        CORRECTED INHERIT ID:
+        The issue was inheriting from 'base.res_config_settings_view_form'.
+        Based on your system's logs, the correct parent view is in the 'base_setup' module.
+        This is the key to solving the 'cannot be located in parent view' error.
+        -->
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
         <field name="arch" type="xml">
             <!--
-            FINAL ATTEMPT: This is the most robust XPath.
-            Instead of looking for a specific settings block (like general_settings),
-            we are looking for the main container ('settings_pane') that holds ALL blocks.
-            We then add our block inside it. This should work on almost any Odoo setup.
+            Using the standard XPath which should now work with the correct parent view.
             -->
-            <xpath expr="//div[hasclass('settings_pane')]" position="inside">
+            <xpath expr="//div[@contains='settings']" position="inside">
                 <div class="app_settings_block" data-string="Fish Farm" string="Fish Farm" data-key="fish_farm_management" groups="base.group_system">
-                    <!-- The content of the settings page goes here, as provided before -->
                     <h2>Fish Farm Defaults</h2>
                     <div class="row mt16 o_settings_container">
                         <!-- Left Column -->
@@ -60,7 +61,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- ... other settings sections ... -->
+                    <!-- ... other settings sections from your file would go here ... -->
                 </div>
             </xpath>
         </field>
