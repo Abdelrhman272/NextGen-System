@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data noupdate="0">
 
         <!-- ◾ Fish Farm -->
         <record id="fish_farm_rule_user" model="ir.rule">
@@ -41,7 +41,7 @@
         <!-- ◾ Pond -->
         <record id="fish_pond_rule_user" model="ir.rule">
             <field name="name">Ponds: User Access</field>
-            <field name="model_id" ref="fish_farm_management.model_fish_farm_pond"/>
+            <field name="model_id" ref="fish_farm_management.model_fish_pond"/>
             <field name="domain_force">[('company_id', '=', user.company_id.id)]</field>
             <field name="perm_read"  eval="1"/>
             <field name="perm_write" eval="1"/>
@@ -53,7 +53,7 @@
         <!-- ◾ Harvest -->
         <record id="fish_harvest_rule_user" model="ir.rule">
             <field name="name">Harvests: User Access</field>
-            <field name="model_id" ref="fish_farm_management.model_fish_farm_harvest"/>
+            <field name="model_id" ref="fish_farm_management.model_fish_harvest"/>
             <field name="domain_force">[('company_id', '=', user.company_id.id)]</field>
             <field name="perm_read"  eval="1"/>
             <field name="perm_write" eval="1"/>
