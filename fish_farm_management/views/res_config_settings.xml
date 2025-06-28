@@ -1,81 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- تعريف حقول الإعدادات -->
-    <record id="res_config_settings_fish_farm" model="res.config.settings">
-        <field name="default_feed_product_id" eval="False"/>
-        <field name="default_medicine_product_id" eval="False"/>
-        <field name="harvest_committee_size">3</field>
-        <field name="fish_farm_analytic_account_prefix">FISH/</field>
-        <field name="default_income_account_id" eval="False"/>
-        <field name="default_expense_account_id" eval="False"/>
-        <field name="labor_cost_per_hour">0.0</field>
-        <field name="electricity_cost_per_kwh">0.0</field>
-        <field name="enable_api_integration" eval="False"/>
-        <field name="api_key"></field>
-    </record>
+    <!--
+        NOTE: Settings fields should be defined on the 'res.config.settings' model in Python.
+        The <record> and <function> tags to set values directly in XML are removed
+        as this is not the modern or recommended practice.
+    -->
 
-    <!-- واجهة الإعدادات المعدلة -->
+    <!-- Settings Interface View -->
     <record id="res_config_settings_view_form_inherit_fish_farm" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.inherit.fish.farm</field>
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
         <field name="arch" type="xml">
-            <!-- التعديل الرئيسي هنا -->
-            <xpath expr="//div[hasclass('settings')]" position="inside">
-                <div class="app_settings_block" data-string="Fish Farm Settings">
-                    <h2>Fish Farm Settings</h2>
+            <!-- This XPath correctly finds the main settings container in modern Odoo versions. -->
+            <xpath expr="//div[hasclass('o_setting_container')]" position="inside">
+                <div class="app_settings_block" data-string="Fish Farm" string="Fish Farm" data-key="fish_farm_management">
+                    <h2>Fish Farm</h2>
                     <div class="row mt16 o_settings_container">
-                        <div class="col-12 col-lg-6">
-                            <div class="o_setting_left_pane">
-                                <setting string="Default Feed Product" help="Default product used for fish feeding">
-                                    <field name="default_feed_product_id" options="{'no_create': True}" context="{'default_type': 'product'}"/>
-                                </setting>
-
-                                <setting string="Default Medicine Product" help="Default product used for fish treatment">
-                                    <field name="default_medicine_product_id" options="{'no_create': True}" context="{'default_type': 'product'}"/>
-                                </setting>
-
-                                <setting string="Harvest Committee Size" help="Number of members required for harvest validation">
-                                    <field name="harvest_committee_size"/>
-                                </setting>
-
-                                <setting string="Analytic Account Prefix">
-                                    <field name="fish_farm_analytic_account_prefix"/>
-                                </setting>
-                            </div>
+                        <!-- Column 1 for settings -->
+                        <div class="col-12 col-lg-6 o_setting_box">
+                             <!-- Default Feed Product -->
                             <div class="o_setting_right_pane">
-                                <setting string="Default Income Account">
-                                    <field name="default_income_account_id" options="{'no_create': True}"/>
-                                </setting>
-
-                                <setting string="Default Expense Account">
-                                    <field name="default_expense_account_id" options="{'no_create': True}"/>
-                                </setting>
-
-                                <setting string="Labor Cost per Hour">
+                                <label for="default_feed_product_id"/>
+                                <div class="text-muted">
+                                    Default product used for fish feeding
+                                </div>
+                                <div class="content-group">
+                                    <field name="default_feed_product_id" options="{'no_create': True}" context="{'default_type': 'product'}"/>
+                                </div>
+                            </div>
+                            <!-- Default Medicine Product -->
+                            <div class="o_setting_right_pane mt16">
+                                <label for="default_medicine_product_id"/>
+                                <div class="text-muted">
+                                    Default product used for fish treatment
+                                </div>
+                                <div class="content-group">
+                                    <field name="default_medicine_product_id" options="{'no_create': True}" context="{'default_type': 'product'}"/>
+                                </div>
+                            </div>
+                            <!-- Harvest Committee Size -->
+                             <div class="o_setting_right_pane mt16">
+                                <label for="harvest_committee_size"/>
+                                <div class="text-muted">
+                                    Number of members required for harvest validation
+                                </div>
+                                <div class="content-group">
+                                    <field name="harvest_committee_size"/>
+                                </div>
+                            </div>
+                            <!-- Labor Cost -->
+                            <div class="o_setting_right_pane mt16">
+                                <label for="labor_cost_per_hour"/>
+                                <div class="content-group">
                                     <field name="labor_cost_per_hour"/>
-                                </setting>
+                                </div>
+                            </div>
+                        </div>
 
-                                <setting string="Electricity Cost per kWh">
+                        <!-- Column 2 for settings -->
+                        <div class="col-12 col-lg-6 o_setting_box">
+                             <!-- Default Income Account -->
+                             <div class="o_setting_right_pane">
+                                <label for="default_income_account_id"/>
+                                <div class="content-group">
+                                    <field name="default_income_account_id" options="{'no_create': True}"/>
+                                </div>
+                            </div>
+                             <!-- Default Expense Account -->
+                            <div class="o_setting_right_pane mt16">
+                                <label for="default_expense_account_id"/>
+                                <div class="content-group">
+                                    <field name="default_expense_account_id" options="{'no_create': True}"/>
+                                </div>
+                            </div>
+                             <!-- Analytic Account Prefix -->
+                            <div class="o_setting_right_pane mt16">
+                                <label for="fish_farm_analytic_account_prefix"/>
+                                <div class="content-group">
+                                    <field name="fish_farm_analytic_account_prefix"/>
+                                </div>
+                            </div>
+                             <!-- Electricity Cost -->
+                            <div class="o_setting_right_pane mt16">
+                                <label for="electricity_cost_per_kwh"/>
+                                <div class="content-group">
                                     <field name="electricity_cost_per_kwh"/>
-                                </setting>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row mt16 o_settings_container">
-                        <div class="col-12">
-                            <div class="alert alert-info" role="alert">
-                                <i class="fa fa-info-circle"/> API Integration Settings
-                            </div>
+                    <h2>API Integration</h2>
+                     <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box" id="api_integration_settings">
                             <div class="o_setting_left_pane">
-                                <setting string="Enable API Integration">
-                                    <field name="enable_api_integration"/>
-                                </setting>
+                                <field name="enable_api_integration"/>
                             </div>
                             <div class="o_setting_right_pane">
-                                <setting string="API Key" help="Authentication key for external API integration">
-                                    <field name="api_key" password="True" attrs="{'invisible': [('enable_api_integration', '=', False)]}"/>
-                                </setting>
+                                <label for="enable_api_integration"/>
+                                <div class="text-muted">
+                                    Enable to activate external API features.
+                                </div>
+                                <div class="content-group mt16" attrs="{'invisible': [('enable_api_integration', '=', False)]}">
+                                    <label for="api_key" class="o_light_label"/>
+                                    <field name="api_key" password="True"/>
+                                </div>
                             </div>
                         </div>
                     </div>
