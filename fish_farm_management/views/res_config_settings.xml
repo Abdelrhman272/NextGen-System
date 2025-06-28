@@ -1,55 +1,65 @@
-<form string="إعدادات مزرعة الأسماك" class="oe_form_configuration">
-    <header>
-        <button string="تطبيق" type="object" name="execute" class="oe_highlight"/>
-        <button string="إلغاء" type="object" name="cancel" class="oe_link" special="cancel"/>
-    </header>
-    <sheet>
-        <div class="app_settings_block" data-string="مزرعة الأسماك" string="مزرعة الأسماك" data-key="fish_farm_management">
-            <h2>الإعدادات الافتراضية لمزرعة الأسماك</h2>
-            <div class="row mt16 o_settings_container">
-                <!-- العمود الأيسر -->
-                <div class="col-12 col-lg-6 o_setting_box">
-                    <div class="o_setting_right_pane">
-                        <label for="default_feed_product_id" string="منتج التغذية الافتراضي"/>
-                        <div class="text-muted">
-                            حدد المنتج الذي سيتم استخدامه كعلاف للأسماك بشكل افتراضي.
-                        </div>
-                        <div class="content-group">
-                            <field name="default_feed_product_id"/>
+<odoo>
+    <data>
+
+        <record id="res_config_settings_view_form_inherit_fish_farm" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.fish.farm</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+
+                <!-- هنا تبدأ عملية الـ xpath لإدخال الإعدادات داخل صفحة الإعدادات -->
+                <xpath expr="//div[hasclass('o_setting_container')]" position="inside">
+                    <div class="app_settings_block" data-string="مزرعة الأسماك" string="مزرعة الأسماك" data-key="fish_farm_management">
+                        <h2>الإعدادات الافتراضية لمزرعة الأسماك</h2>
+                        <div class="row mt16 o_settings_container">
+                            <!-- العمود الأيسر -->
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="default_feed_product_id" string="منتج التغذية الافتراضي"/>
+                                    <div class="text-muted">
+                                        حدد المنتج الذي سيتم استخدامه كعلاف للأسماك بشكل افتراضي.
+                                    </div>
+                                    <div class="content-group">
+                                        <field name="default_feed_product_id"/>
+                                    </div>
+                                </div>
+                                <div class="o_setting_right_pane mt16">
+                                    <label for="default_medicine_product_id" string="منتج العلاج الافتراضي"/>
+                                    <div class="text-muted">
+                                        حدد المنتج الذي سيتم استخدامه لعلاج الأسماك بشكل افتراضي.
+                                    </div>
+                                    <div class="content-group">
+                                        <field name="default_medicine_product_id"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- العمود الأيمن -->
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <label for="default_income_account_id" string="حساب الإيرادات الافتراضي"/>
+                                    <div class="text-muted">
+                                        الحساب الذي سيتم استخدامه لتسجيل إيرادات المزرعة.
+                                    </div>
+                                    <div class="content-group">
+                                        <field name="default_income_account_id"/>
+                                    </div>
+                                </div>
+                                <div class="o_setting_right_pane mt16">
+                                    <label for="default_expense_account_id" string="حساب المصروفات الافتراضي"/>
+                                    <div class="text-muted">
+                                        الحساب الذي سيتم استخدامه لتسجيل مصروفات المزرعة.
+                                    </div>
+                                    <div class="content-group">
+                                        <field name="default_expense_account_id"/>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="o_setting_right_pane mt16">
-                        <label for="default_medicine_product_id" string="منتج العلاج الافتراضي"/>
-                        <div class="text-muted">
-                            حدد المنتج الذي سيتم استخدامه لعلاج الأسماك بشكل افتراضي.
-                        </div>
-                        <div class="content-group">
-                            <field name="default_medicine_product_id"/>
-                        </div>
-                    </div>
-                </div>
-                <!-- العمود الأيمن -->
-                <div class="col-12 col-lg-6 o_setting_box">
-                    <div class="o_setting_right_pane">
-                        <label for="default_income_account_id" string="حساب الإيرادات الافتراضي"/>
-                        <div class="text-muted">
-                            الحساب الذي سيتم استخدامه لتسجيل إيرادات المزرعة.
-                        </div>
-                        <div class="content-group">
-                            <field name="default_income_account_id"/>
-                        </div>
-                    </div>
-                    <div class="o_setting_right_pane mt16">
-                        <label for="default_expense_account_id" string="حساب المصروفات الافتراضي"/>
-                        <div class="text-muted">
-                            الحساب الذي سيتم استخدامه لتسجيل مصروفات المزرعة.
-                        </div>
-                        <div class="content-group">
-                            <field name="default_expense_account_id"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </sheet>
-</form>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
