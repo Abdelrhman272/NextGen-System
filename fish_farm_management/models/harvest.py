@@ -9,6 +9,7 @@ class FishHarvest(models.Model):
     name = fields.Char('Harvest Reference', required=True, index=True, default='New')
     cycle_id = fields.Many2one('fish.breeding.cycle', 'Breeding Cycle', required=True)
     pond_id = fields.Many2one('fish.pond', related='cycle_id.pond_id', store=True)
+    company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company)
     harvest_date = fields.Date('Harvest Date', default=fields.Date.today)
     quantity = fields.Float('Quantity (kg)', required=True)
     quality = fields.Selection([

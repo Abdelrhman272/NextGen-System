@@ -15,6 +15,8 @@ class FishPond(models.Model):
     segment_id = fields.Many2one('fish.farm.segment', 'Segment', required=True)
     sector_id = fields.Many2one('fish.farm.sector', related='segment_id.sector_id', store=True)
     farm_id = fields.Many2one('fish.farm', related='sector_id.farm_id', store=True)
+    company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company)
+
 
     area = fields.Float('Area (m²)')
     depth = fields.Float('Depth (m)')
