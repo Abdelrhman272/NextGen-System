@@ -5,19 +5,4 @@
         <field name="tag">fish_farm_dashboard</field>
         <field name="target">current</field>
     </record>
-
-    <menuitem 
-        id="menu_fish_farm_root" 
-        name="Fish Farm" 
-        sequence="10"
-        web_icon="fish_farm_management,static/img/fish_farm_logo.png"
-    />
-    
-    <menuitem 
-        id="menu_fish_farm_dashboard" 
-        name="Dashboard" 
-        parent="menu_fish_farm_root" 
-        action="action_fish_farm_dashboard" 
-        sequence="10"
-    />
 </odoo>
