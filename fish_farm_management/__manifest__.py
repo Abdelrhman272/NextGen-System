@@ -43,7 +43,7 @@
         #'views/templates.xml',
         #'views/translation_templates.xml',
         'views/menu.xml',
-        'static/src/xml/dashboard_template.xml',
+        #'static/src/xml/dashboard_template.xml',
     ],
     'demo': [],
     'installable': True,
