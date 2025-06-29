@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
 
                 <!-- هنا تبدأ عملية الـ xpath لإدخال الإعدادات داخل صفحة الإعدادات -->
-                <xpath expr="//div[contains(@class, 'settings')]" position="inside">
+                <xpath expr="//form[@class='oe_form_configuration']" position="inside">
                     <div class="app_settings_block" data-string="مزرعة الأسماك" string="مزرعة الأسماك" data-key="fish_farm_management">
                         <h2>الإعدادات الافتراضية لمزرعة الأسماك</h2>
                         <div class="row mt16 o_settings_container">
