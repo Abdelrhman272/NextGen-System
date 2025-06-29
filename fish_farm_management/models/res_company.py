@@ -45,9 +45,67 @@ class ResCompany(models.Model):
         help="Deprecated field kept for compatibility with Enterprise tests."
     )
     income_account_id = fields.Many2one(
-        'product.product',
-        string='Income Account (compatibility)',
-        related='default_income_account_id',
+        "account.account",
+        string="Income Account (compatibility)",
+        compute="_compute_income_account_id",
+        inverse="_inverse_income_account_id",
+        store=True
+    )
+    expense_account_id = fields.Many2one(
+        "account.account",
+        string="Expense Account (compatibility)",
+        compute="_compute_expense_account_id",
+        inverse="_inverse_expense_account_id",
+        store=True
+    )
+
+    # ───────────────
+    # Feed Product
+    # ───────────────
+    @api.depends("default_feed_product_id")
+    def _compute_feed_product_id(self):
+        for rec in self:
+            rec.feed_product_id = rec.default_feed_product_id
+
+    def _inverse_feed_product_id(self):
+        for rec in self:
+            rec.default_feed_product_id = rec.feed_product_id
+
+    # ───────────────
+    # Medicine Product
+    # ───────────────
+    @api.depends("default_medicine_product_id")
+    def _compute_medicine_product_id(self):
+        for rec in self:
+            rec.medicine_product_id = rec.default_medicine_product_id
+
+    def _inverse_medicine_product_id(self):
+        for rec in self:
+            rec.default_medicine_product_id = rec.medicine_product_id
+
+    # ───────────────
+    # Income Account
+    # ───────────────
+    @api.depends("default_income_account_id")
+    def _compute_income_account_id(self):
+        for rec in self:
+            rec.income_account_id = rec.default_income_account_id
+
+    def _inverse_income_account_id(self):
+        for rec in self:
+            rec.default_income_account_id = rec.income_account_id
+
+    # ───────────────
+    # Expense Account
+    # ───────────────
+    @api.depends("default_expense_account_id")
+    def _compute_expense_account_id(self):
+        for rec in self:
+            rec.expense_account_id = rec.default_expense_account_id
+
+    def _inverse_expense_account_id(self):
+        for rec in self:
+            rec.default_expense_account_id = rec.expense_account_idrelated='default_income_account_id',
         readonly=False,
         store=True,
         help="Default income account for fish sales."
