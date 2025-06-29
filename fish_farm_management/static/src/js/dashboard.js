@@ -1,12 +1,6 @@
 /** @odoo-module **/
 
-import { registry } from "@web/core/registry";
-// --- التعديل ---
-// تم استيراد المكون الرئيسي من بيئة الويب الخاصة بأودو
-import { Component } from "@web/core/component"; 
-// تم الإبقاء على استيراد الخطافات من مكتبة أول الأساسية
-import { onWillStart, onMounted, useState } from "@odoo/owl"; 
-// --- نهاية التعديل ---
+import { Component, onWillStart, onMounted, useState } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 
 class FishFarmDashboard extends Component {
