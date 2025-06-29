@@ -26,7 +26,7 @@
         'security/ir.model.access.csv',
         'security/record_rules.xml',
         'views/dashboard_actions.xml',
-        'views/dashboard_views.xml',
+        #'views/dashboard_views.xml',
         'views/farm_views.xml',
         'views/pond_views.xml',
         'views/breeding_cycle_views.xml',
