@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- قالب OWL يُستخدم من FishFarmDashboard JS -->
-    <t t-name="fish_farm_management.fish_farm_dashboard_template" owl="1">
-        <div class="o_content">
-            <div class="container-fluid p-3">
-                <h2>Fish Farm Dashboard</h2>
+    <template id="fish_farm_dashboard_template" name="Fish Farm Dashboard Template">
+        <t t-name="fish_farm_management.fish_farm_dashboard_template" owl="1">
+            <div class="o_content">
+                <div class="container-fluid p-3">
+                    <h2>Fish Farm Dashboard</h2>
 
-                <div class="row mt-3">
-                    <!-- بطاقة الإنتاج -->
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Monthly Production</h5>
-                            </div>
-                            <div class="card-body">
-                                <canvas id="productionChart" height="300"></canvas>
+                    <div class="row mt-3">
+                        <!-- بطاقة الإنتاج -->
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Monthly Production</h5>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="productionChart" height="300"></canvas>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- بطاقة حالة الأحواض -->
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5>Pond Status</h5>
-                            </div>
-                            <div class="card-body">
-                                <canvas id="pondChart" height="300"></canvas>
+                        <!-- بطاقة حالة الأحواض -->
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Pond Status</h5>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="pondChart" height="300"></canvas>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </t>
+        </t>
+    </template>
 </odoo>
