@@ -90,6 +90,3 @@ class FishFarmDashboard extends Component {
         });
     }
 }
-
-/* ③ تسجيل الـ action */
-registry.category("actions").add("fish_farm_dashboard", FishFarmDashboard);
