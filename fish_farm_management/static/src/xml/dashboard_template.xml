@@ -1,17 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <template id="fish_farm_dashboard_template" name="Fish Farm Dashboard Template">
-        <t t-name="fish_farm_management.fish_farm_dashboard_template" owl="1">
-            <div class="o_content">
-                <div class="container-fluid p-3">
-                    <h2>Fish Farm Dashboard</h2>
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <!-- تعريف القالب مع اسم واضح -->
+    <t t-name="fish_farm_management.FishFarmDashboard" owl="1">
+        <div class="o_content fish-farm-dashboard">
+            <div class="container-fluid p-3">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="mb-0">Fish Farm Dashboard</h2>
+                    <button class="btn btn-primary" t-on-click="() => this.refreshData()">
+                        <i class="fa fa-refresh"/> Refresh
+                    </button>
+                </div>
 
+                <t t-if="state.loading">
+                    <div class="text-center py-5">
+                        <i class="fa fa-refresh fa-spin fa-3x"/>
+                        <p class="mt-3">Loading dashboard data...</p>
+                    </div>
+                </t>
+
+                <t t-else="">
                     <div class="row mt-3">
-                        <!-- بطاقة الإنتاج -->
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Monthly Production</h5>
+                                    <h5>Monthly Production (Kg)</h5>
                                 </div>
                                 <div class="card-body">
                                     <canvas id="productionChart" height="300"></canvas>
@@ -19,7 +31,6 @@
                             </div>
                         </div>
 
-                        <!-- بطاقة حالة الأحواض -->
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-header">
@@ -31,8 +42,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </t>
             </div>
-        </t>
-    </template>
-</odoo>
+        </div>
+    </t>
+</templates>
