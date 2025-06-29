@@ -1,12 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
         <record id="res_config_settings_view_form_inherit_fish_farm" model="ir.ui.view">
             <field name="name">res.config.settings.view.form.inherit.fish.farm</field>
             <field name="model">res.config.settings</field>
             <field name="inherit_id" ref="base.res_config_settings_view_form"/>
             <field name="arch" type="xml">
-
                 <!-- هنا تبدأ عملية الـ xpath لإدخال الإعدادات داخل صفحة الإعدادات -->
                 <xpath expr="//form[@class='oe_form_configuration']" position="inside">
                     <div class="app_settings_block" data-string="مزرعة الأسماك" string="مزرعة الأسماك" data-key="fish_farm_management">
@@ -57,9 +56,7 @@
                         </div>
                     </div>
                 </xpath>
-
             </field>
         </record>
-
     </data>
 </odoo>
