@@ -51,7 +51,7 @@
     'auto_install': False,
     'assets': {
         'web.assets_backend': [
-            'fish_farm_management/static/src/xml/dashboard_template.xml',
+            #'fish_farm_management/static/src/xml/dashboard_template.xml',
             'fish_farm_management/static/src/js/dashboard.js',
             'fish_farm_management/static/src/css/dashboard.css',
             'fish_farm_management/static/src/css/styles.css',
@@ -59,7 +59,7 @@
             #'fish_farm_management/static/src/js/translation.js',
         ],
         'web.assets_qweb': [  
-           # 'fish_farm_management/static/src/xml/dashboard_template.xml',
+            'fish_farm_management/static/src/xml/dashboard_template.xml',
         ],
     },
 }
