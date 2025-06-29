@@ -1,53 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- تعريف القالب فقط بدون أي محتوى إضافي -->
-    <template id="template_fish_farm_dashboard" inherit_id="web.layout" primary="true">
-        <t t-call="web.layout">
-            <t t-set="head" t-operation="append">
-                <link rel="stylesheet" href="/fish_farm_management/static/src/css/dashboard.css"/>
-            </t>
-            
-            <div class="o_content fish-farm-dashboard">
-                <div class="container-fluid p-3">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2 class="mb-0">Fish Farm Dashboard</h2>
-                        <button class="btn btn-primary" t-on-click="refreshData">
-                            <i class="fa fa-refresh"/> Refresh
-                        </button>
-                    </div>
-                    
-                    <div t-if="env.isLoading" class="text-center py-5">
-                        <i class="fa fa-refresh fa-spin fa-3x"/>
-                        <p class="mt-3">Loading dashboard data...</p>
-                    </div>
-                    
-                    <div t-else="" class="dashboard-content">
-                        <div class="row mt-3">
-                            <div class="col-md-8">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5>Monthly Production (Kg)</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <canvas id="productionChart" height="300"></canvas>
+    <data>
+        <template id="template_fish_farm_dashboard" inherit_id="web.layout" primary="true">
+            <t t-call="web.layout">
+                <t t-set="head" t-operation="append">
+                    <link rel="stylesheet" href="/fish_farm_management/static/src/css/dashboard.css"/>
+                </t>
+                
+                <div class="o_content fish-farm-dashboard">
+                    <div class="container-fluid p-3">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2 class="mb-0">Fish Farm Dashboard</h2>
+                            <button class="btn btn-primary" t-on-click="refreshData">
+                                <i class="fa fa-refresh"/> Refresh
+                            </button>
+                        </div>
+                        
+                        <div t-if="env.isLoading" class="text-center py-5">
+                            <i class="fa fa-refresh fa-spin fa-3x"/>
+                            <p class="mt-3">Loading dashboard data...</p>
+                        </div>
+                        
+                        <div t-else="" class="dashboard-content">
+                            <div class="row mt-3">
+                                <div class="col-md-8">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Monthly Production (Kg)</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <canvas id="productionChart" height="300"></canvas>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h5>Pond Status</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <canvas id="pondChart" height="300"></canvas>
+                                
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Pond Status</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <canvas id="pondChart" height="300"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </t>
-    </template>
+            </t>
+        </template>
+    </data>
 </odoo>
