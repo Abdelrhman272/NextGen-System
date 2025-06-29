@@ -36,3 +36,12 @@ class ResCompany(models.Model):
         store=True,
         help="Deprecated field kept for compatibility with Enterprise tests."
     )
+    medicine_product_id = fields.Many2one(
+    'product.product',
+    string='Medicine Product (compatibility)',
+    related='default_medicine_product_id',
+    readonly=False,
+    store=True,
+    help="Deprecated field kept for compatibility with Enterprise tests."
+)
+
