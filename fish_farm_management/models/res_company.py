@@ -1,48 +1,48 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models
+from odoo import fields, models, api
+
 
 class ResCompany(models.Model):
-    _inherit = 'res.company'
+    _inherit = "res.company"
 
-    # الحقول التى أضفتها سابقًا
+    # الحقول الأصلية
     default_feed_product_id = fields.Many2one(
-        'product.product',
-        string='Default Feed Product',
-        help="This product will be suggested by default in feeding operations."
-    )
-    default_medicine_product_id = fields.Many2one(
-        'product.product',
-        string='Default Medicine Product',
-    )
-    default_income_account_id = fields.Many2one(
-        'account.account',
-        string='Default Income Account',
-        domain="[('user_type_id.type', '=', 'income')]",
-    )
-    default_expense_account_id = fields.Many2one(
-        'account.account',
-        string='Default Expense Account',
-        domain="[('user_type_id.type', '=', 'expense')]",
-    )
-
-    # ⬅️⬅️⬅️  **أضف السطر التالى**  ⬅️⬅️⬅️
-    # حقل توافقى ليُرضى اختبارات Enterprise القديمة.
-    # related يجعل قيمته هى نفس قيمة default_feed_product_id.
-    feed_product_id = fields.Many2one(
-        'product.product',
-        string='Feed Product (compatibility)',
-        related='default_feed_product_id',
-        readonly=False,
-        store=True,
+        "product.product",
+        string="Default Feed Product",
         help="Product suggested by default in feeding operations."
     )
+    default_medicine_product_id = fields.Many2one(
+        "product.product",
+        string="Default Medicine Product",
+        help="Product suggested by default in treatment operations."
+    )
+    default_income_account_id = fields.Many2one(
+        "account.account",
+        string="Default Income Account",
+        domain="[('user_type_id.type', '=', 'income')]",
+        help="Default income account for fish sales."
+    )
+    default_expense_account_id = fields.Many2one(
+        "account.account",
+        string="Default Expense Account",
+        domain="[('user_type_id.type', '=', 'expense')]",
+        help="Default expense account for farm costs."
+    )
+
+    # حقول التوافق القديمة
+    feed_product_id = fields.Many2one(
+        "product.product",
+        string="Feed Product (compatibility)",
+        compute="_compute_feed_product_id",
+        inverse="_inverse_feed_product_id",
+        store=True
+    )
     medicine_product_id = fields.Many2one(
-        'product.product',
-        string='Medicine Product (compatibility)',
-        related='default_medicine_product_id',
-        readonly=False,
-        store=True,
-        help="Deprecated field kept for compatibility with Enterprise tests."
+        "product.product",
+        string="Medicine Product (compatibility)",
+        compute="_compute_medicine_product_id",
+        inverse="_inverse_medicine_product_id",
+        store=True
     )
     income_account_id = fields.Many2one(
         "account.account",
@@ -105,18 +105,4 @@ class ResCompany(models.Model):
 
     def _inverse_expense_account_id(self):
         for rec in self:
-            rec.default_expense_account_id = rec.expense_account_idrelated='default_income_account_id',
-        readonly=False,
-        store=True,
-        help="Default income account for fish sales."
-    )
-    expense_account_id = fields.Many2one(
-        'product.product',
-        string='Expense Account (compatibility)',
-        related='default_income_account_id',
-        readonly=False,
-        store=True,
-        help="Default expense account for farm costs."
-    )
-
-
+            rec.default_expense_account_id = rec.expense_account_id
