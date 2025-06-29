@@ -5,113 +5,87 @@ import { Component, onWillStart, onMounted, useState } from "@odoo/owl";
 import { useService } from "@web/core/utils/hooks";
 
 class FishFarmDashboard extends Component {
-    static template = "fish_farm_management.template_fish_farm_dashboard";
-    static props = {};
+    /* ─────────────────────────────
+       ① السماح لكل الـ props التي يمرّرها الـ ActionController
+    ─────────────────────────────── */
+    static props = {
+        action:            { type: Object,   optional: true },
+        actionId:          { type: Number,   optional: true },
+        updateActionState: { type: Function, optional: true },
+        className:         { type: String,   optional: true },
+    };
+
+    /* ② اسم الـ template */
+    static template = "fish_farm_management.fish_farm_dashboard_template";
 
     setup() {
+        super.setup();
         this.rpc = useService("rpc");
-        this.notification = useService("notification");
-        this.action = useService("action");
 
         this.state = useState({
             loading: true,
-            productionData: null,
-            pondData: null,
-            activities: [],
+            productionData: {},
+            pondData: {},
         });
 
-        onWillStart(async () => {
-            await this.fetchDashboardData();
-        });
-
-        onMounted(() => {
-            this.renderCharts();
-        });
+        onWillStart(async () => { await this._fetchData(); });
+        onMounted(      ()   => {    this._renderCharts(); });
     }
 
-    async fetchDashboardData() {
+    /* ‥ fetch ──────────────────────────────────────────── */
+    async _fetchData() {
         this.state.loading = true;
         try {
             const data = await this.rpc("/fish_farm/dashboard/data");
-            
-            this.state.productionData = {
-                labels: data.production.months,
-                datasets: [{
-                    label: 'Production (Kg)',
-                    data: data.production.values,
-                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            };
-            
-            this.state.pondData = {
-                labels: data.pondStatus.statuses,
-                datasets: [{
-                    data: data.pondStatus.counts,
-                    backgroundColor: [
-                        '#FF6384',
-                        '#36A2EB',
-                        '#FFCE56'
-                    ],
-                    borderWidth: 1
-                }]
-            };
-            
-            this.state.activities = data.activities;
-        } catch (error) {
-            console.error("Dashboard error:", error);
-            this.notification.add("Failed to load dashboard data", {
-                type: 'danger',
-                title: 'Error'
-            });
+
+            this.state.productionData = this._chartData(
+                data.production.months,
+                "Monthly Production",
+                data.production.values,
+                "#4CAF50",
+            );
+            this.state.pondData = this._chartData(
+                data.pondStatus.statuses,
+                "Pond Status",
+                data.pondStatus.counts,
+                ["#FF6384", "#36A2EB", "#FFCE56"],
+            );
+        } catch (err) {
+            console.error("FishFarmDashboard - RPC error:", err);
         } finally {
             this.state.loading = false;
         }
     }
 
-    async refreshData() {
-        await this.fetchDashboardData();
-        this.renderCharts();
+    /* ‥ helpers ────────────────────────────────────────── */
+    _chartData(labels, label, data, color) {
+        return {
+            labels,
+            datasets: [{ label, data, backgroundColor: color, borderWidth: 1 }],
+        };
     }
 
-    renderCharts() {
-        if (this.state.loading || !window.Chart) return;
+    _renderCharts() {
+        if (!window.Chart) { return console.warn("Chart.js missing"); }
+        this._makeChart("productionChart", "bar",      this.state.productionData);
+        this._makeChart("pondChart",       "doughnut", this.state.pondData);
+    }
 
-        try {
-            // Production Chart (Bar)
-            new Chart(
-                document.getElementById('productionChart').getContext('2d'),
-                {
-                    type: 'bar',
-                    data: this.state.productionData,
-                    options: {
-                        responsive: true,
-                        scales: {
-                            y: { beginAtZero: true }
-                        }
-                    }
-                }
-            );
-
-            // Pond Chart (Doughnut)
-            new Chart(
-                document.getElementById('pondChart').getContext('2d'),
-                {
-                    type: 'doughnut',
-                    data: this.state.pondData,
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: { position: 'right' }
-                        }
-                    }
-                }
-            );
-        } catch (error) {
-            console.error("Chart error:", error);
-        }
+    _makeChart(canvasId, type, data) {
+        const ctx = document.getElementById(canvasId)?.getContext("2d");
+        if (!ctx) { return; }
+        new Chart(ctx, {
+            type,
+            data,
+            options: {
+                responsive: true,
+                plugins: { legend:{ position:"top" } },
+                scales: type === "bar" ? { y:{ beginAtZero:true } } : {},
+            },
+        });
     }
 }
 
+/* ③ تسجيل الـ action */
 registry.category("actions").add("fish_farm_dashboard", FishFarmDashboard);
+export default FishFarmDashboard;
