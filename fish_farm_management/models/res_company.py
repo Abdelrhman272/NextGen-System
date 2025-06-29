@@ -34,14 +34,31 @@ class ResCompany(models.Model):
         related='default_feed_product_id',
         readonly=False,
         store=True,
-        help="Deprecated field kept for compatibility with Enterprise tests."
+        help="Product suggested by default in feeding operations."
     )
     medicine_product_id = fields.Many2one(
-    'product.product',
-    string='Medicine Product (compatibility)',
-    related='default_medicine_product_id',
-    readonly=False,
-    store=True,
-    help="Deprecated field kept for compatibility with Enterprise tests."
-)
+        'product.product',
+        string='Medicine Product (compatibility)',
+        related='default_medicine_product_id',
+        readonly=False,
+        store=True,
+        help="Deprecated field kept for compatibility with Enterprise tests."
+    )
+    income_account_id = fields.Many2one(
+        'product.product',
+        string='Income Account (compatibility)',
+        related='default_income_account_id',
+        readonly=False,
+        store=True,
+        help="Default income account for fish sales."
+    )
+    expense_account_id = fields.Many2one(
+        'product.product',
+        string='Expense Account (compatibility)',
+        related='default_income_account_id',
+        readonly=False,
+        store=True,
+        help="Default expense account for farm costs."
+    )
+
 
