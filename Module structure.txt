@@ -1,0 +1,54 @@
+fish_farm_management/
+├── __init__.py                # ملف تهيئة بايثون للموديول
+├── __manifest__.py            # ملف تعريف الموديول (البيانات الوصفية)
+├── models/                    # مجلد تعريفات النماذج (الجداول)
+│   ├── __init__.py
+│   ├── fish_farm.py           # نموذج المزرعة السمكية
+│   ├── sector.py              # نموذج القطاع
+│   ├── slice.py               # نموذج الشريحة
+│   ├── pond.py                # نموذج الحوض
+│   ├── fish_stocking.py       # نموذج إلقاء الزريعة
+│   ├── pond_feeding.py        # نموذج تغذية الأحواض والمستلزمات
+│   ├── pond_cost.py           # نموذج تكاليف الحوض
+│   ├── harvest_record.py      # نموذج سجل الحصاد
+│   ├── harvest_delivery.py    # نموذج تسليم الحصاد للمخزن
+│   ├── harvest_sorting.py     # نموذج فرز الحصاد
+│   ├── sales_commission.py    # (إذا كانت هناك عمولات للوكلاء)
+│   └── (نماذج أخرى حسب الحاجة)
+├── views/                     # مجلد تعريفات الواجهات (الشاشات)
+│   ├── fish_farm_views.xml
+│   ├── sector_views.xml
+│   ├── slice_views.xml
+│   ├── pond_views.xml
+│   ├── fish_stocking_views.xml
+│   ├── pond_feeding_views.xml
+│   ├── pond_cost_views.xml
+│   ├── harvest_record_views.xml
+│   ├── harvest_delivery_views.xml
+│   ├── harvest_sorting_views.xml
+│   ├── menu_items.xml         # ملف تعريف القوائم الرئيسية
+│   └── (واجهات أخرى حسب الحاجة)
+├── data/                      # مجلد للبيانات الأولية والتسلسلات
+│   ├── ir_sequence_data.xml   # لتوليد أرقام تسلسلية لسجلات الحصاد والتكاليف
+│   └── (بيانات أولية إذا لزم الأمر)
+├── security/                  # مجلد تعريفات الصلاحيات
+│   ├── ir.model.access.csv    # صلاحيات الوصول للنماذج
+│   └── fish_farm_security.xml # قواعد الأمان المحددة للموديول
+├── reports/                   # مجلد تعريفات التقارير
+│   ├── __init__.py
+│   ├── pond_cost_report.py    # تقارير تكاليف الأحواض
+│   ├── harvest_summary_report.py # تقارير ملخص الحصاد
+│   └── (تعريفات تقارير QWeb)
+├── wizards/                   # مجلد المعالجات (الوظائف التي تتطلب إدخال المستخدم)
+│   ├── __init__.py
+│   ├── harvest_multi_pond_wizard.py # مثال: معالج لعمليات متعددة للأحواض
+│   └── (معالجات لوظائف محددة)
+├── static/                    # مجلد للملفات الثابتة (CSS, JS, صور)
+│   ├── src/
+│       ├── css/
+│       ├── js/
+│       ├── img/
+│       └── xml/
+└── controllers/               # مجلد لوحدات التحكم الويب (لواجهات API مثلاً)
+    ├── __init__.py
+    └── main.py                # إذا كانت هناك حاجة لوحدات تحكم ويب محددة لتكامل API

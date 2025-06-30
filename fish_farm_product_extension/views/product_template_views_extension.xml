@@ -5,15 +5,15 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='standard_price_property']" position="after">
-                <group string="Fish Farm Specifics">
+            <xpath expr="//group[@name='group_standard_price']" position="after">
+                <group string="خصائص المزرعة السمكية" name="fish_farm_specifics_group">
                     <field name="is_fish_type"/>
                     <field name="is_feed_type"/>
                     <field name="is_medicine_type"/>
                     <field name="is_harvested_product"/>
                 </group>
             </xpath>
-            </field>
+        </field>
     </record>
 
     <record id="product_template_list_view_fish_farm_extension" model="ir.ui.view">
@@ -35,11 +35,11 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_search_view"/>
         <field name="arch" type="xml">
-            <filter name="sales_filter" position="after"> 
-                <filter string="Fish Types" name="is_fish_type" domain="[('is_fish_type', '=', True)]"/>
-                <filter string="Feed Types" name="is_feed_type" domain="[('is_feed_type', '=', True)]"/>
-                <filter string="Medicine Types" name="is_medicine_type" domain="[('is_medicine_type', '=', True)]"/>
-                <filter string="Harvested Products" name="is_harvested_product" domain="[('is_harvested_product', '=', True)]"/>
+            <filter name="sales_filter" position="after">
+                <filter string="أنواع الأسماك" name="is_fish_type" domain="[('is_fish_type', '=', True)]"/>
+                <filter string="أنواع الأعلاف" name="is_feed_type" domain="[('is_feed_type', '=', True)]"/>
+                <filter string="أنواع الأدوية" name="is_medicine_type" domain="[('is_medicine_type', '=', True)]"/>
+                <filter string="المنتجات المحصودة" name="is_harvested_product" domain="[('is_harvested_product', '=', True)]"/>
             </filter>
         </field>
     </record>
