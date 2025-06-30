@@ -4,6 +4,7 @@
 from . import fish_farm
 from . import sector
 from . import slice
+from . import production_plan  # إضافة خطة الإنتاج
 from . import pond # Pond يعتمد على fish_farm, sector, slice
 
 # نماذج العمليات الأساسية التي تعتمد على Pond والمنتجات
