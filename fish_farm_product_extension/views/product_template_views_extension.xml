@@ -5,14 +5,14 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
-            <field name="detailed_type" position="after">
+            <xpath expr="//group[@name='standard_price_property']" position="after">
                 <group string="Fish Farm Specifics">
                     <field name="is_fish_type"/>
                     <field name="is_feed_type"/>
                     <field name="is_medicine_type"/>
                     <field name="is_harvested_product"/>
                 </group>
-            </field>
+            </xpath>
             </field>
     </record>
 
@@ -35,12 +35,12 @@
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_search_view"/>
         <field name="arch" type="xml">
-            <field name="name" position="after">
+            <filter name="sales_filter" position="after"> 
                 <filter string="Fish Types" name="is_fish_type" domain="[('is_fish_type', '=', True)]"/>
                 <filter string="Feed Types" name="is_feed_type" domain="[('is_feed_type', '=', True)]"/>
                 <filter string="Medicine Types" name="is_medicine_type" domain="[('is_medicine_type', '=', True)]"/>
                 <filter string="Harvested Products" name="is_harvested_product" domain="[('is_harvested_product', '=', True)]"/>
-            </field>
+            </filter>
         </field>
     </record>
 </odoo>
