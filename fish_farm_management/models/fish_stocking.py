@@ -27,29 +27,31 @@ class FishStocking(models.Model):
 
 
     @api.model
-    def create(self, vals_list): # تم تغيير vals إلى vals_list
-        for vals in vals_list:
-            if vals.get('name', _('New')) == _('New'):
-                vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.fish_stocking') or _('New')
-        
-        records = super(FishStocking, self).create(vals_list) # استدعاء create الأصلية مع القائمة
-        
-        for res in records: # التكرار على السجلات التي تم إنشاؤها
-            if res.pond_id.status in ('empty', 'preparing'):
-                res.pond_id.status = 'stocked'
-
-        # إنشاء سجل تتبع دفعة
-        batch = self.env['fish_farm_management.batch_traceability'].create({
-            'name': _('دفعة زريعة %s - حوض %s') % (res.fish_type_id.name, res.pond_id.name),
-            'stocking_id': res.id,
-            'fish_type_id': res.fish_type_id.id,
-            'initial_quantity': res.quantity,
-            'pond_id': res.pond_id.id,
-            'start_date': res.stocking_date,
-        })
-        res.batch_id = batch.id
-
-        return res
+    def create(self, vals):
+        # دعم تمرير dict أو قائمة
+        vals_list = [vals] if isinstance(vals, dict) else vals
+    
+        for v in vals_list:
+            if v.get('name', _('New')) == _('New'):
+                v['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.fish_stocking') or _('New')
+    
+        records = super(FishStocking, self).create(vals_list)
+    
+        for rec in records:
+            if rec.pond_id.status in ('empty', 'preparing'):
+                rec.pond_id.status = 'stocked'
+    
+            batch = self.env['fish_farm_management.batch_traceability'].create({
+                'name': _('دفعة زريعة %s - حوض %s') % (rec.fish_type_id.name, rec.pond_id.name),
+                'stocking_id': rec.id,
+                'fish_type_id': rec.fish_type_id.id,
+                'initial_quantity': rec.quantity,
+                'pond_id': rec.pond_id.id,
+                'start_date': rec.stocking_date,
+            })
+            rec.batch_id = batch.id
+    
+        return records
 
     def action_validate_stocking(self):
         for record in self:

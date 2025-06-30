@@ -29,18 +29,16 @@ class WaterQualityReading(models.Model):
     alert_reason = fields.Text(string='سبب التنبيه', compute='_compute_is_alert', store=True)
 
     @api.model
-    def create(self, vals_list): # تم تغيير vals إلى vals_list
-        for vals in vals_list:
-            if vals.get('name', _('New')) == _('New'):
-                vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.water_quality_reading') or _('New')
-        
-        records = super(WaterQualityReading, self).create(vals_list) # استدعاء create الأصلية مع القائمة
-        
-        for res in records: # التكرار على السجلات التي تم إنشاؤها
-            res._compute_is_alert() # احسب حالة التنبيه فور الإنشاء
+    def create(self, vals):
+        vals_list = [vals] if isinstance(vals, dict) else vals
+        for v in vals_list:
+            if v.get('name', _('New')) == _('New'):
+                v['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.water_quality_reading') or _('New')
+    
+        records = super(WaterQualityReading, self).create(vals_list)
+        # TODO: post-create logic if needed
         return records
 
-    @api.depends('ph', 'oxygen_level', 'temperature', 'ammonia', 'nitrite', 'nitrate', 'salinity')
     def _compute_is_alert(self):
         # جلب القيم القصوى والدنيا من إعدادات الموديول
         config = self.env['res.config.settings'].sudo().get_values()
@@ -85,7 +83,7 @@ class WaterQualityReading(models.Model):
             rec.alert_reason = "\n".join(reasons) if reasons else False
 
             # إرسال إشعار إذا كان هناك تنبيه
-            if alert and rec.tracking_message_ids.filtered(lambda m: _('Water Quality Alert') in m.subject).filtered(lambda m: fields.Date.today() == fields.Date.context_today(m.create_date)):
+            if alert and rec.message_ids.filtered(lambda m: _('Water Quality Alert') in m.subject).filtered(lambda m: fields.Date.today() == fields.Date.context_today(m.create_date)):
                 # Avoid sending too many alerts for the same issue on the same day
                 pass
             elif alert:
