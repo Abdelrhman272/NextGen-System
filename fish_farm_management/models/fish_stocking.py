@@ -27,13 +27,17 @@ class FishStocking(models.Model):
 
 
     @api.model
-    def create(self, vals):
-        if vals.get('name', _('New')) == _('New'):
-            vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.fish_stocking') or _('New')
-        res = super(FishStocking, self).create(vals)
-        if res.pond_id.status in ('empty', 'preparing'):
-            res.pond_id.status = 'stocked' # تحديث حالة الحوض
+    def create(self, vals_list): # تم تغيير vals إلى vals_list
+        for vals in vals_list:
+            if vals.get('name', _('New')) == _('New'):
+                vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.fish_stocking') or _('New')
         
+        records = super(FishStocking, self).create(vals_list) # استدعاء create الأصلية مع القائمة
+        
+        for res in records: # التكرار على السجلات التي تم إنشاؤها
+            if res.pond_id.status in ('empty', 'preparing'):
+                res.pond_id.status = 'stocked'
+
         # إنشاء سجل تتبع دفعة
         batch = self.env['fish_farm_management.batch_traceability'].create({
             'name': _('دفعة زريعة %s - حوض %s') % (res.fish_type_id.name, res.pond_id.name),

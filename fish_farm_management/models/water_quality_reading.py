@@ -29,12 +29,16 @@ class WaterQualityReading(models.Model):
     alert_reason = fields.Text(string='سبب التنبيه', compute='_compute_is_alert', store=True)
 
     @api.model
-    def create(self, vals):
-        if vals.get('name', _('New')) == _('New'):
-            vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.water_quality_reading') or _('New')
-        res = super(WaterQualityReading, self).create(vals)
-        res._compute_is_alert() # احسب حالة التنبيه فور الإنشاء
-        return res
+    def create(self, vals_list): # تم تغيير vals إلى vals_list
+        for vals in vals_list:
+            if vals.get('name', _('New')) == _('New'):
+                vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.water_quality_reading') or _('New')
+        
+        records = super(WaterQualityReading, self).create(vals_list) # استدعاء create الأصلية مع القائمة
+        
+        for res in records: # التكرار على السجلات التي تم إنشاؤها
+            res._compute_is_alert() # احسب حالة التنبيه فور الإنشاء
+        return records
 
     @api.depends('ph', 'oxygen_level', 'temperature', 'ammonia', 'nitrite', 'nitrate', 'salinity')
     def _compute_is_alert(self):

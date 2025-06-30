@@ -30,12 +30,21 @@ class PondFeeding(models.Model):
     company_id = fields.Many2one('res.company', string='الشركة', related='pond_id.company_id', store=True, readonly=True)
 
 
+   
     @api.model
-    def create(self, vals):
-        if vals.get('name', _('New')) == _('New'):
-            vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.pond_feeding') or _('New')
-        res = super(PondFeeding, self).create(vals)
-        return res
+    def create(self, vals_list): # تم تغيير vals إلى vals_list
+        for vals in vals_list:
+            if vals.get('name', _('New')) == _('New'):
+                vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.pond_feeding') or _('New')
+        
+        records = super(PondFeeding, self).create(vals_list) # استدعاء create الأصلية مع القائمة
+        
+        # المنطق الذي يجب أن يطبق على كل سجل بعد إنشائه
+        for res in records:
+            # هذا الجزء يتم تطبيقه عند action_validate_feeding()، وليس بالضرورة عند الإنشاء
+            # ولكن إذا أردت ربطها بالدفعة عند الإنشاء، فضع المنطق هنا.
+            pass
+        return records
 
     def action_validate_feeding(self):
         for record in self:

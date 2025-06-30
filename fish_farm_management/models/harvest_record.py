@@ -31,30 +31,29 @@ class HarvestRecord(models.Model):
     company_id = fields.Many2one('res.company', string='الشركة', related='pond_id.company_id', store=True, readonly=True)
 
     @api.model
-    def create(self, vals):
-        if vals.get('name', _('New')) == _('New'):
-            vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.harvest_record') or _('New')
-        res = super(HarvestRecord, self).create(vals)
-        # تحديث حالة الحوض إلى 'حصاد' إذا لم تكن كذلك
-        if res.pond_id.status != 'harvesting':
-             res.pond_id.status = 'harvesting'
+    def create(self, vals_list): # تم تغيير vals إلى vals_list
+        for vals in vals_list:
+            if vals.get('name', _('New')) == _('New'):
+                vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.harvest_record') or _('New')
         
-        # ربط بسجل دفعة موجود أو إنشاء جديد إذا كان هذا الحصاد الأول للحوض
-        # يمكن تحسين هذا المنطق لربط بدفعة محددة تم إلقاؤها
-        existing_batch = self.env['fish_farm_management.batch_traceability'].search([
-            ('pond_id', '=', res.pond_id.id),
-            ('end_date', '=', False) # دفعة نشطة
-        ], limit=1, order='start_date DESC')
+        records = super(HarvestRecord, self).create(vals_list) # استدعاء create الأصلية مع القائمة
+        
+        for res in records: # التكرار على السجلات التي تم إنشاؤها
+            if res.pond_id.status != 'harvesting':
+                res.pond_id.status = 'harvesting'
+            
+            existing_batch = self.env['fish_farm_management.batch_traceability'].search([
+                ('pond_id', '=', res.pond_id.id),
+                ('end_date', '=', False)
+            ], limit=1, order='start_date DESC')
 
-        if existing_batch:
-            res.batch_id = existing_batch.id
-            existing_batch.harvest_ids = [(4, res.id)]
-        else:
-            # إذا لم تكن هناك دفعة نشطة، قد يكون هذا حصاداً من بقايا أو دفعة قديمة
-            # يجب أن يكون هناك منطق أفضل للتعامل مع هذا السيناريو أو فرض ربط بدفعة
-            pass # أو يمكن إنشاء دفعة جديدة هنا إذا كان الحصاد لا يرتبط بزريعة معروفة
+            if existing_batch:
+                res.batch_id = existing_batch.id
+                existing_batch.harvest_ids = [(4, res.id)]
+            else:
+                pass # أو يمكن إنشاء دفعة جديدة هنا إذا كان الحصاد لا يرتبط بزريعة معروفة
         
-        return res
+        return records
 
     def action_validate_harvest(self):
         for record in self:

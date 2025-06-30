@@ -35,12 +35,16 @@ class BatchTraceability(models.Model):
 
     company_id = fields.Many2one('res.company', string='الشركة', related='pond_id.company_id', store=True, readonly=True)
 
-    @api.model
-    def create(self, vals):
-        if vals.get('name', _('New')) == _('New'):
-            vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.batch_traceability') or _('New')
-        res = super(BatchTraceability, self).create(vals)
-        return res
+    api.model
+    def create(self, vals_list): # تم تغيير vals إلى vals_list
+        for vals in vals_list:
+            if vals.get('name', _('New')) == _('New'):
+                vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.batch_traceability') or _('New')
+        
+        records = super(BatchTraceability, self).create(vals_list) # استدعاء create الأصلية مع القائمة
+        
+        # لا يوجد منطق خاص يطبق على كل سجل فردي بعد الإنشاء في هذه الدالة
+        return records
 
     @api.depends('harvest_ids.total_weight', 'pond_id.pond_feeding_ids.quantity', 'pond_id.fish_health_ids.mortality_count',
                  'start_date', 'end_date', 'fish_type_id', 'stocking_id.quantity',

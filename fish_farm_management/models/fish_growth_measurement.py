@@ -31,11 +31,15 @@ class FishGrowthMeasurement(models.Model):
                 rec.average_fish_weight_g = 0.0
 
     @api.model
-    def create(self, vals):
-        if vals.get('name', _('New')) == _('New'):
-            vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.fish_growth_measurement') or _('New')
-        res = super(FishGrowthMeasurement, self).create(vals)
-        return res
+    def create(self, vals_list): # تم تغيير vals إلى vals_list
+        for vals in vals_list:
+            if vals.get('name', _('New')) == _('New'):
+                vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.fish_growth_measurement') or _('New')
+        
+        records = super(FishGrowthMeasurement, self).create(vals_list) # استدعاء create الأصلية مع القائمة
+        
+        # لا يوجد منطق خاص يطبق على كل سجل فردي بعد الإنشاء في هذه الدالة
+        return records
 
     @api.constrains('sample_count', 'total_sample_weight_g')
     def _check_measurement_values(self):
