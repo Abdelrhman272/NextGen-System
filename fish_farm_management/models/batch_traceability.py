@@ -36,17 +36,22 @@ class BatchTraceability(models.Model):
     company_id = fields.Many2one('res.company', string='الشركة', related='pond_id.company_id', store=True, readonly=True)
 
     api.model
-    @api.model
-    def create(self, vals):
-        vals_list = [vals] if isinstance(vals, dict) else vals
-        for v in vals_list:
-            if v.get('name', _('New')) == _('New'):
-                v['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.batch_traceability') or _('New')
-    
-        records = super(BatchTraceability, self).create(vals_list)
-        # TODO: post-create logic if needed
+    def create(self, vals_list): # تم تغيير vals إلى vals_list
+        for vals in vals_list:
+            if vals.get('name', _('New')) == _('New'):
+                vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.batch_traceability') or _('New')
+        
+        records = super(BatchTraceability, self).create(vals_list) # استدعاء create الأصلية مع القائمة
+        
+        # لا يوجد منطق خاص يطبق على كل سجل فردي بعد الإنشاء في هذه الدالة
         return records
 
+    @api.depends('harvest_ids.total_weight', 'pond_id.pond_feeding_ids.quantity', 'pond_id.fish_health_ids.mortality_count',
+                 'start_date', 'end_date', 'fish_type_id', 'stocking_id.quantity',
+                 'pond_id.fish_health_ids.record_date', 'pond_id.pond_feeding_ids.feeding_date',
+                 'fish_type_id.fish_growth_model_ids.start_weight_g', 'fish_type_id.fish_growth_model_ids.target_weight_g',
+                 'fish_type_id.fish_growth_model_ids.target_days', 'pond_id.growth_measurement_ids.measurement_date',
+                 'pond_id.growth_measurement_ids.average_fish_weight_g')
     def _compute_batch_metrics(self):
         for batch in self:
             # إجمالي الوفيات المرتبطة بهذا الحوض وهذه الدفعة

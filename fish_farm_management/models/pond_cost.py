@@ -35,14 +35,14 @@ class PondCost(models.Model):
     ], string='الحالة', default='draft', required=True, tracking=True, copy=False)
 
     @api.model
-    def create(self, vals):
-        vals_list = [vals] if isinstance(vals, dict) else vals
-        for v in vals_list:
-            if v.get('name', _('New')) == _('New'):
-                v['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.pond_cost') or _('New')
-    
-        records = super(PondCost, self).create(vals_list)
-        # TODO: post-create logic if needed
+    def create(self, vals_list): # تم تغيير vals إلى vals_list
+        for vals in vals_list:
+            if vals.get('name', _('New')) == _('New'):
+                vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.pond_cost') or _('New')
+        
+        records = super(PondCost, self).create(vals_list) # استدعاء create الأصلية مع القائمة
+        
+        # لا يوجد منطق خاص يطبق على كل سجل فردي بعد الإنشاء في هذه الدالة
         return records
 
     def action_post_cost(self):

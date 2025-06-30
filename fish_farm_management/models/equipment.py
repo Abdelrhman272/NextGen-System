@@ -5,6 +5,7 @@ from odoo import models, fields, api, _
 class FishFarmEquipment(models.Model):
     _inherit = ['maintenance.equipment']
     fish_farm_id = fields.Many2one('fish_farm_management.fish_farm', string='المزرعة المرتبطة')
+    fish_farm_id = fields.Many2one('fish_farm_management.fish_farm', string='المزرعة المرتبطة')
     _name = 'fish_farm_management.equipment'
     _description = 'معدات المزرعة السمكية'
     _inherit = ['maintenance.equipment'] # التوريث من Maintenance Equipment

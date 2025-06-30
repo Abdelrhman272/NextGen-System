@@ -32,14 +32,18 @@ class PondFeeding(models.Model):
 
    
     @api.model
-    def create(self, vals):
-        vals_list = [vals] if isinstance(vals, dict) else vals
-        for v in vals_list:
-            if v.get('name', _('New')) == _('New'):
-                v['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.pond_feeding') or _('New')
-    
-        records = super(PondFeeding, self).create(vals_list)
-        # TODO: post-create logic if needed
+    def create(self, vals_list): # تم تغيير vals إلى vals_list
+        for vals in vals_list:
+            if vals.get('name', _('New')) == _('New'):
+                vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.pond_feeding') or _('New')
+        
+        records = super(PondFeeding, self).create(vals_list) # استدعاء create الأصلية مع القائمة
+        
+        # المنطق الذي يجب أن يطبق على كل سجل بعد إنشائه
+        for res in records:
+            # هذا الجزء يتم تطبيقه عند action_validate_feeding()، وليس بالضرورة عند الإنشاء
+            # ولكن إذا أردت ربطها بالدفعة عند الإنشاء، فضع المنطق هنا.
+            pass
         return records
 
     def action_validate_feeding(self):
