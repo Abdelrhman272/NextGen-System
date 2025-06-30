@@ -5,7 +5,7 @@ from odoo import models, fields, api, _
 class FishFarmEquipment(models.Model):
     _name = 'fish_farm_management.equipment'
     _description = 'معدات المزرعة السمكية'
-    _inherit = ['mail.thread', 'mail.activity.mixin', 'maintenance.equipment'] # التوريث من Maintenance Equipment
+    _inherit = ['maintenance.equipment'] # التوريث من Maintenance Equipment
 
     # حقول إضافية خاصة بالمزرعة السمكية إذا لزم الأمر
     # location_id = fields.Many2one('stock.location', string='موقع المعدة') # يمكن استخدامه لتحديد موقع المعدة داخل المزرعة
