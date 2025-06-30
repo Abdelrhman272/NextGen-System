@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_fish_farm" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.fish.farm</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Fish Farm Management" string="إدارة المزرعة السمكية" data-category="Fish Farm Management">
+                    <h2>جودة المياه ومعايير الأداء</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="min_ph" string="حدود pH المياه"/>
+                                <div class="text-muted">
+                                    تحديد النطاق المقبول للرقم الهيدروجيني (pH) في الأحواض.
+                                </div>
+                                <div class="content-group">
+                                    <div class="row">
+                                        <label for="min_ph" class="col-lg-4 o_light_label"/>
+                                        <field name="min_ph" class="oe_inline"/>
+                                        <label for="max_ph" class="col-lg-4 o_light_label"/>
+                                        <field name="max_ph" class="oe_inline"/>
+                                    </div>
+                                </div>
+                                <label for="min_oxygen" string="الحد الأدنى للأكسجين المذاب"/>
+                                <div class="text-muted">
+                                    مستوى الأكسجين الأدنى لضمان صحة الأسماك.
+                                </div>
+                                <div class="content-group">
+                                    <div class="row">
+                                        <label for="min_oxygen" class="col-lg-4 o_light_label"/>
+                                        <field name="min_oxygen" class="oe_inline"/>
+                                        <span> ملجم/لتر</span>
+                                    </div>
+                                </div>
+                                <label for="min_temperature" string="حدود درجة حرارة المياه"/>
+                                <div class="text-muted">
+                                    نطاق درجة الحرارة المثلى لنمو الأسماك.
+                                </div>
+                                <div class="content-group">
+                                    <div class="row">
+                                        <label for="min_temperature" class="col-lg-4 o_light_label"/>
+                                        <field name="min_temperature" class="oe_inline"/>
+                                        <label for="max_temperature" class="col-lg-4 o_light_label"/>
+                                        <field name="max_temperature" class="oe_inline"/>
+                                    </div>
+                                </div>
+                                <label for="max_ammonia" string="الحد الأقصى للأمونيا والنيتريت"/>
+                                <div class="text-muted">
+                                    الحدود القصوى للمركبات الضارة في المياه.
+                                </div>
+                                <div class="content-group">
+                                    <div class="row">
+                                        <label for="max_ammonia" class="col-lg-4 o_light_label"/>
+                                        <field name="max_ammonia" class="oe_inline"/>
+                                        <span> ملجم/لتر (أمونيا)</span>
+                                    </div>
+                                    <div class="row">
+                                        <label for="max_nitrite" class="col-lg-4 o_light_label"/>
+                                        <field name="max_nitrite" class="oe_inline"/>
+                                        <span> ملجم/لتر (نيتريت)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="fcr_warning_threshold" string="حد تحذير معدل التحويل الغذائي (FCR)"/>
+                                <div class="text-muted">
+                                    قيمة FCR التي تعتبر عندها مؤشراً سلبياً (أقل من هذا الرقم أفضل).
+                                </div>
+                                <div class="content-group">
+                                    <div class="row">
+                                        <label for="fcr_warning_threshold" class="col-lg-4 o_light_label"/>
+                                        <field name="fcr_warning_threshold" class="oe_inline"/>
+                                    </div>
+                                </div>
+                                <label for="survival_rate_warning_threshold" string="حد تحذير معدل البقاء على قيد الحياة"/>
+                                <div class="text-muted">
+                                    النسبة المئوية التي يعتبر عندها معدل البقاء على قيد الحياة منخفضاً.
+                                </div>
+                                <div class="content-group">
+                                    <div class="row">
+                                        <label for="survival_rate_warning_threshold" class="col-lg-4 o_light_label"/>
+                                        <field name="survival_rate_warning_threshold" class="oe_inline"/>
+                                        <span> %</span>
+                                    </div>
+                                </div>
+                                <label for="sorting_tolerance" string="سماحية الفرز (كجم)"/>
+                                <div class="text-muted">
+                                    الفرق الأقصى المسموح به بين الوزن المدخل والوزن المفرز.
+                                </div>
+                                <div class="content-group">
+                                    <div class="row">
+                                        <label for="sorting_tolerance" class="col-lg-4 o_light_label"/>
+                                        <field name="sorting_tolerance" class="oe_inline"/>
+                                        <span> كجم</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_fish_farm_config_settings" model="ir.actions.act_window">
+        <field name="name">إعدادات المزرعة السمكية</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'module' : 'fish_farm_management', 'bin_size': False}</field>
+    </record>
+
+</odoo>

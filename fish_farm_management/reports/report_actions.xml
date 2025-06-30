@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+        id="action_report_pond_cost_analysis"
+        model="fish_farm_management.report_wizard"
+        string="تقرير تحليل تكاليف الأحواض (PDF)"
+        report_type="qweb-pdf"
+        name="fish_farm_management.report_pond_cost_analysis_template"
+        file="fish_farm_management.report_pond_cost_analysis_template"
+        print_report_name="'تقرير تحليل تكاليف الأحواض - %s - %s' % (object.date_from or '', object.date_to or '')"
+    />
+
+    <report
+        id="action_report_harvest_performance"
+        model="fish_farm_management.report_wizard"
+        string="تقرير أداء الحصاد والإنتاجية (PDF)"
+        report_type="qweb-pdf"
+        name="fish_farm_management.report_harvest_performance_template"
+        file="fish_farm_management.report_harvest_performance_template"
+        print_report_name="'تقرير أداء الحصاد - %s - %s' % (object.date_from or '', object.date_to or '')"
+    />
+
+    <report
+        id="action_report_supplies_consumption"
+        model="fish_farm_management.report_wizard"
+        string="تقرير استهلاك المستلزمات (PDF)"
+        report_type="qweb-pdf"
+        name="fish_farm_management.report_supplies_consumption_template"
+        file="fish_farm_management.report_supplies_consumption_template"
+        print_report_name="'تقرير استهلاك المستلزمات - %s - %s' % (object.date_from or '', object.date_to or '')"
+    />
+
+    <report
+        id="action_report_fish_health_water_quality"
+        model="fish_farm_management.report_wizard"
+        string="تقرير صحة الأسماك وجودة المياه (PDF)"
+        report_type="qweb-pdf"
+        name="fish_farm_management.report_fish_health_water_quality_template"
+        file="fish_farm_management.report_fish_health_water_quality_template"
+        print_report_name="'تقرير صحة الأسماك وجودة المياه - %s - %s' % (object.date_from or '', object.date_to or '')"
+    />
+
+    <report
+        id="action_report_sales_profitability"
+        model="fish_farm_management.report_wizard"
+        string="تقرير المبيعات والربحية (PDF)"
+        report_type="qweb-pdf"
+        name="fish_farm_management.report_sales_profitability_template"
+        file="fish_farm_management.report_sales_profitability_template"
+        print_report_name="'تقرير المبيعات والربحية - %s - %s' % (object.date_from or '', object.date_to or '')"
+    />
+</odoo>

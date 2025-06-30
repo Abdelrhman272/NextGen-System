@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pond_feeding_tree" model="ir.ui.view">
+        <field name="name">pond.feeding.tree</field>
+        <field name="model">fish_farm_management.pond_feeding</field>
+        <field name="arch" type="xml">
+            <tree string="سجلات تغذية الأحواض" decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
+                <field name="name"/>
+                <field name="pond_id"/>
+                <field name="feeding_date"/>
+                <field name="product_id"/>
+                <field name="quantity"/>
+                <field name="product_uom_id"/>
+                <field name="state"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_pond_feeding_form" model="ir.ui.view">
+        <field name="name">pond.feeding.form</field>
+        <field name="model">fish_farm_management.pond_feeding</field>
+        <field name="arch" type="xml">
+            <form string="سجل تغذية الحوض">
+                <header>
+                    <button name="action_validate_feeding" type="object" string="تأكيد الاستهلاك" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_cancel_feeding" type="object" string="إلغاء الاستهلاك" attrs="{'invisible': [('state', 'in', ('cancelled'))]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="%(stock.action_view_stock_move_lines)d" type="action"
+                                icon="fa-exchange" attrs="{'invisible': [('stock_move_id', '=', False)]}">
+                            <field name="stock_move_id" string="حركة المخزون" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="pond_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="feeding_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="product_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <label for="quantity"/>
+                            <div>
+                                <field name="quantity" class="oe_inline" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="product_uom_id" class="oe_inline" attrs="{'readonly': [('product_id', '=', False)]}"/>
+                            </div>
+                            <field name="company_id" groups="base.group_multi_company" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="معلومات إضافية">
+                        <field name="purchase_order_id" readonly="1"/>
+                        <field name="batch_ids" widget="many2many_tags" readonly="1"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fish_farm_pond_feeding_view" model="ir.actions.act_window">
+        <field name="name">تغذية الأحواض والمستلزمات</field>
+        <field name="res_model">fish_farm_management.pond_feeding</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

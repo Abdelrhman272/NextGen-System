@@ -1,0 +1,78 @@
+fish_farm_management/
+├── controllers/          # وحدات التحكم HTTP لمعالجة طلبات Excel
+│   └── main.py
+├── data/                 # بيانات أولية وتسلسلات
+│   ├── analytic_tag_data.xml
+│   ├── ir_sequence_data.xml
+│   └── product_data.xml
+├── models/               # تعريفات النماذج (الجداول) ومنطق الأعمال
+│   ├── __init__.py
+│   ├── batch_traceability.py
+│   ├── equipment.py
+│   ├── fish_farm.py
+│   ├── fish_growth_measurement.py
+│   ├── fish_growth_model.py
+│   ├── fish_health_record.py
+│   ├── fish_stocking.py
+│   ├── harvest_delivery.py
+│   ├── harvest_record.py
+│   ├── harvest_sorting.py
+│   ├── maintenance_request_extension.py
+│   ├── pond.py
+│   ├── pond_cost.py
+│   ├── pond_feeding.py
+│   ├── production_plan.py
+│   ├── res_config_settings.py
+│   ├── sector.py
+│   ├── slice.py
+│   └── water_quality_reading.py
+├── reports/              # منطق جلب بيانات التقارير وقوالب QWeb
+│   ├── __init__.py
+│   ├── report_actions.xml
+│   ├── report_data_provider.py
+│   ├── report_fish_health_water_quality_template.xml
+│   ├── report_harvest_performance_template.xml
+│   ├── report_pond_cost_analysis_template.xml
+│   ├── report_sales_profitability_template.xml
+│   └── report_supplies_consumption_template.xml
+├── security/             # مجموعات المستخدمين وصلاحيات الوصول
+│   ├── fish_farm_security.xml
+│   └── ir.model.access.csv
+├── static/               # أصول الويب (CSS, JS)
+│   ├── src/
+│   │   ├── css/
+│   │   │   └── dashboard.css
+│   │   ├── js/
+│   │   │   ├── dashboard.js (placeholder)
+│   │   │   └── excel_export.js
+│   │   └── xml/
+│   │       └── dashboard.xml (placeholder)
+│   └── description/
+│       └── icon.png
+├── views/                # تعريفات الواجهات (list, form, menu items)
+│   ├── batch_traceability_views.xml
+│   ├── equipment_views.xml
+│   ├── fish_farm_settings_views.xml
+│   ├── fish_farm_views.xml
+│   ├── fish_growth_measurement_views.xml
+│   ├── fish_growth_model_views.xml
+│   ├── fish_health_views.xml
+│   ├── fish_stocking_views.xml
+│   ├── harvest_delivery_views.xml
+│   ├── harvest_record_views.xml
+│   ├── harvest_sorting_views.xml
+│   ├── maintenance_request_views_extension.xml
+│   ├── menu_items.xml
+│   ├── pond_cost_views.xml
+│   ├── pond_feeding_views.xml
+│   ├── pond_views.xml
+│   ├── production_plan_views.xml
+│   ├── sector_views.xml
+│   ├── slice_views.xml
+│   └── water_quality_views.xml
+├── wizards/              # معالجات طلب التقارير
+│   ├── __init__.py
+│   ├── report_wizard.py
+│   └── report_wizard_views.xml
+├── __init__.py
+└── __manifest__.py

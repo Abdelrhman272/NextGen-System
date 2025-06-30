@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_fish_farm_dashboard_client" model="ir.actions.client">
+        <field name="name">Fish Farm Dashboard</field>
+        <field name="tag">fish_farm_management.dashboard</field> </record>
+
+    <menuitem id="menu_fish_farm_dashboard"
+              name="لوحة القيادة"
+              parent="menu_fish_farm_root"
+              action="action_fish_farm_dashboard_client" # <-- ربط بالإجراء العميل الجديد
+              sequence="5"/>
+              
+    <menuitem id="menu_fish_farm_root"
+              name="إدارة المزرعة السمكية"
+              sequence="80"
+              web_icon="fish_farm_management,static/description/icon.png"/>
+
+    <menuitem id="menu_fish_farm_dashboard"
+              name="لوحة القيادة"
+              parent="menu_fish_farm_root"
+              action="fish_farm_management.action_fish_farm_dashboard"
+              sequence="5"/>
+
+    <menuitem id="menu_fish_farm_configuration"
+              name="الإعدادات"
+              parent="menu_fish_farm_root"
+              sequence="10"/>
+
+    <menuitem id="menu_fish_farm_farms"
+              name="المزارع السمكية"
+              parent="menu_fish_farm_configuration"
+              action="action_fish_farm_farm_view"/>
+
+    <menuitem id="menu_fish_farm_sectors"
+              name="القطاعات"
+              parent="menu_fish_farm_configuration"
+              action="action_fish_farm_sector_view"/>
+
+    <menuitem id="menu_fish_farm_slices"
+              name="الشرائح"
+              parent="menu_fish_farm_configuration"
+              action="action_fish_farm_slice_view"/>
+
+    <menuitem id="menu_fish_farm_ponds"
+              name="الأحواض"
+              parent="menu_fish_farm_configuration"
+              action="action_fish_farm_pond_view"/>
+
+    <menuitem id="menu_fish_farm_growth_models"
+              name="نماذج النمو"
+              parent="menu_fish_farm_configuration"
+              action="action_fish_farm_growth_model_view"/>
+    
+    <menuitem id="menu_fish_farm_product_config"
+              name="أنواع المنتجات"
+              parent="menu_fish_farm_configuration"
+              action="product.product_template_action"/> <menuitem id="menu_fish_farm_operations"
+              name="العمليات"
+              parent="menu_fish_farm_root"
+              sequence="20"/>
+
+    <menuitem id="menu_fish_farm_fish_stocking"
+              name="إلقاء الزريعة"
+              parent="menu_fish_farm_operations"
+              action="action_fish_farm_fish_stocking_view"/>
+
+    <menuitem id="menu_fish_farm_pond_feeding"
+              name="تغذية الأحواض والمستلزمات"
+              parent="menu_fish_farm_operations"
+              action="action_fish_farm_pond_feeding_view"/>
+
+    <menuitem id="menu_fish_farm_pond_cost"
+              name="تكاليف الأحواض"
+              parent="menu_fish_farm_operations"
+              action="action_fish_farm_pond_cost_view"/>
+
+    <menuitem id="menu_fish_farm_harvest_record"
+              name="سجلات الحصاد"
+              parent="menu_fish_farm_operations"
+              action="action_fish_farm_harvest_record_view"/>
+
+    <menuitem id="menu_fish_farm_harvest_delivery"
+              name="تسليم الحصاد للمخزن"
+              parent="menu_fish_farm_operations"
+              action="action_fish_farm_harvest_delivery_view"/>
+
+    <menuitem id="menu_fish_farm_harvest_sorting"
+              name="فرز الحصاد"
+              parent="menu_fish_farm_operations"
+              action="action_fish_farm_harvest_sorting_view"/>
+
+    <menuitem id="menu_fish_farm_fish_health"
+              name="صحة الأسماك"
+              parent="menu_fish_farm_operations"
+              action="action_fish_farm_fish_health_record_view"/>
+
+    <menuitem id="menu_fish_farm_water_quality"
+              name="جودة المياه"
+              parent="menu_fish_farm_operations"
+              action="action_fish_farm_water_quality_reading_view"/>
+
+    <menuitem id="menu_fish_farm_growth_measurements"
+              name="قياسات النمو"
+              parent="menu_fish_farm_operations"
+              action="action_fish_farm_growth_measurement_view"/>
+
+    <menuitem id="menu_fish_farm_production_plan"
+              name="خطط الإنتاج"
+              parent="menu_fish_farm_operations"
+              action="action_fish_farm_production_plan_view"/>
+    
+    <menuitem id="menu_fish_farm_batch_traceability"
+              name="تتبع الدفعات"
+              parent="menu_fish_farm_operations"
+              action="action_fish_farm_batch_traceability_view"/>
+
+    <menuitem id="menu_fish_farm_maintenance_main"
+              name="الصيانة"
+              parent="menu_fish_farm_root"
+              sequence="50"
+              groups="maintenance.group_maintenance_user"/>
+
+    <menuitem id="menu_fish_farm_equipment_link"
+              name="المعدات"
+              parent="menu_fish_farm_maintenance_main"
+              action="maintenance.hr_equipment_action" />
+
+    <menuitem id="menu_fish_farm_maintenance_requests_link"
+              name="طلبات الصيانة"
+              parent="menu_fish_farm_maintenance_main"
+              action="maintenance.hr_maintenance_request_action" />
+
+    <menuitem id="menu_fish_farm_maintenance_teams_link"
+              name="فرق الصيانة"
+              parent="menu_fish_farm_maintenance_main"
+              action="maintenance.hr_maintenance_team_action" />
+    
+    <menuitem id="menu_fish_farm_reports_main"
+              name="التقارير"
+              parent="menu_fish_farm_root"
+              sequence="90"/>
+
+    <menuitem id="menu_fish_farm_reporting_wizard"
+              name="إنشاء التقارير المخصصة"
+              parent="menu_fish_farm_reports_main"
+              action="action_fish_farm_report_wizard"
+              sequence="10"/>
+
+    <menuitem id="menu_fish_farm_settings"
+              name="الإعدادات"
+              parent="menu_fish_farm_root"
+              action="action_fish_farm_config_settings"
+              sequence="100"/>
+
+</odoo>

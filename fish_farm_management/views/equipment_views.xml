@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="maintenance_equipment_form_view_fish_farm_extension" model="ir.ui.view">
+        <field name="name">maintenance.equipment.form.fish.farm.extension</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main_info']" position="after">
+                <group string="تفاصيل المزرعة السمكية">
+                    <field name="pond_id"/>
+                    <field name="equipment_type"/>
+                    <field name="serial_number"/>
+                    <field name="purchase_date"/>
+                    <field name="warranty_expiry_date"/>
+                </group>
+            </xpath>
+            </field>
+    </record>
+
+    <record id="maintenance_equipment_tree_view_fish_farm_extension" model="ir.ui.view">
+        <field name="name">maintenance.equipment.tree.fish.farm.extension</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="category_id" position="after">
+                <field name="pond_id" optional="hide"/>
+                <field name="equipment_type" optional="hide"/>
+                <field name="serial_number" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="maintenance_equipment_search_view_fish_farm_extension" model="ir.ui.view">
+        <field name="name">maintenance.equipment.search.fish.farm.extension</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_search"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <filter string="By Pond" name="filter_by_pond" domain="[]" context="{'group_by': 'pond_id'}"/>
+                <filter string="By Equipment Type" name="filter_by_equipment_type" domain="[]" context="{'group_by': 'equipment_type'}"/>
+            </field>
+        </field>
+    </record>
+</odoo>

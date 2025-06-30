@@ -1,0 +1,8 @@
+fish_farm_product_extension/
+├── models/
+│   ├── __init__.py
+│   └── product_template_extension.py
+├── views/
+│   └── product_template_views_extension.xml
+├── __init__.py
+└── __manifest__.py

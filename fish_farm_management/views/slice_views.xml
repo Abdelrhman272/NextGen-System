@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_sector_tree" model="ir.ui.view">
-        <field name="name">sector.tree</field>
-        <field name="model">fish_farm_management.sector</field>
+    <record id="view_slice_tree" model="ir.ui.view">
+        <field name="name">slice.tree</field>
+        <field name="model">fish_farm_management.slice</field>
         <field name="arch" type="xml">
-            <tree string="القطاعات">
+            <tree string="الشرائح">
                 <field name="name"/>
+                <field name="sector_id"/>
                 <field name="fish_farm_id"/>
                 <field name="company_id" groups="base.group_multi_company"/>
             </tree>
         </field>
     </record>
 
-    <record id="view_sector_form" model="ir.ui.view">
-        <field name="name">sector.form</field>
-        <field name="model">fish_farm_management.sector</field>
+    <record id="view_slice_form" model="ir.ui.view">
+        <field name="name">slice.form</field>
+        <field name="model">fish_farm_management.slice</field>
         <field name="arch" type="xml">
-            <form string="قطاع">
+            <form string="شريحة">
                 <sheet>
                     <div class="oe_title">
-                        <h1><field name="name" placeholder="اسم القطاع..."/></h1>
+                        <h1><field name="name" placeholder="اسم الشريحة..."/></h1>
                     </div>
                     <group>
                         <group>
-                            <field name="fish_farm_id"/>
+                            <field name="sector_id"/>
+                            <field name="fish_farm_id" readonly="1"/>
                         </group>
                         <group>
                             <field name="company_id" groups="base.group_multi_company"/>
                         </group>
                     </group>
                     <notebook>
-                        <page string="الشرائح">
-                            <field name="slice_ids">
+                        <page string="الأحواض">
+                            <field name="pond_ids">
                                 <tree editable="bottom">
                                     <field name="name"/>
+                                    <field name="status"/>
+                                    <field name="current_fish_type_ids" widget="many2many_tags"/>
                                 </tree>
                             </field>
                         </page>
@@ -43,9 +47,9 @@
         </field>
     </record>
 
-    <record id="action_fish_farm_sector_view" model="ir.actions.act_window">
-        <field name="name">القطاعات</field>
-        <field name="res_model">fish_farm_management.sector</field>
+    <record id="action_fish_farm_slice_view" model="ir.actions.act_window">
+        <field name="name">الشرائح</field>
+        <field name="res_model">fish_farm_management.slice</field>
         <field name="view_mode">tree,form</field>
     </record>
 </odoo>

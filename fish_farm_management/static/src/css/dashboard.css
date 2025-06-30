@@ -1,51 +1,109 @@
-.fish-farm-dashboard {
-    font-family: 'Roboto', sans-serif;
-}
+/* static/src/css/dashboard.css */
 
-.fish-farm-dashboard .card {
+.o_fish_farm_dashboard .o_dashboard_header {
     margin-bottom: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border: none;
+    text-align: center;
+}
+
+.o_fish_farm_dashboard .o_dashboard_header h1 {
+    font-size: 2.5em;
+    color: #007bff; /* Primary Odoo color */
+}
+
+.o_fish_farm_dashboard .o_kpis {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.o_fish_farm_dashboard .o_kpi_card {
+    background-color: #fff;
     border-radius: 8px;
-}
-
-.fish-farm-dashboard .card-header {
-    background-color: #f8f9fa;
-    font-weight: 600;
-    border-bottom: 1px solid #eee;
-    padding: 15px 20px;
-}
-
-.fish-farm-dashboard .card-body {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 150px; /* Fixed height for consistency */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white; /* Default text color for KPI cards */
 }
 
-.fish-farm-dashboard h2 {
-    color: #2c3e50;
-    font-weight: 700;
+.o_fish_farm_dashboard .o_kpi_card.bg-primary { background-color: #007bff; }
+.o_fish_farm_dashboard .o_kpi_card.bg-success { background-color: #28a745; }
+.o_fish_farm_dashboard .o_kpi_card.bg-warning { background-color: #ffc107; color: #333; } /* Override text color for warning */
+.o_fish_farm_dashboard .o_kpi_card.bg-info { background-color: #17a2b8; }
+/* Add more colors as needed: danger, secondary, dark, light */
+
+.o_fish_farm_dashboard .o_kpi_value {
+    font-size: 2.5em;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
-.fish-farm-dashboard .activity-feed {
-    list-style: none;
-    padding: 0;
+.o_fish_farm_dashboard .o_kpi_label {
+    font-size: 1em;
+    opacity: 0.9;
 }
 
-.fish-farm-dashboard .activity-item {
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
+.o_fish_farm_dashboard .o_kpi_icon {
+    position: absolute;
+    bottom: -15px;
+    right: -10px;
+    font-size: 5em;
+    opacity: 0.2;
 }
 
-.fish-farm-dashboard .activity-date {
-    font-size: 12px;
-    color: #7f8c8d;
+.o_fish_farm_dashboard .o_charts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.fish-farm-dashboard .btn-primary {
-    background-color: #3498db;
-    border-color: #3498db;
+.o_fish_farm_dashboard .o_chart_card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 400px; /* Fixed height for charts */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center canvas */
+    box-sizing: border-box; /* Include padding in height */
 }
 
-.fish-farm-dashboard .btn-primary:hover {
-    background-color: #2980b9;
-    border-color: #2980b9;
+.o_fish_farm_dashboard .o_chart_card canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.o_fish_farm_dashboard .o_chart_card h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #555;
+    text-align: center;
+}
+
+/* Table styling for alerts */
+.o_fish_farm_dashboard .o_chart_card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.o_fish_farm_dashboard .o_chart_card table th,
+.o_fish_farm_dashboard .o_chart_card table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.o_fish_farm_dashboard .o_chart_card table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
 }

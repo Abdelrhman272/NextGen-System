@@ -1,63 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_fish_pond_list" model="ir.ui.view">
-        <field name="name">fish.pond.list</field>
-        <field name="model">fish.pond</field>
-        <field name="type">list</field>
+    <record id="view_pond_tree" model="ir.ui.view">
+        <field name="name">pond.tree</field>
+        <field name="model">fish_farm_management.pond</field>
         <field name="arch" type="xml">
-            <list>
+            <tree string="الأحواض" decoration-success="status == 'stocked'"
+                  decoration-info="status == 'preparing'"
+                  decoration-warning="status == 'harvesting'"
+                  decoration-muted="status == 'idle' or status == 'empty'">
                 <field name="name"/>
-                <field name="code"/>
-                <field name="segment_id"/>
-                <field name="state"/>
-                <field name="current_cycle_id"/>
-                <field name="area"/>
-                <field name="volume"/>
-            </list>
+                <field name="slice_id"/>
+                <field name="sector_id"/>
+                <field name="fish_farm_id"/>
+                <field name="status"/>
+                <field name="current_fish_type_ids" widget="many2many_tags"/>
+                <field name="estimated_current_biomass_kg"/>
+                <field name="last_water_quality_ph"/>
+                <field name="last_water_quality_oxygen"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
         </field>
     </record>
 
-    <record id="view_fish_pond_form" model="ir.ui.view">
-        <field name="name">fish.pond.form</field>
-        <field name="model">fish.pond</field>
+    <record id="view_pond_form" model="ir.ui.view">
+        <field name="name">pond.form</field>
+        <field name="model">fish_farm_management.pond</field>
         <field name="arch" type="xml">
-            <form>
+            <form string="حوض">
                 <header>
-                    <button name="action_start_cycle" type="object" string="Start New Cycle" class="oe_highlight" invisible="state not in ('empty')"/>
-                    <button name="action_view_cycle" type="object" string="View Current Cycle" invisible="state not in ('stocked,harvesting')" class="oe_highlight"/>
-                    <field name="state" widget="statusbar"/>
+                    <field name="status" widget="statusbar" statusbar_visible="empty,preparing,stocked,harvesting,idle"/>
                 </header>
                 <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="رقم الحوض..."/></h1>
+                    </div>
                     <group>
                         <group>
-                            <field name="name"/>
-                            <field name="code"/>
-                            <field name="segment_id"/>
-                            <field name="state" readonly="1"/>
+                            <field name="fish_farm_id" readonly="1"/>
+                            <field name="sector_id" readonly="1"/>
+                            <field name="slice_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
                         </group>
                         <group>
-                            <field name="area"/>
-                            <field name="depth"/>
-                            <field name="volume" readonly="1"/>
+                            <field name="volume"/>
+                            <field name="capacity_kg"/>
+                            <field name="last_cleaning_date"/>
+                            <field name="active_date"/>
+                            <field name="decommission_date"/>
                         </group>
                     </group>
                     <notebook>
-                        <page string="Details">
-                            <field name="fish_type_ids" widget="many2many_tags"/>
-                            <field name="current_cycle_id" options="{'no_create': True}"/>
+                        <page string="البيانات الحالية">
+                            <group>
+                                <group>
+                                    <field name="current_fish_type_ids" widget="many2many_tags" readonly="1"/>
+                                    <field name="total_stocked_qty"/>
+                                    <field name="current_fish_count"/>
+                                </group>
+                                <group>
+                                    <field name="estimated_current_biomass_kg"/>
+                                    <field name="last_water_quality_ph"/>
+                                    <field name="last_water_quality_oxygen"/>
+                                </group>
+                            </group>
                         </page>
-                        <page string="Cost Tracking">
-                            <field name="analytic_account_id"/>
+                        <page string="تاريخ إلقاء الزريعة">
+                            <field name="fish_stocking_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="fish_type_id"/>
+                                    <field name="stocking_date"/>
+                                    <field name="quantity"/>
+                                    <field name="uom_id"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="سجلات التغذية والمستلزمات">
+                            <field name="pond_feeding_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="feeding_date"/>
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="uom_id"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="تكاليف الحوض">
+                            <field name="pond_cost_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="cost_date"/>
+                                    <field name="cost_type_id"/>
+                                    <field name="amount"/>
+                                    <field name="is_direct_cost"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="سجلات الحصاد">
+                            <field name="harvest_record_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="harvest_date"/>
+                                    <field name="harvest_number"/>
+                                    <field name="total_weight"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="سجلات صحة الأسماك">
+                            <field name="fish_health_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="record_date"/>
+                                    <field name="issue_type"/>
+                                    <field name="disease_name"/>
+                                    <field name="mortality_count"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="قراءات جودة المياه">
+                            <field name="water_quality_ids">
+                                <tree decoration-danger="is_alert == True">
+                                    <field name="name"/>
+                                    <field name="reading_date"/>
+                                    <field name="ph"/>
+                                    <field name="oxygen_level"/>
+                                    <field name="temperature"/>
+                                    <field name="is_alert"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="خطط الإنتاج">
+                            <field name="production_plan_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="plan_date"/>
+                                    <field name="planned_stocking_date"/>
+                                    <field name="planned_harvest_date"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="قياسات النمو">
+                            <field name="growth_measurement_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="measurement_date"/>
+                                    <field name="fish_type_id"/>
+                                    <field name="average_fish_weight_g"/>
+                                </tree>
+                            </field>
                         </page>
                     </notebook>
                 </sheet>
             </form>
         </field>
     </record>
-    
-    <record id="action_fish_pond" model="ir.actions.act_window">
-        <field name="name">Ponds</field>
-        <field name="res_model">fish.pond</field>
-        <field name="view_mode">list,form</field>
+
+    <record id="action_fish_farm_pond_view" model="ir.actions.act_window">
+        <field name="name">الأحواض</field>
+        <field name="res_model">fish_farm_management.pond</field>
+        <field name="view_mode">tree,form</field>
     </record>
 </odoo>

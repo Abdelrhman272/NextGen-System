@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fish_stocking_tree" model="ir.ui.view">
+        <field name="name">fish.stocking.tree</field>
+        <field name="model">fish_farm_management.fish_stocking</field>
+        <field name="arch" type="xml">
+            <tree string="سجلات إلقاء الزريعة" decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
+                <field name="name"/>
+                <field name="pond_id"/>
+                <field name="fish_type_id"/>
+                <field name="stocking_date"/>
+                <field name="quantity"/>
+                <field name="uom_id"/>
+                <field name="batch_id"/>
+                <field name="state"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fish_stocking_form" model="ir.ui.view">
+        <field name="name">fish.stocking.form</field>
+        <field name="model">fish_farm_management.fish_stocking</field>
+        <field name="arch" type="xml">
+            <form string="سجل إلقاء الزريعة">
+                <header>
+                    <button name="action_validate_stocking" type="object" string="تأكيد إلقاء الزريعة" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_cancel_stocking" type="object" string="إلغاء إلقاء الزريعة" attrs="{'invisible': [('state', 'in', ('cancelled'))]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive"
+                                attrs="{'invisible': [('active', '=', False)]}" string="أرشيف">
+                            <field name="active" widget="boolean_toggle"/>
+                        </button>
+                        <button class="oe_stat_button" name="%(stock.action_view_stock_picking_request)d" type="action"
+                                icon="fa-truck" attrs="{'invisible': [('source_picking_id', '=', False)]}">
+                            <field name="source_picking_id" string="النقل المخزني" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="pond_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="fish_type_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="stocking_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <label for="quantity"/>
+                            <div>
+                                <field name="quantity" class="oe_inline" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="uom_id" class="oe_inline" attrs="{'readonly': [('product_id', '=', False)]}"/>
+                            </div>
+                            <field name="company_id" groups="base.group_multi_company" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="معلومات التتبع">
+                        <field name="batch_id" readonly="1"/>
+                        <field name="harvest_record_id" readonly="1"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fish_farm_fish_stocking_view" model="ir.actions.act_window">
+        <field name="name">إلقاء الزريعة</field>
+        <field name="res_model">fish_farm_management.fish_stocking</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_production_plan_tree" model="ir.ui.view">
+        <field name="name">production.plan.tree</field>
+        <field name="model">fish_farm_management.production_plan</field>
+        <field name="arch" type="xml">
+            <tree string="خطط الإنتاج" decoration-success="state == 'completed'" decoration-info="state == 'in_progress'" decoration-warning="state == 'confirmed'" decoration-danger="state == 'cancelled'">
+                <field name="name"/>
+                <field name="pond_id"/>
+                <field name="fish_type_id"/>
+                <field name="planned_stocking_date"/>
+                <field name="planned_stocking_quantity"/>
+                <field name="planned_harvest_date"/>
+                <field name="planned_harvest_weight"/>
+                <field name="responsible_employee_id"/>
+                <field name="state"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_production_plan_form" model="ir.ui.view">
+        <field name="name">production.plan.form</field>
+        <field name="model">fish_farm_management.production_plan</field>
+        <field name="arch" type="xml">
+            <form string="خطة الإنتاج">
+                <header>
+                    <button name="action_confirm_plan" type="object" string="تأكيد الخطة" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_start_production" type="object" string="بدء التنفيذ" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'confirmed')]}"/>
+                    <button name="action_complete_plan" type="object" string="إتمام الخطة" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'in_progress')]}"/>
+                    <button name="action_cancel_plan" type="object" string="إلغاء الخطة" attrs="{'invisible': [('state', 'in', ('completed', 'cancelled'))]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,in_progress,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="pond_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="fish_type_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="plan_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="responsible_employee_id" attrs="{'readonly': [('state', 'in', ('completed', 'cancelled'))]}"/>
+                            <field name="company_id" groups="base.group_multi_company" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="أهداف الخطة">
+                        <group>
+                            <field name="planned_stocking_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="planned_stocking_quantity" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                        <group>
+                            <field name="planned_harvest_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="planned_harvest_weight" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes" attrs="{'readonly': [('state', 'in', ('completed', 'cancelled'))]}"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fish_farm_production_plan_view" model="ir.actions.act_window">
+        <field name="name">خطط الإنتاج</field>
+        <field name="res_model">fish_farm_management.production_plan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

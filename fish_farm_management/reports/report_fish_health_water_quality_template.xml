@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_fish_health_water_quality_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <h2><span t-esc="o.report_type_display_name"/></h2>
+                        <div class="row">
+                            <div class="col-6">
+                                <p><strong>من تاريخ:</strong> <span t-field="o.date_from"/></p>
+                                <p><strong>إلى تاريخ:</strong> <span t-field="o.date_to"/></p>
+                                <p t-if="o.fish_farm_id"><strong>المزرعة:</strong> <span t-field="o.fish_farm_id.name"/></p>
+                                <p t-if="o.pond_id"><strong>الحوض:</strong> <span t-field="o.pond_id.name"/></p>
+                            </div>
+                            <div class="col-6">
+                                <p t-if="o.issue_type"><strong>نوع المشكلة:</strong> <span t-esc="o.filters_display.get('issue_type', '')"/></p>
+                            </div>
+                        </div>
+
+                        <h3>سجلات صحة الأسماك</h3>
+                        <t t-if="report_data and report_data['health_lines']">
+                            <table class="table table-sm o_main_table mt-4">
+                                <thead>
+                                    <tr>
+                                        <th>المرجع</th>
+                                        <th>الحوض</th>
+                                        <th>التاريخ</th>
+                                        <th>نوع المشكلة</th>
+                                        <th>المرض/المشكلة</th>
+                                        <th class="text-right">الوفيات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="report_data['health_lines']" t-as="line">
+                                        <tr>
+                                            <td><span t-esc="line['name']"/></td>
+                                            <td><span t-esc="line['pond_name']"/></td>
+                                            <td><span t-esc="line['record_date']"/></td>
+                                            <td><span t-esc="line['issue_type']"/></td>
+                                            <td><span t-esc="line['disease_name']"/></td>
+                                            <td class="text-right"><span t-esc="line['mortality_count']"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-else="">
+                            <p class="text-center mt-3">لا توجد سجلات صحة أسماك بالفلاتر المحددة.</p>
+                        </t>
+
+                        <h3 class="mt-5">قراءات جودة المياه</h3>
+                        <t t-if="report_data and report_data['water_lines']">
+                            <table class="table table-sm o_main_table mt-4">
+                                <thead>
+                                    <tr>
+                                        <th>المرجع</th>
+                                        <th>الحوض</th>
+                                        <th>التاريخ</th>
+                                        <th class="text-right">pH</th>
+                                        <th class="text-right">أكسجين (ملجم/لتر)</th>
+                                        <th class="text-right">حرارة (مئوية)</th>
+                                        <th class="text-right">أمونيا</th>
+                                        <th>تنبيه</th>
+                                        <th>سبب التنبيه</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="report_data['water_lines']" t-as="line">
+                                        <tr>
+                                            <td><span t-esc="line['name']"/></td>
+                                            <td><span t-esc="line['pond_name']"/></td>
+                                            <td><span t-esc="line['reading_date']"/></td>
+                                            <td class="text-right"><span t-esc="line['ph']"/></td>
+                                            <td class="text-right"><span t-esc="line['oxygen_level']"/></td>
+                                            <td class="text-right"><span t-esc="line['temperature']"/></td>
+                                            <td class="text-right"><span t-esc="line['ammonia']"/></td>
+                                            <td><span t-esc="line['is_alert']"/></td>
+                                            <td><span t-esc="line['alert_reason']"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-else="">
+                            <p class="text-center mt-3">لا توجد قراءات جودة مياه بالفلاتر المحددة.</p>
+                        </t>
+                        <div class="oe_structure"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
