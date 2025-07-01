@@ -9,11 +9,8 @@ from datetime import datetime
 import xlsxwriter
 from odoo import http, fields, _
 from odoo.http import request
-+from odoo.tools import date_utils
-+import logging
-+
-+_logger = logging.getLogger(__name__)
-
+from odoo.tools import date_utils
+import logging
 _logger = logging.getLogger(__name__)
 
 class FishFarmReportController(http.Controller):
