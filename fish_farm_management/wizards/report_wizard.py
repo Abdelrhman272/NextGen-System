@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
+import json
+
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 from odoo.tools import date_utils
-import json
+
 
 class FishFarmReportWizard(models.TransientModel):
     _name = 'fish_farm_management.report_wizard'

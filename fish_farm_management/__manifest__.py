@@ -1,42 +1,12 @@
 {
     'name': 'Fish Farm Management',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     'summary': 'Comprehensive ERP solution for Fish Farms with advanced operations, costing, and reporting.',
     'description': """
-        This Odoo module provides a comprehensive ERP solution specifically tailored for the unique operations and management needs of a fish farm. It integrates various core ERP functionalities to streamline processes from stocking and feeding to harvesting, costing, and sales, with a focus on advanced analytics and decision support.
-
-        Key Features:
-        - Financial Accounts Integration (Balance Sheet, Revenues, Expenses)
-        - Detailed Costing (Direct/Indirect) with Tree-like Cost Centers (Farm -> Sector -> Slice -> Pond)
-        - Multi-channel Sales Management (POS, Agents, Distribution, Direct)
-        - Comprehensive Purchase Management
-        - Full Inventory Management for Inputs (Fingerlings, Feed, Medicine) and Outputs (Harvested Fish)
-        - Supplier and Customer Relationship Management (CRM integration recommended)
-        - Human Resources Management (Employee files, contracts, salaries, allowances, incentives, training)
-        - Manufacturing Processes (for value-added products like exported fish)
-        - Export Operations Management
-        - Advanced Operational Management:
-            - Production Planning
-            - Fish Health & Disease Management
-            - Water Quality Management with Readings & Alerts
-            - Equipment & Maintenance Management
-            - Waste Management
-        - Advanced Analytics & Reporting:
-            - Performance Analysis (FCR, Survival Rates, Growth)
-            - Forecasting (Harvest, Consumption, Sales)
-            - Business Intelligence Dashboards
-            - Traceability (Farm-to-Fork)
-        - Integration Capabilities:
-            - API for external web applications
-            - Social Media Integration (recommended)
-            - Automation platforms (e.g., N8N) (recommended)
-            - IoT Integration (for sensors)
-            - GPS Tracking (for distribution)
-        - Multilingual support (Arabic & English)
-        - Configurable settings and dynamic list view decorations.
+        This Odoo module provides a comprehensive ERP solution specifically tailored for the unique operations and management needs of a fish farm.
     """,
-    'author': 'NextGen Systems | Abdelrhman Elsayed',
-    'website': 'https://www.nextgen-systems.com', # Placeholder, replace with actual
+    'author': 'NextGen Systems',
+    'website': 'www.nextgensystems.net', # Placeholder, replace with actual
     'category': 'Industries/Agriculture',
     'depends': [
         'account',
@@ -60,7 +30,6 @@
         'data/product_data.xml', # For initial product types (fish, feed, medicine)
         'data/analytic_tag_data.xml', # For initial analytic tags for costs
 
-        'views/menu_items.xml',
         'views/fish_farm_views.xml',
         'views/sector_views.xml',
         'views/slice_views.xml',

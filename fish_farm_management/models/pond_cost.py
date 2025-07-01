@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError, ValidationError
+
 
 class PondCost(models.Model):
     _name = 'fish_farm_management.pond_cost'

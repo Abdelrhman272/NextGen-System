@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
 
+import base64
 import io
 import json
+import logging
 from datetime import datetime
-import base64
 
 import xlsxwriter
-from odoo import http
-from odoo.http import request, content_disposition
-import logging
+from odoo import http, fields, _
+from odoo.http import request
++from odoo.tools import date_utils
++import logging
++
++_logger = logging.getLogger(__name__)
 
 _logger = logging.getLogger(__name__)
 

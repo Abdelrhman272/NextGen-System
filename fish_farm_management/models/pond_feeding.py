@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError
+
 
 class PondFeeding(models.Model):
     _name = 'fish_farm_management.pond_feeding'
@@ -26,7 +27,14 @@ class PondFeeding(models.Model):
         ('cancelled', 'ملغاة')
     ], string='الحالة', default='draft', required=True, tracking=True, copy=False)
     
-    batch_ids = fields.Many2many('fish_farm_management.batch_traceability', string='الدفعات المتأثرة', help='الدفعات التي تأثرت بهذه التغذية/المعالجة.')
+    batch_ids = fields.Many2many(
+        'fish_farm_management.batch_traceability',
+        'ffm_pond_feeding_batch_rel',  # table name shortened to avoid PostgreSQL limit
+        'feeding_id',
+        'batch_id',
+        string='الدفعات المتأثرة',
+        help='الدفعات التي تأثرت بهذه التغذية/المعالجة.',
+    )
     company_id = fields.Many2one('res.company', string='الشركة', related='pond_id.company_id', store=True, readonly=True)
 
 
