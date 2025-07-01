@@ -23,15 +23,16 @@ class FishGrowthModel(models.Model):
         help='عدد الأيام المتوقعة للوصول من الوزن الابتدائي إلى الوزن المستهدف.'
     )
 
-    @api.model
-    def create(self, vals):
-        record = super().create(vals)
-        # هنا يمكن إضافة أي منطق إضافي بعد الإنشاء
-        return record
+    @api.model_create_multi
+    def create(self, vals_list):
+        """دعم الإنشاء على دفعات batch create."""
+        records = super(FishGrowthModel, self).create(vals_list)
+        # هنا يمكن إضافة أي منطق إضافي بعد الإنشاء على كل سجل في records
+        return records
 
-    @api.multi
     def write(self, vals):
-        res = super().write(vals)
+        """الكتابة بدون @api.multi (مدعومة بالافتراضي على recordsets)."""
+        res = super(FishGrowthModel, self).write(vals)
         # منطق بعد التعديل إن لزم
         return res
 
@@ -41,7 +42,7 @@ class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     fish_growth_model_ids = fields.One2many(
-        'fish_farm_management.fish_growth_model', 
+        'fish_farm_management.fish_growth_model',
         'fish_type_id',
         string='نماذج النمو',
         help='نماذج النمو المرتبطة بكل نوع سمك'
