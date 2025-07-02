@@ -45,7 +45,7 @@ class FishHealthRecord(models.Model):
     symptoms = fields.Text(string='الأعراض الملاحظة')
     diagnosis = fields.Text(string='التشخيص')
     treatment_ids = fields.One2many(
-        'fish_farm_management.fish_health_treatment',
+        'fish_farm_management.fish_health_record',
         'health_record_id',
         string='العلاجات المستخدمة',
     )
