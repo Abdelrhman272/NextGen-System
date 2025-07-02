@@ -1,53 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <data noupdate="1">
-        <record id="analytic_tag_group_pond_cost_types" model="account.analytic.tag.group">
-            <field name="name">Pond Cost Types</field>
-            <field name="sequence">10</field>
-            <field name="color">7</field>
-        </record>
+<odoo noupdate="1">
+    <record id="analytic_tag_group_pond_cost_types" model="account.analytic.tag.group">
+        <field name="name">Pond Cost Types</field>
+        <field name="sequence">10</field>
+        <field name="color">7</field>
+    </record>
 
-        <record id="analytic_tag_electricity" model="account.analytic.tag">
-            <field name="name">Electricity</field>
-            <field name="color">1</field>
-            <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
-        </record>
+    <record id="analytic_tag_electricity" model="account.analytic.tag">
+        <field name="name">Electricity</field>
+        <field name="color">1</field>
+        <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
+    </record>
 
-        <record id="analytic_tag_direct_labor" model="account.analytic.tag">
-            <field name="name">Direct Labor</field>
-            <field name="color">2</field>
-            <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
-        </record>
+    <record id="analytic_tag_direct_labor" model="account.analytic.tag">
+        <field name="name">Direct Labor</field>
+        <field name="color">2</field>
+        <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
+    </record>
 
-        <record id="analytic_tag_feed_cost" model="account.analytic.tag">
-            <field name="name">Feed Cost</field>
-            <field name="color">3</field>
-            <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
-        </record>
+    <record id="analytic_tag_feed_cost" model="account.analytic.tag">
+        <field name="name">Feed Cost</field>
+        <field name="color">3</field>
+        <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
+    </record>
 
-        <record id="analytic_tag_medicine_cost" model="account.analytic.tag">
-            <field name="name">Medicine Cost</field>
-            <field name="color">4</field>
-            <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
-        </record>
+    <record id="analytic_tag_medicine_cost" model="account.analytic.tag">
+        <field name="name">Medicine Cost</field>
+        <field name="color">4</field>
+        <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
+    </record>
 
-        <record id="analytic_tag_water_treatment" model="account.analytic.tag">
-            <field name="name">Water Treatment</field>
-            <field name="color">5</field>
-            <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
-        </record>
+    <record id="analytic_tag_water_treatment" model="account.analytic.tag">
+        <field name="name">Water Treatment</field>
+        <field name="color">5</field>
+        <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
+    </record>
 
-        <record id="analytic_tag_maintenance_cost" model="account.analytic.tag">
-            <field name="name">Maintenance Cost</field>
-            <field name="color">6</field>
-            <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
-        </record>
+    <record id="analytic_tag_maintenance_cost" model="account.analytic.tag">
+        <field name="name">Maintenance Cost</field>
+        <field name="color">6</field>
+        <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
+    </record>
 
-        <record id="analytic_tag_indirect_overhead" model="account.analytic.tag">
-            <field name="name">Indirect Overhead</field>
-            <field name="color">8</field>
-            <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
-        </record>
-
-    </data>
+    <record id="analytic_tag_indirect_overhead" model="account.analytic.tag">
+        <field name="name">Indirect Overhead</field>
+        <field name="color">8</field>
+        <field name="group_id" ref="analytic_tag_group_pond_cost_types"/>
+    </record>
 </odoo>

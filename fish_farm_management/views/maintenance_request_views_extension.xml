@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- maintenance_request_views_extension.xml -->
 <odoo>
     <record id="maintenance_request_form_view_fish_farm_extension" model="ir.ui.view">
         <field name="name">maintenance.request.form.fish.farm.extension</field>
@@ -8,7 +9,7 @@
             <field name="equipment_id" position="after">
                 <field name="pond_id"/>
                 <field name="farm_issue_type"/>
-                <field name="batch_id" attrs="{'invisible': [('farm_issue_type', 'not in', ['water_system_failure', 'aeration_failure', 'feeding_system_malfunction'])]}"/>
+                <field name="batch_id"/>
             </field>
         </field>
     </record>

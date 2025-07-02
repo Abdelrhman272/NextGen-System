@@ -4,8 +4,8 @@
         <field name="name">harvest.sorting.tree</field>
         <field name="model">fish_farm_management.harvest_sorting</field>
         <field name="arch" type="xml">
-            <tree string="فرز الحصاد" decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
-                <field name="name"/>
+            <tree decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
+                <field name="name" string="فرز الحصاد"/>
                 <field name="harvest_record_id"/>
                 <field name="sorting_date"/>
                 <field name="input_weight"/>
@@ -21,8 +21,10 @@
         <field name="arch" type="xml">
             <form string="فرز الحصاد">
                 <header>
-                    <button name="action_validate_sorting" type="object" string="تأكيد الفرز" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
-                    <button name="action_cancel_sorting" type="object" string="إلغاء الفرز" attrs="{'invisible': [('state', 'in', ('cancelled'))]}"/>
+                    <button name="action_validate_sorting" type="object" string="تأكيد الفرز"
+                            class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_cancel_sorting" type="object" string="إلغاء الفرز"
+                            attrs="{'invisible': [('state', 'in', ('cancelled'))]}"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
                 </header>
                 <sheet>
@@ -52,7 +54,8 @@
                                     <label for="sorted_weight"/>
                                     <div>
                                         <field name="sorted_weight" class="oe_inline"/>
-                                        <field name="product_uom_id" class="oe_inline" attrs="{'readonly': [('product_id', '=', False)]}"/>
+                                        <field name="product_uom_id" class="oe_inline"
+                                               attrs="{'readonly': [('product_id', '=', False)]}"/>
                                     </div>
                                     <field name="destination_location_id"/>
                                     <field name="notes"/>
@@ -61,11 +64,7 @@
                         </page>
                     </notebook>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
+                <chatter/>
             </form>
         </field>
     </record>

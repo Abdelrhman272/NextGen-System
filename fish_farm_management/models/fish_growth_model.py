@@ -1,55 +1,64 @@
-# -*- coding: utf-8 -*-
-from odoo import models, fields, api, _
+# ----------------------------- fish_growth_model.py -----------------------------
+from odoo import api, fields, models, _
 
 class FishGrowthModel(models.Model):
+    """
+    Defines growth parameters: start and target weight and duration.
+    """
     _name = 'fish_farm_management.fish_growth_model'
     _description = 'نموذج نمو الأسماك'
 
     fish_type_id = fields.Many2one(
-        'product.product', string='نوع السمك', required=True,
+        'product.product',
+        string='نوع السمك',
+        required=True,
         domain=[('is_fish_type', '=', True)],
-        help='اختيار نوع السمك من الأصول المعرفة في النظام.'
+        help='اختيار نوع السمك من الأصول المعرفة.',
     )
     start_weight_g = fields.Float(
-        string='الوزن الابتدائي (غرام)', required=True,
-        help='الوزن الابتدائي المتوقع عند بداية التربية.'
+        string='الوزن الابتدائي (جم)',
+        required=True,
+        help='الوزن عند بداية التربية.',
     )
     target_weight_g = fields.Float(
-        string='الوزن المستهدف (غرام)', required=True,
-        help='الوزن المستهدف عند نهاية دورة التربية.'
+        string='الوزن المستهدف (جم)',
+        required=True,
+        help='الوزن عند نهاية دورة التربية.',
     )
     target_days = fields.Integer(
-        string='عدد الأيام المستهدفة', required=True,
-        help='عدد الأيام المتوقعة للوصول من الوزن الابتدائي إلى الوزن المستهدف.'
+        string='عدد الأيام المستهدفة',
+        required=True,
+        help='مدة التربية للوصول للوزن المستهدف.',
     )
 
     @api.model_create_multi
     def create(self, vals_list):
-        """دعم الإنشاء على دفعات batch create."""
-        records = super(FishGrowthModel, self).create(vals_list)
-        # هنا يمكن إضافة أي منطق إضافي بعد الإنشاء على كل سجل في records
-        return records
+        """
+        Supports batch create without extra logic post-creation.
+        """
+        return super().create(vals_list)
 
     def write(self, vals):
-        """الكتابة بدون @api.multi (مدعومة بالافتراضي على recordsets)."""
-        res = super(FishGrowthModel, self).write(vals)
-        # منطق بعد التعديل إن لزم
-        return res
+        """
+        Updates growth model fields; placeholder for post-write logic.
+        """
+        return super().write(vals)
 
-# ——————————————————————————————————————————————————————————————
-# إضافة العلاقة العكسية على product.product لحل الاعتمادية fish_growth_model_ids
 class ProductProduct(models.Model):
+    """
+    Extends product to add relations for growth models and measurements.
+    """
     _inherit = 'product.product'
 
     fish_growth_model_ids = fields.One2many(
         'fish_farm_management.fish_growth_model',
         'fish_type_id',
         string='نماذج النمو',
-        help='نماذج النمو المرتبطة بكل نوع سمك'
+        help='نماذج النمو المرتبطة بكل نوع سمك',
     )
     fish_growth_measurement_ids = fields.One2many(
         'fish_farm_management.fish_growth_measurement',
         'fish_type_id',
         string='قراءات النمو',
-        help='قراءات النمو المسجلة لكل نوع سمك'
+        help='قراءات النمو المسجلة لكل نوع سمك',
     )

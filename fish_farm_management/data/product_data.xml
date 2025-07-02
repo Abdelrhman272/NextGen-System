@@ -1,52 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <data noupdate="1">
-        <record id="product_category_fish_farm_inputs" model="product.category">
-            <field name="name">Fish Farm Inputs</field>
-        </record>
-        <record id="product_category_fish_farm_outputs" model="product.category">
-            <field name="name">Fish Farm Outputs</field>
-        </record>
+<odoo noupdate="1">
+    <record id="product_category_fish_farm_inputs" model="product.category">
+        <field name="name">Fish Farm Inputs</field>
+    </record>
+    <record id="product_category_fish_farm_outputs" model="product.category">
+        <field name="name">Fish Farm Outputs</field>
+    </record>
 
-        <record id="product_product_tilapia_fingerlings" model="product.product">
-            <field name="name">Tilapia Fingerlings</field>
-            <field name="detailed_type">product</field>
-            <field name="categ_id" ref="product_category_fish_farm_inputs"/>
-            <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
-            <field name="list_price">0.1</field>
-            <field name="standard_price">0.05</field>
-        </record>
+    <record id="product_product_tilapia_fingerlings" model="product.product">
+        <field name="name">Tilapia Fingerlings</field>
+        <field name="detailed_type">product</field>
+        <field name="categ_id" ref="product_category_fish_farm_inputs"/>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="list_price">0.1</field>
+        <field name="standard_price">0.05</field>
+    </record>
 
-        <record id="product_product_harvested_tilapia" model="product.product">
-            <field name="name">Harvested Tilapia (Raw)</field>
-            <field name="detailed_type">product</field>
-            <field name="categ_id" ref="product_category_fish_farm_outputs"/>
-            <field name="uom_id" ref="uom.product_uom_kg"/>
-            <field name="uom_po_id" ref="uom.product_uom_kg"/>
-            <field name="list_price">20.0</field>
-            <field name="standard_price">15.0</field>
-        </record>
+    <record id="product_product_harvested_tilapia" model="product.product">
+        <field name="name">Harvested Tilapia (Raw)</field>
+        <field name="detailed_type">product</field>
+        <field name="categ_id" ref="product_category_fish_farm_outputs"/>
+        <field name="uom_id" ref="uom.product_uom_kg"/>
+        <field name="uom_po_id" ref="uom.product_uom_kg"/>
+        <field name="list_price">20.0</field>
+        <field name="standard_price">15.0</field>
+    </record>
 
-        <record id="product_product_fish_feed" model="product.product">
-            <field name="name">Fish Feed (Pellets)</field>
-            <field name="detailed_type">product</field>
-            <field name="categ_id" ref="product_category_fish_farm_inputs"/>
-            <field name="uom_id" ref="uom.product_uom_kg"/>
-            <field name="uom_po_id" ref="uom.product_uom_kg"/>
-            <field name="list_price">5.0</field>
-            <field name="standard_price">3.0</field>
-        </record>
+    <record id="product_product_fish_feed" model="product.product">
+        <field name="name">Fish Feed (Pellets)</field>
+        <field name="detailed_type">product</field>
+        <field name="categ_id" ref="product_category_fish_farm_inputs"/>
+        <field name="uom_id" ref="uom.product_uom_kg"/>
+        <field name="uom_po_id" ref="uom.product_uom_kg"/>
+        <field name="list_price">5.0</field>
+        <field name="standard_price">3.0</field>
+    </record>
 
-        <record id="product_product_medicine" model="product.product">
-            <field name="name">Fish Antibiotic</field>
-            <field name="detailed_type">product</field>
-            <field name="categ_id" ref="product_category_fish_farm_inputs"/>
-            <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
-            <field name="list_price">50.0</field>
-            <field name="standard_price">30.0</field>
-        </record>
-
-    </data>
+    <record id="product_product_medicine" model="product.product">
+        <field name="name">Fish Antibiotic</field>
+        <field name="detailed_type">product</field>
+        <field name="categ_id" ref="product_category_fish_farm_inputs"/>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="list_price">50.0</field>
+        <field name="standard_price">30.0</field>
+    </record>
 </odoo>

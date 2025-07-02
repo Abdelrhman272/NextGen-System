@@ -4,8 +4,8 @@
         <field name="name">harvest.delivery.tree</field>
         <field name="model">fish_farm_management.harvest_delivery</field>
         <field name="arch" type="xml">
-            <tree string="تسليم الحصاد للمخزن" decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
-                <field name="name"/>
+            <tree decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
+                <field name="name" string="تسليم الحصاد للمخزن"/>
                 <field name="harvest_record_id"/>
                 <field name="delivery_date"/>
                 <field name="delivered_weight"/>
@@ -22,8 +22,10 @@
         <field name="arch" type="xml">
             <form string="تسليم الحصاد">
                 <header>
-                    <button name="action_validate_delivery" type="object" string="تأكيد التسليم" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
-                    <button name="action_cancel_delivery" type="object" string="إلغاء التسليم" attrs="{'invisible': [('state', 'in', ('cancelled'))]}"/>
+                    <button name="action_validate_delivery" type="object" string="تأكيد التسليم"
+                            class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_cancel_delivery" type="object" string="إلغاء التسليم"
+                            attrs="{'invisible': [('state', 'in', ('cancelled'))]}"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
                 </header>
                 <sheet>
@@ -51,11 +53,7 @@
                         <field name="notes" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
+                <chatter/>
             </form>
         </field>
     </record>

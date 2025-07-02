@@ -1,84 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <data noupdate="1">
-        <record id="seq_fish_stocking" model="ir.sequence">
-            <field name="name">Fish Stocking Sequence</field>
-            <field name="code">fish_farm_management.fish_stocking</field>
-            <field name="prefix">FS/%(y)s/</field>
-            <field name="padding">5</field>
-            <field name="company_id" eval="False"/>
-        </record>
+<odoo noupdate="1">
+    <record id="seq_fish_stocking" model="ir.sequence">
+        <field name="name">Fish Stocking Sequence</field>
+        <field name="code">fish_farm_management.fish_stocking</field>
+        <field name="prefix">FS/%(y)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
 
-        <record id="seq_pond_cost" model="ir.sequence">
-            <field name="name">Pond Cost Sequence</field>
-            <field name="code">fish_farm_management.pond_cost</field>
-            <field name="prefix">PC/%(y)s/</field>
-            <field name="padding">5</field>
-            <field name="company_id" eval="False"/>
-        </record>
+    <record id="seq_pond_cost" model="ir.sequence">
+        <field name="name">Pond Cost Sequence</field>
+        <field name="code">fish_farm_management.pond_cost</field>
+        <field name="prefix">PC/%(y)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
 
-        <record id="seq_harvest_record" model="ir.sequence">
-            <field name="name">Harvest Record Sequence</field>
-            <field name="code">fish_farm_management.harvest_record</field>
-            <field name="prefix">HRV/%(y)s/</field>
-            <field name="padding">5</field>
-            <field name="company_id" eval="False"/>
-        </record>
+    <record id="seq_harvest_record" model="ir.sequence">
+        <field name="name">Harvest Record Sequence</field>
+        <field name="code">fish_farm_management.harvest_record</field>
+        <field name="prefix">HRV/%(y)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
 
-        <record id="seq_pond_feeding" model="ir.sequence">
-            <field name="name">Pond Feeding Sequence</field>
-            <field name="code">fish_farm_management.pond_feeding</field>
-            <field name="prefix">PF/%(y)s/</field>
-            <field name="padding">5</field>
-            <field name="company_id" eval="False"/>
-        </record>
+    <record id="seq_pond_feeding" model="ir.sequence">
+        <field name="name">Pond Feeding Sequence</field>
+        <field name="code">fish_farm_management.pond_feeding</field>
+        <field name="prefix">PF/%(y)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
 
-        <record id="seq_harvest_delivery" model="ir.sequence">
-            <field name="name">Harvest Delivery Sequence</field>
-            <field name="code">fish_farm_management.harvest_delivery</field>
-            <field name="prefix">HD/%(y)s/</field>
-            <field name="padding">5</field>
-            <field name="company_id" eval="False"/>
-        </record>
+    <record id="seq_harvest_delivery" model="ir.sequence">
+        <field name="name">Harvest Delivery Sequence</field>
+        <field name="code">fish_farm_management.harvest_delivery</field>
+        <field name="prefix">HD/%(y)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
 
-        <record id="seq_harvest_sorting" model="ir.sequence">
-            <field name="name">Harvest Sorting Sequence</field>
-            <field name="code">fish_farm_management.harvest_sorting</field>
-            <field name="prefix">HS/%(y)s/</field>
-            <field name="padding">5</field>
-            <field name="company_id" eval="False"/>
-        </record>
+    <record id="seq_harvest_sorting" model="ir.sequence">
+        <field name="name">Harvest Sorting Sequence</field>
+        <field name="code">fish_farm_management.harvest_sorting</field>
+        <field name="prefix">HS/%(y)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
 
-        <record id="seq_fish_health_record" model="ir.sequence">
-            <field name="name">Fish Health Record Sequence</field>
-            <field name="code">fish_farm_management.fish_health_record</field>
-            <field name="prefix">FH/%(y)s/</field>
-            <field name="padding">5</field>
-            <field name="company_id" eval="False"/>
-        </record>
+    <record id="seq_fish_health_record" model="ir.sequence">
+        <field name="name">Fish Health Record Sequence</field>
+        <field name="code">fish_farm_management.fish_health_record</field>
+        <field name="prefix">FH/%(y)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
 
-        <record id="seq_water_quality_reading" model="ir.sequence">
-            <field name="name">Water Quality Reading Sequence</field>
-            <field name="code">fish_farm_management.water_quality_reading</field>
-            <field name="prefix">WQ/%(y)s/</field>
-            <field name="padding">5</field>
-            <field name="company_id" eval="False"/>
-        </record>
+    <record id="seq_water_quality_reading" model="ir.sequence">
+        <field name="name">Water Quality Reading Sequence</field>
+        <field name="code">fish_farm_management.water_quality_reading</field>
+        <field name="prefix">WQ/%(y)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
 
-        <record id="seq_production_plan" model="ir.sequence">
-            <field name="name">Production Plan Sequence</field>
-            <field name="code">fish_farm_management.production_plan</field>
-            <field name="prefix">PP/%(y)s/</field>
-            <field name="padding">5</field>
-            <field name="company_id" eval="False"/>
-        </record>
+    <record id="seq_production_plan" model="ir.sequence">
+        <field name="name">Production Plan Sequence</field>
+        <field name="code">fish_farm_management.production_plan</field>
+        <field name="prefix">PP/%(y)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
 
-        <record id="seq_batch_traceability" model="ir.sequence">
-            <field name="name">Batch Traceability Sequence</field>
-            <field name="code">fish_farm_management.batch_traceability</field>
-            <field name="prefix">BT/%(y)s/</field>
-            <field name="padding">5</field>
-            <field name="company_id" eval="False"/>
-        </record>
-    </data>
+    <record id="seq_batch_traceability" model="ir.sequence">
+        <field name="name">Batch Traceability Sequence</field>
+        <field name="code">fish_farm_management.batch_traceability</field>
+        <field name="prefix">BT/%(y)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
 </odoo>

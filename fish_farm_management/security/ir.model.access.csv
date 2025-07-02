@@ -1,38 +1,35 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-# Base User Permissions
-access_fish_farm_user,Fish Farm User Access,model_fish_farm_management_fish_farm,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_sector_user,Sector User Access,model_fish_farm_management_sector,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_slice_user,Slice User Access,model_fish_farm_management_slice,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_pond_user,Pond User Access,model_fish_farm_management_pond,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_fish_stocking_user,Fish Stocking User Access,model_fish_farm_management_fish_stocking,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_pond_feeding_user,Pond Feeding User Access,model_fish_farm_management_pond_feeding,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_pond_cost_user,Pond Cost User Access,model_fish_farm_management_pond_cost,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_harvest_record_user,Harvest Record User Access,model_fish_farm_management_harvest_record,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_harvest_delivery_user,Harvest Delivery User Access,model_fish_farm_management_harvest_delivery,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_harvest_sorting_user,Harvest Sorting User Access,model_fish_farm_management_harvest_sorting,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_harvest_sorting_line_user,Harvest Sorting Line User Access,model_fish_farm_management_harvest_sorting_line,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_fish_health_record_user,Fish Health Record User Access,model_fish_farm_management_fish_health_record,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_water_quality_reading_user,Water Quality Reading User Access,model_fish_farm_management_water_quality_reading,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_equipment_user,Equipment User Access,model_fish_farm_management_equipment,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_production_plan_user,Production Plan User Access,model_fish_farm_management_production_plan,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_batch_traceability_user,Batch Traceability User Access,model_fish_farm_management_batch_traceability,fish_farm_management.group_fish_farm_user,1,1,1,0
-access_fish_farm_report_wizard_user,Report Wizard User Access,model_fish_farm_management_report_wizard,fish_farm_management.group_fish_farm_user,1,0,1,0 # Wizard typically read/create only
-
-# Manager Permissions (Full Access)
-access_fish_farm_manager,Fish Farm Manager Access,model_fish_farm_management_fish_farm,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_sector_manager,Sector Manager Access,model_fish_farm_management_sector,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_slice_manager,Slice Manager Access,model_fish_farm_management_slice,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_pond_manager,Pond Manager Access,model_fish_farm_management_pond,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_fish_stocking_manager,Fish Stocking Manager Access,model_fish_farm_management_fish_stocking,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_pond_feeding_manager,Pond Feeding Manager Access,model_fish_farm_management_pond_feeding,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_pond_cost_manager,Pond Cost Manager Access,model_fish_farm_management_pond_cost,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_harvest_record_manager,Harvest Record Manager Access,model_fish_farm_management_harvest_record,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_harvest_delivery_manager,Harvest Delivery Manager Access,model_fish_farm_management_harvest_delivery,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_harvest_sorting_manager,Harvest Sorting Manager Access,model_fish_farm_management_harvest_sorting,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_harvest_sorting_line_manager,Harvest Sorting Line Manager Access,model_fish_farm_management_harvest_sorting_line,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_fish_health_record_manager,Fish Health Record Manager Access,model_fish_farm_management_fish_health_record,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_water_quality_reading_manager,Water Quality Reading User Access,model_fish_farm_management_water_quality_reading,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_equipment_manager,Equipment User Access,model_fish_farm_management_equipment,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_production_plan_manager,Production Plan User Access,model_fish_farm_management_production_plan,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_batch_traceability_manager,Batch Traceability User Access,model_fish_farm_management_batch_traceability,fish_farm_management.group_fish_farm_manager,1,1,1,1
-access_fish_farm_report_wizard_manager,Report Wizard Manager Access,model_fish_farm_management_report_wizard,fish_farm_management.group_fish_farm_manager,1,1,1,1
+id,name,model\_id\:id,group\_id\:id,perm\_read,perm\_write,perm\_create,perm\_unlink
+access\_fish\_farm\_user,Fish Farm User Access,model\_fish\_farm\_management\_fish\_farm,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_sector\_user,Sector User Access,model\_fish\_farm\_management\_sector,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_slice\_user,Slice User Access,model\_fish\_farm\_management\_slice,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_pond\_user,Pond User Access,model\_fish\_farm\_management\_pond,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_fish\_stocking\_user,Fish Stocking User Access,model\_fish\_farm\_management\_fish\_stocking,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_pond\_feeding\_user,Pond Feeding User Access,model\_fish\_farm\_management\_pond\_feeding,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_pond\_cost\_user,Pond Cost User Access,model\_fish\_farm\_management\_pond\_cost,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_harvest\_record\_user,Harvest Record User Access,model\_fish\_farm\_management\_harvest\_record,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_harvest\_delivery\_user,Harvest Delivery User Access,model\_fish\_farm\_management\_harvest\_delivery,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_harvest\_sorting\_user,Harvest Sorting User Access,model\_fish\_farm\_management\_harvest\_sorting,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_harvest\_sorting\_line\_user,Harvest Sorting Line User Access,model\_fish\_farm\_management\_harvest\_sorting\_line,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_fish\_health\_record\_user,Fish Health Record User Access,model\_fish\_farm\_management\_fish\_health\_record,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_water\_quality\_reading\_user,Water Quality Reading User Access,model\_fish\_farm\_management\_water\_quality\_reading,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_equipment\_user,Equipment User Access,model\_fish\_farm\_management\_equipment,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_production\_plan\_user,Production Plan User Access,model\_fish\_farm\_management\_production\_plan,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_batch\_traceability\_user,Batch Traceability User Access,model\_fish\_farm\_management\_batch\_traceability,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_report\_wizard\_user,Report Wizard User Access,model\_fish\_farm\_management\_report\_wizard,fish\_farm\_management.group\_fish\_farm\_user,1,1,1,0
+access\_fish\_farm\_manager,Fish Farm Manager Access,model\_fish\_farm\_management\_fish\_farm,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_sector\_manager,Sector Manager Access,model\_fish\_farm\_management\_sector,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_slice\_manager,Slice Manager Access,model\_fish\_farm\_management\_slice,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_pond\_manager,Pond Manager Access,model\_fish\_farm\_management\_pond,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_fish\_stocking\_manager,Fish Stocking Manager Access,model\_fish\_farm\_management\_fish\_stocking,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_pond\_feeding\_manager,Pond Feeding Manager Access,model\_fish\_farm\_management\_pond\_feeding,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_pond\_cost\_manager,Pond Cost Manager Access,model\_fish\_farm\_management\_pond\_cost,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_harvest\_record\_manager,Harvest Record Manager Access,model\_fish\_farm\_management\_harvest\_record,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_harvest\_delivery\_manager,Harvest Delivery Manager Access,model\_fish\_farm\_management\_harvest\_delivery,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_harvest\_sorting\_manager,Harvest Sorting Manager Access,model\_fish\_farm\_management\_harvest\_sorting,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_harvest\_sorting\_line\_manager,Harvest Sorting Line Manager Access,model\_fish\_farm\_management\_harvest\_sorting\_line,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_fish\_health\_record\_manager,Fish Health Record Manager Access,model\_fish\_farm\_management\_fish\_health\_record,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_water\_quality\_reading\_manager,Water Quality Reading Manager Access,model\_fish\_farm\_management\_water\_quality\_reading,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_equipment\_manager,Equipment Manager Access,model\_fish\_farm\_management\_equipment,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_production\_plan\_manager,Production Plan Manager Access,model\_fish\_farm\_management\_production\_plan,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_batch\_traceability\_manager,Batch Traceability Manager Access,model\_fish\_farm\_management\_batch\_traceability,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1
+access\_report\_wizard\_manager,Report Wizard Manager Access,model\_fish\_farm\_management\_report\_wizard,fish\_farm\_management.group\_fish\_farm\_manager,1,1,1,1

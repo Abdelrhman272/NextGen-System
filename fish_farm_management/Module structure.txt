@@ -1,11 +1,11 @@
 fish_farm_management/
-├── controllers/          # وحدات التحكم HTTP لمعالجة طلبات Excel
+├── controllers/       # HTTP controllers for dashboard & Excel exports
 │   └── main.py
-├── data/                 # بيانات أولية وتسلسلات
+├── data/              # Initial data and sequences
 │   ├── analytic_tag_data.xml
 │   ├── ir_sequence_data.xml
 │   └── product_data.xml
-├── models/               # تعريفات النماذج (الجداول) ومنطق الأعمال
+├── models/            # ORM models and business logic
 │   ├── __init__.py
 │   ├── batch_traceability.py
 │   ├── equipment.py
@@ -26,7 +26,7 @@ fish_farm_management/
 │   ├── sector.py
 │   ├── slice.py
 │   └── water_quality_reading.py
-├── reports/              # منطق جلب بيانات التقارير وقوالب QWeb
+├── reports/           # Report logic and QWeb templates
 │   ├── __init__.py
 │   ├── report_actions.xml
 │   ├── report_data_provider.py
@@ -35,21 +35,21 @@ fish_farm_management/
 │   ├── report_pond_cost_analysis_template.xml
 │   ├── report_sales_profitability_template.xml
 │   └── report_supplies_consumption_template.xml
-├── security/             # مجموعات المستخدمين وصلاحيات الوصول
+├── security/          # Access rights and groups
 │   ├── fish_farm_security.xml
 │   └── ir.model.access.csv
-├── static/               # أصول الويب (CSS, JS)
-│   ├── src/
-│   │   ├── css/
-│   │   │   └── dashboard.css
-│   │   ├── js/
-│   │   │   ├── dashboard.js (placeholder)
-│   │   │   └── excel_export.js
-│   │   └── xml/
-│   │       └── dashboard.xml (placeholder)
-│   └── description/
-│       └── icon.png
-├── views/                # تعريفات الواجهات (list, form, menu items)
+├── static/            # Web assets (CSS, JS, images)
+│   ├── description/
+│   │   └── icon.png
+│   └── src/
+│       ├── css/
+│       │   └── dashboard.css
+│       ├── js/
+│       │   ├── dashboard_main.js
+│       │   └── excel_export.js
+│       └── xml/
+│           └── fish_farm_dashboard.xml
+├── views/             # UI views (list, form, menus)
 │   ├── batch_traceability_views.xml
 │   ├── equipment_views.xml
 │   ├── fish_farm_settings_views.xml
@@ -70,9 +70,9 @@ fish_farm_management/
 │   ├── sector_views.xml
 │   ├── slice_views.xml
 │   └── water_quality_views.xml
-├── wizards/              # معالجات طلب التقارير
+├── wizards/           # Transient models for the report wizard
 │   ├── __init__.py
 │   ├── report_wizard.py
 │   └── report_wizard_views.xml
-├── __init__.py
-└── __manifest__.py
+├── __init__.py        # Package initialization
+└── __manifest__.py     # Module metadata and dependencies

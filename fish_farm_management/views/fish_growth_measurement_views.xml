@@ -4,8 +4,8 @@
         <field name="name">fish.growth.measurement.tree</field>
         <field name="model">fish_farm_management.fish_growth_measurement</field>
         <field name="arch" type="xml">
-            <tree string="قياسات نمو الأسماك">
-                <field name="name"/>
+            <tree>
+                <field name="name" string="قياسات نمو الأسماك"/>
                 <field name="pond_id"/>
                 <field name="measurement_date"/>
                 <field name="fish_type_id"/>
@@ -43,11 +43,7 @@
                         <field name="notes"/>
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
+                <chatter/>
             </form>
         </field>
     </record>

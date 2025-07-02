@@ -1,12 +1,15 @@
-# __manifest__.py
+# -*- coding: utf-8 -*-
 {
     'name': 'Fish Farm Management',
     'version': '18.0.1.0.0',
-    'summary': 'Comprehensive ERP solution for Fish Farms with advanced operations, costing, and reporting.',
-    'description': """
-        This Odoo module provides a comprehensive ERP solution specifically tailored for the unique operations 
-        and management needs of a fish farm.
-    """,
+    'summary': 'Comprehensive ERP for fish farms: operations, costing, reporting.',
+    'description': (
+        "Complete ERP for fish farm management, including:\n"
+        "- Tracking fish lifecycle (weight, count, type)\n"
+        "- Feeding and stock management\n"
+        "- Health monitoring and disease logging\n"
+        "- Harvest reporting and performance analysis"
+    ),
     'author': 'NextGen Systems',
     'website': 'https://nextgensystems.net',
     'category': 'Industries/Agriculture',
@@ -14,7 +17,7 @@
         'base',
         'mail',
         'account',
-        'analytic',              # لدعم العلامات التحليلية (account.analytic.tag)
+        'analytic',
         'product',
         'stock',
         'sale_management',

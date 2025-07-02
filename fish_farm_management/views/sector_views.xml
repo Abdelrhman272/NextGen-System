@@ -4,14 +4,13 @@
         <field name="name">sector.tree</field>
         <field name="model">fish_farm_management.sector</field>
         <field name="arch" type="xml">
-            <tree string="القطاعات">
-                <field name="name"/>
+            <tree>
+                <field name="name" string="القطاعات"/>
                 <field name="fish_farm_id"/>
                 <field name="company_id" groups="base.group_multi_company"/>
             </tree>
         </field>
     </record>
-
     <record id="view_sector_form" model="ir.ui.view">
         <field name="name">sector.form</field>
         <field name="model">fish_farm_management.sector</field>
@@ -39,10 +38,10 @@
                         </page>
                     </notebook>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
-
     <record id="action_fish_farm_sector_view" model="ir.actions.act_window">
         <field name="name">القطاعات</field>
         <field name="res_model">fish_farm_management.sector</field>

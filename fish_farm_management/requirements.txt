@@ -1,2 +1,2 @@
-# requirements.txt
+# Dependencies for Excel export functionality
 xlsxwriter

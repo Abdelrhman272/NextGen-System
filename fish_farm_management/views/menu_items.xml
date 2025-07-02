@@ -2,14 +2,9 @@
 <odoo>
     <record id="action_fish_farm_dashboard_client" model="ir.actions.client">
         <field name="name">Fish Farm Dashboard</field>
-        <field name="tag">fish_farm_management.dashboard</field> </record>
+        <field name="tag">fish_farm_management.dashboard</field>
+    </record>
 
-    <menuitem id="menu_fish_farm_dashboard"
-              name="لوحة القيادة"
-              parent="menu_fish_farm_root"
-              action="action_fish_farm_dashboard_client" # <-- ربط بالإجراء العميل الجديد
-              sequence="5"/>
-              
     <menuitem id="menu_fish_farm_root"
               name="إدارة المزرعة السمكية"
               sequence="80"
@@ -18,7 +13,7 @@
     <menuitem id="menu_fish_farm_dashboard"
               name="لوحة القيادة"
               parent="menu_fish_farm_root"
-              action="fish_farm_management.action_fish_farm_dashboard"
+              action="action_fish_farm_dashboard_client"
               sequence="5"/>
 
     <menuitem id="menu_fish_farm_configuration"
@@ -50,11 +45,13 @@
               name="نماذج النمو"
               parent="menu_fish_farm_configuration"
               action="action_fish_farm_growth_model_view"/>
-    
+
     <menuitem id="menu_fish_farm_product_config"
               name="أنواع المنتجات"
               parent="menu_fish_farm_configuration"
-              action="product.product_template_action"/> <menuitem id="menu_fish_farm_operations"
+              action="product.product_template_action"/>
+
+    <menuitem id="menu_fish_farm_operations"
               name="العمليات"
               parent="menu_fish_farm_root"
               sequence="20"/>
@@ -108,7 +105,7 @@
               name="خطط الإنتاج"
               parent="menu_fish_farm_operations"
               action="action_fish_farm_production_plan_view"/>
-    
+
     <menuitem id="menu_fish_farm_batch_traceability"
               name="تتبع الدفعات"
               parent="menu_fish_farm_operations"
@@ -123,18 +120,18 @@
     <menuitem id="menu_fish_farm_equipment_link"
               name="المعدات"
               parent="menu_fish_farm_maintenance_main"
-              action="maintenance.hr_equipment_action" />
+              action="maintenance.hr_equipment_action"/>
 
     <menuitem id="menu_fish_farm_maintenance_requests_link"
               name="طلبات الصيانة"
               parent="menu_fish_farm_maintenance_main"
-              action="maintenance.hr_maintenance_request_action" />
+              action="maintenance.hr_maintenance_request_action"/>
 
     <menuitem id="menu_fish_farm_maintenance_teams_link"
               name="فرق الصيانة"
               parent="menu_fish_farm_maintenance_main"
-              action="maintenance.hr_maintenance_team_action" />
-    
+              action="maintenance.hr_maintenance_team_action"/>
+
     <menuitem id="menu_fish_farm_reports_main"
               name="التقارير"
               parent="menu_fish_farm_root"
@@ -151,5 +148,4 @@
               parent="menu_fish_farm_root"
               action="action_fish_farm_config_settings"
               sequence="100"/>
-
 </odoo>

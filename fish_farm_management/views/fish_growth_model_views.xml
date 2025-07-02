@@ -4,8 +4,8 @@
         <field name="name">fish.growth.model.tree</field>
         <field name="model">fish_farm_management.fish_growth_model</field>
         <field name="arch" type="xml">
-            <tree string="نماذج نمو الأسماك">
-                <field name="name"/>
+            <tree>
+                <field name="name" string="نماذج نمو الأسماك"/>
                 <field name="fish_type_id"/>
                 <field name="start_weight_g"/>
                 <field name="target_weight_g"/>
