@@ -34,7 +34,7 @@
         'security/fish_farm_security.xml',
         'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
-        'data/product_data.xml',
+        #'data/product_data.xml',
         'data/analytic_tag_data.xml',
         'views/fish_farm_views.xml',
         'views/sector_views.xml',
