@@ -15,10 +15,10 @@
     'category': 'Industries/Agriculture',
     'depends': [
         'base',
+        'product',
         'mail',
         'account',
         'analytic',
-        'product',
         'stock',
         'sale_management',
         'purchase',
