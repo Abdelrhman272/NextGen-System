@@ -27,4 +27,5 @@ from . import pond_cost  # يعتمد على Pond
 from . import pond_feeding  # يعتمد على Pond
 from . import production_plan  # إضافة خطة الإنتاج
 from . import water_quality_reading  # يعتمد على Pond
+from . import analytic_account_extension
 from . import fish_farm, res_config_settings, sector, slice

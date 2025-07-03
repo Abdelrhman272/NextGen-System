@@ -43,6 +43,7 @@
         'views/fish_stocking_views.xml',
         'views/pond_feeding_views.xml',
         'views/pond_cost_views.xml',
+        'views/analytic_account_extension_views.xml'
         'views/harvest_record_views.xml',
         'views/harvest_delivery_views.xml',
         'views/harvest_sorting_views.xml',
