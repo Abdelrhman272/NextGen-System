@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_production_plan_tree" model="ir.ui.view">
+    <record id="view_production_plan_list" model="ir.ui.view">
         <field name="name">production.plan.tree</field>
         <field name="model">fish_farm_management.production_plan</field>
         <field name="arch" type="xml">
-            <tree string="خطط الإنتاج" decoration-success="state == 'completed'" decoration-info="state == 'in_progress'" decoration-warning="state == 'confirmed'" decoration-danger="state == 'cancelled'">
+            <list string="خطط الإنتاج" decoration-success="state == 'completed'" decoration-info="state == 'in_progress'" decoration-warning="state == 'confirmed'" decoration-danger="state == 'cancelled'">
                 <field name="name"/>
                 <field name="pond_id"/>
                 <field name="fish_type_id"/>
@@ -15,7 +15,7 @@
                 <field name="responsible_employee_id"/>
                 <field name="state"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -72,6 +72,6 @@
     <record id="action_fish_farm_production_plan_view" model="ir.actions.act_window">
         <field name="name">خطط الإنتاج</field>
         <field name="res_model">fish_farm_management.production_plan</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

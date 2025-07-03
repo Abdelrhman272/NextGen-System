@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_fish_health_record_tree" model="ir.ui.view">
+    <record id="view_fish_health_record_list" model="ir.ui.view">
         <field name="name">fish.health.record.tree</field>
         <field name="model">fish_farm_management.fish_health_record</field>
         <field name="arch" type="xml">
-            <tree string="سجلات صحة الأسماك" decoration-danger="issue_type == 'disease' or issue_type == 'mortality'" decoration-warning="issue_type == 'injury'">
+            <list string="سجلات صحة الأسماك" decoration-danger="issue_type == 'disease' or issue_type == 'mortality'" decoration-warning="issue_type == 'injury'">
                 <field name="name"/>
                 <field name="pond_id"/>
                 <field name="record_date"/>
@@ -13,7 +13,7 @@
                 <field name="mortality_count"/>
                 <field name="responsible_employee_id"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -44,14 +44,14 @@
                     <notebook>
                         <page string="العلاجات المستخدمة">
                             <field name="treatment_ids">
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field name="treatment_date"/>
                                     <field name="medicine_id"/>
                                     <field name="dosage"/>
                                     <field name="quantity_used"/>
                                     <field name="product_uom_id"/>
                                     <field name="stock_move_id" readonly="1"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="ملاحظات">
@@ -71,6 +71,6 @@
     <record id="action_fish_farm_fish_health_record_view" model="ir.actions.act_window">
         <field name="name">صحة الأسماك</field>
         <field name="res_model">fish_farm_management.fish_health_record</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

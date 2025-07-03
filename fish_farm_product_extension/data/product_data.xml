@@ -9,7 +9,7 @@
 
     <record id="product_product_tilapia_fingerlings" model="product.template">
         <field name="name">Tilapia Fingerlings</field>
-        <field name="detailed_type">product</field>
+        <field name="type">product</field>
         <field name="categ_id" ref="product_category_fish_farm_inputs"/>
         <field name="uom_id" ref="uom.product_uom_unit"/>
         <field name="uom_po_id" ref="uom.product_uom_unit"/>
@@ -19,7 +19,7 @@
 
     <record id="product_product_harvested_tilapia" model="product.template">
         <field name="name">Harvested Tilapia (Raw)</field>
-        <field name="detailed_type">product</field>
+        <field name="type">product</field>
         <field name="categ_id" ref="product_category_fish_farm_outputs"/>
         <field name="uom_id" ref="uom.product_uom_kg"/>
         <field name="uom_po_id" ref="uom.product_uom_kg"/>
@@ -29,7 +29,7 @@
 
     <record id="product_product_fish_feed" model="product.template">
         <field name="name">Fish Feed (Pellets)</field>
-        <field name="detailed_type">product</field>
+        <field name="type">product</field>
         <field name="categ_id" ref="product_category_fish_farm_inputs"/>
         <field name="uom_id" ref="uom.product_uom_kg"/>
         <field name="uom_po_id" ref="uom.product_uom_kg"/>
@@ -39,7 +39,7 @@
 
     <record id="product_product_medicine" model="product.template">
         <field name="name">Fish Antibiotic</field>
-        <field name="detailed_type">product</field>
+        <field name="type">product</field>
         <field name="categ_id" ref="product_category_fish_farm_inputs"/>
         <field name="uom_id" ref="uom.product_uom_unit"/>
         <field name="uom_po_id" ref="uom.product_uom_unit"/>

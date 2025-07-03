@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_sector_tree" model="ir.ui.view">
+    <record id="view_sector_list" model="ir.ui.view">
         <field name="name">sector.tree</field>
         <field name="model">fish_farm_management.sector</field>
         <field name="arch" type="xml">
-            <tree string="القطاعات">
+            <list string="القطاعات">
                 <field name="name"/>
                 <field name="fish_farm_id"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -32,9 +32,9 @@
                     <notebook>
                         <page string="الشرائح">
                             <field name="slice_ids">
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field name="name"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                     </notebook>
@@ -46,6 +46,6 @@
     <record id="action_fish_farm_sector_view" model="ir.actions.act_window">
         <field name="name">القطاعات</field>
         <field name="res_model">fish_farm_management.sector</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

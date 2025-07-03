@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_fish_stocking_tree" model="ir.ui.view">
+    <record id="view_fish_stocking_list" model="ir.ui.view">
         <field name="name">fish.stocking.tree</field>
         <field name="model">fish_farm_management.fish_stocking</field>
         <field name="arch" type="xml">
-            <tree string="سجلات إلقاء الزريعة" decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
+            <list string="سجلات إلقاء الزريعة" decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
                 <field name="name"/>
                 <field name="pond_id"/>
                 <field name="fish_type_id"/>
@@ -14,7 +14,7 @@
                 <field name="batch_id"/>
                 <field name="state"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -70,6 +70,6 @@
     <record id="action_fish_farm_fish_stocking_view" model="ir.actions.act_window">
         <field name="name">إلقاء الزريعة</field>
         <field name="res_model">fish_farm_management.fish_stocking</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

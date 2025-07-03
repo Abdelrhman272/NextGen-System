@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_pond_feeding_tree" model="ir.ui.view">
+    <record id="view_pond_feeding_list" model="ir.ui.view">
         <field name="name">pond.feeding.tree</field>
         <field name="model">fish_farm_management.pond_feeding</field>
         <field name="arch" type="xml">
-            <tree string="سجلات تغذية الأحواض" decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
+            <list string="سجلات تغذية الأحواض" decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
                 <field name="name"/>
                 <field name="pond_id"/>
                 <field name="feeding_date"/>
@@ -13,7 +13,7 @@
                 <field name="product_uom_id"/>
                 <field name="state"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -70,6 +70,6 @@
     <record id="action_fish_farm_pond_feeding_view" model="ir.actions.act_window">
         <field name="name">تغذية الأحواض والمستلزمات</field>
         <field name="res_model">fish_farm_management.pond_feeding</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_slice_tree" model="ir.ui.view">
+    <record id="view_slice_list" model="ir.ui.view">
         <field name="name">slice.tree</field>
         <field name="model">fish_farm_management.slice</field>
         <field name="arch" type="xml">
-            <tree string="الشرائح">
+            <list string="الشرائح">
                 <field name="name"/>
                 <field name="sector_id"/>
                 <field name="fish_farm_id"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -34,11 +34,11 @@
                     <notebook>
                         <page string="الأحواض">
                             <field name="pond_ids">
-                                <tree editable="bottom">
+                                <list editable="bottom">
                                     <field name="name"/>
                                     <field name="status"/>
                                     <field name="current_fish_type_ids" widget="many2many_tags"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                     </notebook>
@@ -50,6 +50,6 @@
     <record id="action_fish_farm_slice_view" model="ir.actions.act_window">
         <field name="name">الشرائح</field>
         <field name="res_model">fish_farm_management.slice</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

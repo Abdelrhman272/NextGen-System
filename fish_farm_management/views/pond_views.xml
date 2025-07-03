@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_pond_tree" model="ir.ui.view">
+    <record id="view_pond_list" model="ir.ui.view">
         <field name="name">pond.tree</field>
         <field name="model">fish_farm_management.pond</field>
         <field name="arch" type="xml">
-            <tree string="الأحواض" decoration-success="status == 'stocked'"
+            <list string="الأحواض" decoration-success="status == 'stocked'"
                   decoration-info="status == 'preparing'"
                   decoration-warning="status == 'harvesting'"
                   decoration-muted="status == 'idle' or status == 'empty'">
@@ -19,7 +19,7 @@
                 <field name="last_water_quality_ph"/>
                 <field name="last_water_quality_oxygen"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -68,93 +68,93 @@
                         </page>
                         <page string="تاريخ إلقاء الزريعة">
                             <field name="fish_stocking_ids">
-                                <tree>
+                                <list>
                                     <field name="name"/>
                                     <field name="fish_type_id"/>
                                     <field name="stocking_date"/>
                                     <field name="quantity"/>
                                     <field name="uom_id"/>
                                     <field name="state"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="سجلات التغذية والمستلزمات">
                             <field name="pond_feeding_ids">
-                                <tree>
+                                <list>
                                     <field name="name"/>
                                     <field name="feeding_date"/>
                                     <field name="product_id"/>
                                     <field name="quantity"/>
                                     <field name="uom_id"/>
                                     <field name="state"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="تكاليف الحوض">
                             <field name="pond_cost_ids">
-                                <tree>
+                                <list>
                                     <field name="name"/>
                                     <field name="analytic_account_id"/>
                                     <field name="cost_date"/>
                                     <field name="amount"/>
                                     <field name="is_direct_cost"/>
                                     <field name="state"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="سجلات الحصاد">
                             <field name="harvest_record_ids">
-                                <tree>
+                                <list>
                                     <field name="name"/>
                                     <field name="harvest_date"/>
                                     <field name="harvest_number"/>
                                     <field name="total_weight"/>
                                     <field name="state"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="سجلات صحة الأسماك">
                             <field name="fish_health_ids">
-                                <tree>
+                                <list>
                                     <field name="name"/>
                                     <field name="record_date"/>
                                     <field name="issue_type"/>
                                     <field name="disease_name"/>
                                     <field name="mortality_count"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="قراءات جودة المياه">
                             <field name="water_quality_ids">
-                                <tree decoration-danger="is_alert == True">
+                                <list decoration-danger="is_alert == True">
                                     <field name="name"/>
                                     <field name="reading_date"/>
                                     <field name="ph"/>
                                     <field name="oxygen_level"/>
                                     <field name="temperature"/>
                                     <field name="is_alert"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="خطط الإنتاج">
                             <field name="production_plan_ids">
-                                <tree>
+                                <list>
                                     <field name="name"/>
                                     <field name="plan_date"/>
                                     <field name="planned_stocking_date"/>
                                     <field name="planned_harvest_date"/>
                                     <field name="state"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="قياسات النمو">
                             <field name="growth_measurement_ids">
-                                <tree>
+                                <list>
                                     <field name="name"/>
                                     <field name="measurement_date"/>
                                     <field name="fish_type_id"/>
                                     <field name="average_fish_weight_g"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                     </notebook>
@@ -166,6 +166,6 @@
     <record id="action_fish_farm_pond_view" model="ir.actions.act_window">
         <field name="name">الأحواض</field>
         <field name="res_model">fish_farm_management.pond</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

@@ -17,7 +17,7 @@
         </field>
     </record>
 
-    <record id="maintenance_equipment_tree_view_fish_farm_extension" model="ir.ui.view">
+    <record id="maintenance_equipment_list_view_fish_farm_extension" model="ir.ui.view">
         <field name="name">maintenance.equipment.tree.fish.farm.extension</field>
         <field name="model">maintenance.equipment</field>
         <field name="inherit_id" ref="maintenance.hr_equipment_view_tree"/>
