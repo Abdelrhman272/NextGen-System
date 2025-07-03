@@ -13,7 +13,8 @@
                 <field name="sector_id"/>
                 <field name="fish_farm_id"/>
                 <field name="status"/>
-                <field name="analytic_account_id"/> <field name="current_fish_type_ids" widget="many2many_tags"/>
+                <field name="analytic_account_id"/>
+                <field name="current_fish_type_ids" widget="many2many_tags"/>
                 <field name="estimated_current_biomass_kg"/>
                 <field name="last_water_quality_ph"/>
                 <field name="last_water_quality_oxygen"/>
@@ -39,7 +40,8 @@
                             <field name="fish_farm_id" readonly="1"/>
                             <field name="sector_id" readonly="1"/>
                             <field name="slice_id"/>
-                            <field name="analytic_account_id"/> <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="analytic_account_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
                         </group>
                         <group>
                             <field name="volume"/>
@@ -92,7 +94,8 @@
                             <field name="pond_cost_ids">
                                 <tree>
                                     <field name="name"/>
-                                    <field name="analytic_account_id"/> <field name="cost_date"/>
+                                    <field name="analytic_account_id"/>
+                                    <field name="cost_date"/>
                                     <field name="amount"/>
                                     <field name="is_direct_cost"/>
                                     <field name="state"/>

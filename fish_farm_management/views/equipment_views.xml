@@ -14,7 +14,7 @@
                     <field name="warranty_expiry_date"/>
                 </group>
             </xpath>
-            </field>
+        </field>
     </record>
 
     <record id="maintenance_equipment_tree_view_fish_farm_extension" model="ir.ui.view">

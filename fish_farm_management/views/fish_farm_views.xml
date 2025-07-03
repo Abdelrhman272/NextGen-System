@@ -4,8 +4,8 @@
         <field name="name">fish.farm.tree</field>
         <field name="model">fish_farm_management.fish_farm</field>
         <field name="arch" type="xml">
-            <tree>
-                <field name="name" string="المزارع السمكية"/>
+            <tree string="المزارع السمكية">
+                <field name="name"/>
                 <field name="location"/>
                 <field name="company_id" groups="base.group_multi_company"/>
             </tree>

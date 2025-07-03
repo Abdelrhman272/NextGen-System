@@ -4,14 +4,15 @@
         <field name="name">slice.tree</field>
         <field name="model">fish_farm_management.slice</field>
         <field name="arch" type="xml">
-            <tree>
-                <field name="name" string="الشرائح"/>
+            <tree string="الشرائح">
+                <field name="name"/>
                 <field name="sector_id"/>
                 <field name="fish_farm_id"/>
                 <field name="company_id" groups="base.group_multi_company"/>
             </tree>
         </field>
     </record>
+
     <record id="view_slice_form" model="ir.ui.view">
         <field name="name">slice.form</field>
         <field name="model">fish_farm_management.slice</field>
@@ -42,10 +43,10 @@
                         </page>
                     </notebook>
                 </sheet>
-                <chatter/>
             </form>
         </field>
     </record>
+
     <record id="action_fish_farm_slice_view" model="ir.actions.act_window">
         <field name="name">الشرائح</field>
         <field name="res_model">fish_farm_management.slice</field>

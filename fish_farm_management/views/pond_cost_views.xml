@@ -6,7 +6,8 @@
         <field name="arch" type="xml">
             <tree string="تكاليف الأحواض" decoration-success="state == 'posted'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
                 <field name="name"/>
-                <field name="analytic_account_id"/> <field name="pond_id"/>
+                <field name="analytic_account_id"/>
+                <field name="pond_id"/>
                 <field name="cost_date"/>
                 <field name="amount" widget="monetary" sum="Total Amount"/>
                 <field name="company_currency_id" invisible="1"/>
@@ -40,7 +41,9 @@
                     </div>
                     <group>
                         <group>
-                            <field name="analytic_account_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/> <field name="pond_id" attrs="{'readonly': [('analytic_account_id', '=', False)]}"/> <field name="cost_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="analytic_account_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="pond_id" attrs="{'readonly': [('analytic_account_id', '=', False)]}"/>
+                            <field name="cost_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         </group>
                         <group>
                             <field name="amount" widget="monetary" options="{'currency_field': 'company_currency_id'}" attrs="{'readonly': [('state', '!=', 'draft')]}"/>

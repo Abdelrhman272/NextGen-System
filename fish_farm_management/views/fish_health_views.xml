@@ -4,9 +4,8 @@
         <field name="name">fish.health.record.tree</field>
         <field name="model">fish_farm_management.fish_health_record</field>
         <field name="arch" type="xml">
-            <tree decoration-danger="issue_type == 'disease' or issue_type == 'mortality'"
-                  decoration-warning="issue_type == 'injury'">
-                <field name="name" string="سجلات صحة الأسماك"/>
+            <tree string="سجلات صحة الأسماك" decoration-danger="issue_type == 'disease' or issue_type == 'mortality'" decoration-warning="issue_type == 'injury'">
+                <field name="name"/>
                 <field name="pond_id"/>
                 <field name="record_date"/>
                 <field name="issue_type"/>
@@ -17,6 +16,7 @@
             </tree>
         </field>
     </record>
+
     <record id="view_fish_health_record_form" model="ir.ui.view">
         <field name="name">fish.health.record.form</field>
         <field name="model">fish_farm_management.fish_health_record</field>
@@ -38,15 +38,9 @@
                         </group>
                     </group>
                     <group string="تفاصيل المشكلة">
-                        <field name="disease_name"
-                               attrs="{'invisible': [('issue_type', '!=', 'disease')]}"/>
-                        <field name="symptoms"/>
+                        <field name="disease_name" attrs="{'invisible': [('issue_type', '!=', 'disease')], 'required': [('issue_type', '=', 'disease')]}"/> <field name="symptoms"/>
                         <field name="diagnosis"/>
-                        <field name="mortality_count"
-                               attrs="{'invisible': [('issue_type', '!=', 'mortality')]}"/>
-                        <field name="mortality_reason"
-                               attrs="{'invisible': [('issue_type', '!=', 'mortality')]}"/>
-                    </group>
+                        <field name="mortality_count" attrs="{'invisible': [('issue_type', '!=', 'mortality')], 'required': [('issue_type', '=', 'mortality')]}"/> <field name="mortality_reason" attrs="{'invisible': [('issue_type', '!=', 'mortality')]}"/> </group>
                     <notebook>
                         <page string="العلاجات المستخدمة">
                             <field name="treatment_ids">
@@ -65,10 +59,15 @@
                         </page>
                     </notebook>
                 </sheet>
-                <chatter/>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
+
     <record id="action_fish_farm_fish_health_record_view" model="ir.actions.act_window">
         <field name="name">صحة الأسماك</field>
         <field name="res_model">fish_farm_management.fish_health_record</field>
