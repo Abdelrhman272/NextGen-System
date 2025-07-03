@@ -18,7 +18,7 @@
         'product', # Depends on the base product module
     ],
     'data': [
-        'data/product_data.xml',
+        #'data/product_data.xml',
         'views/product_template_views_extension.xml',
     ],
     'installable': True,
