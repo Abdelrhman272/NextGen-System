@@ -33,10 +33,10 @@ class ProductionPlan(models.Model):
     company_id = fields.Many2one('res.company', string='الشركة', related='pond_id.company_id', store=True, readonly=True)
 
     @api.model
-    def create(self, vals):
+    def create(self, vals_list):
         if vals.get('name', _('New')) == _('New'):
             vals['name'] = self.env['ir.sequence'].next_by_code('fish_farm_management.production_plan') or _('New')
-        res = super(ProductionPlan, self).create(vals)
+        res = super(ProductionPlan, self).create(vals_list)
         return res
 
     @api.constrains('planned_stocking_date', 'planned_harvest_date')

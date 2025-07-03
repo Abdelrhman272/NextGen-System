@@ -19,7 +19,7 @@ class FishHealthRecord(models.Model):
         ('other', 'أخرى'),
     ], string='نوع المشكلة', required=True, tracking=True)
     
-    disease_name = fields.Char(string='اسم المرض/المشكلة', attrs="{'required': [('issue_type', '=', 'disease')]}", tracking=True)
+    disease_name = fields.Char(string='اسم المرض/المشكلة', tracking=True)
     symptoms = fields.Text(string='الأعراض الملاحظة')
     diagnosis = fields.Text(string='التشخيص')
     
@@ -27,7 +27,7 @@ class FishHealthRecord(models.Model):
     treatment_ids = fields.One2many('fish_farm_management.fish_health_treatment', 'health_record_id', string='العلاجات المستخدمة')
     
     mortality_count = fields.Integer(string='عدد الوفيات', default=0, tracking=True)
-    mortality_reason = fields.Char(string='سبب الوفاة', attrs="{'invisible': [('issue_type', '!=', 'mortality')]}", tracking=True)
+    mortality_reason = fields.Char(string='سبب الوفاة', tracking=True)
     
     responsible_employee_id = fields.Many2one('hr.employee', string='الموظف المسؤول', ondelete='set null')
     notes = fields.Text(string='ملاحظات إضافية')
