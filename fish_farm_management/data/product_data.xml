@@ -7,7 +7,7 @@
         <field name="name">Fish Farm Outputs</field>
     </record>
 
-    <record id="product_product_tilapia_fingerlings" model="product.product">
+    <record id="product_product_tilapia_fingerlings" model="product.template">
         <field name="name">Tilapia Fingerlings</field>
         <field name="detailed_type">product</field>
         <field name="categ_id" ref="product_category_fish_farm_inputs"/>
@@ -17,7 +17,7 @@
         <field name="standard_price">0.05</field>
     </record>
 
-    <record id="product_product_harvested_tilapia" model="product.product">
+    <record id="product_product_harvested_tilapia" model="product.template">
         <field name="name">Harvested Tilapia (Raw)</field>
         <field name="detailed_type">product</field>
         <field name="categ_id" ref="product_category_fish_farm_outputs"/>
@@ -27,7 +27,7 @@
         <field name="standard_price">15.0</field>
     </record>
 
-    <record id="product_product_fish_feed" model="product.product">
+    <record id="product_product_fish_feed" model="product.template">
         <field name="name">Fish Feed (Pellets)</field>
         <field name="detailed_type">product</field>
         <field name="categ_id" ref="product_category_fish_farm_inputs"/>
@@ -37,7 +37,7 @@
         <field name="standard_price">3.0</field>
     </record>
 
-    <record id="product_product_medicine" model="product.product">
+    <record id="product_product_medicine" model="product.template">
         <field name="name">Fish Antibiotic</field>
         <field name="detailed_type">product</field>
         <field name="categ_id" ref="product_category_fish_farm_inputs"/>
