@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import logging
-
-from odoo import _, api, models
+from odoo import models, api, _
 from odoo.tools import date_utils
+import logging
 
 _logger = logging.getLogger(__name__)
 
@@ -14,7 +13,7 @@ class FishFarmReportDataProvider(models.AbstractModel):
     def _get_base_domain(self, filters):
         domain = []
         if filters.get('date_from'):
-            domain.append(('create_date', '>=', filters['date_from'] + ' 00:00:00')) # Assuming create_date is datetime
+            domain.append(('create_date', '>=', filters['date_from'] + ' 00:00:00'))
         if filters.get('date_to'):
             domain.append(('create_date', '<=', filters['date_to'] + ' 23:59:59'))
         if filters.get('pond_id'):
@@ -31,40 +30,40 @@ class FishFarmReportDataProvider(models.AbstractModel):
 
     def get_cost_analysis_report_data(self, filters):
         domain = self._get_base_domain(filters)
-        if filters.get('cost_type_id'):
-            domain.append(('cost_type_id', '=', filters['cost_type_id']))
+        if filters.get('analytic_account_id'): # تم تغيير cost_type_id
+            domain.append(('analytic_account_id', '=', filters['analytic_account_id'])) # تم تغيير cost_type_id
         
         costs = self.env['fish_farm_management.pond_cost'].search(domain)
         
         report_lines = []
         total_amount = 0.0
         
-        # Group by pond and cost type
+        # Group by analytic account and pond
         grouped_costs = {}
         for cost in costs:
+            analytic_account_name = cost.analytic_account_id.name if cost.analytic_account_id else _('غير محدد')
             pond_name = cost.pond_id.name if cost.pond_id else _('غير محدد')
-            cost_type_name = cost.cost_type_id.name if cost.cost_type_id else _('غير محدد')
             
-            if pond_name not in grouped_costs:
-                grouped_costs[pond_name] = {}
+            if analytic_account_name not in grouped_costs:
+                grouped_costs[analytic_account_name] = {}
             
-            if cost_type_name not in grouped_costs[pond_name]:
-                grouped_costs[pond_name][cost_type_name] = 0.0
+            if pond_name not in grouped_costs[analytic_account_name]:
+                grouped_costs[analytic_account_name][pond_name] = 0.0
             
-            grouped_costs[pond_name][cost_type_name] += cost.amount
+            grouped_costs[analytic_account_name][pond_name] += cost.amount
             total_amount += cost.amount
         
-        for pond, types in grouped_costs.items():
-            for cost_type, amount in types.items():
+        for analytic_acc, ponds in grouped_costs.items():
+            for pond, amount in ponds.items():
                 report_lines.append({
+                    'analytic_account_name': analytic_acc, # تم تغيير cost_type_name
                     'pond_name': pond,
-                    'cost_type_name': cost_type,
                     'amount': amount,
                 })
         
         return {
             'title': _('تقرير تحليل تكاليف الأحواض'),
-            'header': [_('الحوض'), _('نوع التكلفة'), _('المبلغ')],
+            'header': [_('الحساب التحليلي'), _('الحوض'), _('المبلغ')], # تم تغيير رؤوس الأعمدة
             'lines': report_lines,
             'total_amount': total_amount,
             'filters': filters,
@@ -73,7 +72,7 @@ class FishFarmReportDataProvider(models.AbstractModel):
     def get_harvest_performance_report_data(self, filters):
         domain = self._get_base_domain(filters)
         if filters.get('fish_type_id'):
-            domain.append(('fish_type_id', '=', filters['fish_type_id'])) # Assuming fish_type_id on harvest_record for main fish type
+            domain.append(('fish_type_id', '=', filters['fish_type_id']))
         
         harvests = self.env['fish_farm_management.harvest_record'].search(domain)
         
@@ -125,7 +124,7 @@ class FishFarmReportDataProvider(models.AbstractModel):
                 'uom_name': consump.product_uom_id.name,
                 'supplier_name': consump.purchase_order_id.partner_id.name if consump.purchase_order_id else '',
             })
-            total_quantity_consumed += consump.quantity # Summing up quantities regardless of UOM for total, be careful here
+            total_quantity_consumed += consump.quantity
             
         return {
             'title': _('تقرير استهلاك المستلزمات'),
@@ -180,9 +179,6 @@ class FishFarmReportDataProvider(models.AbstractModel):
         }
 
     def get_sales_profitability_report_data(self, filters):
-        # This report requires more complex logic to link sales to harvested batches
-        # and calculate profitability. Assuming sale.order and sale.order.line are used.
-
         sale_domain = []
         if filters.get('date_from'):
             sale_domain.append(('date_order', '>=', filters['date_from'] + ' 00:00:00'))
@@ -191,11 +187,8 @@ class FishFarmReportDataProvider(models.AbstractModel):
         if filters.get('customer_id'):
             sale_domain.append(('partner_id', '=', filters['customer_id']))
         if filters.get('sales_channel'):
-            # This requires a 'sales_channel' field on sale.order or custom logic
-            # sale_domain.append(('sales_channel', '=', filters['sales_channel']))
-            pass # Placeholder
+            pass
         
-        # Filter sales for products originating from fish farm (e.g., is_harvested_product)
         sale_domain.append(('order_line.product_id.is_harvested_product', '=', True))
         sale_domain.append(('company_id', '=', filters.get('company_id') or self.env.company.id))
 
@@ -207,8 +200,6 @@ class FishFarmReportDataProvider(models.AbstractModel):
 
         for order in sales_orders:
             for line in order.order_line.filtered(lambda l: l.product_id.is_harvested_product):
-                # Calculate cost of goods sold for profitability (simple example)
-                # In real scenario, COGS would come from stock valuation or specific cost methods
                 cogs = line.product_id.standard_price * line.product_uom_qty
                 profit = (line.price_unit * line.product_uom_qty) - cogs
 

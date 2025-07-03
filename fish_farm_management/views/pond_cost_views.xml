@@ -4,11 +4,10 @@
         <field name="name">pond.cost.tree</field>
         <field name="model">fish_farm_management.pond_cost</field>
         <field name="arch" type="xml">
-            <tree decoration-success="state == 'posted'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
-                <field name="name" string="تكاليف الأحواض"/>
-                <field name="pond_id"/>
+            <tree string="تكاليف الأحواض" decoration-success="state == 'posted'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
+                <field name="name"/>
+                <field name="analytic_account_id"/> <field name="pond_id"/>
                 <field name="cost_date"/>
-                <field name="cost_type_id"/>
                 <field name="amount" widget="monetary" sum="Total Amount"/>
                 <field name="company_currency_id" invisible="1"/>
                 <field name="is_direct_cost"/>
@@ -25,10 +24,8 @@
         <field name="arch" type="xml">
             <form string="إدخال تكلفة الحوض">
                 <header>
-                    <button name="action_post_cost" type="object" string="ترحيل التكلفة"
-                            class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
-                    <button name="action_cancel_cost" type="object" string="إلغاء التكلفة"
-                            attrs="{'invisible': [('state', 'in', ('cancelled'))]}"/>
+                    <button name="action_post_cost" type="object" string="ترحيل التكلفة" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+                    <button name="action_cancel_cost" type="object" string="إلغاء التكلفة" attrs="{'invisible': [('state', 'in', ('cancelled'))]}"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,posted"/>
                 </header>
                 <sheet>
@@ -43,25 +40,17 @@
                     </div>
                     <group>
                         <group>
-                            <field name="pond_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="cost_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="cost_type_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="analytic_account_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/> <field name="pond_id" attrs="{'readonly': [('analytic_account_id', '=', False)]}"/> <field name="cost_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         </group>
                         <group>
-                            <field name="amount" widget="monetary"
-                                   options="{'currency_field': 'company_currency_id'}"
-                                   attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="amount" widget="monetary" options="{'currency_field': 'company_currency_id'}" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                             <field name="company_currency_id" invisible="1"/>
                             <field name="is_direct_cost" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="employee_id"
-                                   attrs="{'invisible': [('is_direct_cost', '=', False)],
-                                           'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="employee_id" attrs="{'invisible': [('is_direct_cost', '=', False)], 'readonly': [('state', '!=', 'draft')]}"/>
                             <field name="company_id" groups="base.group_multi_company" readonly="1"/>
                         </group>
                     </group>
-                    <group string="الربط بالمستندات"
-                           attrs="{'invisible': ['|', ('purchase_order_id', '=', False),
-                                                 ('expense_sheet_id', '=', False)]}">
+                    <group string="الربط بالمستندات" attrs="{'invisible': ['|', ('purchase_order_id', '=', False), ('expense_sheet_id', '=', False)]}">
                         <field name="purchase_order_id" readonly="1"/>
                         <field name="expense_sheet_id" readonly="1"/>
                     </group>
@@ -69,7 +58,11 @@
                         <field name="description" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                     </group>
                 </sheet>
-                <chatter/>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>

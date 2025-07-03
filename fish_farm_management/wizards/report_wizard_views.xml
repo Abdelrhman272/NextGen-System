@@ -21,8 +21,7 @@
                 </group>
                 
                 <group string="فلاتر خاصة بالتقرير" col="4">
-                    <field name="cost_type_id" attrs="{'invisible': [('report_type', '!=', 'cost_analysis')]}"/>
-                    <field name="product_category_id" attrs="{'invisible': [('report_type', '!=', 'supplies_consumption')]}"/>
+                    <field name="analytic_account_id" attrs="{'invisible': [('report_type', '!=', 'cost_analysis')]}"/> <field name="product_category_id" attrs="{'invisible': [('report_type', '!=', 'supplies_consumption')]}"/>
                     <field name="supplier_id" attrs="{'invisible': [('report_type', '!=', 'supplies_consumption')]}"/>
                     <field name="issue_type" attrs="{'invisible': [('report_type', '!=', 'fish_health_water_quality')]}"/>
                     <field name="customer_id" attrs="{'invisible': [('report_type', '!=', 'sales_profitability')]}"/>
@@ -42,5 +41,6 @@
         <field name="name">توليد تقارير المزرعة السمكية</field>
         <field name="res_model">fish_farm_management.report_wizard</field>
         <field name="view_mode">form</field>
-        <field name="target">new</field> </record>
+        <field name="target">new</field>
+    </record>
 </odoo>

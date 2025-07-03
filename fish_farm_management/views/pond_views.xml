@@ -4,13 +4,16 @@
         <field name="name">pond.tree</field>
         <field name="model">fish_farm_management.pond</field>
         <field name="arch" type="xml">
-            <tree decoration-success="status=='stocked'" decoration-info="status=='preparing'" decoration-warning="status=='harvesting'" decoration-muted="status=='idle' or status=='empty'">
-                <field name="name" string="الأحواض"/>
+            <tree string="الأحواض" decoration-success="status == 'stocked'"
+                  decoration-info="status == 'preparing'"
+                  decoration-warning="status == 'harvesting'"
+                  decoration-muted="status == 'idle' or status == 'empty'">
+                <field name="name"/>
                 <field name="slice_id"/>
                 <field name="sector_id"/>
                 <field name="fish_farm_id"/>
                 <field name="status"/>
-                <field name="current_fish_type_ids" widget="many2many_tags"/>
+                <field name="analytic_account_id"/> <field name="current_fish_type_ids" widget="many2many_tags"/>
                 <field name="estimated_current_biomass_kg"/>
                 <field name="last_water_quality_ph"/>
                 <field name="last_water_quality_oxygen"/>
@@ -18,6 +21,7 @@
             </tree>
         </field>
     </record>
+
     <record id="view_pond_form" model="ir.ui.view">
         <field name="name">pond.form</field>
         <field name="model">fish_farm_management.pond</field>
@@ -35,7 +39,7 @@
                             <field name="fish_farm_id" readonly="1"/>
                             <field name="sector_id" readonly="1"/>
                             <field name="slice_id"/>
-                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="analytic_account_id"/> <field name="company_id" groups="base.group_multi_company"/>
                         </group>
                         <group>
                             <field name="volume"/>
@@ -88,8 +92,7 @@
                             <field name="pond_cost_ids">
                                 <tree>
                                     <field name="name"/>
-                                    <field name="cost_date"/>
-                                    <field name="cost_type_id"/>
+                                    <field name="analytic_account_id"/> <field name="cost_date"/>
                                     <field name="amount"/>
                                     <field name="is_direct_cost"/>
                                     <field name="state"/>
@@ -153,10 +156,10 @@
                         </page>
                     </notebook>
                 </sheet>
-                <chatter/>
             </form>
         </field>
     </record>
+
     <record id="action_fish_farm_pond_view" model="ir.actions.act_window">
         <field name="name">الأحواض</field>
         <field name="res_model">fish_farm_management.pond</field>
