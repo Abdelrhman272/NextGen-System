@@ -15,6 +15,7 @@ from . import \
 from . import fish_growth_measurement  # يعتمد على Pond ونماذج النمو
 from . import fish_growth_model  # يعتمد على Product
 from . import fish_health_record  # يعتمد على Pond
+from . import fish_health_treatment  # يعتمد على Fish Health Recor
 from . import fish_stocking  # يعتمد على Pond
 from . import harvest_delivery  # يعتمد على Harvest Record
 from . import harvest_record  # يعتمد على Pond, Batch
