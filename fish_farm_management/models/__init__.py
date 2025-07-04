@@ -16,6 +16,7 @@ from . import fish_stocking  # يعتمد على Pond
 from . import harvest_delivery  # يعتمد على Harvest Record
 from . import harvest_record  # يعتمد على Pond, Batch
 from . import harvest_sorting  # يعتمد على Harvest Record
+from . import harvest_sorting_line  # ← إضافة موديل تفاصيل الفرز
 from . import pond  # Pond يعتمد على fish_farm, sector, slice
 from . import pond_cost  # يعتمد على Pond
 from . import pond_feeding  # يعتمد على Pond

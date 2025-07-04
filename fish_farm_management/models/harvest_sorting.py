@@ -33,7 +33,9 @@ class HarvestSorting(models.Model):
         string="الوزن المدخل للفرز (كجم)", required=True, tracking=True
     )
     sorting_line_ids = fields.One2many(
-        "fish_farm_management.harvest_sorting_line", "sorting_id", string="تفاصيل الفرز"
+        "fish_farm_management.harvest_sorting_line",  # الموديل المفقود سابقًا
+        "sorting_id",
+        string="تفاصيل الفرز"
     )
     stock_picking_ids = fields.Many2many(
         "stock.picking",
