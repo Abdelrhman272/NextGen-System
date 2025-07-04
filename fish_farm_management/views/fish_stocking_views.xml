@@ -4,7 +4,10 @@
         <field name="name">fish.stocking.tree</field>
         <field name="model">fish_farm_management.fish_stocking</field>
         <field name="arch" type="xml">
-            <list string="سجلات إلقاء الزريعة" decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
+            <list string="سجلات إلقاء الزريعة" 
+                  decoration-success="state == 'done'" 
+                  decoration-danger="state == 'cancelled'" 
+                  decoration-info="state == 'draft'">
                 <field name="name"/>
                 <field name="pond_id"/>
                 <field name="fish_type_id"/>
@@ -24,8 +27,15 @@
         <field name="arch" type="xml">
             <form string="سجل إلقاء الزريعة">
                 <header>
-                    <button name="action_validate_stocking" type="object" string="تأكيد إلقاء الزريعة" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
-                    <button name="action_cancel_stocking" type="object" string="إلغاء إلقاء الزريعة" attrs="{'invisible': [('state', 'in', ('cancelled'))]}"/>
+                    <button name="action_validate_stocking" 
+                            type="object" 
+                            string="تأكيد إلقاء الزريعة" 
+                            class="oe_highlight" 
+                            invisible="state != 'draft'"/>
+                    <button name="action_cancel_stocking" 
+                            type="object" 
+                            string="إلغاء إلقاء الزريعة" 
+                            invisible="state == 'cancelled'"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
                 </header>
                 <sheet>
@@ -34,7 +44,7 @@
                                 name="%(stock.action_picking_tree_all)d"
                                 type="action"
                                 icon="fa-truck"
-                                attrs="{'invisible': [('source_picking_id', '=', False)]}">
+                                invisible="not source_picking_id">
                             <field name="source_picking_id" string="النقل المخزني" widget="statinfo"/>
                         </button>
                     </div>
@@ -43,15 +53,15 @@
                     </div>
                     <group>
                         <group>
-                            <field name="pond_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="fish_type_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="stocking_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="pond_id" readonly="state != 'draft'"/>
+                            <field name="fish_type_id" readonly="state != 'draft'"/>
+                            <field name="stocking_date" readonly="state != 'draft'"/>
                         </group>
                         <group>
                             <label for="quantity"/>
                             <div>
-                                <field name="quantity" class="oe_inline" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                                <field name="uom_id" class="oe_inline" attrs="{'readonly': [('product_id', '=', False)]}"/>
+                                <field name="quantity" class="oe_inline" readonly="state != 'draft'"/>
+                                <field name="uom_id" class="oe_inline" readonly="not product_id"/>
                             </div>
                             <field name="company_id" groups="base.group_multi_company" readonly="1"/>
                         </group>
