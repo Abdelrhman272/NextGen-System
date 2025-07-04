@@ -20,7 +20,6 @@
         'account',
         #'analytic',
         'stock',
-        'stock_picking_request',
         'sale_management',
         'purchase',
         'mrp',
