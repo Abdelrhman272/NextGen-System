@@ -29,7 +29,8 @@
         <field name="arch" type="xml">
             <form string="حوض">
                 <header>
-                    <field name="status" widget="statusbar" statusbar_visible="empty,preparing,stocked,harvesting,idle"/>
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="empty,preparing,stocked,harvesting,idle"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -55,7 +56,8 @@
                         <page string="البيانات الحالية">
                             <group>
                                 <group>
-                                    <field name="current_fish_type_ids" widget="many2many_tags" readonly="1"/>
+                                    <field name="current_fish_type_ids"
+                                           widget="many2many_tags" readonly="1"/>
                                     <field name="total_stocked_qty"/>
                                     <field name="current_fish_count"/>
                                 </group>
