@@ -6,7 +6,7 @@ from odoo.exceptions import UserError
 class FishStocking(models.Model):
     _name = 'fish_farm_management.fish_stocking'
     _description = 'سجل إلقاء الزريعة'
-    _inherit = ['mail.thread', 'mail.activity.mixin']  # لإضافة تتبع الرسائل والأنشطة
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(
         string='المرجع',
@@ -46,7 +46,7 @@ class FishStocking(models.Model):
         related='fish_type_id.uom_id',
         readonly=True
     )
-    # الحقل الجديد ليتوافق مع view
+    # الحقل الجديد لتوافق مع XML
     product_uom_id = fields.Many2one(
         'uom.uom',
         string='وحدة القياس',
@@ -103,7 +103,6 @@ class FishStocking(models.Model):
         for res in records:
             if res.pond_id.status in ('empty', 'preparing'):
                 res.pond_id.status = 'stocked'
-            # إنشاء سجل تتبع دفعة
             batch = self.env['fish_farm_management.batch_traceability'].create({
                 'name': _('دفعة زريعة %s - حوض %s') % (
                     res.fish_type_id.name, res.pond_id.name
@@ -127,13 +126,10 @@ class FishStocking(models.Model):
             dest_loc = self.env.ref('stock.stock_location_customers')
             picking_type = (
                 self.env['stock.picking.type']
-                .search(
-                    [
-                        ('code', '=', 'internal'),
-                        ('warehouse_id.company_id', '=', self.env.company.id)
-                    ],
-                    limit=1
-                )
+                .search([
+                    ('code', '=', 'internal'),
+                    ('warehouse_id.company_id', '=', self.env.company.id)
+                ], limit=1)
             )
             if not picking_type:
                 raise UserError(
