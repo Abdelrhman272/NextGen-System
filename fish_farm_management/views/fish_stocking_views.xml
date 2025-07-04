@@ -30,8 +30,11 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button class="oe_stat_button" name="%(stock_picking_request.action_open_picking_requests)d" type="action"
-                                icon="fa-truck" attrs="{'invisible': [('source_picking_id', '=', False)]}">
+                        <button class="oe_stat_button"
+                                name="%(stock.action_picking_tree_all)d"
+                                type="action"
+                                icon="fa-truck"
+                                attrs="{'invisible': [('source_picking_id', '=', False)]}">
                             <field name="source_picking_id" string="النقل المخزني" widget="statinfo"/>
                         </button>
                     </div>
