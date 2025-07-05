@@ -5,7 +5,7 @@
         <field name="name">pond.feeding.tree</field>
         <field name="model">fish_farm_management.pond_feeding</field>
         <field name="arch" type="xml">
-            <list string="سجلات تغذية الأحواض"
+            <tree string="سجلات تغذية الأحواض"
                   decoration-success="state == 'done'"
                   decoration-danger="state == 'cancelled'"
                   decoration-info="state == 'draft'">
@@ -17,7 +17,7 @@
                 <field name="product_uom_id"/>
                 <field name="state"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </list>
+            </tree>
         </field>
     </record>
 
@@ -32,20 +32,22 @@
                             type="object"
                             string="تأكيد الاستهلاك"
                             class="oe_highlight"
-                            attrs="{'invisible': [('state','!=','draft')]}"/>
+                            invisible="state != 'draft'"/>
                     <button name="action_cancel_feeding"
                             type="object"
                             string="إلغاء الاستهلاك"
-                            attrs="{'invisible': [('state','!=','draft')]}"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                            invisible="state != 'draft'"/>
+                    <field name="state"
+                           widget="statusbar"/>
                 </header>
                 <sheet>
-                    <div class="oe_button_box" name="button_box">
+                    <div class="oe_button_box"
+                         name="button_box">
                         <button class="oe_stat_button"
                                 type="object"
                                 name="action_view_stock_move"
                                 icon="fa-exchange"
-                                attrs="{'invisible': [('stock_move_id','=',False)]}">
+                                invisible="stock_move_id == False">
                             <field name="stock_move_id"
                                    string="حركة المخزون"
                                    widget="statinfo"/>
@@ -53,24 +55,28 @@
                     </div>
                     <div class="oe_title">
                         <h1>
-                            <field name="name" readonly="1"/>
+                            <field name="name"
+                                   readonly="1"/>
                         </h1>
                     </div>
                     <group>
                         <group>
-                            <field name="pond_id" attrs="{'readonly': [('state','!=','draft')]}"/>
-                            <field name="feeding_date" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <field name="pond_id"
+                                   readonly="state != 'draft'"/>
+                            <field name="feeding_date"
+                                   readonly="state != 'draft'"/>
                         </group>
                         <group>
-                            <field name="product_id" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            <field name="product_id"
+                                   readonly="state != 'draft'"/>
                             <label for="quantity"/>
                             <div>
                                 <field name="quantity"
                                        class="oe_inline"
-                                       attrs="{'readonly': [('state','!=','draft')]}"/>
+                                       readonly="state != 'draft'"/>
                                 <field name="product_uom_id"
                                        class="oe_inline"
-                                       attrs="{'readonly': [('product_id','=',False)]}"/>
+                                       readonly="product_id == False"/>
                             </div>
                             <field name="company_id"
                                    groups="base.group_multi_company"
@@ -78,8 +84,11 @@
                         </group>
                     </group>
                     <group string="معلومات إضافية">
-                        <field name="purchase_order_id" readonly="1"/>
-                        <field name="batch_ids" widget="many2many_tags" readonly="1"/>
+                        <field name="purchase_order_id"
+                               readonly="1"/>
+                        <field name="batch_ids"
+                               widget="many2many_tags"
+                               readonly="1"/>
                         <field name="description"/>
                     </group>
                 </sheet>
