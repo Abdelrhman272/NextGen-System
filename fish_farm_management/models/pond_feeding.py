@@ -93,8 +93,7 @@ class PondFeeding(models.Model):
                 vals["name"] = self.env["ir.sequence"].next_by_code(
                     "fish_farm_management.pond_feeding"
                 ) or _("New")
-        records = super().create(vals_list)
-        return records
+        return super().create(vals_list)
 
     def action_validate_feeding(self):
         for record in self:
@@ -145,9 +144,18 @@ class PondFeeding(models.Model):
                 body=_("تم تأكيد سجل التغذية/المستلزمات وإنشاء حركة المخزون.")
             )
 
+    def action_view_stock_move(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('حركة المخزون'),
+            'res_model': 'stock.move',
+            'view_mode': 'form',
+            'res_id': self.stock_move_id.id,
+            'target': 'current',
+        }
+
     def action_cancel_feeding(self):
         for record in self:
-            if record.state == "done":
-                pass
             record.state = "cancelled"
             record.message_post(body=_("تم إلغاء سجل التغذية."))

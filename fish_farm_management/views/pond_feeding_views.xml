@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
     <!-- List View -->
     <record id="view_pond_feeding_list" model="ir.ui.view">
         <field name="name">pond.feeding.tree</field>
         <field name="model">fish_farm_management.pond_feeding</field>
         <field name="arch" type="xml">
-            <list string="سجلات تغذية الأحواض"
+            <tree string="سجلات تغذية الأحواض"
                   decoration-success="state == 'done'"
                   decoration-danger="state == 'cancelled'"
                   decoration-info="state == 'draft'">
@@ -18,7 +17,7 @@
                 <field name="product_uom_id"/>
                 <field name="state"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </list>
+            </tree>
         </field>
     </record>
 
