@@ -5,7 +5,7 @@
         <field name="name">pond.feeding.tree</field>
         <field name="model">fish_farm_management.pond_feeding</field>
         <field name="arch" type="xml">
-            <tree string="سجلات تغذية الأحواض"
+            <list string="سجلات تغذية الأحواض"
                   decoration-success="state == 'done'"
                   decoration-danger="state == 'cancelled'"
                   decoration-info="state == 'draft'">
@@ -17,7 +17,7 @@
                 <field name="product_uom_id"/>
                 <field name="state"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </tree>
+            </list>
         </field>
     </record>
 
