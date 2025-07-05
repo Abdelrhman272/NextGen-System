@@ -3,7 +3,6 @@
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
-
 class PondFeeding(models.Model):
     _name = "fish_farm_management.pond_feeding"
     _description = "سجل تغذية الحوض والمستلزمات"
@@ -36,12 +35,21 @@ class PondFeeding(models.Model):
         tracking=True,
         domain="['|', ('is_feed_type', '=', True), ('is_medicine_type', '=', True)]",
     )
-    quantity = fields.Float(string="الكمية المستخدمة", required=True, tracking=True)
+    quantity = fields.Float(
+        string="الكمية المستخدمة",
+        required=True,
+        tracking=True,
+    )
     product_uom_id = fields.Many2one(
-        "uom.uom", string="وحدة القياس", related="product_id.uom_id", readonly=True
+        "uom.uom",
+        string="وحدة القياس",
+        related="product_id.uom_id",
+        readonly=True,
     )
     purchase_order_id = fields.Many2one(
-        "purchase.order", string="أمر الشراء ذو الصلة", readonly=True
+        "purchase.order",
+        string="أمر الشراء ذو الصلة",
+        readonly=True,
     )
     stock_move_id = fields.Many2one(
         "stock.move",
@@ -51,7 +59,11 @@ class PondFeeding(models.Model):
     )
     description = fields.Text(string="ملاحظات")
     state = fields.Selection(
-        [("draft", "مسودة"), ("done", "تم"), ("cancelled", "ملغاة")],
+        [
+            ("draft", "مسودة"),
+            ("done", "تم"),
+            ("cancelled", "ملغاة"),
+        ],
         string="الحالة",
         default="draft",
         required=True,
@@ -74,14 +86,14 @@ class PondFeeding(models.Model):
         readonly=True,
     )
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
             if vals.get("name", _("New")) == _("New"):
                 vals["name"] = self.env["ir.sequence"].next_by_code(
                     "fish_farm_management.pond_feeding"
                 ) or _("New")
-        records = super(PondFeeding, self).create(vals_list)
+        records = super().create(vals_list)
         return records
 
     def action_validate_feeding(self):
@@ -106,8 +118,9 @@ class PondFeeding(models.Model):
                 raise UserError(_("لم يتم العثور على نوع نقل داخلي لشركتك."))
 
             move_vals = {
-                "name": _("استهلاك %s في حوض %s")
-                % (record.product_id.name, record.pond_id.name),
+                "name": _("استهلاك %s في حوض %s") % (
+                    record.product_id.name, record.pond_id.name
+                ),
                 "product_id": record.product_id.id,
                 "product_uom_qty": record.quantity,
                 "product_uom": record.product_uom_id.id,
@@ -124,14 +137,17 @@ class PondFeeding(models.Model):
 
             record.stock_move_id = stock_move.id
             record.state = "done"
-
-            active_batches = self.env["fish_farm_management.batch_traceability"].search(
-                [
-                    ("pond_id", "=", record.pond_id.id),
-                    ("end_date", "=", False),
-                ]
-            )
-            record.batch_ids = [(6, 0, active_batches.ids)]
+            record.batch_ids = [(6, 0, self.env["fish_farm_management.batch_traceability"].search([
+                ("pond_id", "=", record.pond_id.id),
+                ("end_date", "=", False),
+            ]).ids)]
             record.message_post(
                 body=_("تم تأكيد سجل التغذية/المستلزمات وإنشاء حركة المخزون.")
             )
+
+    def action_cancel_feeding(self):
+        for record in self:
+            if record.state == "done":
+                pass
+            record.state = "cancelled"
+            record.message_post(body=_("تم إلغاء سجل التغذية."))

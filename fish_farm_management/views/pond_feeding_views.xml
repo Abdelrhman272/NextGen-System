@@ -88,12 +88,4 @@
             </form>
         </field>
     </record>
-
-    <!-- Action -->
-    <record id="action_fish_farm_pond_feeding_view" model="ir.actions.act_window">
-        <field name="name">تغذية الأحواض والمستلزمات</field>
-        <field name="res_model">fish_farm_management.pond_feeding</field>
-        <field name="view_mode">list,form</field>
-    </record>
-
 </odoo>
