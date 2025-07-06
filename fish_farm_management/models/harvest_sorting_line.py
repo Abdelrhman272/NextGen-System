@@ -32,3 +32,6 @@ class HarvestSortingLine(models.Model):
         readonly=True,
         store=True,
     )
+    notes = fields.Text(
+        string='ملاحظات'
+    )
