@@ -41,6 +41,12 @@ class HarvestSorting(models.Model):
         compute="_compute_stock_pickings",
         store=False,
     )
+    scheduled_date = fields.Datetime(
+        string="تاريخ الجدولة",
+        compute='_compute_scheduled_date',
+        store=False,
+        readonly=True,
+    )
     state = fields.Selection(
         [
             ("draft", "مسودة"),
@@ -68,6 +74,13 @@ class HarvestSorting(models.Model):
             rec.stock_picking_ids = self.env["stock.picking"].search(
                 [("origin", "like", f"{rec.name}%"), ("company_id", "=", rec.company_id.id)]
             )
+    @api.depends('name')
+    def _compute_stock_pickings(self):
+        for rec in self:
+            rec.stock_picking_ids = self.env['stock.picking'].search([
+                ('origin', 'like', f"{rec.name}%"),
+                ('company_id', '=', rec.company_id.id)
+            ])
 
     # --------------------------------------------------
     # إنشاء السجل
