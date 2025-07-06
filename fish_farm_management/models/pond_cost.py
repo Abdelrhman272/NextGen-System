@@ -153,3 +153,11 @@ class PondCost(models.Model):
             record.account_move_id = account_move.id
             record.state = "posted"
             record.message_post(body=_("تم ترحيل قيد التكلفة بنجاح."))
+
+    def action_cancel_cost(self):
+        """إلغاء السجل."""
+        for rec in self:
+            if rec.state == "cancelled":
+                raise UserError(_("السجل ملغى بالفعل."))
+            rec.state = "cancelled"
+            rec.message_post(body=_("تم إلغاء تكلفة الحوض."))
