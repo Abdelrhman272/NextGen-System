@@ -22,14 +22,14 @@
         <field name="arch" type="xml">
             <form string="تسليم الحصاد">
                 <header>
-                    <button name="action_validate_delivery" type="object" string="تأكيد التسليم" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
-                    <button name="action_cancel_delivery" type="object" string="إلغاء التسليم" attrs="{'invisible': [('state', 'in', ('cancelled'))]}"/>
+                    <button name="action_validate_delivery" type="object" string="تأكيد التسليم" class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_cancel_delivery" type="object" string="إلغاء التسليم" invisible="state == 'cancelled'"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button class="oe_stat_button" name="%(stock.action_view_stock_picking_request)d" type="action"
-                                icon="fa-truck" attrs="{'invisible': [('stock_picking_id', '=', False)]}">
+                        <button class="oe_stat_button" name="%(stock.action_picking_tree_all)d" type="action"
+                                icon="fa-truck" invisible="stock_picking_id == False">
                             <field name="stock_picking_id" string="النقل المخزني" widget="statinfo"/>
                         </button>
                     </div>
@@ -38,24 +38,20 @@
                     </div>
                     <group>
                         <group>
-                            <field name="harvest_record_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="delivery_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="harvest_record_id" readonly="state != 'draft'"/>
+                            <field name="delivery_date" readonly="state != 'draft'"/>
                         </group>
                         <group>
-                            <field name="delivered_weight" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="destination_location_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="delivered_weight" readonly="state != 'draft'"/>
+                            <field name="destination_location_id" readonly="state != 'draft'"/>
                             <field name="company_id" groups="base.group_multi_company" readonly="1"/>
                         </group>
                     </group>
                     <group string="معلومات إضافية">
-                        <field name="notes" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="notes" readonly="state != 'draft'"/>
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
+                <chatter/>
             </form>
         </field>
     </record>
