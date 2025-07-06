@@ -25,3 +25,10 @@ class HarvestSortingLine(models.Model):
         string='موقع الوجهة',
         required=True
     )
+    product_uom_id = fields.Many2one(
+        'uom.uom',
+        string='وحدة القياس',
+        related='product_id.uom_id',
+        readonly=True,
+        store=True,
+    )
