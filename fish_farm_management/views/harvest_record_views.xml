@@ -25,18 +25,18 @@
         <field name="arch" type="xml">
             <form string="سجل حصاد">
                 <header>
-                    <button name="action_validate_harvest" type="object" string="تأكيد الحصاد" class="oe_highlight" attrs="{'invisible': [('state', '!=', 'draft')]}"/>
-                    <button name="action_cancel_harvest" type="object" string="إلغاء الحصاد" attrs="{'invisible': [('state', 'in', ('cancelled'))]}"/>
+                    <button name="action_validate_harvest" type="object" string="تأكيد الحصاد" class="oe_highlight" ainvisible="state != 'draft'"/>
+                    <button name="action_cancel_harvest" type="object" string="إلغاء الحصاد" invisible="state == 'cancelled'"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button class="oe_stat_button" name="%(stock.action_view_stock_picking_request)d" type="action"
-                                icon="fa-truck" attrs="{'invisible': [('stock_picking_id', '=', False)]}">
+                        <button class="oe_stat_button" name="%(stock.action_picking_tree_all)d" type="action"
+                                icon="fa-truck" invisible="stock_picking_id == False">
                             <field name="stock_picking_id" string="النقل المخزني" widget="statinfo"/>
                         </button>
                         <button class="oe_stat_button" name="%(fish_farm_management.action_fish_farm_harvest_delivery_view)d" type="action"
-                                icon="fa-truck" attrs="{'invisible': [('delivery_to_warehouse_id', '=', False)]}" context="{'default_harvest_record_id': active_id}">
+                                icon="fa-truck" invisible="delivery_to_warehouse_id == False" context="{'default_harvest_record_id': active_id}">
                             <field name="delivery_to_warehouse_id" string="تسليم المخزن" widget="statinfo"/>
                         </button>
                     </div>
@@ -45,13 +45,12 @@
                     </div>
                     <group>
                         <group>
-                            <field name="pond_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="harvest_date" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="harvest_number" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                        </group>
+                            <field name="pond_id" readonly="state != 'draft'"/>
+                            <field name="harvest_date" readonly="state != 'draft'"/>
+                            <field name="harvest_number" readonly="state != 'draft'"/>                        </group>
                         <group>
-                            <field name="total_weight" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="harvest_committee_ids" widget="many2many_tags" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                            <field name="total_weight" readonly="state != 'draft'"/>
+                            <field name="harvest_committee_ids" widget="many2many_tags" readonly="state != 'draft'"/>
                             <field name="company_id" groups="base.group_multi_company" readonly="1"/>
                         </group>
                     </group>
@@ -60,11 +59,7 @@
                         <field name="fish_type_id" readonly="1"/>
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div>
+                <chatter/>
             </form>
         </field>
     </record>
