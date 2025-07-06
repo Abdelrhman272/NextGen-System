@@ -25,7 +25,7 @@
         <field name="arch" type="xml">
             <form string="سجل حصاد">
                 <header>
-                    <button name="action_validate_harvest" type="object" string="تأكيد الحصاد" class="oe_highlight" ainvisible="state != 'draft'"/>
+                    <button name="action_validate_harvest" type="object" string="تأكيد الحصاد" class="oe_highlight" invisible="state != 'draft'"/>
                     <button name="action_cancel_harvest" type="object" string="إلغاء الحصاد" invisible="state == 'cancelled'"/>
                     <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
                 </header>
