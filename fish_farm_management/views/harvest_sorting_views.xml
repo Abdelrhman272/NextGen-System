@@ -67,7 +67,7 @@
                     <notebook>
                         <page string="تفاصيل الفرز">
                             <field name="sorting_line_ids" readonly="state != 'draft'">
-                                <list editable="bottom">
+                                <tree editable="bottom">
                                     <field name="product_id" domain="[('is_harvested_product', '=', True)]"/>
                                     <label for="sorted_weight"/>
                                     <div>
@@ -78,7 +78,7 @@
                                     </div>
                                     <field name="destination_location_id"/>
                                     <field name="notes"/>
-                                </list>
+                                </tree>
                             </field>
                         </page>
                     </notebook>
