@@ -36,7 +36,7 @@
                             <field name="stock_picking_id" string="النقل المخزني" widget="statinfo"/>
                         </button>
                         <button class="oe_stat_button" name="%(fish_farm_management.action_fish_farm_harvest_delivery_view)d" type="action"
-                                icon="fa-truck" invisible="delivery_to_warehouse_id == False" context="{'default_harvest_record_id': active_id}">
+                                icon="fa-truck" invisible="delivery_to_warehouse_id == False" context="{'default_harvest_record_id': id}">
                             <field name="delivery_to_warehouse_id" string="تسليم المخزن" widget="statinfo"/>
                         </button>
                     </div>
