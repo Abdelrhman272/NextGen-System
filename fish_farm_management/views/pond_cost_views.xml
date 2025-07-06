@@ -49,7 +49,7 @@
                             <field name="amount" widget="monetary" options="{'currency_field': 'company_currency_id'}" readonly="state != 'draft'"/>
                             <field name="company_currency_id" invisible="1"/>
                             <field name="is_direct_cost" readonly="state != 'draft'"/>
-                            <field name="employee_id" invisible="is_direct_cost == False", readonly="state != 'draft'"/>
+                            <field name="employee_id" invisible="is_direct_cost == False" readonly="state != 'draft'"/>
                             <field name="company_id" groups="base.group_multi_company" readonly="1"/>
                         </group>
                     </group>
