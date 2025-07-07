@@ -73,7 +73,7 @@
               sequence="10"
               action="fish_farm_management.action_fish_farm_pond_feeding_view"
               groups="fish_farm_management.group_fish_farm_user"/>
-
+              
     <menuitem id="menu_fish_farm_fish_stocking"
               name="إلقاء الزريعة"
               parent="menu_fish_farm_operations"
@@ -124,14 +124,13 @@
               parent="menu_fish_farm_operations"
               action="action_fish_farm_batch_traceability_view"/>
 
-    <!-- قائمة الصيانة الرئيسية -->
+    <!-- قائمة الصيانة -->
     <menuitem id="menu_fish_farm_maintenance_main"
               name="الصيانة"
               parent="menu_fish_farm_root"
               sequence="50"
               groups="fish_farm_management.group_maintenance_user"/>
 
-    <!-- روابط الصيانة -->
     <menuitem id="menu_fish_farm_equipment_link"
               name="المعدات"
               parent="menu_fish_farm_maintenance_main"
