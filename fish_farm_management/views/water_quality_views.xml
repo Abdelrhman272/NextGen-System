@@ -3,6 +3,7 @@
     <record id="view_water_quality_reading_tree" model="ir.ui.view">
         <field name="name">water.quality.reading.tree</field>
         <field name="model">fish_farm_management.water_quality_reading</field>
+        <field name="type">list</field>
         <field name="arch" type="xml">
             <list string="قراءات جودة المياه" decoration-danger="is_alert == True">
                 <field name="name"/>
@@ -62,7 +63,7 @@
                         <field name="notes"/>
                     </group>
                 </sheet>
-                </chatter>
+                <chatter/>
             </form>
         </field>
     </record>
