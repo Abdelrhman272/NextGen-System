@@ -5,7 +5,6 @@
         <field name="model">fish_farm_management.fish_growth_model</field>
         <field name="arch" type="xml">
             <list string="نماذج نمو الأسماك">
-                <field name="name"/>
                 <field name="fish_type_id"/>
                 <field name="start_weight_g"/>
                 <field name="target_weight_g"/>
