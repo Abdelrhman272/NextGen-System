@@ -9,7 +9,7 @@ class FishGrowthModel(models.Model):
 
     _name = "fish_farm_management.fish_growth_model"
     _description = "نموذج نمو الأسماك"
-    _notes = fields.Text(string="ملاحظات")
+    notes = fields.Text(string="ملاحظات")
 
     fish_type_id = fields.Many2one(
         "product.product",
