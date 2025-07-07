@@ -74,17 +74,12 @@ class ProductProduct(models.Model):
 class FishGrowthFactor(models.Model):
     _name = "fish_farm_management.fish_growth_factor"
     _description = "عامل نمو الأسماك"
-    description = fields.Text(string="الوصف")
-    company_id = fields.Many2one(
-        "res.company",
-        string="الشركة",
-        default=lambda self: self.env.company,
+
+    growth_model_id = fields.Many2one(
+        "fish_farm_management.fish_growth_model",
+        string="نموذج النمو",
+        ondelete="cascade",
         required=True,
-    )
-    growth_factor_ids = fields.One2many(
-        "fish_farm_management.fish_growth_factor",
-        "growth_model_id",
-        string="عوامل النمو",
     )
     min_days = fields.Integer(string="الحد الأدنى للأيام")
     max_days = fields.Integer(string="الحد الأقصى للأيام")
