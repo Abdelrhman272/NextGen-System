@@ -126,7 +126,7 @@
               name="الصيانة"
               parent="menu_fish_farm_root"
               sequence="50"
-              groups="maintenance.group_maintenance_user"/>
+              groups="fish_farm_management.group_maintenance_user"/>
 
     <menuitem id="menu_fish_farm_equipment_link"
               name="المعدات"
