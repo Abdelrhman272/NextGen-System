@@ -43,7 +43,7 @@
                         <field name="mortality_count"/> <field name="mortality_reason"/>
                     </group>
                     <notebook>
-                        <page string="العلاجات المستخدمة">
+                        <page string="العلاجات المستخدمة" widget="one2many_list">
                             <field name="treatment_ids">
                                 <tree editable="bottom">
                                     <field name="treatment_date"/>
