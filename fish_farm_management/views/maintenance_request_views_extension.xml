@@ -6,12 +6,12 @@
         <field name="model">maintenance.request</field>
         <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
         <field name="arch" type="xml">
-            <field name="equipment_id" position="after">
+            <xpath expr="//field[@name='equipment_id']" position="after">
                 <field name="pond_id"/>
                 <field name="farm_issue_type"/>
                 <field name="batch_id"
-                       invisible="farm_issue_type not in ['water_system_failure', 'aeration_failure', 'feeding_system_malfunction']"/>
-            </field>
+                       invisible="farm_issue_type not in ['water_system_failure','aeration_failure','feeding_system_malfunction']"/>
+            </xpath>
         </field>
     </record>
 
@@ -21,7 +21,9 @@
         <field name="model">maintenance.request</field>
         <field name="inherit_id" ref="maintenance.hr_equipment_request_view_tree"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='equipment_id']" position="after">
+            <!-- anchor on an existing field (name) instead of equipment_id -->
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="equipment_id"/>
                 <field name="pond_id" optional="show"/>
                 <field name="farm_issue_type" optional="show"/>
                 <field name="batch_id" optional="hide"/>
@@ -37,9 +39,9 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
                 <filter string="By Pond" name="filter_by_pond_id"
-                        domain="[]" context="{'group_by': 'pond_id'}"/>
+                        context="{'group_by':'pond_id'}"/>
                 <filter string="By Farm Issue Type" name="filter_by_farm_issue_type"
-                        domain="[]" context="{'group_by': 'farm_issue_type'}"/>
+                        context="{'group_by':'farm_issue_type'}"/>
             </xpath>
         </field>
     </record>
