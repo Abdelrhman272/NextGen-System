@@ -70,7 +70,9 @@
     <menuitem id="menu_fish_farm_pond_feeding"
               name="تغذية الأحواض والمستلزمات"
               parent="menu_fish_farm_operations"
-              action="action_fish_farm_pond_feeding_view"/>
+              sequence="10"
+              action="fish_farm_management.action_fish_farm_pond_feeding_view"
+              groups="fish_farm_management.group_maintenance_user"/>
 
     <menuitem id="menu_fish_farm_fish_stocking"
               name="إلقاء الزريعة"
