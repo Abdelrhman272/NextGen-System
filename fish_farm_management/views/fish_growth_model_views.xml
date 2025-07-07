@@ -33,7 +33,7 @@
                     </group>
                     <notebook>
                         <page string="مراحل/عوامل النمو">
-                            <field name="growth_factors_ids">
+                            <field name="growth_factor_ids">
                                 <list editable="bottom">
                                     <field name="min_days"/>
                                     <field name="max_days"/>
