@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Form Inherit -->
+    <!-- Form View Extension -->
     <record id="maintenance_request_form_view_fish_farm_extension" model="ir.ui.view">
         <field name="name">maintenance.request.form.fish.farm.extension</field>
         <field name="model">maintenance.request</field>
@@ -15,30 +15,32 @@
         </field>
     </record>
 
-    <!-- List Inherit -->
+    <!-- List (Tree) View Extension -->
     <record id="maintenance_request_list_view_fish_farm_extension" model="ir.ui.view">
         <field name="name">maintenance.request.tree.fish.farm.extension</field>
         <field name="model">maintenance.request</field>
         <field name="inherit_id" ref="maintenance.hr_equipment_request_view_tree"/>
         <field name="arch" type="xml">
-            <field name="equipment_id" position="after">
+            <xpath expr="//field[@name='equipment_id']" position="after">
                 <field name="pond_id" optional="show"/>
                 <field name="farm_issue_type" optional="show"/>
                 <field name="batch_id" optional="hide"/>
-            </field>
+            </xpath>
         </field>
     </record>
 
-    <!-- Search Inherit -->
+    <!-- Search View Extension -->
     <record id="maintenance_request_search_view_fish_farm_extension" model="ir.ui.view">
         <field name="name">maintenance.request.search.fish.farm.extension</field>
         <field name="model">maintenance.request</field>
         <field name="inherit_id" ref="maintenance.hr_equipment_request_view_search"/>
         <field name="arch" type="xml">
-            <field name="name" position="after">
-                <filter string="By Pond" name="filter_by_pond_id" domain="[]" context="{'group_by': 'pond_id'}"/>
-                <filter string="By Farm Issue Type" name="filter_by_farm_issue_type" domain="[]" context="{'group_by': 'farm_issue_type'}"/>
-            </field>
+            <xpath expr="//field[@name='name']" position="after">
+                <filter string="By Pond" name="filter_by_pond_id"
+                        domain="[]" context="{'group_by': 'pond_id'}"/>
+                <filter string="By Farm Issue Type" name="filter_by_farm_issue_type"
+                        domain="[]" context="{'group_by': 'farm_issue_type'}"/>
+            </xpath>
         </field>
     </record>
 </odoo>
