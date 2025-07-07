@@ -7,9 +7,6 @@ class FishFarmEquipment(models.Model):
     """
     Extends maintenance.equipment to link equipment with specific fish farm ponds.
     """
-
-    _name = "fish_farm_management.equipment"
-    _description = "معدات المزرعة السمكية"
     _inherit = ["maintenance.equipment"]
 
     fish_farm_id = fields.Many2one(
