@@ -38,6 +38,12 @@ class FishGrowthModel(models.Model):
         "growth_model_id",
         string="عوامل النمو",
     )
+    company_id = fields.Many2one(
+        'res.company',
+        string='الشركة',
+        default=lambda self: self.env.company,
+        required=True,
+    )
     @api.model_create_multi
     def create(self, vals_list):
         """
