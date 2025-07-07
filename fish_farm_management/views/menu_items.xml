@@ -135,7 +135,7 @@
     <menuitem id="menu_fish_farm_equipment_link"
               name="المعدات"
               parent="menu_fish_farm_maintenance_main"
-              action="maintenance.action_equipment"
+              action="maintenance.hr_equipment_action"
               groups="fish_farm_management.group_maintenance_user"/>
 
     <menuitem id="menu_fish_farm_maintenance_requests_link"

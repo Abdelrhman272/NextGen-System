@@ -53,12 +53,10 @@
     <record id="group_fish_farm_user" model="res.groups">
       <field name="name">Fish Farm User</field>
       <!-- نصنفها تحت Manufacturing core category -->
-      <field name="category_id" ref="base.module_category_manufacturing"/>
-    </record>
+      <field name="category_id" ref="maintenance.module_category_maintenance"/>
     <!-- مجموعة مستخدمي الصيانة -->
     <record id="group_maintenance_user" model="res.groups">
-      <field name="name">Maintenance User</field>
-      <!-- نرتبط هنا بالموديل الكاتاڤوري Manufacturing لأنه في core لا يوجد خاص بالـ maintenance -->
-      <field name="category_id" ref="base.module_category_manufacturing"/>
+       <field name="name">Maintenance User</field>
+       <field name="category_id" ref="maintenance.module_category_mat"/>
     </record>
 </odoo>
