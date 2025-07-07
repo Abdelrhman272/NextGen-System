@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Act Window for Pond Feeding -->
+  <data>
     <record id="action_fish_farm_pond_feeding_view" model="ir.actions.act_window">
-        <field name="name">سجلات تغذية الأحواض</field>
-        <field name="res_model">fish_farm_management.pond_feeding</field>
-        <field name="view_mode">tree,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                أنشئ أول سجل تغذية للحوض
-            </p>
-        </field>
+      <field name="name">سجلات تغذية الأحواض</field>
+      <field name="res_model">fish_farm_management.pond_feeding</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          أنشئ أول سجل تغذية للحوض
+        </p>
+      </field>
     </record>
+  </data>
 </odoo>
