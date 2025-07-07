@@ -127,7 +127,8 @@
               parent="menu_fish_farm_root"
               sequence="50"
               groups="fish_farm_management.group_maintenance_user"/>
-
+              
+    <!-- روابط الصيانة -->
     <menuitem id="menu_fish_farm_equipment_link"
               name="المعدات"
               parent="menu_fish_farm_maintenance_main"
@@ -142,6 +143,7 @@
               name="فرق الصيانة"
               parent="menu_fish_farm_maintenance_main"
               action="maintenance.hr_maintenance_team_action"/>
+
 
     <menuitem id="menu_fish_farm_reports_main"
               name="التقارير"

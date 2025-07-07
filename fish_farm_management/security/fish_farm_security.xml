@@ -40,7 +40,9 @@
         <field name="domain_force">['|', ('company_id','=',False),('company_id','in',user.company_ids.ids)]</field>
     </record>
         <record id="group_maintenance_user" model="res.groups">
-        <field name="category_id" ref="maintenance.module_category_maintenance"/>
+        <field name="name">Maintenance User</field>
+        <!-- أو استخدم base.module_category_industries كما في بقية المجموعات -->
+        <field name="category_id" ref="base.module_category_industries"/>
     </record>
 
 </odoo>
