@@ -4,7 +4,7 @@
         <field name="name">water.quality.reading.tree</field>
         <field name="model">fish_farm_management.water_quality_reading</field>
         <field name="arch" type="xml">
-            <tree string="قراءات جودة المياه" decoration-danger="is_alert == True">
+            <list string="قراءات جودة المياه" decoration-danger="is_alert == True">
                 <field name="name"/>
                 <field name="pond_id"/>
                 <field name="reading_date"/>
@@ -15,7 +15,7 @@
                 <field name="nitrite"/>
                 <field name="is_alert"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </tree>
+            </list>
         </field>
     </record>
 
