@@ -20,6 +20,7 @@
         "account",
         #'analytic',
         "stock",
+        "maintenance",
         "sale_management",
         "purchase",
         "mrp",
@@ -27,7 +28,6 @@
         "hr",
         "hr_expense",
         "hr_payroll",
-        "maintenance",
         "fish_farm_product_extension",
     ],
     "data": [
