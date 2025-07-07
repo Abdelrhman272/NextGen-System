@@ -67,14 +67,11 @@ class FishHealthTreatment(models.Model):
                     raise UserError(_("لم يتم العثور على نوع نقل داخلي لشركتك."))
 
                 move_vals = {
-                    "name": _("علاج %s لحوض %s")
-                    % (
-                        res.medicine_id.name,
-                        (
-                            res.health_record_id.pond_id.name
-                            if res.health_record_id and res.health_record_id.pond_id
-                            else ""
-                        ),
+                    "name": _(
+                        "علاج %s لحوض %s"
+                    ) % (
+                        rec.medicine_id.name,
+                        rec.health_record_id.pond_id.name,
                     ),
                     "product_id": res.medicine_id.id,
                     "product_uom_qty": res.quantity_used,
