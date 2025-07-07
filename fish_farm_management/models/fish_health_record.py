@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
+# File: models/fish_health_record.py
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
-
 
 class FishHealthRecord(models.Model):
     _name = "fish_farm_management.fish_health_record"
@@ -29,7 +29,6 @@ class FishHealthRecord(models.Model):
         default=fields.Date.context_today,
         tracking=True,
     )
-
     issue_type = fields.Selection(
         [
             ("disease", "مرض"),
@@ -41,21 +40,20 @@ class FishHealthRecord(models.Model):
         required=True,
         tracking=True,
     )
-
     disease_name = fields.Char(string="اسم المرض/المشكلة", tracking=True)
     symptoms = fields.Text(string="الأعراض الملاحظة")
     diagnosis = fields.Text(string="التشخيص")
 
-    # هذا الحقل سيشير الآن إلى النموذج في الملف المنفصل
+    # <=== هنا تأكدنا من تعريف العلاقة ===>
     treatment_ids = fields.One2many(
         "fish_farm_management.fish_health_treatment",
         "health_record_id",
         string="العلاجات المستخدمة",
+        tracking=True,
     )
 
     mortality_count = fields.Integer(string="عدد الوفيات", default=0, tracking=True)
     mortality_reason = fields.Char(string="سبب الوفاة", tracking=True)
-
     responsible_employee_id = fields.Many2one(
         "hr.employee", string="الموظف المسؤول", ondelete="set null"
     )
@@ -68,17 +66,14 @@ class FishHealthRecord(models.Model):
         readonly=True,
     )
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
             if vals.get("name", _("New")) == _("New"):
                 vals["name"] = self.env["ir.sequence"].next_by_code(
                     "fish_farm_management.fish_health_record"
                 ) or _("New")
-
-        records = super(FishHealthRecord, self).create(vals_list)
-
-        # لا يوجد منطق خاص يطبق على كل سجل فردي بعد الإنشاء في هذه الدالة
+        records = super().create(vals_list)
         return records
 
     @api.constrains("mortality_count")
