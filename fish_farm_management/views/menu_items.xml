@@ -132,9 +132,10 @@
     <menuitem id="menu_fish_farm_equipment_link"
               name="المعدات"
               parent="menu_fish_farm_maintenance_main"
-              action="maintenance.hr_equipment_action"/>
+              action="maintenance.hr_equipment_action"
+              groups="fish_farm_management.group_maintenance_user"/>
 
-<menuitem id="menu_fish_farm_maintenance_requests_link"
+    <menuitem id="menu_fish_farm_maintenance_requests_link"
           name="طلبات الصيانة"
           parent="menu_fish_farm_maintenance_main"
           action="maintenance.action_requests"
@@ -143,7 +144,8 @@
     <menuitem id="menu_fish_farm_maintenance_teams_link"
               name="فرق الصيانة"
               parent="menu_fish_farm_maintenance_main"
-              action="maintenance.hr_maintenance_team_action"/>
+              action="maintenance.hr_maintenance_team_action"
+              groups="fish_farm_management.group_maintenance_user"/>
 
 
     <menuitem id="menu_fish_farm_reports_main"
