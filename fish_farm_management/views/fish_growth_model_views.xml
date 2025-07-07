@@ -9,7 +9,6 @@
                 <field name="start_weight_g"/>
                 <field name="target_weight_g"/>
                 <field name="target_days"/>
-                <field name="company_id" groups="base.group_multi_company"/>
             </list>
         </field>
     </record>
@@ -31,7 +30,6 @@
                         <group>
                             <field name="target_weight_g"/>
                             <field name="target_days"/>
-                            <field name="company_id" groups="base.group_multi_company"/>
                         </group>
                     </group>
                     <notebook>
