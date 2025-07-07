@@ -4,8 +4,9 @@
   <record id="view_fish_health_record_list" model="ir.ui.view">
     <field name="name">fish.health.record.tree</field>
     <field name="model">fish_farm_management.fish_health_record</field>
+    <field name="type">list</field>
     <field name="arch" type="xml">
-      <tree string="سجلات صحة الأسماك"
+      <list string="سجلات صحة الأسماك"
             decoration-danger="issue_type in ('disease','mortality')"
             decoration-warning="issue_type == 'injury'">
         <field name="name"/>
@@ -16,7 +17,7 @@
         <field name="mortality_count"/>
         <field name="responsible_employee_id"/>
         <field name="company_id" groups="base.group_multi_company"/>
-      </tree>
+      </list>
     </field>
   </record>
 
