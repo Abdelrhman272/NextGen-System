@@ -124,6 +124,7 @@
               parent="menu_fish_farm_operations"
               action="action_fish_farm_batch_traceability_view"/>
 
+    <!-- قائمة الصيانة الرئيسية -->
     <menuitem id="menu_fish_farm_maintenance_main"
               name="الصيانة"
               parent="menu_fish_farm_root"
@@ -134,19 +135,19 @@
     <menuitem id="menu_fish_farm_equipment_link"
               name="المعدات"
               parent="menu_fish_farm_maintenance_main"
-              action="maintenance.hr_equipment_action"
+              action="maintenance.action_equipment"
               groups="fish_farm_management.group_maintenance_user"/>
 
     <menuitem id="menu_fish_farm_maintenance_requests_link"
-          name="طلبات الصيانة"
-          parent="menu_fish_farm_maintenance_main"
-          action="maintenance.action_requests"
-          groups="maintenance.group_maintenance_user"/>
+              name="طلبات الصيانة"
+              parent="menu_fish_farm_maintenance_main"
+              action="maintenance.action_requests"
+              groups="fish_farm_management.group_maintenance_user"/>
 
     <menuitem id="menu_fish_farm_maintenance_teams_link"
               name="فرق الصيانة"
               parent="menu_fish_farm_maintenance_main"
-              action="maintenance.hr_maintenance_team_action"
+              action="maintenance.action_maintenance_team"
               groups="fish_farm_management.group_maintenance_user"/>
 
 

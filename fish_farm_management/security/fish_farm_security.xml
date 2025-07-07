@@ -38,9 +38,22 @@
         <field name="model_id" ref="model_fish_farm_management_pond"/>
         <field name="global" eval="True"/>
         <field name="domain_force">['|', ('company_id','=',False),('company_id','in',user.company_ids.ids)]</field>
-    </record>
+        
+    <!-- مجموعة مستخدمي الصيانة في الموديول -->
     <record id="group_maintenance_user" model="res.groups">
         <field name="name">Maintenance User</field>
+        <!-- تأكد من أن الفئة هنا موجودة في موديول maintenance -->
         <field name="category_id" ref="maintenance.module_category_maintenance"/>
+    </record>
+
+    <!-- صلاحيات الدخول -->
+    <record id="access_maintenance_user" model="ir.model.access">
+        <field name="name">access_maintenance_user</field>
+        <field name="model_id" ref="model_fish_farm_management_pond_feeding"/>
+        <field name="group_id" ref="fish_farm_management.group_maintenance_user"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="0"/>
     </record>
 </odoo>
