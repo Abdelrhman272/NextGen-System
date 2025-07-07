@@ -22,11 +22,11 @@
         <field name="model">maintenance.equipment</field>
         <field name="inherit_id" ref="maintenance.hr_equipment_view_tree"/>
         <field name="arch" type="xml">
-            <field name="category_id" position="after">
+            <xpath expr="//field[@name='category_id']" position="after">
                 <field name="pond_id" optional="hide"/>
                 <field name="equipment_type" optional="hide"/>
                 <field name="serial_number" optional="hide"/>
-            </field>
+            </xpath>
         </field>
     </record>
 
@@ -35,10 +35,10 @@
         <field name="model">maintenance.equipment</field>
         <field name="inherit_id" ref="maintenance.hr_equipment_view_search"/>
         <field name="arch" type="xml">
-            <field name="name" position="after">
+            <xpath expr="//field[@name='name']" position="after">
                 <filter string="By Pond" name="filter_by_pond" domain="[]" context="{'group_by': 'pond_id'}"/>
                 <filter string="By Equipment Type" name="filter_by_equipment_type" domain="[]" context="{'group_by': 'equipment_type'}"/>
-            </field>
+            </xpath>
         </field>
     </record>
 </odoo>

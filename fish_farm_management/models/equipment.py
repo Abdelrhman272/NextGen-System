@@ -1,4 +1,4 @@
-# ----------------------------- equipment.py -----------------------------
+# -*- coding: utf-8 -*-
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 
@@ -62,4 +62,6 @@ class FishFarmEquipment(models.Model):
                 )
                 > 0
             ):
-                raise ValidationError(_("الرقم التسلسلي يجب أن يكون فريداً."))
+                if self.search_count(domain) > 0:
+                    raise ValidationError(_("الرقم التسلسلي يجب أن يكون فريداً."))
+
