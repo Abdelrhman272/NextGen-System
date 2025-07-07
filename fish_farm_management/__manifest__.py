@@ -41,6 +41,7 @@
         "views/slice_views.xml",
         "views/pond_views.xml",
         "views/fish_stocking_views.xml",
+        'views/pond_feeding_actions.xml',
         "views/pond_feeding_views.xml",
         "views/pond_cost_views.xml",
         "views/analytic_account_extension_views.xml",
