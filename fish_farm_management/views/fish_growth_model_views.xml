@@ -9,6 +9,7 @@
                 <field name="start_weight_g"/>
                 <field name="target_weight_g"/>
                 <field name="target_days"/>
+                <field name="company_id" groups="base.group_multi_company"/>
             </list>
         </field>
     </record>
@@ -27,6 +28,7 @@
                         <group>
                             <field name="target_weight_g"/>
                             <field name="target_days"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
                         </group>
                     </group>
                     <notebook>
@@ -35,7 +37,9 @@
                                 <list editable="bottom">
                                     <field name="min_days"/>
                                     <field name="max_days"/>
-                                    <field name="daily_growth_rate_g"/>
+                                    <field name="min_weight_g"/>
+                                    <field name="max_weight_g"/>
+                                    <field name="growth_rate"/>
                                 </list>
                             </field>
                         </page>
@@ -44,6 +48,7 @@
                         </page>
                     </notebook>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>

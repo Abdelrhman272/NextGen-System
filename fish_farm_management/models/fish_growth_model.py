@@ -31,8 +31,13 @@ class FishGrowthModel(models.Model):
         string="عدد الأيام المستهدفة",
         required=True,
         help="مدة التربية للوصول للوزن المستهدف.",
+        
     )
-
+    growth_factor_ids = fields.One2many(
+        "fish_farm_management.fish_growth_factor",
+        "growth_model_id",
+        string="عوامل النمو",
+    )
     @api.model_create_multi
     def create(self, vals_list):
         """
@@ -66,3 +71,18 @@ class ProductProduct(models.Model):
         string="قراءات النمو",
         help="قراءات النمو المسجلة لكل نوع سمك",
     )
+class FishGrowthFactor(models.Model):
+    _name = "fish_farm_management.fish_growth_factor"
+    _description = "عامل نمو الأسماك"
+
+    growth_model_id = fields.Many2one(
+        "fish_farm_management.fish_growth_model",
+        string="نموذج النمو",
+        ondelete="cascade",
+        required=True,
+    )
+    min_days = fields.Integer(string="الحد الأدنى للأيام")
+    max_days = fields.Integer(string="الحد الأقصى للأيام")
+    min_weight_g = fields.Float(string="الحد الأدنى للوزن (جم)")
+    max_weight_g = fields.Float(string="الحد الأقصى للوزن (جم)")
+    growth_rate = fields.Float(string="معدل النمو (%)")
