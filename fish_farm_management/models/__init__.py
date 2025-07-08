@@ -3,8 +3,10 @@ from . import fish_farm                # أساس المزرعة
 from . import sector                   # قطاع
 from . import slice                    # شريحة
 from . import pond                     # الحوض
+from . import equipment                # المعدات
 from . import res_config_settings      # إعدادات الموديول
 from . import analytic_account_extension  # امتداد الحساب التحليلي
+from . import maintenance_request_extension                 # طلبات الصيانة
 
 # 2) Traceability Extension
 from . import batch_traceability       # تتبّع الدفعات
