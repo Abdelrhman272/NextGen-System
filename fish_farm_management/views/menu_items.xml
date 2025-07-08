@@ -140,15 +140,14 @@
     <menuitem id="menu_fish_farm_maintenance_requests_link"
               name="طلبات الصيانة"
               parent="menu_fish_farm_maintenance_main"
-              action="maintenance.maintenance_request_action"
+              action="maintenance.hr_equipment_request_action"
               groups="fish_farm_management.group_maintenance_user"/>
 
     <menuitem id="menu_fish_farm_maintenance_teams_link"
               name="فرق الصيانة"
               parent="menu_fish_farm_maintenance_main"
-              action="maintenance.action_maintenance_team"
+              action="maintenance.maintenance_dashboard_action"
               groups="fish_farm_management.group_maintenance_user"/>
-
 
     <menuitem id="menu_fish_farm_reports_main"
               name="التقارير"
