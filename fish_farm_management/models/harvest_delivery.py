@@ -62,15 +62,20 @@ class HarvestDelivery(models.Model):
         readonly=True,
     )
 
-    @api.model_create_multi
-    def create(self, vals_list):
+@api.model_create_multi
+def create(self, vals_list):
+    # لو الاسم New اطلع تسلسل جديد لكل dict في vals_list
+    for vals in vals_list:
         if vals.get("name", _("New")) == _("New"):
             vals["name"] = self.env["ir.sequence"].next_by_code(
                 "fish_farm_management.harvest_delivery"
             ) or _("New")
-        res = super(HarvestDelivery, self).create(vals)
-        res.harvest_record_id.delivery_to_warehouse_id = res.id
-        return res
+    # أنشئ السجلات دفعة واحدة
+    records = super(HarvestDelivery, self).create(vals_list)
+    # حدّث المرجع على سجل الحصاد
+    for rec in records:
+        rec.harvest_record_id.delivery_to_warehouse_id = rec.id
+    return records
 
     def action_validate_delivery(self):
         for record in self:

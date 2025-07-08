@@ -10,6 +10,7 @@
                 <field name="pond_id"/>
                 <field name="cost_date"/>
                 <field name="amount" widget="monetary" sum="Total Amount"/>
+                <!-- field company_currency_id required by monetary widget but kept hidden -->
                 <field name="company_currency_id" invisible="1"/>
                 <field name="is_direct_cost"/>
                 <field name="employee_id"/>
