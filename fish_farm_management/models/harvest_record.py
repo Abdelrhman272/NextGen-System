@@ -91,7 +91,7 @@ class HarvestRecord(models.Model):
     # --------------------------------------------------
     # إنشاء السجل
     # --------------------------------------------------
-    @api.model
+    @api.model_create_multi
     def create(self, vals_list):
         """يدعم إنشاء دفعة (batch) سجلات مرة واحدة."""
         for vals in vals_list:

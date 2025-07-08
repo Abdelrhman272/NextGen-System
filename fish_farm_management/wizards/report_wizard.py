@@ -63,19 +63,16 @@ class FishFarmReportWizard(models.TransientModel):
     analytic_account_id = fields.Many2one(
         "account.analytic.account",
         string="الحساب التحليلي",
-        attrs="{'invisible': [('report_type', '!=', 'cost_analysis')]}",
     )
 
     # فلاتر خاصة بتقرير استهلاك المستلزمات
     product_category_id = fields.Many2one(
         "product.category",
         string="فئة المنتج",
-        attrs="{'invisible': [('report_type', '!=', 'supplies_consumption')]}",
     )
     supplier_id = fields.Many2one(
         "res.partner",
         string="المورد",
-        attrs="{'invisible': [('report_type', '!=', 'supplies_consumption')]}",
     )
 
     # فلاتر خاصة بتقرير صحة الأسماك وجودة المياه
@@ -87,14 +84,12 @@ class FishFarmReportWizard(models.TransientModel):
             ("other", "أخرى"),
         ],
         string="نوع المشكلة",
-        attrs="{'invisible': [('report_type', '!=', 'fish_health_water_quality')]}",
     )
 
     # فلاتر خاصة بتقرير المبيعات والربحية
     customer_id = fields.Many2one(
         "res.partner",
         string="العميل",
-        attrs="{'invisible': [('report_type', '!=', 'sales_profitability')]}",
     )
     sales_channel = fields.Selection(
         [
@@ -104,7 +99,6 @@ class FishFarmReportWizard(models.TransientModel):
             ("export", "تصدير"),
         ],
         string="قناة البيع",
-        attrs="{'invisible': [('report_type', '!=', 'sales_profitability')]}",
     )
 
     def _prepare_report_filters(self):
@@ -119,7 +113,7 @@ class FishFarmReportWizard(models.TransientModel):
             "slice_id": self.slice_id.id,
             "pond_id": self.pond_id.id,
             "fish_type_id": self.fish_type_id.id,
-            "analytic_account_id": self.analytic_account_id.id,  # تم تغيير cost_type_id
+            "analytic_account_id": self.analytic_account_id.id,
             "product_category_id": self.product_category_id.id,
             "supplier_id": self.supplier_id.id,
             "issue_type": self.issue_type,
@@ -170,7 +164,7 @@ class FishFarmReportWizard(models.TransientModel):
             "slice": self.slice_id.name,
             "pond": self.pond_id.name,
             "fish_type": self.fish_type_id.name,
-            "analytic_account": self.analytic_account_id.name,  # تم تغيير cost_type
+            "analytic_account": self.analytic_account_id.name,
             "product_category": self.product_category_id.name,
             "supplier": self.supplier_id.name,
             "issue_type": (

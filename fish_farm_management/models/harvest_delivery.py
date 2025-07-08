@@ -62,8 +62,8 @@ class HarvestDelivery(models.Model):
         readonly=True,
     )
 
-    @api.model
-    def create(self, vals):
+    @api.model_create_multi
+    def create(self, vals_list):
         if vals.get("name", _("New")) == _("New"):
             vals["name"] = self.env["ir.sequence"].next_by_code(
                 "fish_farm_management.harvest_delivery"

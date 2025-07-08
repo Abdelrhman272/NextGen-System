@@ -37,10 +37,10 @@ class FishStocking(models.Model):
     )
     quantity = fields.Float(string="الكمية (زريعة/يرقات)", required=True, tracking=True)
     uom_id = fields.Many2one(
-        "uom.uom", string="وحدة القياس", related="fish_type_id.uom_id", readonly=True
+        "uom.uom", string="وحدة قياس النوع", related="fish_type_id.uom_id", readonly=True
     )
     product_uom_id = fields.Many2one(
-        "uom.uom", string="وحدة القياس", related="fish_type_id.uom_id", readonly=True
+        "uom.uom", string="وحدة قياس المنتج", related="fish_type_id.uom_id", readonly=True
     )
     source_picking_id = fields.Many2one(
         "stock.picking",
@@ -73,7 +73,7 @@ class FishStocking(models.Model):
         readonly=True,
     )
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
             if vals.get("name", _("New")) == _("New"):

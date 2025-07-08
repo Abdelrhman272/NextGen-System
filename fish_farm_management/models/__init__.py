@@ -1,27 +1,31 @@
-# -*- coding: utf-8 -*-
+# 1) Master Data & Base Settings
+from . import fish_farm                # أساس المزرعة
+from . import sector                   # قطاع
+from . import slice                    # شريحة
+from . import pond                     # الحوض
+from . import res_config_settings      # إعدادات الموديول
+from . import analytic_account_extension  # امتداد الحساب التحليلي
 
-# النماذج الأساسية التي لا تعتمد على غيرها بشكل كبير أو التي تعتمد عليها نماذج أخرى
-# إعدادات الموديول (عادة لا تعتمد على نماذج أخرى في نفس الموديول)
-# نماذج الحصاد المتقدمة (تعتمد على Pond و Batch)
-# نماذج التتبع (تعتمد على نماذج أخرى مثل Stocking, Harvest, Pond)
-# نماذج النمو والتخطيط (المضافة مؤخراً)
-# نماذج الصيانة (المضافة مؤخراً)
-# نماذج الصحة والجودة
-# نماذج العمليات الأساسية التي تعتمد على Pond والمنتجات
-from . import fish_growth_measurement  # يعتمد على Pond ونماذج النمو
-from . import fish_growth_model  # يعتمد على Product
-from . import fish_health_record  # يعتمد على Pond
-from . import fish_health_treatment  # يعتمد على Fish Health Recor
-from . import fish_stocking  # يعتمد على Pond
-from . import harvest_delivery  # يعتمد على Harvest Record
-from . import harvest_record  # يعتمد على Pond, Batch
-from . import harvest_sorting  # يعتمد على Harvest Record
-from . import harvest_sorting_line  # ← إضافة موديل تفاصيل الفرز
-from . import pond  # Pond يعتمد على fish_farm, sector, slice
-from . import pond_cost  # يعتمد على Pond
-from . import pond_feeding  # يعتمد على Pond
-from . import production_plan  # إضافة خطة الإنتاج
-from . import water_quality_reading  # يعتمد على Pond
-from . import (  # يعتمد على Pond, Fish Stocking, Harvest, Growth Models; يورث من maintenance.equipment، لا يعتمد على نماذجنا بشكل كبير في التهيئة المبكرة; يورث من maintenance.request ويعتمد على Pond و Batch
-    analytic_account_extension, batch_traceability, equipment, fish_farm,
-    maintenance_request_extension, res_config_settings, sector, slice)
+# 2) Traceability Extension
+from . import batch_traceability       # تتبّع الدفعات
+
+# 3) Harvest Models (بالترتيب الصحيح)
+from . import harvest_record           # يعتمد عليه التالي
+from . import harvest_delivery         # يعتمد على Harvest Record
+from . import harvest_sorting          # يعتمد على Harvest Record
+from . import harvest_sorting_line     # يعتمد على Harvest Sorting
+
+# 4) Growth & Planning
+from . import fish_growth_measurement  # قياس النمو (يعتمد على Pond)
+from . import fish_growth_model        # موديل النمو (يعتمد على Product)
+from . import production_plan          # خطة الإنتاج
+
+# 5) Health & Quality
+from . import fish_health_record       # سجل الصحة (يعتمد على Pond)
+from . import fish_health_treatment    # علاج الصحة (يعتمد على Fish Health Record)
+from . import water_quality_reading    # جودة المياه (يعتمد على Pond)
+
+# 6) Operations Models
+from . import fish_stocking            # يستهلك Pond
+from . import pond_cost                # تكلفة الحوض (يعتمد على Pond)
+from . import pond_feeding             # تغذية الأحواض (يعتمد على Pond)

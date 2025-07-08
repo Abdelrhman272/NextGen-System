@@ -67,7 +67,7 @@ class WaterQualityReading(models.Model):
         string="سبب التنبيه", compute="_compute_is_alert", store=True
     )
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals_list):  # تم تغيير vals إلى vals_list
         for vals in vals_list:
             if vals.get("name", _("New")) == _("New"):
