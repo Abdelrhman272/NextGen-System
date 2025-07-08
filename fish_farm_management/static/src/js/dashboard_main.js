@@ -4,6 +4,8 @@ import { Component, xml, onWillStart, useRef, onMounted } from "@odoo/owl";
 import { _t } from "@web/core/l10n/translation";
 import { jsonrpc } from "@web/core/network/rpc";
 import { useService } from "@web/core/utils/hooks";
+import { registry } from "@web/core/registry";               // ← استيراد registry
+import { Layout }   from "@web/core/layout";                 // ← استيراد Layout
 import Chart from 'chart.js/auto';
 
 export class FishFarmDashboard extends Component {
