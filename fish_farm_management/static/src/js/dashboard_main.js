@@ -5,7 +5,6 @@ import { _t } from "@web/core/l10n/translation";
 import { jsonrpc } from "@web/core/network/rpc";
 import { useService } from "@web/core/utils/hooks";
 import { registry } from "@web/core/registry";               // ← استيراد registry
-import { Layout } from "@web/webclient/layout";                 // ← استيراد Layout
 import Chart from '../lib/chart/chart.umd.js';
 
 export class FishFarmDashboard extends Component {
@@ -117,9 +116,9 @@ export class FishFarmDashboard extends Component {
 }
 
 FishFarmDashboard.template = xml`
-    <Layout class="o_fish_farm_dashboard">
+    <div class="o_fish_farm_dashboard">
         <!-- template content unchanged -->
-    </Layout>
+    </div>
 `;
 
 registry.category("actions").add(
