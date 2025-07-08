@@ -1,46 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_fish_farm_report_wizard_form" model="ir.ui.view">
-        <field name="name">fish.farm.report.wizard.form</field>
-        <field name="model">fish_farm_management.report_wizard</field>
-        <field name="arch" type="xml">
-            <form string="تخصيص طلب التقرير">
-                <group>
-                    <group>
-                        <field name="report_type"/>
-                        <field name="date_from"/>
-                        <field name="date_to"/>
-                    </group>
-                    <group>
-                        <field name="fish_farm_id"/>
-                        <field name="sector_id" domain="[('fish_farm_id', '=', fish_farm_id)]"/>
-                        <field name="slice_id" domain="[('sector_id', '=', sector_id)]"/>
-                        <field name="pond_id" domain="[('slice_id', '=', slice_id)]"/>
-                        <field name="fish_type_id" domain="[('is_fish_type', '=', True)]"/>
-                    </group>
-                </group>
-                
-                <group string="فلاتر خاصة بالتقرير" col="4">
-                    <field name="analytic_account_id" attrs="{'invisible': [('report_type', '!=', 'cost_analysis')]}"/> <field name="product_category_id" attrs="{'invisible': [('report_type', '!=', 'supplies_consumption')]}"/>
-                    <field name="supplier_id" attrs="{'invisible': [('report_type', '!=', 'supplies_consumption')]}"/>
-                    <field name="issue_type" attrs="{'invisible': [('report_type', '!=', 'fish_health_water_quality')]}"/>
-                    <field name="customer_id" attrs="{'invisible': [('report_type', '!=', 'sales_profitability')]}"/>
-                    <field name="sales_channel" attrs="{'invisible': [('report_type', '!=', 'sales_profitability')]}"/>
-                </group>
-                
-                <footer>
-                    <button name="action_print_report_pdf" type="object" string="توليد PDF" class="oe_highlight" icon="fa-file-pdf-o"/>
-                    <button name="action_export_report_excel" type="object" string="تصدير Excel" class="oe_highlight" icon="fa-file-excel-o"/>
-                    <button string="إلغاء" class="oe_link" special="cancel"/>
-                </footer>
-            </form>
-        </field>
-    </record>
+  <!-- تعريف إجراء الـ Wizard لتوليد التقارير -->
+  <record id="action_fish_farm_report_wizard" model="ir.actions.act_window">
+    <field name="name">توليد تقارير المزرعة السمكية</field>
+    <field name="res_model">fish_farm_management.report_wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
 
-    <record id="action_fish_farm_report_wizard" model="ir.actions.act_window">
-        <field name="name">توليد تقارير المزرعة السمكية</field>
-        <field name="res_model">fish_farm_management.report_wizard</field>
-        <field name="view_mode">form</field>
-        <field name="target">new</field>
-    </record>
+  <!-- عرض فورم الـ Wizard -->
+  <record id="view_fish_farm_report_wizard_form" model="ir.ui.view">
+    <field name="name">fish.farm.report.wizard.form</field>
+    <field name="model">fish_farm_management.report_wizard</field>
+    <field name="arch" type="xml">
+      <form string="تخصيص طلب التقرير">
+        <group>
+          <group>
+            <field name="report_type"/>
+            <field name="date_from"/>
+            <field name="date_to"/>
+          </group>
+          <group>
+            <field name="fish_farm_id"/>
+            <field name="sector_id" domain="[('fish_farm_id', '=', fish_farm_id)]"/>
+            <field name="slice_id" domain="[('sector_id', '=', sector_id)]"/>
+            <field name="pond_id" domain="[('slice_id', '=', slice_id)]"/>
+            <field name="fish_type_id" domain="[('is_fish_type', '=', True)]"/>
+          </group>
+          <group>
+            <field name="analytic_account_id" position="attributes">
+              <attribute name="modifiers">{'invisible': [('report_type','!=','cost_analysis')]}</attribute>
+            </field>
+            <field name="product_category_id" position="attributes">
+              <attribute name="modifiers">{'invisible': [('report_type','!=','supplies_consumption')]}</attribute>
+            </field>
+            <field name="supplier_id" position="attributes">
+              <attribute name="modifiers">{'invisible': [('report_type','!=','supplies_consumption')]}</attribute>
+            </field>
+            <field name="issue_type" position="attributes">
+              <attribute name="modifiers">{'invisible': [('report_type','!=','fish_health_water_quality')]}</attribute>
+            </field>
+            <field name="customer_id" position="attributes">
+              <attribute name="modifiers">{'invisible': [('report_type','!=','sales_profitability')]}</attribute>
+            </field>
+            <field name="sales_channel" position="attributes">
+              <attribute name="modifiers">{'invisible': [('report_type','!=','sales_profitability')]}</attribute>
+            </field>
+          </group>
+        </group>
+        <footer>
+          <button string="طباعة PDF" type="object" name="action_print_report_pdf" class="oe_highlight"/>
+          <button string="تصدير Excel" type="object" name="action_export_report_excel"/>
+          <button string="إلغاء" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
 </odoo>
