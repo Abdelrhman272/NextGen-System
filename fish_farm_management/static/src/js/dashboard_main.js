@@ -6,7 +6,7 @@ import { jsonrpc } from "@web/core/network/rpc";
 import { useService } from "@web/core/utils/hooks";
 import { registry } from "@web/core/registry";               // ← استيراد registry
 import { Layout }   from "@web/core/layout";                 // ← استيراد Layout
-import Chart from 'chart.js/auto';
+import Chart from '../lib/chart/chart.umd.js';
 
 export class FishFarmDashboard extends Component {
     setup() {
