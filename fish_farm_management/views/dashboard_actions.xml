@@ -9,5 +9,5 @@
     parent="menu_fish_farm_root"
     sequence="5"
     action="action_fish_farm_dashboard"
-    groups="fish_farm_management.group_user"/>
+    groups="fish_farm_management.group_fish_farm_user"/>
 </odoo>
