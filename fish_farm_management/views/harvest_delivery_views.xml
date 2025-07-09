@@ -4,7 +4,7 @@
         <field name="name">harvest.delivery.tree</field>
         <field name="model">fish_farm_management.harvest_delivery</field>
         <field name="arch" type="xml">
-            <list string="تسليم الحصاد للمخزن" decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
+            <tree string="تسليم الحصاد للمخزن" decoration-success="state == 'done'" decoration-danger="state == 'cancelled'" decoration-info="state == 'draft'">
                 <field name="name"/>
                 <field name="harvest_record_id"/>
                 <field name="delivery_date"/>
@@ -12,7 +12,7 @@
                 <field name="destination_location_id"/>
                 <field name="state"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </list>
+            </tree>
         </field>
     </record>
 
