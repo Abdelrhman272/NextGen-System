@@ -37,6 +37,7 @@
         #'data/product_data.xml',
         #'data/analytic_tag_data.xml',
         "views/fish_farm_views.xml",
+        "views/fish_farm_dashboard_views.xml",
         "views/sector_views.xml",
         "views/slice_views.xml",
         "views/pond_views.xml",

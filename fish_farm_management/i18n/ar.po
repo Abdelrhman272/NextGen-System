@@ -1,0 +1,1252 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* fish_farm_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-08 16:38+0000\n"
+"PO-Revision-Date: 2025-07-08 16:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "&gt;"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "<span> %</span>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "<span> كجم</span>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "<span> ملجم/لتر (أمونيا)</span>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "<span> ملجم/لتر (نيتريت)</span>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "<span> ملجم/لتر</span>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "<strong>إجمالي الكمية المستهلكة</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+msgid "<strong>إجمالي وزن الحصاد الكلي</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_pond_cost_analysis_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "<strong>إلى تاريخ:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_pond_cost_analysis_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+msgid "<strong>الإجمالي الكلي</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_pond_cost_analysis_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "<strong>الحوض:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_pond_cost_analysis_template
+msgid "<strong>الشريحة:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+msgid "<strong>العميل:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_pond_cost_analysis_template
+msgid "<strong>القطاع:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_pond_cost_analysis_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "<strong>المزرعة:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "<strong>المورد:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "<strong>فئة المنتج:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+msgid "<strong>قناة البيع:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_pond_cost_analysis_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "<strong>من تاريخ:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_pond_cost_analysis_template
+msgid "<strong>نوع التكلفة:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+msgid "<strong>نوع السمك:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+msgid "<strong>نوع المشكلة:</strong>"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_account_analytic_account
+msgid "Analytic Account Extension for Fish Farm"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.maintenance_equipment_search_view_fish_farm_extension
+msgid "By Equipment Type"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.maintenance_request_search_view_fish_farm_extension
+msgid "By Farm Issue Type"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.maintenance_equipment_search_view_fish_farm_extension
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.maintenance_request_search_view_fish_farm_extension
+msgid "By Pond"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+msgid "FCR"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:res.groups,name:fish_farm_management.group_fish_farm_manager
+msgid "Fish Farm / Manager"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:res.groups,name:fish_farm_management.group_fish_farm_user
+msgid "Fish Farm / User"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.client,name:fish_farm_management.action_fish_farm_dashboard_client
+msgid "Fish Farm Dashboard"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_maintenance_request
+msgid "Maintenance Request Extension for Fish Farm"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:res.groups,name:fish_farm_management.group_maintenance_user
+msgid "Maintenance User"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_cost_list
+msgid "Total Amount"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+msgid "pH"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__maintenance_equipment__equipment_type__other
+msgid "أخرى"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_water_quality_reading_form
+msgid "أسباب التنبيه"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+msgid "أكسجين (ملجم/لتر)"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+msgid "أمر البيع"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+msgid "أمونيا"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.actions.act_window,help:fish_farm_management.action_fish_farm_pond_feeding_view
+msgid "أنشئ سجل تغذية أحواض جديدة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_product_config
+msgid "أنواع المنتجات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_production_plan_form
+msgid "أهداف الخطة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_production_plan_form
+msgid "إتمام الخطة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_root
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "إدارة المزرعة السمكية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_pond_cost
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_cost_form
+msgid "إدخال تكلفة الحوض"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_fish_health_record__issue_type__injury
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_report_wizard__issue_type__injury
+msgid "إصابة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_config_settings
+msgid "إعدادات المزرعة السمكية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_farm_report_wizard_form
+msgid "إلغاء"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_stocking_form
+msgid "إلغاء إلقاء الزريعة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_feeding_form
+msgid "إلغاء الاستهلاك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_delivery_form
+msgid "إلغاء التسليم"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_cost_form
+msgid "إلغاء التكلفة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_record_form
+msgid "إلغاء الحصاد"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_production_plan_form
+msgid "إلغاء الخطة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_sorting_form
+msgid "إلغاء الفرز"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_fish_stocking_view
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_fish_stocking
+msgid "إلقاء الزريعة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_reporting_wizard
+msgid "إنشاء التقارير المخصصة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_slice_form
+msgid "اسم الشريحة..."
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_sector_form
+msgid "اسم القطاع..."
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_farm_form
+msgid "اسم المزرعة..."
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_pond_view
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_ponds
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_list
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_slice_form
+msgid "الأحواض"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+msgid "الإجمالي الفرعي"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_configuration
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_settings
+msgid "الإعدادات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_form
+msgid "البيانات الحالية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "التاريخ"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_reports_main
+msgid "التقارير"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+msgid "التكلفة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "الحد الأدنى للأكسجين المذاب"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "الحد الأقصى للأمونيا والنيتريت"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "الحدود القصوى للمركبات الضارة في المياه."
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_pond_cost_analysis_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "الحوض"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+msgid "الربح"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_cost_form
+msgid "الربط بالمستندات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_slice_view
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_slices
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_sector_form
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_slice_list
+msgid "الشرائح"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields,field_description:fish_farm_management.field_maintenance_equipment__company_id
+msgid "الشركة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_maintenance_main
+msgid "الصيانة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_health_record_form
+msgid "العلاجات المستخدمة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_operations
+msgid "العمليات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_batch_traceability_form
+msgid "العمليات المرتبطة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+msgid "العميل"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "الفرق الأقصى المسموح به بين الوزن المدخل والوزن المفرز."
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_sector_view
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_sectors
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_farm_form
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_sector_list
+msgid "القطاعات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "الكمية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_pond_cost_analysis_template
+msgid "المبلغ"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "المرجع"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+msgid "المرض/المشكلة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_farm_view
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_farms
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_farm_list
+msgid "المزارع السمكية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_equipment_link
+msgid "المعدات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_batch_traceability_form
+msgid "المقاييس الرئيسية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "المنتج"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "المورد"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "النسبة المئوية التي يعتبر عندها معدل البقاء على قيد الحياة منخفضاً."
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_stocking_form
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_delivery_form
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_record_form
+msgid "النقل المخزني"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "الوحدة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+msgid "الوزن (كجم)"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+msgid "الوفيات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_production_plan_form
+msgid "بدء التنفيذ"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_batch_traceability_form
+msgid "بنود المبيعات (يحتاج تتبع دفعات متقدم)"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_report_wizard__sales_channel__direct
+msgid "بيع مباشر"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_stocking_form
+msgid "تأكيد إلقاء الزريعة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_feeding_form
+msgid "تأكيد الاستهلاك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_delivery_form
+msgid "تأكيد التسليم"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_record_form
+msgid "تأكيد الحصاد"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_production_plan_form
+msgid "تأكيد الخطة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_sorting_form
+msgid "تأكيد الفرز"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_form
+msgid "تاريخ إلقاء الزريعة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_sorting_form
+msgid "تاريخ الجدولة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_batch_traceability_view
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_batch_traceability
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_batch_traceability_list
+msgid "تتبع الدفعات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_batch_traceability_form
+msgid "تتبع الدفعة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_batch_traceability
+msgid "تتبع دفعة المنتج"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_pond__status__preparing
+msgid "تجهيز"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "تحديد النطاق المقبول للرقم الهيدروجيني (pH) في الأحواض."
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_farm_report_wizard_form
+msgid "تخصيص طلب التقرير"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_cost_form
+msgid "ترحيل التكلفة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_delivery_form
+msgid "تسليم الحصاد"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_harvest_delivery_view
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_harvest_delivery
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_harvest_delivery
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_delivery_list
+msgid "تسليم الحصاد للمخزن"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_record_form
+msgid "تسليم المخزن"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_report_wizard__sales_channel__export
+msgid "تصدير"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_farm_report_wizard_form
+msgid "تصدير Excel"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_pond_feeding
+msgid "تغذية الأحواض والمستلزمات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_fish_health_treatment
+msgid "تفاصيل العلاج الصحي للأسماك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_sorting_form
+msgid "تفاصيل الفرز"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_water_quality_reading_form
+msgid "تفاصيل القراءة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.maintenance_equipment_form_view_fish_farm_extension
+msgid "تفاصيل المزرعة السمكية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_health_record_form
+msgid "تفاصيل المشكلة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_harvest_sorting_line
+msgid "تفاصيل فرز الحصاد"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_report_wizard__report_type__harvest_performance
+msgid "تقرير أداء الحصاد والإنتاجية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_report_wizard__report_type__sales_profitability
+msgid "تقرير المبيعات والربحية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_report_wizard__report_type__cost_analysis
+msgid "تقرير تحليل التكاليف"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_report_wizard__report_type__fish_health_water_quality
+msgid "تقرير صحة الأسماك وجودة المياه"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_pond_cost_view
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_pond_cost
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_cost_list
+msgid "تكاليف الأحواض"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_form
+msgid "تكاليف الحوض"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_fish_stocking__state__done
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_harvest_delivery__state__done
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_harvest_record__state__done
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_harvest_sorting__state__done
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_pond_feeding__state__done
+msgid "تم"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+msgid "تنبيه"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_report_wizard
+msgid "توليد تقارير المزرعة السمكية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__maintenance_equipment__equipment_type__aerator
+msgid "جهاز تهوية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__maintenance_equipment__equipment_type__sorter
+msgid "جهاز فرز"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_water_quality
+msgid "جودة المياه"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "جودة المياه ومعايير الأداء"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "حد تحذير معدل البقاء على قيد الحياة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "حد تحذير معدل التحويل الغذائي (FCR)"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "حدود pH المياه"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "حدود درجة حرارة المياه"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+msgid "حرارة (مئوية)"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_sorting_form
+msgid "حركات المخزون"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_feeding_form
+msgid "حركة المخزون"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_pond__status__harvesting
+msgid "حصاد"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_form
+msgid "حوض"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_pond
+msgid "حوض السمك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_pond__status__idle
+msgid "خامل"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_production_plan
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_production_plan_form
+msgid "خطة الإنتاج"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_production_plan_view
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_production_plan
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_form
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_production_plan_list
+msgid "خطط الإنتاج"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_form
+msgid "رقم الحوض..."
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+msgid "سبب التنبيه"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_fish_stocking
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_stocking_form
+msgid "سجل إلقاء الزريعة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_feeding_form
+msgid "سجل تغذية الحوض"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_pond_feeding
+msgid "سجل تغذية الحوض والمستلزمات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_record_form
+msgid "سجل حصاد"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_harvest_record
+msgid "سجل حصاد السمك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_health_record_form
+msgid "سجل صحة الأسماك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_fish_health_record
+msgid "سجل صحة الأسماك والأمراض"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_stocking_list
+msgid "سجلات إلقاء الزريعة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_form
+msgid "سجلات التغذية والمستلزمات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_harvest_record_view
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_harvest_record
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_batch_traceability_form
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_record_list
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_form
+msgid "سجلات الحصاد"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_feeding_list
+msgid "سجلات تغذية الأحواض"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_pond_feeding_view
+msgid "سجلات تغذية الأحواض والمستلزمات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_health_record_list
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_form
+msgid "سجلات صحة الأسماك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+msgid "سعر الوحدة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "سماحية الفرز (كجم)"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_slice_form
+msgid "شريحة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_slice
+msgid "شريحة القطاع"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_fish_health_record_view
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_fish_health
+msgid "صحة الأسماك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_farm_report_wizard_form
+msgid "طباعة PDF"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_maintenance_requests_link
+msgid "طلبات الصيانة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_fish_growth_factor
+msgid "عامل نمو الأسماك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__maintenance_request__farm_issue_type__feeding_system_malfunction
+msgid "عطل نظام التغذية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_pond__status__empty
+msgid "فارغ"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_harvest_sorting_view
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_harvest_sorting
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_harvest_sorting
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_sorting_form
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_sorting_list
+msgid "فرز الحصاد"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_maintenance_teams_link
+msgid "فرق الصيانة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__maintenance_request__farm_issue_type__aeration_failure
+msgid "فشل التهوية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_water_quality_reading_view
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_form
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_water_quality_reading_tree
+msgid "قراءات جودة المياه"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_water_quality_reading
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_water_quality_reading_form
+msgid "قراءة جودة المياه"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_sector_form
+msgid "قطاع"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_sector
+msgid "قطاع المزرعة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_fish_growth_measurement
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_growth_measurement_form
+msgid "قياس نمو الأسماك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_growth_measurements
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_form
+msgid "قياسات النمو"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_growth_measurement_view
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_growth_measurement_list
+msgid "قياسات نمو الأسماك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_cost_form
+msgid "قيد المحاسبة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "قيمة FCR التي تعتبر عندها مؤشراً سلبياً (أقل من هذا الرقم أفضل)."
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+msgid "كجم"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_pond_cost_analysis_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_sales_profitability_template
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_supplies_consumption_template
+msgid "لا توجد بيانات متاحة لهذا التقرير بالفلاتر المحددة."
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+msgid "لا توجد سجلات صحة أسماك بالفلاتر المحددة."
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+msgid "لا توجد قراءات جودة مياه بالفلاتر المحددة."
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_dashboard
+msgid "لوحة القيادة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_production_plan__state__confirmed
+msgid "مؤكدة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_growth_model_form
+msgid "مراحل/عوامل النمو"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_fish_health_record__issue_type__disease
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_report_wizard__issue_type__disease
+msgid "مرض"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_fish_farm
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_farm_form
+msgid "مزرعة سمكية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_report_data_provider
+msgid "مزود بيانات تقارير المزرعة السمكية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "مستوى الأكسجين الأدنى لضمان صحة الأسماك."
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_pond_cost__state__draft
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_production_plan__state__draft
+msgid "مسودة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__maintenance_request__farm_issue_type__other_farm_related
+msgid "مشكلة أخرى متعلقة بالمزرعة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__maintenance_request__farm_issue_type__generator_issue
+msgid "مشكلة المولد"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__maintenance_equipment__equipment_type__pump
+msgid "مضخة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_report_wizard
+msgid "معالج توليد تقارير المزرعة السمكية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+msgid "معدل البقاء (%)"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_delivery_form
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_pond_feeding_form
+msgid "معلومات إضافية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_stocking_form
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_harvest_record_form
+msgid "معلومات التتبع"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__maintenance_equipment__equipment_type__feeder
+msgid "مغذية"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_production_plan__state__completed
+msgid "مكتملة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_growth_model_form
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_health_record_form
+msgid "ملاحظات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_fish_stocking__state__cancelled
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_harvest_delivery__state__cancelled
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_harvest_record__state__cancelled
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_harvest_sorting__state__cancelled
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_pond_cost__state__cancelled
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_pond_feeding__state__cancelled
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_production_plan__state__cancelled
+msgid "ملغاة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__maintenance_equipment__equipment_type__generator
+msgid "مولد"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.res_config_settings_view_form_fish_farm
+msgid "نطاق درجة الحرارة المثلى لنمو الأسماك."
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.ui.menu,name:fish_farm_management.menu_fish_farm_growth_models
+msgid "نماذج النمو"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.actions.act_window,name:fish_farm_management.action_fish_farm_growth_model_view
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_growth_model_list
+msgid "نماذج نمو الأسماك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model,name:fish_farm_management.model_fish_farm_management_fish_growth_model
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.view_fish_growth_model_form
+msgid "نموذج نمو الأسماك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_pond_cost_analysis_template
+msgid "نوع التكلفة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_harvest_performance_template
+msgid "نوع السمك"
+msgstr ""
+
+#. module: fish_farm_management
+#: model_terms:ir.ui.view,arch_db:fish_farm_management.report_fish_health_water_quality_template
+msgid "نوع المشكلة"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_fish_health_record__issue_type__mortality
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_report_wizard__issue_type__mortality
+msgid "وفيات"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.fields.selection,name:fish_farm_management.selection__fish_farm_management_report_wizard__sales_channel__agent
+msgid "وكيل"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.constraint,message:fish_farm_management.constraint_fish_farm_management_slice_name_sector_unique
+msgid "يجب أن يكون اسم الشريحة فريداً لكل قطاع!"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.constraint,message:fish_farm_management.constraint_fish_farm_management_sector_name_farm_unique
+msgid "يجب أن يكون اسم القطاع فريداً لكل مزرعة!"
+msgstr ""
+
+#. module: fish_farm_management
+#: model:ir.model.constraint,message:fish_farm_management.constraint_fish_farm_management_fish_farm_name_unique
+msgid "يجب أن يكون اسم المزرعة فريداً لكل شركة!"
+msgstr ""

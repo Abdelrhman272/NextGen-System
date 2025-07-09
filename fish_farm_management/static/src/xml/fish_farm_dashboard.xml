@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
     <t t-name="fish_farm_management.dashboard" owl="1">
-        <Layout class="o_fish_farm_dashboard">
+        <div class="o_fish_farm_dashboard">
             <div class="o_dashboard_header">
                 <h1><i class="fa fa-fish"></i> <t t-esc="_t('Fish Farm Overview')"/></h1>
             </div>
@@ -86,6 +86,6 @@
                     </div>
                 </div>
             </div>
-        </Layout>
+        </div>
     </t>
 </templates>
