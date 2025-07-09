@@ -77,20 +77,20 @@ class HarvestDelivery(models.Model):
             rec.harvest_record_id.delivery_to_warehouse_id = rec.id
         return records
 
-        def action_validate_delivery(self):
-            for record in self:
-                if record.state != "draft":
-                    raise UserError(_("يمكن التحقق من عمليات التسليم في حالة المسودة فقط."))
-                if record.delivered_weight <= 0:
-                    raise ValidationError(_("يجب أن يكون الوزن المسلم أكبر من صفر."))
-                if not record.stock_picking_id or record.stock_picking_id.state != "done":
-                    raise UserError(
-                        _("يجب تأكيد سجل الحصاد المرتبط أولاً لإنشاء حركة المخزون.")
-                    )
-                record.state = "done"
-                record.message_post(body=_("تم تأكيد تسليم الحصاد للمخزن."))
+    def action_validate_delivery(self):
+        for record in self:
+            if record.state != "draft":
+                raise UserError(_("يمكن التحقق من عمليات التسليم في حالة المسودة فقط."))
+            if record.delivered_weight <= 0:
+                raise ValidationError(_("يجب أن يكون الوزن المسلم أكبر من صفر."))
+            if not record.stock_picking_id or record.stock_picking_id.state != "done":
+                raise UserError(
+                    _("يجب تأكيد سجل الحصاد المرتبط أولاً لإنشاء حركة المخزون.")
+                )
+            record.state = "done"
+            record.message_post(body=_("تم تأكيد تسليم الحصاد للمخزن."))
 
-        def action_cancel_delivery(self):
-            for record in self:
-                record.state = "cancelled"
-                record.message_post(body=_("تم إلغاء تسليم الحصاد."))
+    def action_cancel_delivery(self):
+        for record in self:
+            record.state = "cancelled"
+            record.message_post(body=_("تم إلغاء تسليم الحصاد."))
