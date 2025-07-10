@@ -2,6 +2,7 @@
 
 import { Component, xml, onWillStart, useRef, onMounted } from "@odoo/owl";
 import { _t } from "@web/core/l10n/translation";
+import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import Chart from '../lib/chart/chart.umd.js';
 
@@ -125,5 +126,5 @@ registry.category("actions").add(
     FishFarmDashboard
 );
 
-import { registry } from "@web/core/registry";
- registry.category("actions").add("fish_farm_management.dashboard", FishFarmDashboard);
+
+registry.category("actions").add("fish_farm_management.dashboard", FishFarmDashboard);
