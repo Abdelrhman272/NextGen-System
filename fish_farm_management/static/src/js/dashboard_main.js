@@ -2,15 +2,16 @@
 
 import { Component, xml, onWillStart, useRef, onMounted } from "@odoo/owl";
 import { _t } from "@web/core/l10n/translation";
-import { jsonrpc } from "@web/core/network/rpc";
 import { useService } from "@web/core/utils/hooks";
 import { registry } from "@web/core/registry";               // ← استيراد registry
 import Chart from '../lib/chart/chart.umd.js';
+import { registry } from "@web/core/registry";
+import { FishFarmDashboard } from "./dashboard_main";
 
 export class FishFarmDashboard extends Component {
     setup() {
         this.orm = useService("orm");
-        this.rpc = jsonrpc;
+        this.rpc = useService("rpc");
         this.action = useService("action");
 
         this.kpis = {};
@@ -125,3 +126,7 @@ registry.category("actions").add(
     "fish_farm_management.dashboard",
     FishFarmDashboard
 );
+
+registry
+  .category("actions")
+  .add("fish_farm_management.dashboard", FishFarmDashboard);
