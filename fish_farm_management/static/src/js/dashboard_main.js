@@ -126,5 +126,4 @@ registry.category("actions").add(
 );
 
 import { registry } from "@web/core/registry";
-import { FishFarmDashboard } from "./dashboard_main";
  registry.category("actions").add("fish_farm_management.dashboard", FishFarmDashboard);
