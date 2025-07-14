@@ -19,7 +19,8 @@
     <menuitem id="menu_fish_farm_root"
               name="إدارة المزرعة السمكية"
               sequence="80"
-              web_icon="fish_farm_management,static/description/icon.png"/>
+              web_icon="fish_farm_management,static/description/icon.png"
+              groups="fish_farm_management.group_fish_farm_user"/>
 
     <menuitem id="menu_fish_farm_dashboard"
               name="لوحة القيادة"
